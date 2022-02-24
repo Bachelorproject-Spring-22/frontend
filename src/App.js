@@ -1,9 +1,18 @@
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './helpers/AuthContext';
+import TestComponent from './components/TestComponent/TestComponent';
 
 function App() {
   return (
     <div className="App">
-      <h1>The Kahoot!-league</h1>
+      <Router>
+        <AuthProvider>
+          <Routes>
+            <Route element={<TestComponent />} path='/' exact />
+          </Routes>
+        </AuthProvider>
+      </Router>
     </div>
   );
 }
