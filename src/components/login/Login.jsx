@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AuthContext from '../../helpers/AuthContext';
-import { getter } from '../../api/apiCalls';
+//import { getter } from '../../api/apiCalls';
 
 class Login extends Component {
     static contextType = AuthContext;
@@ -28,8 +28,8 @@ class Login extends Component {
 
         if (this.validation) {
             const { username, password } = this.state;
-            //const res = await this.context.loginUser({ username, password });
-            const res = await getter();
+            const res = await this.context.loginUser({ username, password });
+            //const res = await getter();
             console.log(res);
         }
     }
