@@ -2,7 +2,8 @@ import axios  from "axios";
 import jwt_decode from 'jwt-decode';
 import dayjs from "dayjs";
 
-const baseURL = 'http://localhost:5000';
+const baseURL = process.env.REACT_APP_BACKEND_LOCAL;
+console.log(baseURL);
 let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
 
 const axiosInstance = axios.create({
@@ -16,6 +17,7 @@ axiosInstance.interceptors.request.use(async req => {
         req.headers.Authorization = `Bearer ${authTokens?.access}`;
     }
 
+    console.log(authTokens);
     const user  =jwt_decode(authTokens.access);
     const isExpired = dayjs.unix(user.exp).diff(dayjs()) < 1;
 
