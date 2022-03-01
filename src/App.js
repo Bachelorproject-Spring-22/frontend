@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './helpers/AuthContext';
 import Login from './components/login/Login';
 import TestComponent from './components/TestComponent/TestComponent';
+import './app.css';
 
 function App() {
   return (

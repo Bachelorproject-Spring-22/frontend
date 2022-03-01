@@ -1,0 +1,87 @@
+/* Typography */
+html {
+    font-size: 16px;
+    line-height: 21px;
+}
+
+body,
+.article,
+p {
+    color: var(--white-high-emphasis);
+    font: 1rem/1.3125rem Arial, sans-serif;
+    margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Open Sans", Arial, sans-serif;
+    margin-top: 1.3125rem;
+    text-transform: capitalize;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+}
+
+h2,
+h3 {
+    line-height: 2.625rem;
+}
+
+h3,
+h4,
+h5 {
+    margin-bottom: 0;
+}
+
+h4,
+h5 {
+    font-size: 1rem;
+    line-height: 1.3125rem;
+}
+
+h1 {
+    font-size: 2.8125rem;
+    line-height: 3.9375rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.3125rem;
+}
+
+h3 {
+    font-size: 1.4375rem;
+}
+
+h5 {
+    margin-top: 1.3125rem;
+}
+
+.subtitle {
+    color: var(--white-middle-emphasis);
+    font: 700 1.125rem "Open Sans", Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.breadcrumbItem {
+    text-decoration: none;
+    line-height: 1.125rem;
+    padding: 4px 16px;
+}
+
+a,
+.breadcrumbItem:hover {
+    text-decoration: underline;
+    color: var(--primary-color-lightest);
+}
+
+.button-label {
+    font-weight: 700;
+    text-transform: capitalize;
+}
