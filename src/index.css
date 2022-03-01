@@ -1,0 +1,103 @@
+* {
+	text-decoration: none;
+	font-size: 1em;
+	outline: none;
+	padding: 0;
+	margin: 0;
+	}
+code, kbd, samp, pre, tt, var, textarea, 
+input, select, isindex, listing, xmp, plaintext {
+	white-space: normal;
+	font-size: 1em;
+	font: inherit;
+	}
+dfn, i, cite, var, address, em { 
+	font-style: normal; 
+	}
+th, b, strong, h1, h2, h3, h4, h5, h6 { 
+	font-weight: normal; 
+	}
+a, img, a img, iframe, form, fieldset, 
+abbr, acronym, object, applet, table {
+	border: none; 
+	}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	}
+caption, th, td, center { 
+	vertical-align: top;
+	text-align: left;
+	}
+body { 
+	background: white; 
+	line-height: 1; 
+	color: black; 
+	}
+q { 
+	quotes: "" ""; 
+	}
+ul, ol, dir, menu { 
+	list-style: none; 
+	}
+sub, sup { 
+	vertical-align: baseline; 
+	}
+a { 
+	color: inherit; 
+	}
+hr { 
+	display: none; 
+	}
+font { 
+	color: inherit !important; 
+	font: inherit !important; 
+	color: inherit !important; /* editor's note: necessary? */ 
+	}
+marquee {
+	overflow: inherit !important;
+	-moz-binding: none;
+	}
+blink { 
+	text-decoration: none; 
+	}
+nobr { 
+	white-space: normal; 
+	}
+
+:root {
+    --primaryColor-lightest: #BEAFD0;
+    --primaryColor-light: #7F619C;
+    --primaryColor: #482776;
+    --primaryColor-dark: #372557;
+    --primaryColor-darkest: #231C36;
+
+    --destructiveColor: #ED8594;
+    --destructiveGradient: linear-gradient(180deg, #CF6679 0%, #BA5C6D 100%);
+    --destructiveGradientHover: linear-gradient(180deg, #A65261 0%, #914755 100%);
+    --destructiveGradientClicked: linear-gradient(180deg, #A65261 0%, #914755 100%);
+
+    --button: linear-gradient(180deg, #BEAFD0 0%, #AB9EBB 100%);
+    --buttonHover: linear-gradient(180deg, #7F619C 0%, #72578C 100%);
+
+    --elevation1: #16141A;
+    --elevation2: rgba(22, 20, 26, 0.05);
+    --elevation3: rgba(22, 20, 26, 0.07);
+    --elevation4: rgba(22, 20, 26, 0.08);
+    --elevation5: rgba(22, 20, 26, 0.09);
+    --elevation6: rgba(22, 20, 26, 0.11);
+    --elevation7: rgba(22, 20, 26, 0.12);
+    --elevation8: rgba(22, 20, 26, 0.13);
+    --elevation9: rgba(22, 20, 26, 0.15);
+    --elevation10: rgba(22, 20, 26, 0.16);
+
+
+    --whiteMiddleEmphasis: rgba(255, 255, 255, 0.6);
+    --whiteHighEmphasis: rgba(255, 255, 255, 0.87);
+    --white: #FFFFFF;
+    --defaultStroke: rgba(255, 255, 255, 0.18);
+    --black: #000000;
+    --textDisabledWhite: rgba(255, 255, 255, 0.47);
+    --buttonLabel: rgba(0, 0, 0, 0.7); /* fungerer kanskje ikke på alle knapper tihi */
+    --mainBackground: linear-gradient(180deg, var(--primaryColor-darkest) 0%, var(--elevation1) 100%);
+}
