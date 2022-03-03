@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
@@ -7,77 +7,53 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import BuildRoundedIcon from '@mui/icons-material/BuildRounded';
 import './navbar.css';
 
-const NavBar = props => {
-    const history = useNavigate();
-    const [activeTabs, setActiveTabs] = useState(props.name);
+function NavBar(props) {
+    const [isDesktop, setDesktop] = useState(window.innerWidth > 500);
+
+    const updateMedia = () => {
+        setDesktop(window.innerWidth > 500);
+    }
 
     useEffect(() => {
-        switch (activeTabs) {
-            case 'home':
-                history('/results');
-                break;
-            case 'leaderboard':
-                history('/leaderboard');
-                break;
-            case 'manage':
-                history('/manage');
-                break;
-            case 'settings':
-                history('/settings');
-                break;
-            default:
-                history('/');
-                break;
-        }
-    }, [activeTabs, history]);
+        window.addEventListener("resize", updateMedia);
+        return () => window.removeEventListener("resize", updateMedia);
+    });
 
     return (
-        <div className='bottom-nav'>
-            <div className='bn-tab'>
-                {activeTabs === 'home' ?
-                    <HomeRoundedIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('home')}
-                    /> :
-                    <HomeRoundedIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('home')}
-                    />}
-            </div>
-            <div className='bn-tab'>
-                {activeTabs === 'leaderboard' ?
-                    <LeaderboardRoundedIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('leaderboard')}
-                    /> :
-                    <LeaderboardRoundedIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('leaderboard')}
-                    />}
-            </div>
-            <div className='bn-tab'>
-                {activeTabs === 'manage' ?
-                    <BuildRoundedIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('manage')}
-                    /> :
-                    <BuildRoundedIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('manage')}
-                    />}
-            </div>
-            <div className='bn-tab'>
-                {activeTabs === 'account' ?
-                    <SettingsIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('settings')}
-                    /> :
-                    <SettingsIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('settings')}
-                    />}
-            </div>
-        </div>
+        <nav>
+            {isDesktop ? null : (
+                <>
+                    <div className='bottom-nav'>
+                        <NavLink to="/home" className="bn-a">
+                            <div className='bn-tab'>
+                                <HomeRoundedIcon fontSize='medium' />
+                                <p>Home</p>
+                            </div>
+                        </NavLink>
+                        <NavLink to="/leaderboard" className="bn-a">
+                            <div className='bn-tab'>
+                                <LeaderboardRoundedIcon fontSize='medium' />
+                                <p>Leaderboard</p>
+                            </div>
+                        </NavLink>
+                        <NavLink to="/manage" className="bn-a">
+                            <div className='bn-tab'>
+                                <BuildRoundedIcon fontSize='medium' />
+                                <p>Manage</p>
+                            </div>
+                        </NavLink>
+                        <NavLink to="/settings" className="bn-a">
+                            <div className='bn-tab'>
+                                <SettingsIcon fontSize='medium' />
+                                <p>Settings</p>
+                            </div>
+                        </NavLink>
+                    </div>
+                </>
+            )}
+
+        </nav>
+
     )
 }
 
