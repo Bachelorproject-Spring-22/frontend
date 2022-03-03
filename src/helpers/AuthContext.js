@@ -24,7 +24,7 @@ export const AuthProvider = ({children}) => {
             body: JSON.stringify({'username': username, 'password': password})
         });
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
 
         if (response.status === 200) {
             setAuthTokens(data);
@@ -41,7 +41,7 @@ export const AuthProvider = ({children}) => {
         setAuthTokens(null);
         setUser(null);
         localStorage.removeItem('authTokens');
-        history.push('login');
+        history('/login');
     }
 
     let contextData = {
