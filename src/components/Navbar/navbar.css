@@ -13,8 +13,11 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    bottom: 0;
+    bottom: 100vh;
+    bottom: calc(100vh - env(safe-area-inset-bottom));
     border-top: 1px solid rgb(230, 230, 230);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
 }
 
 .bn-tab {
