@@ -25,6 +25,7 @@ function App() {
       {contextData.user ? <NavBar role={contextData.user.role} />: null}
       <Routes>
         <Route element={<TestComponent />} path='/' exact />
+        <Route element="Hei" path='/home' exact />
         <Route element={<Upload />} path='/manage' exact />
         <Route element={<Login />} path="/login" exact />
         <Route element={<Logout />} path="/logout" exact />

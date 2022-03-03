@@ -9,6 +9,7 @@ import './navbar.css';
 
 function NavBar(props) {
     const [isDesktop, setDesktop] = useState(window.innerWidth > 500);
+    const role = props.role;
 
     const updateMedia = () => {
         setDesktop(window.innerWidth > 500);
@@ -36,7 +37,7 @@ function NavBar(props) {
                                 <p>Leaderboard</p>
                             </div>
                         </NavLink>
-                        {props.role === 'superAdmin' || props.role === 'teacher' ? <NavLink to="/manage" className="bn-a">
+                        {role === 'superAdmin' || role === 'teacher' ? <NavLink to="/manage" className="bn-a">
                             <div className='bn-tab'>
                                 <BuildRoundedIcon fontSize='medium' />
                                 <p>Manage</p>
@@ -65,7 +66,7 @@ function NavBar(props) {
                                 <p>Leaderboard</p>
                             </div>
                         </NavLink>
-                        {props.role === 'superAdmin' || props.role === 'teacher' ? <NavLink to="/manage" className="bn-a">
+                        {role === 'superAdmin' || role === 'teacher' ? <NavLink to="/manage" className="bn-a">
                             <div className='bn-tab'>
                                 <BuildRoundedIcon fontSize='medium' />
                                 <p>Manage</p>
