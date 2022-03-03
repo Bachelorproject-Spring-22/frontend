@@ -24,7 +24,7 @@ function NavBar(props) {
             {isDesktop ? (
                 <>
                     <div className='bottom-nav'>
-                        <NavLink to="/home" className="bn-a">
+                        <NavLink to="/" className="bn-a">
                             <div className='bn-tab'>
                                 <HomeRoundedIcon fontSize='medium' />
                                 <p>Home</p>
@@ -53,7 +53,7 @@ function NavBar(props) {
             ) : (
                 <>
                     <div className='bottom-nav'>
-                        <NavLink to="/home" className="bn-a">
+                        <NavLink to="/" className="bn-a">
                             <div className='bn-tab'>
                                 <HomeRoundedIcon fontSize='medium' />
                                 <p>Home</p>
