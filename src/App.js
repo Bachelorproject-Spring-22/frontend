@@ -6,7 +6,7 @@ import TestComponent from './components/TestComponent/TestComponent';
 import './app.css';
 import Logout from './components/login/Logout';
 import { getter } from './api/apiCalls';
-//import NavBar from './components/Navbar/Navbar';
+import NavBar from './components/Navbar/NavBar';
 
 function App() {
   useEffect(() => {
@@ -20,6 +20,7 @@ function App() {
     <div className="App">
       <Router>
         <AuthProvider>
+          <NavBar />
           <Routes>
             <Route element={<TestComponent />} path='/' exact />
             <Route element={<Login />} path="/login" exact />
