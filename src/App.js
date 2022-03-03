@@ -7,6 +7,7 @@ import './app.css';
 import Logout from './components/login/Logout';
 import { getter } from './api/apiCalls';
 import NavBar from './components/Navbar/Navbar';
+import Upload from './components/TestComponent/Upload';
 
 function App() {
   const contextData = useContext(AuthContext);
@@ -24,6 +25,7 @@ function App() {
       {contextData.user ? <NavBar role={contextData.user.role} />: null}
       <Routes>
         <Route element={<TestComponent />} path='/' exact />
+        <Route element={<Upload />} path='/manage' exact />
         <Route element={<Login />} path="/login" exact />
         <Route element={<Logout />} path="/logout" exact />
       </Routes>
