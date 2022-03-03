@@ -1,4 +1,5 @@
 import { getter } from '../../api/apiCalls';
+import { Link } from 'react-router-dom';
 
 function TestComponent(props) {
     const onSubmit = async () => {
@@ -7,11 +8,12 @@ function TestComponent(props) {
     return (
         <>
             <nav>
-                <a  href="/" className='breadcrumbItem'>Home</a>
+                <a href="/" className='breadcrumbItem'>Home</a>
                 &#8250;
                 <a href="/login" className='breadcrumbItem' >Test Component</a>
             </nav>
-            
+            <Link to="/login" >Login</Link>
+
             <h1>The Kahoot!-League</h1>
             <p className='subtitle'>Dette er en subtitle</p>
             <button onClick={onSubmit}>Get</button>
