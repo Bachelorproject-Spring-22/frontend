@@ -2,13 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { AuthProvider } from './helpers/AuthContext';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './reset.css';
 import './color.css';
 import './typography.css';
 
 ReactDOM.render(
   <React.StrictMode>
-      <App />
+    <Router>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

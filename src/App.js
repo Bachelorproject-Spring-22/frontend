@@ -1,6 +1,6 @@
-import { useEffect } from 'react'; 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { AuthProvider } from './helpers/AuthContext';
+import { useEffect, useContext } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { AuthContext } from './helpers/AuthContext';
 import Login from './components/login/Login';
 import TestComponent from './components/TestComponent/TestComponent';
 import './app.css';
@@ -9,6 +9,7 @@ import { getter } from './api/apiCalls';
 import NavBar from './components/Navbar/NavBar';
 
 function App() {
+
   useEffect(() => {
     let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
     if (authTokens) {
@@ -18,16 +19,13 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <AuthProvider>
-          <NavBar />
-          <Routes>
-            <Route element={<TestComponent />} path='/' exact />
-            <Route element={<Login />} path="/login" exact />
-            <Route element={<Logout />} path="/logout" exact />
-          </Routes>
-        </AuthProvider>
-      </Router>
+
+      <NavBar />
+      <Routes>
+        <Route element={<TestComponent />} path='/' exact />
+        <Route element={<Login />} path="/login" exact />
+        <Route element={<Logout />} path="/logout" exact />
+      </Routes>
     </div>
   );
 }
