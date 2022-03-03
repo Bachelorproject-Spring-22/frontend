@@ -25,9 +25,7 @@ axiosInstance.interceptors.request.use(async req => {
     console.log(authTokens);
     if(!isExpired) return req;
     console.log("Under expired");
-    const response = await axios.post(`${baseURL}/api/refresh/`, {
-        refreshToken: authTokens.jwtToken
-    });
+    const response = await axios.post(`/api/refresh/`);
 
     localStorage.setItem('authTokens', JSON.stringify(response.data));
     req.headers.Authorization = `Bearer ${response.data.jwtToken}`;
