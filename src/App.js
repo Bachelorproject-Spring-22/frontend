@@ -1,14 +1,15 @@
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { AuthContext } from './helpers/AuthContext';
+import AuthContext from './helpers/AuthContext';
 import Login from './components/login/Login';
 import TestComponent from './components/TestComponent/TestComponent';
 import './app.css';
 import Logout from './components/login/Logout';
 import { getter } from './api/apiCalls';
-import NavBar from './components/Navbar/NavBar';
+import NavBar from './components/Navbar/Navbar';
 
 function App() {
+  const contextData = useContext(AuthContext);
 
   useEffect(() => {
     let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
@@ -20,7 +21,7 @@ function App() {
   return (
     <div className="App">
 
-      <NavBar />
+      {contextData.user ? <NavBar role={contextData.user.role} />: null}
       <Routes>
         <Route element={<TestComponent />} path='/' exact />
         <Route element={<Login />} path="/login" exact />

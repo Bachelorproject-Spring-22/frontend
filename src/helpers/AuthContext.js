@@ -41,7 +41,7 @@ export const AuthProvider = ({children}) => {
         setAuthTokens(null);
         setUser(null);
         localStorage.removeItem('authTokens');
-        history('/login');
+        window.location.href = "/login"; // Sloppy løsning, liten prioritet
     }
 
     let contextData = {
