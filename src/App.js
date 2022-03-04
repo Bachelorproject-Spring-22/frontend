@@ -9,6 +9,8 @@ import { getter } from './api/apiCalls';
 import NavBar from './components/Navbar/Navbar';
 import Upload from './components/TestComponent/Upload';
 import Footer from './components/Footer/Footer';
+import PrivateRoute from './routes/PrivateRoute';
+import TeacherRoute from './routes/TeacherRoute';
 
 function App() {
   const contextData = useContext(AuthContext);
@@ -26,12 +28,36 @@ function App() {
       <div className="App">
         <Routes>
           <Route element={<TestComponent />} path='/' exact />
-          <Route element="Hei" path='/home' exact />
-          <Route element="Leaderboard" path='/leaderboard' exact />
-          <Route element={<Upload />} path='/manage' exact />
-          <Route element="Settings" path='/settings' exact />
+          <Route element={
+            <PrivateRoute>
+              <p>Home</p>
+            </PrivateRoute>
+          } path='/home' exact />
+
+          <Route element={
+            <PrivateRoute>
+              <p>leaderboard</p>
+            </PrivateRoute>
+          } path='/leaderboard' exact />
+
+          <Route element={
+            <TeacherRoute>
+              <Upload />
+            </TeacherRoute>
+          } path='/manage' exact />
+
+          <Route element={
+            <PrivateRoute>
+              <p>Settings</p>
+            </PrivateRoute>
+          } path='/settings' exact />
+
           <Route element={<Login />} path="/login" exact />
-          <Route element={<Logout />} path="/logout" exact />
+          <Route element={
+            <PrivateRoute>
+              <Logout />
+            </PrivateRoute>
+          } path="/logout" exact />
         </Routes>
       </div>
       <Footer />
