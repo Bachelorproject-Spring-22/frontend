@@ -23,7 +23,7 @@ function App() {
   })
 
   return (
-    <>
+    <div className="grid">
       {contextData.user ? <NavBar role={contextData.user.role} /> : null}
       <div className="App">
         <Routes>
@@ -61,7 +61,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
