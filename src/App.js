@@ -24,8 +24,8 @@ function App() {
 
   return (
     <>
+      <NavBar auth={contextData} />
       <div className="app">
-      {contextData.user ? <NavBar role={contextData.user.role} /> : null}
         <main>
           <Routes>
             <Route element={<TestComponent />} path='/' exact />

@@ -9,6 +9,16 @@ main {
     max-width: 936px;
 }
 
+
+
+
 @media only screen and (min-width: 769px) {
-    
+    .app {
+        margin-left: 10rem;
+    }
+
+    main{
+        margin: 1rem auto;
+        padding: 0 1rem;
+    }
 }
