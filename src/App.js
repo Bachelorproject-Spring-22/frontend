@@ -11,6 +11,7 @@ import Upload from './components/TestComponent/Upload';
 import Footer from './components/Footer/Footer';
 import PrivateRoute from './routes/PrivateRoute';
 import TeacherRoute from './routes/TeacherRoute';
+import { checkExp } from './helpers/functions';
 
 function App() {
   const contextData = useContext(AuthContext);
@@ -18,7 +19,10 @@ function App() {
   useEffect(() => {
     let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
     if (authTokens) {
-      getter();
+      const expired = checkExp(authTokens);
+      if (expired) {
+        getter();
+      }
     }
 
     window.scroll(0, 0);
