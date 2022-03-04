@@ -1,0 +1,27 @@
+footer {
+    background-color: var(--footer);
+    padding: 1rem;
+    padding-bottom: 9rem; /* Dette må endres */
+}
+
+footer h3 {
+    margin: 0;
+}
+
+footer section {
+    display: flex;
+}
+
+footer article {
+    margin: 2rem 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+footer article a,
+.middle-emphasis {
+    margin: .5rem 0;
+    text-decoration: none;
+    color: var(--white-middle-emphasis)
+}

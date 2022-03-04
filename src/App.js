@@ -8,6 +8,7 @@ import Logout from './components/Login/Logout';
 import { getter } from './api/apiCalls';
 import NavBar from './components/Navbar/Navbar';
 import Upload from './components/TestComponent/Upload';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const contextData = useContext(AuthContext);
@@ -33,6 +34,7 @@ function App() {
           <Route element={<Logout />} path="/logout" exact />
         </Routes>
       </div>
+      <Footer />
     </>
   );
 }
