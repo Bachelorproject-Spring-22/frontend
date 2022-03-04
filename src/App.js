@@ -20,6 +20,8 @@ function App() {
     if (authTokens) {
       getter();
     }
+
+    window.scroll(0, 0);
   })
 
   return (
