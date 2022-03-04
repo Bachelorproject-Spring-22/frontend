@@ -1,4 +1,9 @@
 body {
     background-image: var(--main-background);
     background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.App {
+    margin: 1rem;
 }
