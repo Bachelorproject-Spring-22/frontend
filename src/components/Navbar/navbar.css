@@ -55,7 +55,6 @@
         flex-direction: column;
         height: 100vh;
         padding: .5rem;
-        position: fixed;
         top: 0;
         max-width: 10rem;
         gap: 1rem;
@@ -82,4 +81,4 @@
         max-width: 100%;
         gap: .5rem;
     }
-  }
+}
