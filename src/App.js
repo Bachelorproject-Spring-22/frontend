@@ -26,7 +26,9 @@ function App() {
       <Routes>
         <Route element={<TestComponent />} path='/' exact />
         <Route element="Hei" path='/home' exact />
+        <Route element="Leaderboard" path='/leaderboard' exact />
         <Route element={<Upload />} path='/manage' exact />
+        <Route element="Settings" path='/settings' exact />
         <Route element={<Login />} path="/login" exact />
         <Route element={<Logout />} path="/logout" exact />
       </Routes>
