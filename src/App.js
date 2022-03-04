@@ -20,7 +20,7 @@ function App() {
   })
 
   return (
-    <>
+    <div className="grid">
       {contextData.user ? <NavBar role={contextData.user.role} /> : null}
       <div className="App">
         <Routes>
@@ -33,7 +33,7 @@ function App() {
           <Route element={<Logout />} path="/logout" exact />
         </Routes>
       </div>
-    </>
+    </div>
   );
 }
 
