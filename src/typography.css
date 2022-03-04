@@ -9,7 +9,7 @@ body,
 p {
     color: var(--white-high-emphasis);
     font: 1rem/1.3125rem Arial, sans-serif;
-    margin: auto;
+    /* margin: auto; */
 }
 
 h1,
@@ -81,7 +81,8 @@ a,
     color: var(--primary-color-lightest);
 }
 
-.button-label {
+.button-label,
+label {
     font-weight: 700;
     text-transform: capitalize;
 }
