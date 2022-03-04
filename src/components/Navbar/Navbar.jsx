@@ -29,7 +29,7 @@ function NavBar(props) {
                             <div className='bn-tab'>
                                 <HomeRoundedIcon fontSize='medium' />
                                 <p>Monkey</p>
-                            </span>
+                            </div>
                         </NavLink>
                         <NavLink to="/leaderboard" className="bn-a">
                             <div className='bn-tab'>
