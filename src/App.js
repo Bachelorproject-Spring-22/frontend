@@ -12,65 +12,68 @@ import Footer from './components/Footer/Footer';
 import PrivateRoute from './routes/PrivateRoute';
 import TeacherRoute from './routes/TeacherRoute';
 import { checkExp } from './helpers/functions';
+import StudentRoute from './routes/StudentRoute';
 
 function App() {
-  const contextData = useContext(AuthContext);
+    const contextData = useContext(AuthContext);
 
-  useEffect(() => {
-    let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
-    if (authTokens) {
-      const expired = checkExp(authTokens);
-      if (expired) {
-        getter();
-      }
-    }
+    useEffect(() => {
+        let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
+        if (authTokens) {
+            const expired = checkExp(authTokens);
+            if (expired) {
+                getter();
+            }
+        }
 
-    window.scroll(0, 0);
-  })
+        window.scroll(0, 0);
+    })
 
-  return (
-    <>
-      <NavBar auth={contextData} />
-      <div className="app">
-        <main>
-          <Routes>
-            <Route element={<TestComponent />} path='/' exact />
-            <Route element={
-              <PrivateRoute>
-                <p>Home</p>
-              </PrivateRoute>
-            } path='/home' exact />
+    return (
+        <>
+            <NavBar auth={contextData} />
+            <div className="app">
+                <main>
+                    <Routes>
+                        <Route element={<TestComponent />} path='/' exact />
+                        <Route element={
+                            <PrivateRoute>
+                                <StudentRoute>
+                                    <p>Home</p>
+                                </StudentRoute>
+                            </PrivateRoute>
+                        } path='/home' exact />
 
-            <Route element={
-              <PrivateRoute>
-                <p>leaderboard</p>
-              </PrivateRoute>
-            } path='/leaderboard' exact />
+                        <Route element={
+                            <PrivateRoute>
+                                <p>leaderboard</p>
+                            </PrivateRoute>
+                        } path='/leaderboard' exact />
 
-            <Route element={
-              <TeacherRoute>
-                <Upload />
-              </TeacherRoute>
-            } path='/manage' exact />
+                        <Route element={
+                            <TeacherRoute>
+                                <Upload />
+                            </TeacherRoute>
+                        } path='/manage' exact />
 
-            <Route element={
-              <PrivateRoute>
-                <p>Settings</p>
-              </PrivateRoute>
-            } path='/settings' exact />
+                        <Route element={
+                            <PrivateRoute>
+                                <p>Settings</p>
+                            </PrivateRoute>
+                        } path='/settings' exact />
 
-            <Route element={<Login />} path="/login" exact />
-            <Route element={
-              <PrivateRoute>
-                <Logout />
-              </PrivateRoute>
-            } path="/logout" exact />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </>
-  );
+                        <Route element={<Login />} path="/login" exact />
+                        <Route element={
+                            <PrivateRoute>
+                                <Logout />
+                            </PrivateRoute>
+                        } path="/logout" exact />
+                    </Routes>
+                </main>
+                <Footer />
+            </div>
+        </>
+    );
 }
 
 export default App;
