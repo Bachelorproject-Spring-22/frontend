@@ -56,9 +56,9 @@ class Login extends Component {
         return (
             <>
                 <h1>The Kahoot! League</h1>
-                <p className='subtitle'>LOG IN</p>
-                <p>If you have been invited to The Kahoot! League, you can enter your provided username and password below.</p>
-                <p>Be sure to read our <Link to='/about/privacy'>Privacy Policy</Link> and <Link to='/about/terms'>Terms of Service</Link> before logging in.</p>
+                <p className='subtitle login'>LOG IN</p>
+                <p className='login'>If you have been invited to The Kahoot! League, you can enter your provided username and password below.</p>
+                <p className='login'>Be sure to read our <Link to='/about/privacy'>Privacy Policy</Link> and <Link to='/about/terms'>Terms of Service</Link> before logging in.</p>
                 <fieldset>
                     <form onSubmit={this.handleSubmit}>
                         <label htmlFor="username">Username</label>
