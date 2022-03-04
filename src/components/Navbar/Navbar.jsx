@@ -25,10 +25,10 @@ function NavBar(props) {
                 <>
                     <div className='bottom-nav'>
                         <NavLink to="/home" className="bn-a">
-                            <div className='bn-tab'>
+                            <span className='bn-tab'>
                                 <HomeRoundedIcon fontSize='medium' />
                                 <p>Monkey</p>
-                            </div>
+                            </span>
                         </NavLink>
                         <NavLink to="/leaderboard" className="bn-a">
                             <div className='bn-tab'>
