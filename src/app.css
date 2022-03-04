@@ -4,25 +4,11 @@ body {
     min-height: 100vh;
 }
 
-.App {
+main {
     margin: 1rem;
-    max-width: 58.5rem;
+    max-width: 936px;
 }
 
-
-
-
 @media only screen and (min-width: 769px) {
-  /*   .App {
-        margin: minmax(140px, auto);
-    } */
-
-
-    .grid{
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-    }
-    .grid{
-        display: unset;
-    }
-  }
+    
+}

@@ -23,45 +23,47 @@ function App() {
   })
 
   return (
-    <div className="grid">
+    <>
+      <div className="app">
       {contextData.user ? <NavBar role={contextData.user.role} /> : null}
-      <div className="App">
-        <Routes>
-          <Route element={<TestComponent />} path='/' exact />
-          <Route element={
-            <PrivateRoute>
-              <p>Home</p>
-            </PrivateRoute>
-          } path='/home' exact />
+        <main>
+          <Routes>
+            <Route element={<TestComponent />} path='/' exact />
+            <Route element={
+              <PrivateRoute>
+                <p>Home</p>
+              </PrivateRoute>
+            } path='/home' exact />
 
-          <Route element={
-            <PrivateRoute>
-              <p>leaderboard</p>
-            </PrivateRoute>
-          } path='/leaderboard' exact />
+            <Route element={
+              <PrivateRoute>
+                <p>leaderboard</p>
+              </PrivateRoute>
+            } path='/leaderboard' exact />
 
-          <Route element={
-            <TeacherRoute>
-              <Upload />
-            </TeacherRoute>
-          } path='/manage' exact />
+            <Route element={
+              <TeacherRoute>
+                <Upload />
+              </TeacherRoute>
+            } path='/manage' exact />
 
-          <Route element={
-            <PrivateRoute>
-              <p>Settings</p>
-            </PrivateRoute>
-          } path='/settings' exact />
+            <Route element={
+              <PrivateRoute>
+                <p>Settings</p>
+              </PrivateRoute>
+            } path='/settings' exact />
 
-          <Route element={<Login />} path="/login" exact />
-          <Route element={
-            <PrivateRoute>
-              <Logout />
-            </PrivateRoute>
-          } path="/logout" exact />
-        </Routes>
+            <Route element={<Login />} path="/login" exact />
+            <Route element={
+              <PrivateRoute>
+                <Logout />
+              </PrivateRoute>
+            } path="/logout" exact />
+          </Routes>
+        </main>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
 
