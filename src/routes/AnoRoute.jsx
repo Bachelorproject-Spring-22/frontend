@@ -4,12 +4,18 @@ import AuthContext from '../helpers/AuthContext';
 
 const PrivateRoute = ({ children }) => {
     let { user } = useContext(AuthContext);
+    let link;
 
     if (user) {
-        return (<Navigate to='/home' />);
+        if (user.role === 'student') {
+            link = '/home';
+        } else if (user.role === 'teacher' || user.role === 'superAdmin') {
+            link = '/leaderboard';
+        }
+        
     }
 
-    return user.role === 'superAdmin' || user.role === 'teacher' || user.role === 'student' ? <Navigate to='/home' /> : children;
+    return user.role === 'superAdmin' || user.role === 'teacher' || user.role === 'student' ? <Navigate to={link} /> : children;
 }
 
 export default PrivateRoute;
