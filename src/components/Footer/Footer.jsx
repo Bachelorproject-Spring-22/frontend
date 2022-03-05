@@ -17,7 +17,7 @@ function Footer() {
                     <Link to='/about'>About The Kahoot! League</Link>
                     <Link to='/help'>Help</Link>
                     <Link to='/contact'>Contact</Link>
-                    <Link to='/about/terms'>Terms of service</Link>
+                    <Link to='/about/terms-of-service'>Terms of service</Link>
                     <Link to='/about/privacy'>Privacy policy</Link>
                     <Link to='/about/cookie'>Cookie policy</Link>
                 </article>

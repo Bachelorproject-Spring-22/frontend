@@ -49,12 +49,18 @@
 }
 
 @media only screen and (min-width: 769px) {
+   /*  @supports(padding: max(0px)) {
+        .bottom-nav {
+            padding-left: max(.5rem, env(safe-area-inset-left));
+            padding-right: max(.5rem, env(safe-area-inset-right));
+        }
+    } */
+    
     .bottom-nav {
-        background-color: #3b3a3f;
         display: flex;
         flex-direction: column;
         height: 100vh;
-        padding: .5rem;
+        /* padding: .5rem; */
         top: 0;
         max-width: 10rem;
         gap: 1rem;

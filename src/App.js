@@ -3,6 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import AuthContext from './helpers/AuthContext';
 import Login from './components/Login/Login';
 import TestComponent from './components/TestComponent/TestComponent';
+import About from './components/About/About';
+import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService/TermsOfService';
 import './app.css';
 import Logout from './components/Login/Logout';
 import { getter } from './api/apiCalls';
@@ -68,6 +71,13 @@ function App() {
                                 <Logout />
                             </PrivateRoute>
                         } path="/logout" exact />
+
+                        {/* Nesting?? */}
+                        <Route element={<About />} path='/about' exact>
+                            <Route element={<TermsOfService />} path='about/terms-of-service' exact/>
+                            <Route element={<PrivacyPolicy />} path='about/privacy-policy' exact/>
+                        </Route>
+
                     </Routes>
                 </main>
                 <Footer />
