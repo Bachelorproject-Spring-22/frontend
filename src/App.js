@@ -6,6 +6,7 @@ import TestComponent from './components/TestComponent/TestComponent';
 import About from './components/About/About';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService/TermsOfService';
+import CookiePolicy from './components/CookiePolicy/CookiePolicy';
 import './app.css';
 import Logout from './components/Login/Logout';
 import { getter } from './api/apiCalls';
@@ -73,10 +74,10 @@ function App() {
                         } path="/logout" exact />
 
                         {/* Nesting?? */}
-                        <Route element={<About />} path='/about' exact>
-                            <Route element={<TermsOfService />} path='about/terms-of-service' exact/>
-                            <Route element={<PrivacyPolicy />} path='about/privacy-policy' exact/>
-                        </Route>
+                        <Route path='/about' element={<About />} exact />
+                        <Route path='/terms-of-service' element={<TermsOfService />} />
+                        <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+                        <Route path='/cookie-policy' element={<CookiePolicy />} />
 
                     </Routes>
                 </main>
