@@ -7,15 +7,25 @@ body {
 main {
     margin: 1rem;
     max-width: 936px;
+    min-height: 100vh;
 }
 
+/* For desktop */
 @media only screen and (min-width: 769px) {
-    .app {
-        margin-left: 10rem;
+    @supports(padding: max(0px)) {
+        main, footer {
+            padding-right: max(1rem, env(safe-area-inset-right));
+            padding: 0 max(1rem, env(safe-area-inset-right)) 0 1rem;
+        }
     }
 
-    main{
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        grid-template-rows: auto auto;
+    }
+
+    main {
         margin: 1rem auto;
-        padding: 0 1rem;
     }
 }

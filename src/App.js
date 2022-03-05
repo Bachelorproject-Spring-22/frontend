@@ -34,7 +34,7 @@ function App() {
     })
 
     return (
-        <>
+        <div className='grid-container'>
             <NavBar auth={contextData} />
             <div className="app">
                 <main>
@@ -50,7 +50,7 @@ function App() {
 
                         <Route element={
                             <PrivateRoute>
-                                <p>leaderboard</p>
+                                <h1>leaderboard</h1>
                             </PrivateRoute>
                         } path='/leaderboard' exact />
 
@@ -83,7 +83,7 @@ function App() {
                 </main>
                 <Footer />
             </div>
-        </>
+        </div>
     );
 }
 

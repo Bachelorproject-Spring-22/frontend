@@ -1,7 +1,7 @@
 footer {
     background-color: var(--footer);
-    padding: 1rem;
-    padding-bottom: 9rem; /* -----Dette må endres----- */
+    padding: 1rem; /* Denne ødelegger for Safari 15 */
+    height: auto;
 }
 
 footer h3 {

@@ -8,10 +8,10 @@
     align-items: stretch;
     background-color: #3b3a3f;
     bottom: 0;
-    column-gap: 8px;
+    column-gap: .5rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    height: 56px;
+    height: auto;
     justify-items: stretch;
     padding: 4px 1rem;
     position: fixed;
@@ -48,43 +48,51 @@
     color: var(--primary-color-darkest);
 }
 
+@supports(padding: max(0px)) {
+    /* Specify that our padding should be the default padding or the safe area inset, whichever is greater. */
+    .bottom-nav {
+        padding-bottom: max(.25rem, env(safe-area-inset-bottom));
+    }
+}
+
+/* For desktop */
 @media only screen and (min-width: 769px) {
-   /*  @supports(padding: max(0px)) {
+    @supports(padding: max(0px)) {
         .bottom-nav {
             padding-left: max(.5rem, env(safe-area-inset-left));
-            padding-right: max(.5rem, env(safe-area-inset-right));
         }
-    } */
-    
+    }
+
     .bottom-nav {
         display: flex;
         flex-direction: column;
-        height: 100vh;
-        /* padding: .5rem; */
-        top: 0;
-        max-width: 10rem;
         gap: 1rem;
+        height: 100vh;
         justify-content: space-between;
+        position: sticky;
+        top: 0;
+        width: auto;
+        padding-right: .5rem;
     }
 
-    .bottom-nav > div {
+    .bottom-nav>div {
         display: flex;
         flex-direction: column;
         gap: .5rem;
     }
 
     .bn-a {
-        text-decoration: none;
         padding: .5rem 1rem;
+        text-decoration: none;
     }
 
     .bn-tab {
         align-items: center;
         display: flex;
         flex-direction: row;
+        gap: .5rem;
         height: 100%;
         justify-content: left;
         max-width: 100%;
-        gap: .5rem;
     }
 }
