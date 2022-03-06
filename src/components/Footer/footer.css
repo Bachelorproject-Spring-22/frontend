@@ -30,12 +30,6 @@ footer article {
     height: 30px;
 }
 
-.footer-button {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-}
-
 .created {
     flex-direction: column;
 }

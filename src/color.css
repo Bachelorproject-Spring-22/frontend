@@ -1,5 +1,7 @@
 /* COLORS */
 :root {
+
+    /* PRIMARY COLORS */
     --primary-color-lightest: #BEAFD0;
     --primary-color-light: #7F619C;
     --primary-color: #482776;
@@ -8,14 +10,19 @@
 
     --footer: #262430;
 
+    /* DESTRUCTIVE COLROS */
     --destructive-color: #ED8594;
+    --destructive-color-hover: #A65261;
+    --destructive-color-clicked: #914755;
     --destructive-gradient: linear-gradient(180deg, #CF6679 0%, #BA5C6D 100%);
     --destructive-gradient-hover: linear-gradient(180deg, #A65261 0%, #914755 100%);
     --destructive-gradient-clicked: linear-gradient(180deg, #A65261 0%, #914755 100%);
 
+    /* BUTTON COLORS */
     --button: linear-gradient(180deg, #BEAFD0 0%, #AB9EBB 100%);
     --button-hover: linear-gradient(180deg, #7F619C 0%, #72578C 100%);
 
+    /* ELEVEATION */
     --elevation1: #16141A;
     --elevation2: rgba(22, 20, 26, 0.05);
     --elevation3: rgba(22, 20, 26, 0.07);
@@ -27,7 +34,7 @@
     --elevation9: rgba(22, 20, 26, 0.15);
     --elevation10: rgba(22, 20, 26, 0.16);
 
-
+    /* TEXT */
     --white-middle-emphasis: rgba(255, 255, 255, 0.6);
     --white-high-emphasis: rgba(255, 255, 255, 0.87);
     --white: #FFF;
