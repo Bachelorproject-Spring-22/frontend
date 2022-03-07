@@ -4,9 +4,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AuthProvider } from './helpers/AuthContext';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './reset.css';
-import './color.css';
-import './typography.css';
+import './css/reset.css';
+import './css/color.css';
+import './css/typography.css';
 
 ReactDOM.render(
   <React.StrictMode>
