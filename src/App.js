@@ -2,7 +2,6 @@ import { useEffect, useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AuthContext from './helpers/AuthContext';
 import Login from './components/Login/Login';
-import TestComponent from './components/TestComponent/TestComponent';
 import About from './components/About/About';
 import './css/app.css';
 import Logout from './components/Login/Logout';
