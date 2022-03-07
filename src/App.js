@@ -17,6 +17,7 @@ import StudentRoute from './routes/StudentRoute';
 import Home from './components/Home/Home';
 import AnoRoute from './routes/AnoRoute';
 import WorkProgress from './components/WIP/WorkProgress';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
     const contextData = useContext(AuthContext);
@@ -79,6 +80,8 @@ function App() {
 
                         <Route path='/about/*' element={<About />} exact />
                         <Route path='/developer' element={<WorkProgress />} exact />
+
+                        <Route path='*' element={<NotFound />} />
 
                     </Routes>
                 </main>
