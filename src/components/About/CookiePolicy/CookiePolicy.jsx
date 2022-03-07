@@ -1,18 +1,6 @@
-import { Link } from 'react-router-dom';
-
-function CookiePolicy(props) {
-
+function CookiePolicy() {
     return (
         <>
-            <nav>
-                <a href="/" className='breadcrumbItem'>Home</a>
-                &#8250;
-                <a href="/about" className='breadcrumbItem' >About</a>
-                &#8250;
-                <a href="/about" className='breadcrumbItem' >Cookie Policy</a>
-            </nav>
-
-            <h1>The Kahoot!-League</h1>
             <p className='subtitle'>Cookie Policy</p>
 
             <section>
@@ -48,11 +36,6 @@ function CookiePolicy(props) {
                     <ul>
                         <li><a href="mailto:csmgljr0a@relay.firefox.com">csmgljr0a@relay.firefox.com</a>.</li>
                     </ul>
-                </article>
-
-                <article>
-                    <h2>Cookie Policy</h2>
-                    <p>Read our <Link to="/#" >Cookie Policy</Link> here</p>
                 </article>
             </section>
         </>

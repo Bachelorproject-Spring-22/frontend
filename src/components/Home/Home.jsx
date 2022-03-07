@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
 import Phone from '../../assets/phone.avif';
@@ -14,7 +15,7 @@ function Home(props) {
                     <p className='subtitle'>the ultimate league for learning</p>
                 </header>
 
-                <Button label={"log in"} icon={<LoginRoundedIcon />} />
+                <Link to='/login'><Button label={"log in"} icon={<LoginRoundedIcon />} /></Link>
             </div>
 
             <section className='home-parent'>

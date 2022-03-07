@@ -1,0 +1,13 @@
+.about article p {
+    margin: 1rem 0;
+}
+
+.about article h2 {
+    margin-bottom: 0;
+}
+
+.about article ul {
+    list-style: initial;
+    margin: initial;
+    list-style-position: inside;
+}

@@ -2,7 +2,6 @@ import { useEffect, useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AuthContext from './helpers/AuthContext';
 import Login from './components/Login/Login';
-import TestComponent from './components/TestComponent/TestComponent';
 import About from './components/About/About';
 import './css/app.css';
 import Logout from './components/Login/Logout';
@@ -21,6 +20,7 @@ import NotFound from './components/Error/NotFound';
 import Denied from './components/Error/Denied';
 import CookieBanner from './components/CookieBanner/CookieBanner';
 import MyResults from './components/MyResults/MyResults';
+import Settings from './components/Settings/Settings';
 
 function App() {
     const contextData = useContext(AuthContext);
@@ -44,7 +44,7 @@ function App() {
             {/* <CookieBanner/> */}
                 <main>
                     <Routes>
-                        <Route element={<TestComponent />} path='/' exact />
+                        <Route element={<Home />} path='/' exact />
                         <Route element={<Home />} path='/hometest' exact />
                         <Route element={
                             <StudentRoute>
@@ -66,7 +66,7 @@ function App() {
 
                         <Route element={
                             <PrivateRoute>
-                                <p>Settings</p>
+                                <Settings data={contextData} />
                             </PrivateRoute>
                         } path='/settings/*' exact />
 

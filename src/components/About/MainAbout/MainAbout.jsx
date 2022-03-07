@@ -9,7 +9,7 @@ function MainAbout() {
             </Helmet>
             <p className='subtitle'>About</p>
 
-            <section>
+            <section className='about'>
                 <article>
                     <h2>The Product</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
