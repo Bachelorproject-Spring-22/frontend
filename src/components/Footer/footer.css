@@ -13,6 +13,10 @@ footer section {
     margin: 4rem 0;
 }
 
+footer section img {
+    max-width: 100%;
+}
+
 footer article {
     margin: 2rem 0;
     width: 50%;
@@ -28,12 +32,6 @@ footer article {
 .footer-logo {
     width: 163px;
     height: 30px;
-}
-
-.footer-button {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
 }
 
 .created {

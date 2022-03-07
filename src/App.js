@@ -14,6 +14,7 @@ import PrivateRoute from './routes/PrivateRoute';
 import TeacherRoute from './routes/TeacherRoute';
 import { checkExp } from './helpers/functions';
 import StudentRoute from './routes/StudentRoute';
+import Home from './components/Home/Home';
 import AnoRoute from './routes/AnoRoute';
 import WorkProgress from './components/WIP/WorkProgress';
 
@@ -39,6 +40,7 @@ function App() {
                 <main>
                     <Routes>
                         <Route element={<TestComponent />} path='/' exact />
+                        <Route element={<Home />} path='/hometest' exact />
                         <Route element={
                             <StudentRoute>
                                 <p>Home</p>

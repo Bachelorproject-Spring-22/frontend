@@ -22,19 +22,6 @@ input{
     padding: 4px
 }
 
-button {
-    display: flex;
-    height: 48px;
-    width: 100%;
-    background: var(--button);
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border: none;
-    border-radius: 6px;
-    color: var(--button-label);
-}
-
 .showPassword {
     position: relative;
     top: -3rem;
