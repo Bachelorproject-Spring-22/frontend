@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 function TermsOfService(props) {
 
     return (
         <>
+            <Helmet>
+                <title>Terms of Service - The Kahoot! League</title>
+            </Helmet>
             <p className='subtitle'>terms of service</p>
 
             <section className='about'>

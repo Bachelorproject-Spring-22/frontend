@@ -1,6 +1,13 @@
-function PrivacyPolicy() {
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
+function PrivacyPolicy(props) {
+
     return (
         <>
+            <Helmet>
+                <title>Privacy Policy - The Kahoot! League</title>
+            </Helmet>
             <p className='subtitle'>Privacy Policy</p>
 
             <section className='about'>

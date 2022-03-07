@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 function MainAbout() {
     return (
         <>
+            <Helmet>
+                <title>About - The Kahoot! League</title>
+            </Helmet>
             <p className='subtitle'>About</p>
 
             <section className='about'>
