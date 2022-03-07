@@ -13,18 +13,18 @@ function About() {
                 &#8250;
                 <Link to="/about" className='breadcrumbItem' >About</Link>
                 <Routes>
-                    <Route path='/terms-of-service' element={<>&#8250; <Link to="/about/terms-of-service" className='breadcrumbItem' >Terms of Service</Link></>} />
-                    <Route path='/privacy-policy' element={<>&#8250; <Link to="/about/privacy-policy" className='breadcrumbItem' >Privacy Policy</Link></>} />
-                    <Route path='/cookie-policy' element={<>&#8250; <Link to="/about/cookie-policy" className='breadcrumbItem' >Cookie Policy</Link></>} />
+                    <Route exact path='/terms-of-service' element={<>&#8250; <Link to="/about/terms-of-service" className='breadcrumbItem' >Terms of Service</Link></>} />
+                    <Route exact path='/privacy-policy' element={<>&#8250; <Link to="/about/privacy-policy" className='breadcrumbItem' >Privacy Policy</Link></>} />
+                    <Route exact path='/cookie-policy' element={<>&#8250; <Link to="/about/cookie-policy" className='breadcrumbItem' >Cookie Policy</Link></>} />
                 </Routes>
             </nav>
 
             <h1>The Kahoot!-League</h1>
             <Routes>
-                <Route path='/' element={<MainAbout />} />
-                <Route path='/terms-of-service' element={<TermsOfService />} />
-                <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-                <Route path='/cookie-policy' element={<CookiePolicy />} />
+                <Route exact path='/' element={<MainAbout />} />
+                <Route exact path='/terms-of-service' element={<TermsOfService />} />
+                <Route exact path='/privacy-policy' element={<PrivacyPolicy />} />
+                <Route exact path='/cookie-policy' element={<CookiePolicy />} />
             </Routes>
         </>
     );

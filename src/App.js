@@ -19,6 +19,7 @@ import AnoRoute from './routes/AnoRoute';
 import WorkProgress from './components/WIP/WorkProgress';
 import NotFound from './components/Error/NotFound';
 import Denied from './components/Error/Denied';
+import Settings from './components/Settings/Settings';
 
 function App() {
     const contextData = useContext(AuthContext);
@@ -41,7 +42,7 @@ function App() {
             <div className="app">
                 <main>
                     <Routes>
-                        <Route element={<TestComponent />} path='/' exact />
+                        <Route element={<Home />} path='/' exact />
                         <Route element={<Home />} path='/hometest' exact />
                         <Route element={
                             <StudentRoute>
@@ -63,7 +64,7 @@ function App() {
 
                         <Route element={
                             <PrivateRoute>
-                                <p>Settings</p>
+                                <Settings data={contextData} />
                             </PrivateRoute>
                         } path='/settings/*' exact />
 

@@ -1,0 +1,38 @@
+.account article a {
+    text-decoration: none;
+}
+
+.account article {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+    justify-content: center;
+}
+
+.account article a div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 10rem;
+    max-width: 10rem;
+    box-sizing: border-box;
+    padding: 1rem;
+    background-color: rgba(196, 196, 196, 0.05);
+    border-radius: 6px;
+}
+
+.user-text {
+    color: var(--white-middle-emphasis);
+}
+
+.account-settings article div {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.account-settings article {
+    margin: 2rem 0;
+}
