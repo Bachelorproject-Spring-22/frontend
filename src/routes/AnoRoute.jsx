@@ -4,18 +4,16 @@ import AuthContext from '../helpers/AuthContext';
 
 const AnoRoute = ({ children }) => {
     let { user } = useContext(AuthContext);
-    let link;
 
-    if (user) {
+    if (!user) {
+        return children;
+    } else {
         if (user.role === 'student') {
-            link = '/home';
+            return <Navigate to='/home' />;
         } else if (user.role === 'teacher' || user.role === 'superAdmin') {
-            link = '/leaderboard';
+            return <Navigate to='/leaderboard' />;
         }
-        
     }
-
-    return user.role === 'superAdmin' || user.role === 'teacher' || user.role === 'student' ? <Navigate to={link} /> : children;
 }
 
 export default AnoRoute;

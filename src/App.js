@@ -4,9 +4,6 @@ import AuthContext from './helpers/AuthContext';
 import Login from './components/Login/Login';
 import TestComponent from './components/TestComponent/TestComponent';
 import About from './components/About/About';
-import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
-import TermsOfService from './components/TermsOfService/TermsOfService';
-import CookiePolicy from './components/CookiePolicy/CookiePolicy';
 import './app.css';
 import Logout from './components/Login/Logout';
 import { getter } from './api/apiCalls';
@@ -18,6 +15,7 @@ import TeacherRoute from './routes/TeacherRoute';
 import { checkExp } from './helpers/functions';
 import StudentRoute from './routes/StudentRoute';
 import Home from './components/Home/Home';
+import AnoRoute from './routes/AnoRoute';
 
 function App() {
     const contextData = useContext(AuthContext);
@@ -43,11 +41,9 @@ function App() {
                         <Route element={<TestComponent />} path='/' exact />
                         <Route element={<Home />} path='/hometest' exact />
                         <Route element={
-                            <PrivateRoute>
-                                <StudentRoute>
-                                    <p>Home</p>
-                                </StudentRoute>
-                            </PrivateRoute>
+                            <StudentRoute>
+                                <p>Home</p>
+                            </StudentRoute>
                         } path='/home' exact />
 
                         <Route element={
@@ -68,7 +64,11 @@ function App() {
                             </PrivateRoute>
                         } path='/settings' exact />
 
-                        <Route element={<Login />} path="/login" exact />
+                        <Route element={
+                            <AnoRoute>
+                                <Login />
+                            </AnoRoute>
+                        } path="/login" exact />
                         <Route element={
                             <PrivateRoute>
                                 <Logout />
@@ -76,10 +76,7 @@ function App() {
                         } path="/logout" exact />
 
                         {/* Nesting?? */}
-                        <Route path='/about' element={<About />} exact />
-                        <Route path='/terms-of-service' element={<TermsOfService />} />
-                        <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-                        <Route path='/cookie-policy' element={<CookiePolicy />} />
+                        <Route path='/about/*' element={<About />} exact />
 
                     </Routes>
                 </main>

@@ -21,7 +21,7 @@ function Footer() {
                     <Link to='/contact'>Contact</Link>
                     <Link to='/about/terms-of-service'>Terms of service</Link>
                     <Link to='/about/privacy-policy'>Privacy policy</Link>
-                    <Link to='/cookie-policy'>Cookie policy</Link>
+                    <Link to='/about/cookie-policy'>Cookie policy</Link>
                 </article>
                 <article>
                     <p>Want to Contribute?</p>

@@ -18,7 +18,7 @@ function NavBar(props) {
     }
 
     useEffect(() => {
-        if(auth.user) {
+        if (auth.user) {
             setRole(auth.user.role);
             setLoggedIn(true);
         }
@@ -33,12 +33,13 @@ function NavBar(props) {
                     {loggedIn ?
                         (<>
                             <div>
-                                <NavLink to="/" className="bn-a">
-                                    <div className='bn-tab'>
-                                        <HomeRoundedIcon fontSize='medium' />
-                                        <p>Home</p>
-                                    </div>
-                                </NavLink>
+                                {role === 'student' ?
+                                    (<NavLink to="/" className="bn-a">
+                                        <div className='bn-tab'>
+                                            <HomeRoundedIcon fontSize='medium' />
+                                            <p>Home</p>
+                                        </div>
+                                    </NavLink>) : null}
                                 <NavLink to="/leaderboard" className="bn-a">
                                     <div className='bn-tab'>
                                         <LeaderboardRoundedIcon fontSize='medium' />
@@ -75,12 +76,13 @@ function NavBar(props) {
                     <div className='bottom-nav'>
                         {loggedIn ? (
                             <>
-                                <NavLink to="/" className="bn-a">
-                                    <div className='bn-tab'>
-                                        <HomeRoundedIcon fontSize='medium' />
-                                        <p>Home</p>
-                                    </div>
-                                </NavLink>
+                                {role === 'student' ?
+                                    (<NavLink to="/" className="bn-a">
+                                        <div className='bn-tab'>
+                                            <HomeRoundedIcon fontSize='medium' />
+                                            <p>Home</p>
+                                        </div>
+                                    </NavLink>) : null}
                                 <NavLink to="/leaderboard" className="bn-a">
                                     <div className='bn-tab'>
                                         <LeaderboardRoundedIcon fontSize='medium' />
