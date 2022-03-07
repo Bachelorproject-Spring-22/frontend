@@ -6,7 +6,7 @@ function TermsOfService(props) {
         <>
             <p className='subtitle'>terms of service</p>
 
-            <section>
+            <section className='about'>
                 <article>
                     <h2>Terms</h2>
                     <p>By accessing this Website, accessible from www.thekahootleague.com, you agree to be bound by these Website Terms and Conditions of Use. </p>

@@ -1,8 +1,9 @@
 import { Route, Routes, Link } from "react-router-dom";
-import CookiePolicy from "../CookiePolicy/CookiePolicy";
+import CookiePolicy from "./CookiePolicy/CookiePolicy";
 import MainAbout from "./MainAbout/MainAbout";
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
 import TermsOfService from "./TermsOfService/TermsOfService";
+import './about.css';
 
 function About() {
     return (
