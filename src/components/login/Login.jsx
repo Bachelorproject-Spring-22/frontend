@@ -5,6 +5,7 @@ import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
 import './login.css';
+import Button from '../Button/Button';
 
 class Login extends Component {
     static contextType = AuthContext;
@@ -87,10 +88,7 @@ class Login extends Component {
                             </span>
                         </div>
 
-                        <button type='submit' className='button-label'>
-                            <LoginRoundedIcon />
-                            Log In
-                        </button>
+                        <Button label='Log In' icon={<LoginRoundedIcon />} type='submit' />
                     </form>
                 </fieldset>
             </>

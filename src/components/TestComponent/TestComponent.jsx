@@ -1,12 +1,8 @@
-import { getter } from '../../api/apiCalls';
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
 
-function TestComponent(props) {
-    const onSubmit = async () => {
-        await getter();
-    }
+function TestComponent() {
     return (
         <>
             <nav>
@@ -19,7 +15,6 @@ function TestComponent(props) {
 
             <h1>The Kahoot!-League</h1>
             <p className='subtitle'>Dette er en subtitle</p>
-            <button onClick={onSubmit}>Get</button>
 
             <Button label={"my primary button"}/>
             <Button label={"my secondary button"} icon={<LoginRoundedIcon/>} variant={'secondary'}/>
