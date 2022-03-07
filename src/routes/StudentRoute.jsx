@@ -6,7 +6,9 @@ const StudentRoute = ({ children }) => {
     let { user } = useContext(AuthContext);
     let link;
 
-    if (user) {
+    if (!user) {
+        return <Navigate to='/login' />;
+    } else {
         if (user.role === 'teacher' || user.role === 'superAdmin') {
             link = '/leaderboard';
         }

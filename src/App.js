@@ -17,6 +17,7 @@ import PrivateRoute from './routes/PrivateRoute';
 import TeacherRoute from './routes/TeacherRoute';
 import { checkExp } from './helpers/functions';
 import StudentRoute from './routes/StudentRoute';
+import AnoRoute from './routes/AnoRoute';
 
 function App() {
     const contextData = useContext(AuthContext);
@@ -41,11 +42,9 @@ function App() {
                     <Routes>
                         <Route element={<TestComponent />} path='/' exact />
                         <Route element={
-                            <PrivateRoute>
-                                <StudentRoute>
-                                    <p>Home</p>
-                                </StudentRoute>
-                            </PrivateRoute>
+                            <StudentRoute>
+                                <p>Home</p>
+                            </StudentRoute>
                         } path='/home' exact />
 
                         <Route element={
@@ -66,7 +65,11 @@ function App() {
                             </PrivateRoute>
                         } path='/settings' exact />
 
-                        <Route element={<Login />} path="/login" exact />
+                        <Route element={
+                            <AnoRoute>
+                                <Login />
+                            </AnoRoute>
+                        } path="/login" exact />
                         <Route element={
                             <PrivateRoute>
                                 <Logout />
