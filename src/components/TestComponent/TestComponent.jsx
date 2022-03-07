@@ -13,6 +13,7 @@ function TestComponent(props) {
                 <a href="/login" className='breadcrumbItem' >Test Component</a>
             </nav>
             <Link to="/login" >Login</Link>
+            <Link to="/logout">Logout</Link>
 
             <h1>The Kahoot!-League</h1>
             <p className='subtitle'>Dette er en subtitle</p>

@@ -10,7 +10,7 @@
     bottom: 0;
     column-gap: .5rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     height: auto;
     justify-items: stretch;
     padding: 4px 1rem;
