@@ -13,6 +13,10 @@ footer section {
     margin: 4rem 0;
 }
 
+footer section img {
+    max-width: 100%;
+}
+
 footer article {
     margin: 2rem 0;
     width: 50%;
