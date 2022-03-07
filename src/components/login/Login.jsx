@@ -6,6 +6,7 @@ import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
 import './login.css';
 import Button from '../Button/Button';
+import { Helmet } from 'react-helmet';
 
 class Login extends Component {
     static contextType = AuthContext;
@@ -56,6 +57,9 @@ class Login extends Component {
     render() {
         return (
             <>
+             <Helmet>
+                <title>Leaderboard - The Kahoot! League</title>
+            </Helmet>
                 <h1>The Kahoot! League</h1>
                 <p className='subtitle login'>LOG IN</p>
                 <p className='login'>If you have been invited to The Kahoot! League, you can enter your provided username and password below.</p>
