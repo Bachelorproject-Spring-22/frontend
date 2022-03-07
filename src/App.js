@@ -15,6 +15,7 @@ import TeacherRoute from './routes/TeacherRoute';
 import { checkExp } from './helpers/functions';
 import StudentRoute from './routes/StudentRoute';
 import AnoRoute from './routes/AnoRoute';
+import WorkProgress from './components/WIP/WorkProgress';
 
 function App() {
     const contextData = useContext(AuthContext);
@@ -42,39 +43,40 @@ function App() {
                             <StudentRoute>
                                 <p>Home</p>
                             </StudentRoute>
-                        } path='/home' exact />
+                        } path='/home/*' exact />
 
                         <Route element={
                             <PrivateRoute>
                                 <h1>leaderboard</h1>
                             </PrivateRoute>
-                        } path='/leaderboard' exact />
+                        } path='/leaderboard/*' exact />
 
                         <Route element={
                             <TeacherRoute>
                                 <Upload />
                             </TeacherRoute>
-                        } path='/manage' exact />
+                        } path='/manage/*' exact />
 
                         <Route element={
                             <PrivateRoute>
                                 <p>Settings</p>
                             </PrivateRoute>
-                        } path='/settings' exact />
+                        } path='/settings/*' exact />
 
                         <Route element={
                             <AnoRoute>
                                 <Login />
                             </AnoRoute>
                         } path="/login" exact />
+
                         <Route element={
                             <PrivateRoute>
                                 <Logout />
                             </PrivateRoute>
                         } path="/logout" exact />
 
-                        {/* Nesting?? */}
                         <Route path='/about/*' element={<About />} exact />
+                        <Route path='/developer' element={<WorkProgress />} exact />
 
                     </Routes>
                 </main>
