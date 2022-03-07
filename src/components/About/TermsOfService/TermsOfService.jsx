@@ -4,18 +4,7 @@ function TermsOfService(props) {
 
     return (
         <>
-            <header>
-                <nav>
-                    <a href="/" className='breadcrumbItem'>Home</a>
-                    &#8250;
-                    <a href="/about" className='breadcrumbItem' >about</a>
-                    &#8250;
-                    <a href="/terms-of-service" className='breadcrumbItem' >terms of service</a>
-                </nav>
-
-                <h1>The Kahoot!-League</h1>
-                <p className='subtitle'>terms of service</p>
-            </header>
+            <p className='subtitle'>terms of service</p>
 
             <section>
                 <article>
@@ -66,7 +55,7 @@ function TermsOfService(props) {
 
                 <article>
                     <h2>Your Privacy</h2>
-                    <p>Please read our <Link to="/privacy-policy" >Privacy Policy</Link>.</p>
+                    <p>Please read our <Link to="/about/privacy-policy" >Privacy Policy</Link>.</p>
                 </article>
 
                 <article>

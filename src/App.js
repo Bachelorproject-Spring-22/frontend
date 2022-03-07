@@ -4,9 +4,6 @@ import AuthContext from './helpers/AuthContext';
 import Login from './components/Login/Login';
 import TestComponent from './components/TestComponent/TestComponent';
 import About from './components/About/About';
-import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
-import TermsOfService from './components/TermsOfService/TermsOfService';
-import CookiePolicy from './components/CookiePolicy/CookiePolicy';
 import './app.css';
 import Logout from './components/Login/Logout';
 import { getter } from './api/apiCalls';
@@ -77,10 +74,7 @@ function App() {
                         } path="/logout" exact />
 
                         {/* Nesting?? */}
-                        <Route path='/about' element={<About />} exact />
-                        <Route path='/terms-of-service' element={<TermsOfService />} />
-                        <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-                        <Route path='/cookie-policy' element={<CookiePolicy />} />
+                        <Route path='/about/*' element={<About />} exact />
 
                     </Routes>
                 </main>

@@ -1,49 +1,30 @@
-import { Link } from 'react-router-dom';
+import { Route, Routes, Link } from "react-router-dom";
+import CookiePolicy from "../CookiePolicy/CookiePolicy";
+import MainAbout from "./MainAbout/MainAbout";
+import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
+import TermsOfService from "./TermsOfService/TermsOfService";
 
-function About(props) {
-    
+function About() {
     return (
         <>
             <nav>
-                <a href="/" className='breadcrumbItem'>Home</a>
+                <Link to="/" className='breadcrumbItem'>Home</Link>
                 &#8250;
-                <a href="/about" className='breadcrumbItem' >About</a>
+                <Link to="/about" className='breadcrumbItem' >About</Link>
+                <Routes>
+                    <Route path='/terms-of-service' element={<>&#8250; <Link to="/about/terms-of-service" className='breadcrumbItem' >Terms of Service</Link></>} />
+                    <Route path='/privacy-policy' element={<>&#8250; <Link to="/about/privacy-policy" className='breadcrumbItem' >Privacy Policy</Link></>} />
+                    <Route path='/cookie-policy' element={<>&#8250; <Link to="/about/cookie-policy" className='breadcrumbItem' >Cookie Policy</Link></>} />
+                </Routes>
             </nav>
 
             <h1>The Kahoot!-League</h1>
-            <p className='subtitle'>About</p>
-
-            <section>
-                <article>
-                    <h2>The Product</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </article>
-    
-                <article>
-                    <h2>The Project</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </article>
-    
-                <article>
-                    <h2>Sustainability</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.🌳</p>
-                </article>
-    
-                <article>
-                    <h2>Terms of Service</h2>
-                    <p>Read our <Link to="/about/terms-of-service" >Terms of Service</Link> here.</p>
-                </article>
-    
-                <article>
-                    <h2>Privacy Policy</h2>
-                    <p>Read our <Link to="/login" >Privacy Policy</Link> here.</p>
-                </article>
-    
-                <article>
-                    <h2>Cookie Policy</h2>
-                    <p>Read our <Link to="/login" >Cookie Policy</Link> here.</p>
-                </article>
-            </section>
+            <Routes>
+                <Route path='/' element={<MainAbout />} />
+                <Route path='/terms-of-service' element={<TermsOfService />} />
+                <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+                <Route path='/cookie-policy' element={<CookiePolicy />} />
+            </Routes>
         </>
     );
 }
