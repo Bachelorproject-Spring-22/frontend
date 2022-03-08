@@ -21,6 +21,9 @@ function NavBar(props) {
         if (auth.user) {
             setRole(auth.user.role);
             setLoggedIn(true);
+        } else {
+            setRole(null);
+            setLoggedIn(false);
         }
         window.addEventListener("resize", updateMedia);
         return () => window.removeEventListener("resize", updateMedia);
