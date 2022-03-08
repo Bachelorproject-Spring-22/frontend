@@ -1,0 +1,20 @@
+.banner{
+    background-color: rgba(255, 255, 255, .16); /* ENDRE DENNE IKKE FERDIG */
+    width: 100%;
+    padding: .5rem;
+}
+
+.banner .buttons{
+    display: flex;
+    gap: 1rem;
+}
+
+/* For desktop */
+@media only screen and (min-width: 769px) {
+    .banner {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

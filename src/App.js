@@ -18,6 +18,8 @@ import AnoRoute from './routes/AnoRoute';
 import WorkProgress from './components/WIP/WorkProgress';
 import NotFound from './components/Error/NotFound';
 import Denied from './components/Error/Denied';
+import CookieBanner from './components/CookieBanner/CookieBanner';
+import MyResults from './components/MyResults/MyResults';
 import Settings from './components/Settings/Settings';
 
 function App() {
@@ -39,15 +41,16 @@ function App() {
         <div className='grid-container'>
             <NavBar auth={contextData} />
             <div className="app">
+            {/* <CookieBanner/> */}
                 <main>
                     <Routes>
                         <Route element={<Home />} path='/' exact />
                         <Route element={<Home />} path='/hometest' exact />
                         <Route element={
                             <StudentRoute>
-                                <p>Home</p>
+                                <MyResults/>
                             </StudentRoute>
-                        } path='/home/*' exact />
+                        } path='/home/*' exact /> 
 
                         <Route element={
                             <PrivateRoute>
