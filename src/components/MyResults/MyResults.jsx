@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Card from '../Card/Card';
 import './my-results.css';
 
 class MyResults extends Component {
@@ -21,10 +22,14 @@ class MyResults extends Component {
                 </select>
                 
                 <h2>Current semester</h2>
-                <p>1</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
+                
+                <div className='my-results grid-container'>
+                    <Card type='course' courseCode='IDG1200' fullCourseName='Cloud Technologies' placementRank={3}/>
+                    <Card type='course' courseCode='IDG1200' fullCourseName='Information Structures and Database Systems' placementRank={3}/>
+                    <Card type='course' courseCode='IDG1200' fullCourseName='Full-stack development' placementRank={3}/>
+                    <Card type='course' courseCode='IDG1200' fullCourseName='Service Design ' placementRank={3}/>
+                </div>
+                
                 <h2>Previous semester</h2>
                 <h3>Semestertekst</h3>
                 <p>1</p>
