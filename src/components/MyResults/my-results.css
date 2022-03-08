@@ -10,3 +10,26 @@
     width: 23.5rem;
     height: 3rem;
 }
+
+.my-results.grid-container {
+    display: grid;
+    gap: 1rem;
+    justify-items: stretch;
+    grid-template-columns: 1fr;
+}
+
+.my-results.grid-container .card {
+    display:grid;
+    place-items: center;
+}
+
+.my-results.grid-container .card h3{
+    width: 100%;
+}
+
+@media only screen and (min-width: 769px) { 
+    .my-results.grid-container {
+        grid-template-columns: 1fr 1fr;
+        
+    }
+}
