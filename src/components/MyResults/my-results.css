@@ -27,6 +27,15 @@
     place-items: center;
 }
 
+.individual-quiz {
+    display: grid;
+    gap: 1rem;
+    align-items: stretch;
+    grid-template-columns: 1fr 1fr;
+    margin: 2rem 0;
+}
+
+
 @media only screen and (min-width: 769px) { 
     .my-results.grid-container {
         grid-template-columns: repeat(2, 1fr);
