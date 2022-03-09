@@ -22,6 +22,7 @@ import Denied from './components/Error/Denied';
 //import CookieBanner from './components/CookieBanner/CookieBanner';
 import MyResults from './components/MyResults/MyResults';
 import Settings from './components/Settings/Settings';
+import Leaderboard from './components/Leaderboard/Leaderboard';
 
 function App() {
     const contextData = useContext(AuthContext);
@@ -56,7 +57,7 @@ function App() {
 
                             <Route element={
                                 <PrivateRoute>
-                                    <h1>leaderboard</h1>
+                                    <Leaderboard />
                                 </PrivateRoute>
                             } path='/leaderboard/*' exact />
 
