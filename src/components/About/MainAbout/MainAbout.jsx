@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import SEO from '../../SEO/SEO';
 
 function MainAbout() {
     return (
         <>
-            <Helmet>
-                <title>About - The Kahoot! League</title>
-            </Helmet>
+            <SEO title="About" />
             <p className='subtitle'>About</p>
 
             <section className='about'>

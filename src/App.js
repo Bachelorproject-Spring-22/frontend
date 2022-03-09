@@ -1,3 +1,4 @@
+import { HelmetProvider } from 'react-helmet-async';
 import { useEffect, useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AuthContext from './helpers/AuthContext';
@@ -18,9 +19,10 @@ import AnoRoute from './routes/AnoRoute';
 import WorkProgress from './components/WIP/WorkProgress';
 import NotFound from './components/Error/NotFound';
 import Denied from './components/Error/Denied';
-import CookieBanner from './components/CookieBanner/CookieBanner';
+//import CookieBanner from './components/CookieBanner/CookieBanner';
 import MyResults from './components/MyResults/MyResults';
 import Settings from './components/Settings/Settings';
+import Leaderboard from './components/Leaderboard/Leaderboard';
 
 function App() {
     const contextData = useContext(AuthContext);
@@ -38,61 +40,63 @@ function App() {
     })
 
     return (
-        <div className='grid-container'>
-            <NavBar auth={contextData} />
-            <div className="app">
-            {/* <CookieBanner/> */}
-                <main>
-                    <Routes>
-                        <Route element={<Home />} path='/' exact />
-                        <Route element={<Home />} path='/hometest' exact />
-                        <Route element={
-                            <StudentRoute>
-                                <MyResults/>
-                            </StudentRoute>
-                        } path='/home/*' exact /> 
+        <HelmetProvider>
+            <div className='grid-container'>
+                <NavBar auth={contextData} />
+                <div className="app">
+                    {/* <CookieBanner/> */}
+                    <main>
+                        <Routes>
+                            <Route element={<Home />} path='/' exact />
 
-                        <Route element={
-                            <PrivateRoute>
-                                <h1>leaderboard</h1>
-                            </PrivateRoute>
-                        } path='/leaderboard/*' exact />
+                            <Route element={
+                                <StudentRoute>
+                                    <MyResults />
+                                </StudentRoute>
+                            } path='/home/*' exact />
 
-                        <Route element={
-                            <TeacherRoute>
-                                <Upload />
-                            </TeacherRoute>
-                        } path='/manage/*' exact />
+                            <Route element={
+                                <PrivateRoute>
+                                    <Leaderboard />
+                                </PrivateRoute>
+                            } path='/leaderboard/*' exact />
 
-                        <Route element={
-                            <PrivateRoute>
-                                <Settings data={contextData} />
-                            </PrivateRoute>
-                        } path='/settings/*' exact />
+                            <Route element={
+                                <TeacherRoute>
+                                    <Upload />
+                                </TeacherRoute>
+                            } path='/manage/*' exact />
 
-                        <Route element={
-                            <AnoRoute>
-                                <Login />
-                            </AnoRoute>
-                        } path="/login" exact />
+                            <Route element={
+                                <PrivateRoute>
+                                    <Settings data={contextData} />
+                                </PrivateRoute>
+                            } path='/settings/*' exact />
 
-                        <Route element={
-                            <PrivateRoute>
-                                <Logout />
-                            </PrivateRoute>
-                        } path="/logout" exact />
+                            <Route element={
+                                <AnoRoute>
+                                    <Login />
+                                </AnoRoute>
+                            } path="/login" exact />
 
-                        <Route path='/about/*' element={<About />} exact />
-                        <Route path='/developer' element={<WorkProgress />} exact />
-                            
-                        <Route path='/403' element={<Denied />} exact />
-                        <Route path='*' element={<NotFound />} />
+                            <Route element={
+                                <PrivateRoute>
+                                    <Logout />
+                                </PrivateRoute>
+                            } path="/logout" exact />
 
-                    </Routes>
-                </main>
-                <Footer />
+                            <Route path='/about/*' element={<About />} exact />
+                            <Route path='/developer' element={<WorkProgress />} exact />
+
+                            <Route path='/403' element={<Denied />} exact />
+                            <Route path='*' element={<NotFound />} />
+
+                        </Routes>
+                    </main>
+                    <Footer />
+                </div>
             </div>
-        </div>
+        </HelmetProvider>
     );
 }
 

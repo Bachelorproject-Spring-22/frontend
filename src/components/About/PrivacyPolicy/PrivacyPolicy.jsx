@@ -1,12 +1,10 @@
-import { Helmet } from 'react-helmet';
+import SEO from "../../SEO/SEO";
 
 function PrivacyPolicy() {
 
     return (
         <>
-            <Helmet>
-                <title>Privacy Policy - The Kahoot! League</title>
-            </Helmet>
+            <SEO title="Privacy Policy" />
             <p className='subtitle'>Privacy Policy</p>
 
             <section className='about'>

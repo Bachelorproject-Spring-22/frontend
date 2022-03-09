@@ -5,12 +5,14 @@ import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import TextFieldsRoundedIcon from '@mui/icons-material/TextFieldsRounded';
 import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
+import SEO from '../../SEO/SEO';
 
 function MainSettings(props) {
     const data = props.data;
 
     return (
         <section className='account'>
+            <SEO title='Settings' />
             <h1>Settings</h1>
             <article>
                 <Link to='/settings/account'>

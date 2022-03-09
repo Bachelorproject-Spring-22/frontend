@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import SEO from '../../SEO/SEO';
 
 function TermsOfService() {
-
     return (
         <>
-            <Helmet>
-                <title>Terms of Service - The Kahoot! League</title>
-            </Helmet>
+            <SEO title="Terms of Service" />
             <p className='subtitle'>terms of service</p>
 
             <section className='about'>
