@@ -3,22 +3,22 @@ import { Link } from 'react-router-dom';
 
 /* Denne må endres når vi vet hvordan payload-en fra back-end ser ut. Komponentet er dermed ikke avansert at all */
 
-function Card(props) {
+function Card({ type, courseCode, fullCourseName, placementRank, quizNumber, correctAnswers, incorrectAnswers }) {
     return (
         <li>
             <Link className="card" to="/test">
             {
-                props.type === 'course' ? (
+                type === 'course' ? (
                         <div>
-                            <h3>{props.courseCode} – {props.fullCourseName} </h3>
-                            <p>Placement: {props.placementRank}</p>
+                            <h3>{courseCode} – {fullCourseName} </h3>
+                            <p>Placement: {placementRank}</p>
                         </div>
                 ) : (
 
                         <div>
-                            <h3>Quiz {props.quizNumber} </h3>
-                            <p>Correct answers: {props.correctAnswers}</p>
-                            <p>Incorrect answers: {props.incorrectAnswers}</p>
+                            <h3>Quiz {quizNumber} </h3>
+                            <p>Correct answers: {correctAnswers}</p>
+                            <p>Incorrect answers: {incorrectAnswers}</p>
                         </div>
                 )
             }
