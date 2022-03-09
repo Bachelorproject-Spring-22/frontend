@@ -4,20 +4,25 @@ footer {
     height: auto;
 }
 
-footer h3 {
+footer div {
+    max-width: 936px;
+    margin: 0 auto;
+}
+
+footer div h3 {
     margin: 0;
 }
 
-footer section {
+footer div section {
     display: flex;
     margin: 4rem 0;
 }
 
-footer section img {
+footer div section img {
     max-width: 100%;
 }
 
-footer article {
+footer div article {
     margin: 2rem 0;
     width: 50%;
     display: flex;
@@ -38,7 +43,7 @@ footer article {
     flex-direction: column;
 }
 
-footer article a,
+footer div article a,
 .middle-emphasis {
     margin: .5rem 0;
     text-decoration: none;
