@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import Card from '../../Card/Card';
 import SEO from "../../SEO/SEO";
 import makeData from '../../Table/makeData';
 import Table from "../../Table/Table";
@@ -22,6 +23,9 @@ function MainLeaderboard(props) {
             <article>
                 <h2>Individual Course Leaderboards</h2>
                 <p>Explore the leaderboards for the courses you have this semester</p>
+                <ul>
+                    <Card type='course' link='/leaderboard/idg2100' courseCode='IDG2100' fullCourseName='Fullstack' placementRank={1} />
+                </ul>
             </article>
         </section>
     )

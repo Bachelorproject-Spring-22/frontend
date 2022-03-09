@@ -29,16 +29,16 @@ class MyResults extends Component {
                     {/* ↓Her trenger vi en map som looper gjennom alle emnene studenten har nåværende semester. ↓ */}
 
 
-                    <Card type='course' courseCode='IDG1200' fullCourseName='Cloud Technologies' placementRank={3} />
+                    <Card link='/test' type='course' courseCode='IDG1200' fullCourseName='Cloud Technologies' placementRank={3} />
 
 
-                    <Card type='course' courseCode='IDG1200' fullCourseName='sdfsdfsdfsdfsdfsdfsdfsdfCloud Technologies' placementRank={3} />
+                    <Card link='/test' type='course' courseCode='IDG1200' fullCourseName='sdfsdfsdfsdfsdfsdfsdfsdfCloud Technologies' placementRank={3} />
 
 
-                    <Card type='course' courseCode='IDG1200' fullCourseName='Cloud Technologies' placementRank={3} />
+                    <Card link='/test' type='course' courseCode='IDG1200' fullCourseName='Cloud Technologies' placementRank={3} />
 
 
-                    <Card type='course' courseCode='IDG1200' fullCourseName='Cloud Technologies' placementRank={3} />
+                    <Card link='/test' type='course' courseCode='IDG1200' fullCourseName='Cloud Technologies' placementRank={3} />
 
 
                 </ul>
@@ -49,10 +49,10 @@ class MyResults extends Component {
 
                 <h3>Semestertekst</h3> {/* For eksempel: "Spring 2021" */}
                 <ul className='my-results grid-container'>
-                    <Card type='course' courseCode='IDG1200' fullCourseName='Cloud Technologies' placementRank={3} />
-                    <Card type='course' courseCode='IDG1200' fullCourseName='Information Structures and Database Systems' placementRank={3} />
-                    <Card type='course' courseCode='IDG1200' fullCourseName='Full-stack development' placementRank={3} />
-                    <Card type='course' courseCode='IDG1200' fullCourseName='Service Design ' placementRank={3} />
+                    <Card link='/test' type='course' courseCode='IDG1200' fullCourseName='Cloud Technologies' placementRank={3} />
+                    <Card link='/test' type='course' courseCode='IDG1200' fullCourseName='Information Structures and Database Systems' placementRank={3} />
+                    <Card link='/test' type='course' courseCode='IDG1200' fullCourseName='Full-stack development' placementRank={3} />
+                    <Card link='/test' type='course' courseCode='IDG1200' fullCourseName='Service Design ' placementRank={3} />
                 </ul>
             </>
         );
