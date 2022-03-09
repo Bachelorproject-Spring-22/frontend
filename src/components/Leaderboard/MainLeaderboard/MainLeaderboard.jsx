@@ -18,6 +18,11 @@ function MainLeaderboard(props) {
 
                 <Table data={data} />
             </article>
+
+            <article>
+                <h2>Individual Course Leaderboards</h2>
+                <p>Explore the leaderboards for the courses you have this semester</p>
+            </article>
         </section>
     )
 }

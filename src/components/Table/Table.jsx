@@ -2,7 +2,7 @@ import React from "react";
 import './table.css';
 
 function Table({ data }) {
-    console.log(data);
+    //console.log(data);
     
     const sorted = data.sort((a,b) => (a.score < b.score) ? 1 : ((b.score < a.score) ? -1 : 0))
 

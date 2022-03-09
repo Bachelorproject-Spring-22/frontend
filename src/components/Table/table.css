@@ -2,6 +2,7 @@
     width: 100%;
     border: 1px solid var(--default-stroke);
     border-radius: 6px;
+    margin: 1rem 0;
 }
 
 .table-board thead {
