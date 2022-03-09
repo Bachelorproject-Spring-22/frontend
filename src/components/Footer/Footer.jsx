@@ -1,15 +1,18 @@
+import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import NtnuLogo from '../../assets/ntnu_uten_slagord_neg.png';
-import Button from '../Button/Button';
+/* import Button from '../Button/Button'; */
 import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
 import './footer.css';
 
+
+const Button = lazy(() => import('../Button/Button'));
 
 function Footer() {
     const scroll = () => {
         window.scroll(0, 0);
     }
-    
+
     return (
         <footer>
             <h3>The Kahoot! League</h3>
@@ -34,7 +37,9 @@ function Footer() {
             </section>
             <section className="logo-arrow">
                 <img src={NtnuLogo} alt="ntnu-logo" className="footer-logo" />
-                <Button onClick={scroll} label={""} icon={<ArrowUpwardRoundedIcon/>} variant={'fab'} ariaLabel={"Scroll to top"}/>
+                <Suspense fallback="loading button...">
+                    <Button onClick={scroll} label={""} icon={<ArrowUpwardRoundedIcon />} variant={'fab'} ariaLabel={"Scroll to top"} />
+                </Suspense>
             </section>
             <section>
                 <div id="wcb" className="carbonbadge wcb-d"></div>
