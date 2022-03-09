@@ -1,12 +1,12 @@
 import './card.css';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 /* Denne må endres når vi vet hvordan payload-en fra back-end ser ut. Komponentet er dermed ikke avansert at all */
 
 function Card(props) {
     return (
-        <li >
-            <NavLink className={"card"} to="/test">
+        <li>
+            <Link className="card" to="/test">
             {
                 props.type === 'course' ? (
                         <div>
@@ -22,7 +22,7 @@ function Card(props) {
                         </div>
                 )
             }
-            </NavLink>
+            </Link>
         </li>
     );
 }
