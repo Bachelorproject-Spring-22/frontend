@@ -10,12 +10,17 @@
     text-overflow: ellipsis;
 }
 
+.navlink {
+    padding: -1rem;
+}
+
 .card p {
     color: var(--white-middle-emphasis)
 }
 
 .card h3 {
     margin: 0;
+    line-break: loose;
 }
 
 .card:hover {
