@@ -1,12 +1,12 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
-function SEO({title, description, meta}) {
+function SEO({ title, description }) {
     return (
         <Helmet
-            title = {title}
-            htmlAttributes = {{ lang: "en"}}
-            meta = {[
+            title={title}
+            htmlAttributes={{ lang: "en" }}
+            meta={[
                 {
                     name: 'description',
                     content: description,

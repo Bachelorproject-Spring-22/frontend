@@ -1,3 +1,4 @@
+import { HelmetProvider } from 'react-helmet-async';
 import { useEffect, useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AuthContext from './helpers/AuthContext';
@@ -38,61 +39,63 @@ function App() {
     })
 
     return (
-        <div className='grid-container'>
-            <NavBar auth={contextData} />
-            <div className="app">
-                {/* <CookieBanner/> */}
-                <main>
-                    <Routes>
-                        <Route element={<Home />} path='/' exact />
+        <HelmetProvider>
+            <div className='grid-container'>
+                <NavBar auth={contextData} />
+                <div className="app">
+                    {/* <CookieBanner/> */}
+                    <main>
+                        <Routes>
+                            <Route element={<Home />} path='/' exact />
 
-                        <Route element={
-                            <StudentRoute>
-                                <MyResults />
-                            </StudentRoute>
-                        } path='/home/*' exact />
+                            <Route element={
+                                <StudentRoute>
+                                    <MyResults />
+                                </StudentRoute>
+                            } path='/home/*' exact />
 
-                        <Route element={
-                            <PrivateRoute>
-                                <h1>leaderboard</h1>
-                            </PrivateRoute>
-                        } path='/leaderboard/*' exact />
+                            <Route element={
+                                <PrivateRoute>
+                                    <h1>leaderboard</h1>
+                                </PrivateRoute>
+                            } path='/leaderboard/*' exact />
 
-                        <Route element={
-                            <TeacherRoute>
-                                <Upload />
-                            </TeacherRoute>
-                        } path='/manage/*' exact />
+                            <Route element={
+                                <TeacherRoute>
+                                    <Upload />
+                                </TeacherRoute>
+                            } path='/manage/*' exact />
 
-                        <Route element={
-                            <PrivateRoute>
-                                <Settings data={contextData} />
-                            </PrivateRoute>
-                        } path='/settings/*' exact />
+                            <Route element={
+                                <PrivateRoute>
+                                    <Settings data={contextData} />
+                                </PrivateRoute>
+                            } path='/settings/*' exact />
 
-                        <Route element={
-                            <AnoRoute>
-                                <Login />
-                            </AnoRoute>
-                        } path="/login" exact />
+                            <Route element={
+                                <AnoRoute>
+                                    <Login />
+                                </AnoRoute>
+                            } path="/login" exact />
 
-                        <Route element={
-                            <PrivateRoute>
-                                <Logout />
-                            </PrivateRoute>
-                        } path="/logout" exact />
+                            <Route element={
+                                <PrivateRoute>
+                                    <Logout />
+                                </PrivateRoute>
+                            } path="/logout" exact />
 
-                        <Route path='/about/*' element={<About />} exact />
-                        <Route path='/developer' element={<WorkProgress />} exact />
+                            <Route path='/about/*' element={<About />} exact />
+                            <Route path='/developer' element={<WorkProgress />} exact />
 
-                        <Route path='/403' element={<Denied />} exact />
-                        <Route path='*' element={<NotFound />} />
+                            <Route path='/403' element={<Denied />} exact />
+                            <Route path='*' element={<NotFound />} />
 
-                    </Routes>
-                </main>
-                <Footer />
+                        </Routes>
+                    </main>
+                    <Footer />
+                </div>
             </div>
-        </div>
+        </HelmetProvider>
     );
 }
 
