@@ -4,7 +4,7 @@ import SEO from '../../SEO/SEO';
 function MainAbout() {
     return (
         <>
-            <SEO title="About - The Kahoot! League" />
+            <SEO title="About" />
             <p className='subtitle'>About</p>
 
             <section className='about'>

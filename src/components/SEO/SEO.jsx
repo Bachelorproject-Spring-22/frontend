@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 function SEO({ title, description }) {
     return (
         <Helmet
-            title={title}
+            title={`${title} - The Kahoot! League`}
             htmlAttributes={{ lang: "en" }}
             meta={[
                 {

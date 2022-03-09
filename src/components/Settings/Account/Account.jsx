@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../../Button/Button";
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import Popup from "../../PopUp/PopUp";
+import SEO from "../../SEO/SEO";
 
 function Account(props) {
     const data = props.data;
@@ -15,6 +16,7 @@ function Account(props) {
         <>
         {popUp ? <Popup content={<p>Popup</p>} /> : null}
             <section className='account-settings'>
+                <SEO title='Account Settings' />
                 <h1>Account</h1>
                 <p className="subtitle">{data.user.username}</p>
 

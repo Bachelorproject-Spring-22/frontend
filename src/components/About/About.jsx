@@ -4,10 +4,12 @@ import MainAbout from "./MainAbout/MainAbout";
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
 import TermsOfService from "./TermsOfService/TermsOfService";
 import './about.css';
+import SEO from "../SEO/SEO";
 
 function About() {
     return (
         <>
+        <SEO title="About" />
             <nav>
                 <Link to="/" className='breadcrumbItem'>Home</Link>
                 &#8250;

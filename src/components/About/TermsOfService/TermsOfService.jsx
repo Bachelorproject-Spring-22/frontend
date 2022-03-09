@@ -4,7 +4,7 @@ import SEO from '../../SEO/SEO';
 function TermsOfService() {
     return (
         <>
-            <SEO title="Terms of Service - The Kahoot! League" />
+            <SEO title="Terms of Service" />
             <p className='subtitle'>terms of service</p>
 
             <section className='about'>

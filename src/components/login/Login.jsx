@@ -57,7 +57,7 @@ class Login extends Component {
     render() {
         return (
             <>
-                <SEO title="Log in - The Kahoot! League" />
+                <SEO title="Log in" />
                 <h1>The Kahoot! League</h1>
                 <p className='subtitle login'>LOG IN</p>
                 <p className='login'>If you have been invited to The Kahoot! League, you can enter your provided username and password below.</p>

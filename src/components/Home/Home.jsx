@@ -4,11 +4,13 @@ import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
 import Phone from '../../assets/phone.avif';
 import Sky from '../../assets/sky.jpg';
 import './Home.css';
+import SEO from '../SEO/SEO';
 
 function Home(props) {
 
     return (
         <>
+            <SEO title='Home' />
             <div className='test1'>
                 <header>
                     <h1>The Kahoot!-League</h1>

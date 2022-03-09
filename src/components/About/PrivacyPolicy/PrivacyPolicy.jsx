@@ -4,7 +4,7 @@ function PrivacyPolicy() {
 
     return (
         <>
-            <SEO title="Privacy Policy - The Kahoot! League" />
+            <SEO title="Privacy Policy" />
             <p className='subtitle'>Privacy Policy</p>
 
             <section className='about'>

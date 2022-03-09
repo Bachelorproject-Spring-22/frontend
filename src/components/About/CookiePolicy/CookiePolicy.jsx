@@ -1,6 +1,9 @@
+import SEO from "../../SEO/SEO";
+
 function CookiePolicy() {
     return (
         <>
+            <SEO title="Cookie Policy" />
             <p className='subtitle'>Cookie Policy</p>
 
             <section>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Card from '../Card/Card';
+import SEO from '../SEO/SEO';
 import './my-results.css';
 
 class MyResults extends Component {
@@ -10,6 +11,7 @@ class MyResults extends Component {
     render() {
         return (
             <>
+                <SEO title='My Results' />
                 <h1>My Results</h1>
                 
                 <h2>Aggregated leaderboards</h2>
