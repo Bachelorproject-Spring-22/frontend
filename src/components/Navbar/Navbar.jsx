@@ -37,7 +37,7 @@ function NavBar(props) {
                         (<>
                             <div>
                                 {role === 'student' ?
-                                    (<NavLink to="/" className="bn-a">
+                                    (<NavLink to="/home" className="bn-a">
                                         <div className='bn-tab'>
                                             <HomeRoundedIcon fontSize='medium' />
                                             <p>Home</p>
@@ -80,7 +80,7 @@ function NavBar(props) {
                         {loggedIn ? (
                             <>
                                 {role === 'student' ?
-                                    (<NavLink to="/" className="bn-a">
+                                    (<NavLink to="/home" className="bn-a">
                                         <div className='bn-tab'>
                                             <HomeRoundedIcon fontSize='medium' />
                                             <p>Home</p>
