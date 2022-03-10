@@ -25,26 +25,29 @@ ChartJS.register(
 
 export const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
         legend: {
             position: 'top',
             labels: {
                 color: 'rgba(255, 255, 255, 0.87)'
             }
-        },
-        title: {
-            display: true,
-            text: 'Chart.js Bar Chart',
-            color: '#fff'
-        },
+        }
     },
     scales: {
         y: {
+            grid: {
+                display: true,
+                color: "#BEAFD0"
+              },
             ticks: {
                 color: 'rgba(255, 255, 255, 0.87)'
             }
         },
         x: {
+            grid: {
+                display: false,
+              },
             ticks: {
                 color: 'rgba(255, 255, 255, 0.87)'
             }
@@ -79,7 +82,7 @@ function createGradient(ctx, area) {
 const BarChart = () => {
     const [chartData, setChartData] = useState({
         datasets: []
-      });
+    });
 
     const chartRef = useRef(Bar);
 
@@ -100,8 +103,7 @@ const BarChart = () => {
         };
 
         setChartData(chartData);
-    },[]);
-
+    }, []);
 
     return (
         <Bar ref={chartRef} options={options} data={chartData} />

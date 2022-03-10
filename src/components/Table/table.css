@@ -15,7 +15,7 @@
 
 .table-board tbody tr td,
 .table-board thead tr th {
-    padding: 0 8px;
+    padding: 0 .5rem;
     height: 2rem;
 }
 

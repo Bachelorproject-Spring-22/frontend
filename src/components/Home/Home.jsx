@@ -5,7 +5,7 @@ import Phone from '../../assets/phone.avif';
 import Sky from '../../assets/sky.jpg';
 import './Home.css';
 import SEO from '../SEO/SEO';
-import BarChart from '../Chart/Chart';
+import BarChart from '../Chart/BarChart';
 
 function Home(props) {
 
