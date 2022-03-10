@@ -11,6 +11,7 @@ import { checkExp } from './helpers/functions';
 import StudentRoute from './routes/StudentRoute';
 import Home from './components/Home/Home';
 import AnoRoute from './routes/AnoRoute';
+import Loading from './components/Loading/Loading';
 
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const MyResults = lazy(() => import('./components/MyResults/MyResults'));
@@ -100,7 +101,7 @@ function App() {
                             </Routes>
                         </Suspense>
                     </main>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<Loading />}>
                         <Footer />
                     </Suspense>
                 </div>

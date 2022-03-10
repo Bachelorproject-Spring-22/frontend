@@ -1,10 +1,11 @@
-import Loader from 'react-loader-spinner';
+import { RotatingLines } from 'react-loader-spinner';
+import './loading.css';
 
 function Loading() {
     return (
-        <>
-            <Loader type='Circles' color='#fff' height={80} width={80} />
-        </>
+        <div className='loading'>
+            <RotatingLines width="50" strokeColor="#BEAFD0" animationDuration='1' />
+        </div>
     );
 }
 
