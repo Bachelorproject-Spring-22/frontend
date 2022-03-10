@@ -11,7 +11,7 @@ function checkExp (authTokens) {
 function checkDiff(unix) {
     const now = Date.now();
     const input = unix * 1000;
-    console.log(`now: ${now}, input: ${input}`);
+    //console.log(`now: ${now}, input: ${input}`);
     if (input < now) {
         return true;
     } else {
