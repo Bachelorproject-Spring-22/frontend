@@ -5,6 +5,7 @@ import Phone from '../../assets/phone.avif';
 import Sky from '../../assets/sky.jpg';
 import './Home.css';
 import SEO from '../SEO/SEO';
+import BarChart from '../Chart/Chart';
 
 function Home(props) {
 
@@ -16,7 +17,7 @@ function Home(props) {
                     <h1>The Kahoot!-League</h1>
                     <p className='subtitle'>the ultimate league for learning</p>
                 </header>
-
+                <BarChart />
                 <Link to='/login'><Button label={"log in"} icon={<LoginRoundedIcon />} /></Link>
             </div>
 
