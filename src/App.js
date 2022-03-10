@@ -49,7 +49,6 @@ function App() {
                         <Suspense fallback={<div>Loading...</div>}>
                             <Routes>
                                 <Route element={<Home />} path='/' exact />
-                                <Route element={<Home />} path='/hometest' exact />
                                 <Route element={
                                     <StudentRoute>
                                         <MyResults />
