@@ -1,4 +1,6 @@
 import Card from "../../Card/Card";
+import PieChart from '../../Chart/PieChart';
+import './individual-quiz.css';
 
 function IndividualQuiz(props) {
     return (
@@ -13,15 +15,15 @@ function IndividualQuiz(props) {
                 <Card link='#' type='individual' number='4th' label='Place' />
             </ul>
 
-            <div>
-                <p>PLACEHOLDER FOR PIE CHART</p>
+            <div className="chart-container-pie">
+                <PieChart />
             </div>
 
             <h2>More Quizzes</h2>
             <ul>
                 <Card type='quiz' quizNumber={2} correctAnswers={3} incorrectAnswers={8} />
             </ul>
-            
+
         </section>
     );
 }

@@ -82,6 +82,11 @@ h5 {
     margin-top: 1.3125rem;
 }
 
+th {
+    font: 700 1.125rem "Open Sans", Arial, sans-serif;
+    text-transform: capitalize;
+}
+
 .subtitle {
     color: var(--white-middle-emphasis);
     font: 700 1.125rem "Open Sans", Arial, sans-serif;
