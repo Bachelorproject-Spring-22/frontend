@@ -31,6 +31,7 @@ function App() {
         let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
         if (authTokens) {
             const expired = checkExp(authTokens);
+            console.log(expired);
             if (expired) {
                 getter();
             }
@@ -48,7 +49,12 @@ function App() {
                     <main>
                         <Suspense fallback={<div>Loading...</div>}>
                             <Routes>
-                                <Route element={<Home />} path='/' exact />
+                                <Route element={
+                                    <AnoRoute>
+                                        <Home />
+                                    </AnoRoute>
+                                } path='/' exact />
+
                                 <Route element={
                                     <StudentRoute>
                                         <MyResults />
