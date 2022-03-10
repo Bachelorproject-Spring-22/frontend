@@ -9,6 +9,7 @@ import SEO from '../../SEO/SEO';
 
 function MainSettings(props) {
     const data = props.data;
+    const username = data.user.username ? data.user.username : 'user';
 
     return (
         <section className='account'>
@@ -19,7 +20,7 @@ function MainSettings(props) {
                     <div>
                         <AccountCircleRoundedIcon />
                         <p className='button-label'>Account</p>
-                        <p className='user-text'>{data.user.username}</p>
+                        <p className='user-text'>{username}</p>
                     </div>
                 </Link>
 
