@@ -1,27 +1,19 @@
-import { useState } from "react";
 import Button from "../../Button/Button";
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
-import Popup from "../../PopUp/PopUp";
 import SEO from "../../SEO/SEO";
 
 function Account(props) {
     const data = props.data;
-    const [popUp, setPopUp] = useState(false);
-
-    const handleClick = () => {
-        setPopUp(prevState => !prevState);
-    }
 
     return (
         <>
-        {popUp ? <Popup content={<p>Popup</p>} /> : null}
             <section className='account-settings'>
                 <SEO title='Account Settings' />
                 <h1>Account</h1>
                 <p className="subtitle">{data.user.username}</p>
 
                 <article>
-                    <div onClick={handleClick}>
+                    <div>
                         <p>Email</p>
                         <p className="user-text">Edit</p>
                     </div>

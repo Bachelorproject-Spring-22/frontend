@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../components/Loading/Loading';
 //import { login } from '../api/apiCalls';
 
 const AuthContext = createContext();
@@ -62,7 +63,7 @@ export const AuthProvider = ({children}) => {
 
     return (
         <AuthContext.Provider value={contextData} >
-            {loading ? null : children}
+            {loading ? <Loading /> : children}
         </AuthContext.Provider>
     )
 }
