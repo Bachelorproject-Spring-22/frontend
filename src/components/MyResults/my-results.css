@@ -14,12 +14,12 @@
 .my-results.grid-container {
     display: grid;
     gap: 1rem;
-    align-items: stretch;
     grid-template-columns: 1fr;
+    grid-auto-rows: 1fr; /* https://stackoverflow.com/a/44490047/14447555 */
 }
 
 .my-results.grid-container a{
-    justify-items: stretch;
+    height: 100%;
 }
 
 .my-results.grid-container .card {
@@ -35,10 +35,9 @@
     margin: 2rem 0;
 }
 
-
+/* for desktop */
 @media only screen and (min-width: 769px) { 
     .my-results.grid-container {
         grid-template-columns: repeat(2, 1fr);
-        
     }
 }
