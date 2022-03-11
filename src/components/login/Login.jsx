@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import AuthContext from '../../helpers/AuthContext';
 import { Link } from 'react-router-dom';
-import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
-import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
-import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
 import './login.css';
 import Button from '../Button/Button';
 import SEO from '../SEO/SEO';
@@ -85,12 +82,10 @@ class Login extends Component {
                                 value={this.state.password}
                             />
 
-                            <span className='showPassword'>
-                                {this.state.showPassword ? <VisibilityOffRoundedIcon onClick={this.handleShowPassword} onMouseDown={this.handleMouseDownPassword} /> : <VisibilityRoundedIcon onClick={this.handleShowPassword} onMouseDown={this.handleMouseDownPassword} />}
-                            </span>
+                            
                         </div>
 
-                        <Button label='Log In' icon={<LoginRoundedIcon />} type='submit' />
+                        <Button label='Log In' type='submit' />
                     </form>
                 </fieldset>
             </>
