@@ -5,7 +5,6 @@ import Phone from '../../assets/phone.avif';
 import Sky from '../../assets/sky.jpg';
 import './Home.css';
 import SEO from '../SEO/SEO';
-import BarChart from '../Chart/Chart';
 import Loading from '../Loading/Loading';
 
 function Home(props) {
@@ -19,7 +18,6 @@ function Home(props) {
                     <p className='subtitle'>the ultimate league for learning</p>
                 </header>
                 <Loading />
-                <BarChart />
                 <Link to='/login'><Button label={"log in"} icon={<LoginRoundedIcon />} /></Link>
             </div>
 

@@ -12,6 +12,7 @@ import StudentRoute from './routes/StudentRoute';
 import Home from './components/Home/Home';
 import AnoRoute from './routes/AnoRoute';
 import Loading from './components/Loading/Loading';
+import Manage from './components/Manage/Manage';
 
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const MyResults = lazy(() => import('./components/MyResults/MyResults'));
@@ -48,7 +49,7 @@ function App() {
                 <div className="app">
                     {/* <CookieBanner/> */}
                     <main>
-                        <Suspense fallback={<div>Loading...</div>}>
+                        <Suspense fallback={<Loading />}>
                             <Routes>
                                 <Route element={
                                     <AnoRoute>
@@ -58,19 +59,19 @@ function App() {
 
                                 <Route element={
                                     <StudentRoute>
-                                        <MyResults />
+                                        <MyResults data={contextData} />
                                     </StudentRoute>
                                 } path='/home/*' exact />
 
                                 <Route element={
                                     <PrivateRoute>
-                                        <Leaderboard />
+                                        <Leaderboard data={contextData} />
                                     </PrivateRoute>
                                 } path='/leaderboard/*' exact />
 
                                 <Route element={
                                     <TeacherRoute>
-                                        <Upload />
+                                        <Manage data={contextData} />
                                     </TeacherRoute>
                                 } path='/manage/*' exact />
 

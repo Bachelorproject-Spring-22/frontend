@@ -1,0 +1,15 @@
+.main-manage article {
+    margin: 2rem 0;
+}
+
+.main-manage article h2 {
+    margin-bottom: 1rem;
+}
+
+.main-manage article h3 {
+    margin-top: 0;
+}
+
+.main-manage article>button {
+    margin-bottom: 2rem;
+}

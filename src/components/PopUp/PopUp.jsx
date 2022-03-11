@@ -30,7 +30,7 @@ function PopUp(props) {
     return (
         <div className='popup-box'>
             <div ref={wrapperRef} className="box">
-                <span className='close-icon' onClick={props.handleClose}>x</span>
+                {/* <span className='close-icon' onClick={props.handleClose}>x</span> */}
                 {props.content}
             </div>
         </div>
