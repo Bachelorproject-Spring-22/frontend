@@ -1,14 +1,14 @@
 import React, { lazy, Suspense, useMemo } from "react";
 import Button from "../../Button/Button";
 import makeData from "../../Table/makeData";
-import Table from "../../Table/Table";
+/* import Table from "../../Table/Table"; */
 import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
 import { Link } from "react-router-dom";
 import Card from "../../Card/Card";
-/* import BarChart from '../../Chart/BarChart'; */
 import './individual-results.css'
 
 const BarChart = lazy(() => import('../../Chart/BarChart'));
+const Table = lazy(() => import('../../Table/Table'));
 
 function IndividualResults(props) {
     const data = useMemo(() => makeData(3), []);
@@ -18,17 +18,21 @@ function IndividualResults(props) {
             <h1>Full-Stack Web Development</h1>
             <p className='subtitle'>IDG2100</p>
 
-            <Table data={data} />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Table data={data} />
+            </Suspense>
             <Link to='/leaderboard/idg2100'>
                 <Button label='See Full Leaderboard' icon={<LeaderboardRoundedIcon />} />
             </Link>
 
             <h2>Latest Quiz Performance</h2>
-            <div className="chart-container">
-                <Suspense fallback={<div>Loading...</div>}>
+
+            <Suspense fallback={<div>Loading...</div>}>
+                <div className="chart-container">
                     <BarChart labels={[]} data={[]} /> {/* Dataen bør vel bli gitt via props... */}
-                </Suspense>
-            </div>
+                </div>
+            </Suspense>
+
 
 
             <h2>Latest Quizes</h2>

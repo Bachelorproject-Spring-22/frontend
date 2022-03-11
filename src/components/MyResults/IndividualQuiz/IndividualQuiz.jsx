@@ -1,6 +1,8 @@
 import Card from "../../Card/Card";
-import PieChart from '../../Chart/PieChart';
+import React, { lazy, Suspense } from "react";
 import './individual-quiz.css';
+
+const PieChart = lazy(() => import('../../Chart/PieChart'));
 
 function IndividualQuiz(props) {
     return (
@@ -15,9 +17,13 @@ function IndividualQuiz(props) {
                 <Card link='#' type='individual' number='4th' label='Place' />
             </ul>
 
-            <div className="chart-container-pie">
-                <PieChart />
-            </div>
+
+            <Suspense fallback={<div>Loading...</div>}>
+                <div className="chart-container-pie">
+                    <PieChart />
+                </div>
+            </Suspense>
+
 
             <h2>More Quizzes</h2>
             <ul>
