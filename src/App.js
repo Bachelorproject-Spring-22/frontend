@@ -71,6 +71,7 @@ function App() {
 
                                 <Route element={
                                     <TeacherRoute>
+                                        <Upload />
                                         <Manage data={contextData} />
                                     </TeacherRoute>
                                 } path='/manage/*' exact />
