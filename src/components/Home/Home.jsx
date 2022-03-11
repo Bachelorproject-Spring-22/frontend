@@ -1,10 +1,40 @@
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
-import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
+/* import LoginRoundedIcon from '@mui/icons-material/LoginRounded'; */
 import Phone from '../../assets/phone.avif';
 import Sky from '../../assets/sky.jpg';
 import './Home.css';
 import SEO from '../SEO/SEO';
+
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import ArrowRightRoundedIcon from '@mui/icons-material/ArrowRightRounded';
+import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
+import BuildRoundedIcon from '@mui/icons-material/BuildRounded';
+import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
+import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
+import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
+import ExpandLessRoundedIcon from '@mui/icons-material/ExpandLessRounded';
+import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
+import FileUploadRoundedIcon from '@mui/icons-material/FileUploadRounded';
+import GppMaybeRoundedIcon from '@mui/icons-material/GppMaybeRounded';
+import GroupAddRoundedIcon from '@mui/icons-material/GroupAddRounded';
+import GroupRemoveRoundedIcon from '@mui/icons-material/GroupRemoveRounded';
+import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
+import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
+import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
+import LockRoundedIcon from '@mui/icons-material/LockRounded';
+import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import RestoreRoundedIcon from '@mui/icons-material/RestoreRounded';
+import SaveRoundedIcon from '@mui/icons-material/SaveRounded';
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
+import TextFieldsRoundedIcon from '@mui/icons-material/TextFieldsRounded';
+import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
+import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 
 function Home(props) {
 
@@ -16,6 +46,36 @@ function Home(props) {
                     <h1>The Kahoot!-League</h1>
                     <p className='subtitle'>the ultimate league for learning</p>
                 </header>
+                <AccountCircleRoundedIcon />
+                <ArrowRightRoundedIcon />
+                <ArrowUpwardRoundedIcon />
+                <BuildRoundedIcon />
+                <CancelRoundedIcon />
+                <DarkModeRoundedIcon />
+                <DeleteRoundedIcon />
+                <ErrorRoundedIcon />
+                <ExpandLessRoundedIcon />
+                <ExpandMoreRoundedIcon />
+                <FileUploadRoundedIcon />
+                <GppMaybeRoundedIcon />
+                <GroupAddRoundedIcon />
+                <GroupRemoveRoundedIcon />
+                <HelpRoundedIcon />
+                <HomeRoundedIcon />
+                <InfoRoundedIcon />
+                <LanguageRoundedIcon />
+                <LeaderboardRoundedIcon />
+                <LockRoundedIcon />
+                <LoginRoundedIcon />
+                <LogoutRoundedIcon />
+                <RestoreRoundedIcon />
+                <SaveRoundedIcon />
+                <SearchRoundedIcon />
+                <SettingsRoundedIcon />
+                <TextFieldsRoundedIcon />
+                <VisibilityOffRoundedIcon />
+                <VisibilityRoundedIcon />
+
                 <Link to='/login'><Button label={"log in"} icon={<LoginRoundedIcon />} /></Link>
             </div>
 
