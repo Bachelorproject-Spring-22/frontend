@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useMemo } from "react";
+import React, { lazy, Suspense, useMemo, useState } from "react";
 import Button from "../../Button/Button";
 import makeData from "../../Table/makeData";
 import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
@@ -12,6 +12,13 @@ const Table = lazy(() => import('../../Table/Table'));
 
 function IndividualResults(props) {
     const data = useMemo(() => makeData(3), []);
+
+    const [showBarChart, setChart] = useState(false);
+
+    /* bare copy paste */
+    const handleClick = () => {
+        setChart(prevState => true);
+    }
 
     return (
         <section className='individual-results'>
@@ -28,9 +35,12 @@ function IndividualResults(props) {
             <h2>Latest Quiz Performance</h2>
 
             <div className="chart-container">
-                <Suspense fallback={<Loading />}>
-                    <BarChart labels={[]} data={[]} /> {/* Dataen bør vel bli gitt via props... */}
-                </Suspense>
+                {showBarChart ?
+                    <Suspense fallback={<Loading />}>
+                        <BarChart labels={[]} data={[]} />
+                    </Suspense> :
+                    <p onClick={handleClick}>Show bar chart</p>
+                }
             </div>
 
 
