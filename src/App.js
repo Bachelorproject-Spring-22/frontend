@@ -49,7 +49,7 @@ function App() {
                 <div className="app">
                     {/* <CookieBanner/> */}
                     <main>
-                        <Suspense fallback={<Loading />}>
+                        <Suspense fallback={null}>
                             <Routes>
                                 <Route element={
                                     <AnoRoute>

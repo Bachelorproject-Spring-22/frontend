@@ -1,11 +1,11 @@
 import React, { lazy, Suspense, useMemo } from "react";
 import Button from "../../Button/Button";
 import makeData from "../../Table/makeData";
-/* import Table from "../../Table/Table"; */
 import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
 import { Link } from "react-router-dom";
 import Card from "../../Card/Card";
-import './individual-results.css'
+import './individual-results.css';
+import Loading from '../../Loading/Loading';
 
 const BarChart = lazy(() => import('../../Chart/BarChart'));
 const Table = lazy(() => import('../../Table/Table'));
@@ -18,7 +18,7 @@ function IndividualResults(props) {
             <h1>Full-Stack Web Development</h1>
             <p className='subtitle'>IDG2100</p>
 
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading />}>
                 <Table data={data} />
             </Suspense>
             <Link to='/leaderboard/idg2100'>
@@ -27,11 +27,12 @@ function IndividualResults(props) {
 
             <h2>Latest Quiz Performance</h2>
 
-            <Suspense fallback={<div>Loading...</div>}>
-                <div className="chart-container">
+            <div className="chart-container">
+                <Suspense fallback={<Loading />}>
                     <BarChart labels={[]} data={[]} /> {/* Dataen bør vel bli gitt via props... */}
-                </div>
-            </Suspense>
+                </Suspense>
+            </div>
+
 
 
 

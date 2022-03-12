@@ -1,6 +1,7 @@
 import Card from "../../Card/Card";
 import React, { lazy, Suspense } from "react";
 import './individual-quiz.css';
+import Loading from "../../Loading/Loading";
 
 const PieChart = lazy(() => import('../../Chart/PieChart'));
 
@@ -18,7 +19,7 @@ function IndividualQuiz(props) {
             </ul>
 
 
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading />}>
                 <div className="chart-container-pie">
                     <PieChart />
                 </div>
