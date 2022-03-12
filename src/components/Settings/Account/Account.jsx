@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "../../Button/Button";
-
+import Icon from '../../Icon/Icon';
 import Popup from "../../PopUp/PopUp";
 import SEO from "../../SEO/SEO";
 import Card from "../../Card/Card";
@@ -35,7 +35,7 @@ function Account(props) {
                         <p className="user-text">Edit</p>
                     </div>
                 </article>
-                <Button label='Log Out'  variant='secondary destructive' onClick={data.logoutUser} />
+                <Button label='Log Out' variant='secondary destructive' onClick={data.logoutUser} icon={<Icon iconId="logout"/>}/>
             </section>
         </>
     );

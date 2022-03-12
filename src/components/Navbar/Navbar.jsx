@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import './navbar.css';
+import Icon from '../Icon/Icon';
 
 function NavBar(props) {
     const auth = props.auth;
@@ -32,15 +33,15 @@ function NavBar(props) {
                         (<>
                             <div>
                                 {role === 'student' ?
-                                    (<NavLink to="/home" className="bn-a">
+                                    (<NavLink to='/home' className='bn-a'>
                                         <div className='bn-tab'>
-                                           
+                                        <Icon iconId='home'/>
                                             <p>Home</p>
                                         </div>
                                     </NavLink>) : null}
                                 <NavLink to="/leaderboard" className="bn-a">
                                     <div className='bn-tab'>
-                                        
+                                    <Icon iconId='leaderboard'/>
                                         <p>Leaderboard</p>
                                     </div>
                                 </NavLink>
@@ -48,14 +49,14 @@ function NavBar(props) {
                                 {role === 'superAdmin' || role === 'teacher' ?
                                     <NavLink to="/manage" className="bn-a">
                                         <div className='bn-tab'>
-                                            
+                                        <Icon iconId='build'/>
                                             <p>Manage</p>
                                         </div>
                                     </NavLink> : null}
                             </div>
                             <NavLink to="/settings" className="bn-a settings">
                                 <div className='bn-tab'>
-                                    
+                                <Icon iconId='settings'/>
                                     <p>Settings</p>
                                 </div>
                             </NavLink>
@@ -63,7 +64,7 @@ function NavBar(props) {
                         (
                             <NavLink to="/" className="bn-a">
                                 <div className='bn-tab'>
-                                    
+                                    <Icon iconId='home'/>
                                     <p>Home</p>
                                 </div>
                             </NavLink>
@@ -77,32 +78,32 @@ function NavBar(props) {
                                 {role === 'student' ?
                                     (<NavLink to="/home" className="bn-a">
                                         <div className='bn-tab'>
-                                            
+                                        <Icon iconId='home'/>
                                             <p>Home</p>
                                         </div>
                                     </NavLink>) : null}
                                 <NavLink to="/leaderboard" className="bn-a">
                                     <div className='bn-tab'>
-                                        
+                                    <Icon iconId='leaderboard'/>
                                         <p>Leaderboard</p>
                                     </div>
                                 </NavLink>
                                 {role === 'superAdmin' || role === 'teacher' ? <NavLink to="/manage" className="bn-a">
                                     <div className='bn-tab'>
-                                        
+                                    <Icon iconId='build'/>
                                         <p>Manage</p>
                                     </div>
                                 </NavLink> : null}
                                 <NavLink to="/settings" className="bn-a">
                                     <div className='bn-tab'>
-                                        
+                                    <Icon iconId='settings'/>
                                         <p>Settings</p>
                                     </div>
                                 </NavLink></>
                         ) : (
                             <NavLink to="/" className="bn-a">
                                 <div className='bn-tab'>
-                                    
+                                <Icon iconId='home'/>
                                     <p>Home</p>
                                 </div>
                             </NavLink>
@@ -111,7 +112,7 @@ function NavBar(props) {
                 </>
             )}
         </nav>
-    )
+    );
 }
 
 export default NavBar;

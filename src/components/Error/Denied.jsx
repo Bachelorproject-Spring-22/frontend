@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
+import Icon from '../Icon/Icon';
 import './error.css';
 
 function Denied() {
@@ -7,6 +8,7 @@ function Denied() {
         <section className='error'>
             <h1>The Kahoot! League</h1>
             <div>
+                <Icon iconId='gppmaybe' size='large'/>
                 <h3>Page Not Found!</h3>
                 <p>
                     You do not have permission to view this page. You can return to the home page.

@@ -1,11 +1,9 @@
-import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import NtnuLogo from '../../assets/ntnu_uten_slagord_neg.png';
-/* import Button from '../Button/Button'; */
+import Button from '../Button/Button';
+import Icon from '../Icon/Icon';
 import './footer.css';
 
-
-const Button = lazy(() => import('../Button/Button'));
 
 function Footer() {
     const scroll = () => {
@@ -37,9 +35,7 @@ function Footer() {
                 </section>
                 <section className="logo-arrow">
                     <img src={NtnuLogo} alt="ntnu-logo" className="footer-logo" />
-                    <Suspense fallback="loading button...">
-                        <Button onClick={scroll} label={""} variant={'fab'} ariaLabel={"Scroll to top"} />
-                    </Suspense>
+                        <Button onClick={scroll} label={""} variant={'fab'} ariaLabel={"Scroll to top"} icon={<Icon iconId="arrow_upward"/>}/>
                 </section>
                 <section>
                     <div id="wcb" className="carbonbadge wcb-d"></div>

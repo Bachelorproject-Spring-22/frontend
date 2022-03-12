@@ -116,11 +116,3 @@ blink {
 nobr {
     white-space: normal;
 }
-
-.icon {
-    fill: currentColor;
-    height: 24px;
-    overflow: hidden;
-    vertical-align: -.15em;
-    width: 24px;
-}
