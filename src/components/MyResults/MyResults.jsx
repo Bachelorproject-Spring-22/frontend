@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
-import IndividualQuiz from './IndividualQuiz/IndividualQuiz';
+import IndividualQuizResults from './IndividualQuizResults/IndividualQuizResults';
 import IndividualResults from './IndividualResults/IndividualResults';
 import MainResults from './MainResults/MainResults';
 import './my-results.css';
@@ -25,7 +25,7 @@ class MyResults extends Component {
                 <Routes>
                     <Route exact path='/' element={<MainResults />} />
                     <Route exact path='/idg2100' element={<IndividualResults />} />
-                    <Route exact path='/idg2100/quiz1' element={<IndividualQuiz />} />
+                    <Route exact path='/idg2100/quiz1' element={<IndividualQuizResults />} />
                 </Routes>
             </>
         );

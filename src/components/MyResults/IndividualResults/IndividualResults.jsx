@@ -17,7 +17,7 @@ function IndividualResults(props) {
 
     /* bare copy paste */
     const handleClick = () => {
-        setChart(prevState => true);
+        setChart(showBarChart => true);
     }
 
     return (
@@ -43,12 +43,10 @@ function IndividualResults(props) {
                 }
             </div>
 
-
-
-
             <h2>Latest Quizes</h2>
-            <ul>
+            <ul className="cards-grid-container">
                 <Card type='quiz' link='/home/idg2100/quiz1' quizNumber={1} correctAnswers={9} incorrectAnswers={1} />
+                <Card type='quiz' link='/home/idg2100/quiz2' quizNumber={4} correctAnswers={12} incorrectAnswers={7} />
             </ul>
         </section>
     );

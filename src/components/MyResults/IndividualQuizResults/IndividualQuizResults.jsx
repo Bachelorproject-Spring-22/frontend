@@ -1,11 +1,11 @@
 import Card from "../../Card/Card";
 import React, { lazy, Suspense } from "react";
-import './individual-quiz.css';
+import './individual-quiz-results.css';
 import Loading from "../../Loading/Loading";
 
 const PieChart = lazy(() => import('../../Chart/PieChart'));
 
-function IndividualQuiz(props) {
+function IndividualQuizResults(props) {
     return (
         <section>
             <h1>Full-Stack Web Development</h1>
@@ -35,4 +35,4 @@ function IndividualQuiz(props) {
     );
 }
 
-export default IndividualQuiz;
+export default IndividualQuizResults;

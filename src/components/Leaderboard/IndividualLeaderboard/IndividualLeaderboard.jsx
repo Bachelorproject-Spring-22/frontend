@@ -7,8 +7,10 @@ function IndividualLeaderboard(props) {
 
     return (
         <section className='inidividual-leaderboard'>
-            <h1>Full-Stack Web Development</h1>
-            <p className='subtitle'>Leaderboard</p>
+            <header>
+                <h1>Full-Stack Web Development</h1>
+                <p className='subtitle'>Leaderboard</p>
+            </header>
             <p className='middle-emphasis'>The leaderboard display the top students from the last 8 quizes.</p>
             <Table data={data} />
         </section>

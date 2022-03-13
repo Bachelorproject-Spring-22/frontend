@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FileUploadRoundedIcon from '@mui/icons-material/FileUploadRounded';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import GroupAddRoundedIcon from '@mui/icons-material/GroupAddRounded';
+import { Link } from "react-router-dom";
 import Button from '../../Button/Button';
 
 function MainManage({ data }) {
@@ -12,7 +13,10 @@ function MainManage({ data }) {
             <article>
                 <h2>Quizes</h2>
                 <Button label='Upload New Quiz Results' icon={<FileUploadRoundedIcon />} />
-                <Button label='Delete Existing Quiz Results' icon={<DeleteRoundedIcon />} />
+
+                <Link to='/manage/quizzes'>
+                    <Button label='Manage Existing Quiz Results' icon={<DeleteRoundedIcon />} />
+                </Link>
             </article>
             <article>
                 <h2>Users</h2>

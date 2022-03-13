@@ -11,11 +11,11 @@
     height: 3rem;
 }
 
-.my-results.grid-container {
+/* .my-results.grid-container {
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr;
-    grid-auto-rows: 1fr; /* https://stackoverflow.com/a/44490047/14447555 */
+    grid-auto-rows: 1fr;  https://stackoverflow.com/a/44490047/14447555
 }
 
 .my-results.grid-container a{
@@ -25,7 +25,7 @@
 .my-results.grid-container .card {
     display:grid;
     place-items: center;
-}
+} */
 
 .individual-quiz {
     display: grid;
@@ -35,9 +35,8 @@
     margin: 2rem 0;
 }
 
-/* for desktop */
-@media only screen and (min-width: 769px) { 
+/* @media only screen and (min-width: 769px) { 
     .my-results.grid-container {
         grid-template-columns: repeat(2, 1fr);
     }
-}
+} */

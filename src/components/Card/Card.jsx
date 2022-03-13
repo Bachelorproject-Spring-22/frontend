@@ -12,7 +12,7 @@ function Card({ link = '/test', type, courseCode, fullCourseName, placementRank,
                     <Link className="card" to={link}>
                         <div>
                             <h3>{courseCode} – {fullCourseName} </h3>
-                            <p>Placement: {placementRank}</p>
+                            {placementRank ? <p>Placement: {placementRank}</p> : null}
                         </div>
                     </Link>
                 ) : type === 'quiz' ? (

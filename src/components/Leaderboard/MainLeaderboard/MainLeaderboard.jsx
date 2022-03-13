@@ -12,7 +12,7 @@ function MainLeaderboard(props) {
         <section className='leaderboard'>
             <SEO title='Leaderboard' />
 
-            <h1>Leaderboards</h1>
+            <header><h1>Leaderboards</h1></header>
             <article>
                 <h2>Semester Leaderboard</h2>
                 <p>The top students this semester.</p>

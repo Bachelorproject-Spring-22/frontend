@@ -1,5 +1,4 @@
 .button {
-
     display: flex;
     min-height: 48px;
     width: 100%;
@@ -93,6 +92,31 @@
     border-color: var(--destructive-color-clicked);
     color: var(--destructive-color-clicked);
 }
+
+/*
+* BUTTONS TEXT-ONLY
+*/
+.text-only {
+    display:inline;
+    width: auto;
+    background:none;
+    border:none;
+    border-radius: none;
+    margin:0;
+    cursor: pointer;
+    color: var(--primary-color-lightest);
+}
+
+.text-only:hover {
+    background: unset;
+    text-decoration: underline;
+}
+
+.button:active {
+    box-shadow: none;
+    color: var(--primary-color-light);
+}
+
 
 /*
 * BUTTONS FAB
