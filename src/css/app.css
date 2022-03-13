@@ -53,9 +53,26 @@ header h1 {
 
 .option-list-flex-container li:nth-child(even) { 
     background-color: rgba(255, 255, 255, 0.05);
+}
+fieldset *{
+    margin-bottom: 1rem;
+}
 
-    /* --elevation2: rgba(22, 20, 26, 0.05);
-    --elevation3: rgba(22, 20, 26, 0.07); */
+textarea, input {
+    background-color: var(--elevation1);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    font-weight: 400;
+    width: 100%;
+    resize: none;
+    padding: .5rem;
+    overflow: auto;
+    font-size: 1rem;
+}
+
+textarea{
+    height: 9rem;
 }
 
 /* For desktop */

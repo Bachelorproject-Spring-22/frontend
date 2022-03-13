@@ -33,6 +33,20 @@ function MainManage({ data }) {
                         </>
                     ) : null
                 }
+
+                {data.user.role === 'teacher' ?
+                    (
+                        <>
+                            <fieldset>
+                                <label className='large-label' htmlFor='courses'>Pick your course for this semester</label>
+                                <input placeholder='search...'/>
+                                <textarea name='courses' id='courses' placeholder='IDG2100' wrap='off'></textarea>
+    
+                                <Button type='submit' label='Save course choices' icon={<GroupAddRoundedIcon />} />
+                            </fieldset>
+                        </>
+                    ) : null
+                }
             </article>
         </section>
     );

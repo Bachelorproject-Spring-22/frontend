@@ -23,8 +23,9 @@ function MainLeaderboard(props) {
             <article>
                 <h2>Individual Course Leaderboards</h2>
                 <p>Explore the leaderboards for the courses you have this semester</p>
+                
                 <ul>
-                    <Card type='course' link='/leaderboard/idg2100' courseCode='IDG2100' fullCourseName='Fullstack' placementRank={1} />
+                    <Card type='course' link='/leaderboard/idg2100' courseCode='IDG2100' fullCourseName='Fullstack'/>
                 </ul>
             </article>
         </section>

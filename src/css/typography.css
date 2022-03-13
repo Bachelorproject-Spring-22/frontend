@@ -48,7 +48,7 @@ h3 {
 }
 
 h2,
-h3 {
+h3, .large-label {
     line-height: 2.625rem;
 }
 
@@ -70,7 +70,7 @@ h1 {
     line-height: 3.9375rem;
 }
 
-h2 {
+h2, .large-label {
     font-size: 2rem;
     margin-bottom: 1.3125rem;
 }
@@ -110,4 +110,8 @@ a,
 label {
     font-weight: 700;
     text-transform: capitalize;
+}
+
+label {
+    display: block;
 }
