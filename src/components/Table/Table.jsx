@@ -14,6 +14,7 @@ function Table({ data }) {
                     <th>Rank</th>
                     <th>Username</th>
                     <th>Score</th>
+                    <th>piss</th>
                 </tr>
             </thead>
             
@@ -23,6 +24,7 @@ function Table({ data }) {
                         <td>{index + 1}</td>
                         <td>{user.username}</td>
                         <td>{user.score.toLocaleString()}</td>
+                        <td>888</td>
                     </tr>
                 ))}
             </tbody>
