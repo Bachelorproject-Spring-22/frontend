@@ -16,6 +16,7 @@ footer div h3 {
 footer div section {
     display: flex;
     margin: 4rem 0;
+    gap: 2rem;
 }
 
 footer div section img {
