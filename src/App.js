@@ -17,7 +17,7 @@ import managePageBackend from './components/HOC/ManageHOC';
 
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const MyResults = lazy(() => import('./components/MyResults/MyResults'));
-const Upload = lazy(() => import('./components/TestComponent/Upload'));
+//const Upload = lazy(() => import('./components/TestComponent/Upload'));
 const Settings = lazy(() => import('./components/Settings/Settings'));
 const Login = lazy(() => import('./components/Login/Login'));
 const Logout = lazy(() => import('./components/Login/Logout'));
@@ -74,7 +74,6 @@ function App() {
 
                                 <Route element={
                                     <TeacherRoute>
-                                        <Upload />
                                         <ManageHOC data={contextData} />
                                     </TeacherRoute>
                                 } path='/manage/*' exact />

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AuthContext from '../../helpers/AuthContext';
 import PopUp from '../PopUp/PopUp';
+import Upload from '../TestComponent/Upload';
 
 function managePageBackend(WrappedComponent) {
     class ManageHOC extends Component {
@@ -9,20 +10,27 @@ function managePageBackend(WrappedComponent) {
             super(props);
             this.state = {
                 error: null,
-                uploadPop: null,
-                addStudent: null,
-                addTeacher: null
+                uploadPop: false,
+                addStudent: false,
+                addTeacher: false
             }
         }
 
+        togglePop = (position) => {
+            console.log(position);
+            this.setState({
+                [position]: !this.state[position]
+            })
+        }
+
         render() {
-            console.log(this.context);
+            //Husk å endre komponentene i popup
             return (
                 <>
-                    <WrappedComponent {...this.props} />
-                    {this.state.uploadPop && <PopUp content={<p>Upload</p>} />}
-                    {this.state.addStudent && <PopUp content={<p>Student</p>} />}
-                    {this.state.addTeacher && <PopUp content={<p>Teacher</p>} />}
+                    <WrappedComponent handleOpen={this.togglePop} {...this.props} />
+                    {this.state.uploadPop && <PopUp type='uploadPop' content={<p>Upload</p>} handleClose={this.togglePop} />}
+                    {this.state.addStudent && <PopUp type='addStudent' content={<p>Student</p>} handleClose={this.togglePop} />}
+                    {this.state.addTeacher && this.context.user.role === 'superAdmin' && <PopUp type='addTeacher' content={<Upload />} handleClose={this.togglePop} />}
                 </>
             );
         }
