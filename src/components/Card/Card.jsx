@@ -4,15 +4,16 @@ import PropTypes from 'prop-types';
 
 /* Denne må endres når vi vet hvordan payload-en fra back-end ser ut. Komponentet er dermed ikke avansert at all */
 
-function Card({ link = '/test', type, courseCode, fullCourseName, placementRank, quizNumber, correctAnswers, incorrectAnswers, number, label }) {
+function Card({ id, link = '/test', type, courseCode, fullCourseName, rank, quizNumber, correctAnswers, incorrectAnswers, number, label, getId }) {
+
     return (
         <li>
             {
                 type === 'course' ? (
-                    <Link className="card" to={link}>
+                    <Link className="card" to={link} onClick={() => getId(id)}>
                         <div>
                             <h3>{courseCode} – {fullCourseName} </h3>
-                            {placementRank ? <p>Placement: {placementRank}</p> : null}
+                            {rank ? <p>Placement: {rank}</p> : null}
                         </div>
                     </Link>
                 ) : type === 'quiz' ? (

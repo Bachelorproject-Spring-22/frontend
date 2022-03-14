@@ -5,6 +5,7 @@ import './leaderboard.css';
 import IndividualLeaderboard from './IndividualLeaderboard/IndividualLeaderboard';
 
 function Leaderboard(props) {
+    console.log(props);
     return (
         <>
             <nav>
@@ -12,7 +13,7 @@ function Leaderboard(props) {
                 &#8250;
                 <Link to="/leaderboard" className='breadcrumbItem' >Leaderboard</Link>
                 <Routes>
-                    <Route exact path='/idg2100' element={<>&#8250; <Link to="/leaderboard/idg2100" className='breadcrumbItem' >IDG2100</Link></>} />
+                    <Route exact path='/idg2100' element={<>&#8250; <Link to="/leaderboard/" className='breadcrumbItem' >IDG2100</Link></>} />
                 </Routes>
             </nav>
 

@@ -26,7 +26,7 @@ function IndividualLeaderboard(props) {
                 <p className='subtitle'>Leaderboard</p>
             </header>
             <section>
-                <p className='middle-emphasis'>The leaderboard display the top students from the last 8 quizes.</p>
+                <p className='middle-emphasis'>The leaderboard display the top students from the last 8 quizzes.</p>
 
                 <div className='inidividual-leaderboard'>
                     {(role === 'teacher' || role === 'superAdmin') && (isDesktop ? <Button onClick={() => props.handleOpen('uploadPop')} label='' size='no-size' variant='fab'/> : <Button onClick={() => props.handleOpen('uploadPop')} label='upload new quiz'/>)}

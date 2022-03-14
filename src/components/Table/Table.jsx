@@ -2,9 +2,7 @@ import React from "react";
 import './table.css';
 
 function Table({ data }) {
-    //console.log(data);
-    
-    const sorted = data.sort((a,b) => (a.score < b.score) ? 1 : ((b.score < a.score) ? -1 : 0))
+    const sorted = data.sort((a,b) => (a.totalScore < b.totalScore) ? 1 : ((b.totalScore < a.totalScore) ? -1 : 0))
 
 
     return (
@@ -20,11 +18,11 @@ function Table({ data }) {
             
             <tbody>
                 {sorted.map((user, index) => (
-                    <tr key={user.username}>
+                    <tr key={user._id}>
                         <td>{index + 1}</td>
-                        <td>{user.username}</td>
-                        <td>{user.score.toLocaleString()}</td>
-                        <td>888</td>
+                        <td>{user._id}</td>
+                        <td>{user.totalScore.toLocaleString()}</td>
+                        <td>{user.quizzesAttended}</td>
                     </tr>
                 ))}
             </tbody>
