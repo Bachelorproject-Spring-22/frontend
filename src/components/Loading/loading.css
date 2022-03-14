@@ -1,4 +1,8 @@
- .loader {
+.loading-container {
+    margin: 0 auto;
+}
+
+.loader {
     animation: spin 1s linear infinite;
     border: 8px solid var(--primary-color-lightest);
     border-radius: 50%;
