@@ -23,7 +23,7 @@ function MainResults(props) {
                 <Card link='/home/idg2100' type='course' courseCode='IDG2100' fullCourseName='Full-Stack Web Development' placementRank={1} />
                 <Card type='course' courseCode='IDG2009' fullCourseName='Kommunikasjon' placementRank={3} />
                 <Card type='course' courseCode='IDG3101' fullCourseName='Fordypningsprosjekt' placementRank={3} />
-                <Card type='course' courseCode='IDG3006' fullCourseName='Tingenes web' placementRank={3} />
+                <Card type='loading' courseCode='IDG3006' fullCourseName='Tingenes web' placementRank={3} />
 
 
             </ul>
