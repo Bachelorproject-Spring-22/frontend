@@ -2,15 +2,15 @@ p.login {
     margin-bottom: 1rem;
 }
 
-/* Denne fucker opp for popups også */
+/* Disse fucker opp for popups også */
 
 /* fieldset {
     margin: 2rem 0;
 } */
 
-label {
+/* label {
     font-size: 2rem;
-}
+} */
 
 input{
     display: block;
