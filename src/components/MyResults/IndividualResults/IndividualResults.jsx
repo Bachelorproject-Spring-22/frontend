@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useMemo, useState } from "react";
 import Button from "../../Button/Button";
 import makeData from "../../Table/makeData";
-import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
+import Icon from '../../Icon/Icon';
 import { Link } from "react-router-dom";
 import Card from "../../Card/Card";
 import './individual-results.css';
@@ -29,7 +29,7 @@ function IndividualResults(props) {
                 <Table data={data} />
             </Suspense>
             <Link to='/leaderboard/idg2100'>
-                <Button label='See Full Leaderboard' icon={<LeaderboardRoundedIcon />} />
+                <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard"/>} />
             </Link>
 
             <h2>Latest Quiz Performance</h2>
