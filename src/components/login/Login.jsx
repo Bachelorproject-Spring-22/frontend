@@ -46,7 +46,7 @@ class Login extends Component {
         if (this.validation) {
             const { username, password } = this.state;
             const res = await this.context.loginUser({ username, password });
-            console.log(res);
+            console.log(res); // Add error handling
         }
     }
 

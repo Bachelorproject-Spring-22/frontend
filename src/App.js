@@ -13,6 +13,7 @@ import Home from './components/Home/Home';
 import AnoRoute from './routes/AnoRoute';
 import Loading from './components/Loading/Loading';
 import Manage from './components/Manage/Manage';
+import managePageBackend from './components/HOC/ManageHOC';
 
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const MyResults = lazy(() => import('./components/MyResults/MyResults'));
@@ -28,6 +29,7 @@ const Leaderboard = lazy(() => import('./components/Leaderboard/Leaderboard'));
 
 function App() {
     const contextData = useContext(AuthContext);
+    
 
     useEffect(() => {
         let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
@@ -42,6 +44,7 @@ function App() {
         window.scroll(0, 0);
     })
 
+    const ManageHOC = managePageBackend(Manage);
     return (
         <HelmetProvider>
             <div className='grid-container'>
@@ -72,7 +75,7 @@ function App() {
                                 <Route element={
                                     <TeacherRoute>
                                         <Upload />
-                                        <Manage data={contextData} />
+                                        <ManageHOC data={contextData} />
                                     </TeacherRoute>
                                 } path='/manage/*' exact />
 
