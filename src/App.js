@@ -16,6 +16,7 @@ import Manage from './components/Manage/Manage';
 import managePageBackend from './components/HOC/ManageHOC';
 import resultHoc from './components/HOC/ResultHOC';
 import leaderboardHoc from './components/HOC/LeaderboardHOC';
+import settingHoc from './components/HOC/SettingHOC';
 
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const MyResults = lazy(() => import('./components/MyResults/MyResults'));
@@ -31,7 +32,6 @@ const Leaderboard = lazy(() => import('./components/Leaderboard/Leaderboard'));
 
 function App() {
     const contextData = useContext(AuthContext);
-    
 
     useEffect(() => {
         let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
@@ -49,6 +49,7 @@ function App() {
     const ManageHOC = managePageBackend(Manage);
     const ResultHOC = resultHoc(MyResults);
     const LeaderboardHOC = leaderboardHoc(Leaderboard);
+    const SettingHOC = settingHoc(Settings);
     return (
         <HelmetProvider>
             <div className='grid-container'>
@@ -84,7 +85,7 @@ function App() {
 
                                 <Route element={
                                     <PrivateRoute>
-                                        <Settings data={contextData} />
+                                        <SettingHOC data={contextData} />
                                     </PrivateRoute>
                                 } path='/settings/*' exact />
 

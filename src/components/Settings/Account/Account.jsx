@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import Button from "../../Button/Button";
 import Icon from '../../Icon/Icon';
 import Popup from "../../PopUp/PopUp";
@@ -6,23 +6,20 @@ import SEO from "../../SEO/SEO";
 import Card from "../../Card/Card";
 
 function Account(props) {
+    console.log(props);
     const data = props.data;
-    const [popUp, setPopUp] = useState(false);
-
-    const handleClick = () => {
-        setPopUp(prevState => !prevState);
-    }
+    const togglePop = props.togglePop;
 
     return (
         <>
-        {popUp ? <Popup content={<Card />} handleClose={handleClick} /> : null}
+        {props.email ? <Popup content={<Card />} handleClose={() => togglePop('email')} /> : null}
             <section className='account-settings'>
                 <SEO title='Account Settings' />
                 <h1>Account</h1>
                 <p className="subtitle">{data.user.username}</p>
 
                 <article>
-                    <div onClick={handleClick}>
+                    <div onClick={() => togglePop('email')}>
                         <p>Email</p>
                         <p className="user-text">Edit</p>
                     </div>
