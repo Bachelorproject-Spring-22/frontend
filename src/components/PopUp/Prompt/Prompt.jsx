@@ -8,7 +8,7 @@ function Prompt({ modalTitle, bodyText, labelText }) {
                 <legend>{modalTitle}</legend>
                 <p>{bodyText}</p>
             </div>
-            <label for='prompt-input' className='small-label'>{labelText}</label>
+            <label htmlFor='prompt-input' className='small-label'>{labelText}</label>
             <input id='prompt-input'/>
             <div className='buttons-side-by-side'>
                 <Button label='cancel' variant='secondary' />
