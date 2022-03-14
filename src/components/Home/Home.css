@@ -7,29 +7,43 @@
 }
 
 .home-parent {
-    height: 300vh;
+    margin-bottom: 4rem;
+    height: auto;
     grid-auto-flow: row;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
-    gap: 2rem 0;
+    gap: 3rem 0;
     grid-template-areas: "introduction-1""introduction-2""introduction-3"
 }
 
+#introduction-1,
+#introduction-2,
+#introduction-3 {
+    justify-items: center;
+    display: grid;
+}
+
 #introduction-1 {
+    background-color: red;
     grid-area: introduction-1
 }
 
 #introduction-2 {
+    background-color: green;
     grid-area: introduction-2
 }
 
 #introduction-3 {
+    background-color: blue;
     grid-area: introduction-3
 }
 
-.home-parent img {
-    max-width: 100%
+#image1,
+#image2,
+#image3 {
+    max-width: 100%;
+    max-height: 66vh;
 }
 
 .home-parent article {
@@ -42,25 +56,34 @@
     }
 }
 
+/* for desktop */
 @media only screen and (min-width:769px) {
 
     #introduction-1,
     #introduction-2,
     #introduction-3 {
-        align-items: center;
         display: grid;
         gap: 0 1rem;
         grid-auto-flow: row;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr;
+        justify-items: center;
+        align-items: center;
     }
 
     #introduction-1 {
         grid-template-areas: "image1 text1";
     }
 
+    #image1,
+    #image2,
+    #image3 {
+        max-width: 468px;
+        justify-self: center;
+    }
+
     #image1 {
-        grid-area: image1
+        grid-area: image1;
     }
 
     #text1 {

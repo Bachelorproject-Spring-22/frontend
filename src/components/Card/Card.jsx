@@ -29,6 +29,10 @@ function Card({ link = '/test', type, courseCode, fullCourseName, placementRank,
                         <h3>{number.toLocaleString()}</h3>
                         {label ? <p className='subtitle'>{label}</p> : <p>–</p>}
                     </div>
+                ) : type === 'loading' ? (
+                    <div className='card loading'>
+                        
+                    </div>
                 ) : (null)
             }
         </li>
