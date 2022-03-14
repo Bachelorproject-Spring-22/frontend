@@ -5,24 +5,15 @@ import UploadQuiz from '../PopUp/UploadQuiz/UploadQuiz';
 
 function leaderboardHoc(WrappedComponent) {
     class LeaderboardHOC extends Component {
-        _isMounted = false;
         constructor(props) {
             super(props);
             this.state = {
                 error: null,
                 uploadPop: false,
-                courses: [],
-                semesterLeaderBoard: [],
+                courses: null,
+                semesterLeaderBoard: null,
                 isLoading: true,
-                courseData: []
-            }
-        }
-
-        async componentDidMount() {
-            this._isMounted = true;
-            
-            if(this.state.courses !== [] || this.state.semesterLeaderBoard !== []) { // Finn en fix på dette!!
-                await this.fetchLeaderboard();
+                courseData: null
             }
         }
 
@@ -35,7 +26,7 @@ function leaderboardHoc(WrappedComponent) {
                 const courses = res.data.data.courses;
                 const semesterLeaderBoard = res.data.data.semesterLeaderBoard;
 
-                this._isMounted && this.setState({
+                this.setState({
                     courses,
                     semesterLeaderBoard,
                     isLoading: false
@@ -49,8 +40,9 @@ function leaderboardHoc(WrappedComponent) {
             if(res.error) {
                 console.log(res.error);
             } else {
-                this._isMounted && this.setState({
-                    courseData: res.data.data.totalScore
+                this.setState({
+                    courseData: res.data.data.totalScore,
+                    isLoading: false
                 });
             }
         }
@@ -66,14 +58,10 @@ function leaderboardHoc(WrappedComponent) {
             console.log(data);
         }
 
-        componentWillUnmount() {
-            this._isMounted = false;
-        }
-
         render() {
             return (
                 <>
-                    <WrappedComponent courseData={this.state.courseData} fetchCourse={this.fetchCourseBoard} loading={this.state.isLoading} courses={this.state.courses} semesterLeaderBoard={this.state.semesterLeaderBoard} handleOpen={this.togglePop} error={this.state.error} {...this.props} />
+                    <WrappedComponent fetchLeaderboard={this.fetchLeaderboard} courseData={this.state.courseData} fetchCourse={this.fetchCourseBoard} loading={this.state.isLoading} courses={this.state.courses} semesterLeaderBoard={this.state.semesterLeaderBoard} handleOpen={this.togglePop} error={this.state.error} {...this.props} />
                     {this.state.uploadPop && <PopUp handleClose={this.togglePop} type='uploadPop' content={<UploadQuiz onSubmit={this.uploadQuiz} handleClose={this.togglePop} />} />}
                 </>
             );

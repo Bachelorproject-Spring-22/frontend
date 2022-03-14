@@ -9,6 +9,7 @@ function IndividualLeaderboard(props) {
     const location = props.location;
     const data = props.courseData;
     const loading = props.loading;
+    const fetchCourse = props.fetchCourse;
     
     const [isDesktop, setDesktop] = useState(window.innerWidth > 415);
 
@@ -17,10 +18,10 @@ function IndividualLeaderboard(props) {
     }
 
     useEffect(() => {
-        props.fetchCourse(location);
+        fetchCourse(location);
         window.addEventListener("resize", updateMedia);
         return () => window.removeEventListener("resize", updateMedia);
-    }, []);
+    }, [fetchCourse, location]);
 
     return (
         <>

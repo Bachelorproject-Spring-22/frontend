@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Card from '../../Card/Card';
 import Loading from '../../Loading/Loading';
 import SEO from "../../SEO/SEO";
 import Table from "../../Table/Table";
 
 function MainLeaderboard(props) {
-    const { semesterLeaderBoard, courses, loading } = props;
+    const { semesterLeaderBoard, courses, loading, fetchLeaderboard } = props;
     console.log(props);
+
+    useEffect(() => {
+        fetchLeaderboard();
+    }, [fetchLeaderboard])
 
     return (
         <section className='leaderboard'>

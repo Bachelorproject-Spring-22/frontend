@@ -26,7 +26,7 @@ function IndividualResults(props) {
             <p className='subtitle'>IDG2100</p>
 
             <Suspense fallback={<Loading />}>
-                <Table data={data} />
+                {/* <Table data={data} /> */}
             </Suspense>
             <Link to='/leaderboard/idg2100'>
                 <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard"/>} />
