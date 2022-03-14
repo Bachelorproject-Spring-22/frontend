@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
-import LockRoundedIcon from '@mui/icons-material/LockRounded';
-import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
-import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
-import TextFieldsRoundedIcon from '@mui/icons-material/TextFieldsRounded';
-import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
+import Icon from '../../Icon/Icon';
 import SEO from '../../SEO/SEO';
+
+/* override styles for icons in the settings page */
+const iconStyle = {
+    fill: 'rgba(255, 255, 255, 0.87)'
+};
 
 function MainSettings(props) {
     const data = props.data;
@@ -18,7 +18,7 @@ function MainSettings(props) {
             <article>
                 <Link to='/settings/account'>
                     <div>
-                        <AccountCircleRoundedIcon />
+                        <Icon iconId='account_circle' style={iconStyle} />
                         <p className='button-label'>Account</p>
                         <p className='user-text'>{username}</p>
                     </div>
@@ -26,14 +26,14 @@ function MainSettings(props) {
 
                 <Link to='/settings/anonymity'>
                     <div>
-                        <LockRoundedIcon />
+                    <Icon iconId='lock' style={iconStyle} />
                         <p className='button-label'>Anonymity</p>
                         <p className='user-text'>Disabled</p>
                     </div>
                 </Link>
                 <Link to='/settings/language'>
                     <div>
-                        <LanguageRoundedIcon />
+                    <Icon iconId='language' style={iconStyle} />
                         <p className='button-label'>Language</p>
                         <p className='user-text'>English</p>
                     </div>
@@ -41,14 +41,14 @@ function MainSettings(props) {
 
                 <Link to='/settings/theme'>
                     <div>
-                        <DarkModeRoundedIcon />
+                    <Icon iconId='dark_mode' style={iconStyle} />
                         <p className='button-label'>Theme</p>
                         <p className='user-text'>Dark</p>
                     </div>
                 </Link>
                 <Link to='/settings/text'>
                     <div>
-                        <TextFieldsRoundedIcon />
+                    <Icon iconId='text_fields' style={iconStyle} />
                         <p className='button-label'>Text Size</p>
                         <p className='user-text'>Default</p>
                     </div>
@@ -56,7 +56,7 @@ function MainSettings(props) {
 
                 <Link to='/settings/help'>
                     <div>
-                        <HelpRoundedIcon />
+                    <Icon iconId='help' style={iconStyle} />
                         <p className='button-label'>Help</p>
                         <p className='user-text'>Any questions?</p>
                     </div>
