@@ -5,7 +5,7 @@ import SEO from "../../SEO/SEO";
 import Table from "../../Table/Table";
 
 function MainLeaderboard(props) {
-    const { semesterLeaderBoard, courses, loading, getId } = props;
+    const { semesterLeaderBoard, courses, loading } = props;
     console.log(props);
 
     return (
@@ -23,11 +23,11 @@ function MainLeaderboard(props) {
             <article>
                 <h2>Individual Course Leaderboards</h2>
                 <p>Explore the leaderboards for the courses you have this semester</p>
-                
-                {loading ? <Loading /> : <ul className='cards-grid-container'>
-                {courses.map((course) => (
-                    <Card key={course._id.courseId} type='course' getId={getId} id={course._id.courseId} link={`/leaderboard/${course._id.courseId}`} courseCode={course._id.code} fullCourseName={course._id.name} rank={course._id.rank} />
-                ))}
+
+                {loading ? <ul><Card type='loading' /></ul> : <ul className='cards-grid-container'>
+                    {courses.map((course) => (
+                        <Card key={course._id.courseId} type='course' link={`/leaderboard/${course._id.courseId}`} courseCode={course._id.code} fullCourseName={course._id.name} rank={course._id.rank} />
+                    ))}
                 </ul>}
             </article>
         </section>

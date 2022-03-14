@@ -3,9 +3,13 @@ import { Link, Route, Routes } from "react-router-dom";
 import MainLeaderboard from './MainLeaderboard/MainLeaderboard';
 import './leaderboard.css';
 import IndividualLeaderboard from './IndividualLeaderboard/IndividualLeaderboard';
+import { useParams } from 'react-router-dom';
+
 
 function Leaderboard(props) {
-    console.log(props);
+    const params = useParams();
+    const location = params['*']
+    
     return (
         <>
             <nav>
@@ -13,13 +17,13 @@ function Leaderboard(props) {
                 &#8250;
                 <Link to="/leaderboard" className='breadcrumbItem' >Leaderboard</Link>
                 <Routes>
-                    <Route exact path='/idg2100' element={<>&#8250; <Link to="/leaderboard/" className='breadcrumbItem' >IDG2100</Link></>} />
+                    <Route exact path={location} element={<>&#8250; <Link to={`/leaderboard/${location}`} className='breadcrumbItem' >{location}</Link></>} />
                 </Routes>
             </nav>
 
             <Routes>
                 <Route exact path='/' element={<MainLeaderboard {...props} />} />
-                <Route exact path='/idg2100' element={<IndividualLeaderboard {...props} />} />
+                <Route exact path={location} element={<IndividualLeaderboard location={location} {...props} />} />
             </Routes>
         </>
     );

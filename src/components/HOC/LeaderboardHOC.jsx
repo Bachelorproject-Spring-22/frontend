@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getLeaderboard } from '../../api/apiCalls';
+import { getCourseBoard, getLeaderboard } from '../../api/apiCalls';
 import PopUp from '../PopUp/PopUp';
 import UploadQuiz from '../PopUp/UploadQuiz/UploadQuiz';
 
@@ -14,13 +14,16 @@ function leaderboardHoc(WrappedComponent) {
                 courses: [],
                 semesterLeaderBoard: [],
                 isLoading: true,
-                clicked: ''
+                courseData: []
             }
         }
 
         async componentDidMount() {
             this._isMounted = true;
-            await this.fetchLeaderboard();
+            
+            if(this.state.courses !== [] || this.state.semesterLeaderBoard !== []) { // Finn en fix på dette!!
+                await this.fetchLeaderboard();
+            }
         }
 
         fetchLeaderboard = async () => {
@@ -31,6 +34,7 @@ function leaderboardHoc(WrappedComponent) {
             } else {
                 const courses = res.data.data.courses;
                 const semesterLeaderBoard = res.data.data.semesterLeaderBoard;
+
                 this._isMounted && this.setState({
                     courses,
                     semesterLeaderBoard,
@@ -39,17 +43,22 @@ function leaderboardHoc(WrappedComponent) {
             }
         }
 
+        fetchCourseBoard = async (params) => {
+            const res = await getCourseBoard(params);
+            console.log(res.data.data.totalScore);
+            if(res.error) {
+                console.log(res.error);
+            } else {
+                this._isMounted && this.setState({
+                    courseData: res.data.data.totalScore
+                });
+            }
+        }
+
         togglePop = (position) => {
             console.log(position);
             this.setState({
                 [position]: !this.state[position]
-            })
-        }
-
-        getId = (id) => {
-            console.log(id);
-            this.setState({
-                clicked: id
             })
         }
 
@@ -64,7 +73,7 @@ function leaderboardHoc(WrappedComponent) {
         render() {
             return (
                 <>
-                    <WrappedComponent id={this.state.clicked} getId={this.getId} loading={this.state.isLoading} courses={this.state.courses} semesterLeaderBoard={this.state.semesterLeaderBoard} handleOpen={this.togglePop} error={this.state.error} {...this.props} />
+                    <WrappedComponent courseData={this.state.courseData} fetchCourse={this.fetchCourseBoard} loading={this.state.isLoading} courses={this.state.courses} semesterLeaderBoard={this.state.semesterLeaderBoard} handleOpen={this.togglePop} error={this.state.error} {...this.props} />
                     {this.state.uploadPop && <PopUp handleClose={this.togglePop} type='uploadPop' content={<UploadQuiz onSubmit={this.uploadQuiz} handleClose={this.togglePop} />} />}
                 </>
             );

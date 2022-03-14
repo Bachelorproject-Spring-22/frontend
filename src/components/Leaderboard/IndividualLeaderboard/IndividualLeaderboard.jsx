@@ -1,12 +1,14 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import makeData from '../../Table/makeData';
-import Table from "../../Table/Table";
+import React, { useState, useEffect } from 'react';
 import Button from '../../Button/Button';
+import Card from '../../Card/Card';
+import Table from '../../Table/Table';
 import './individual-leaderboard.css';
 
 function IndividualLeaderboard(props) {
     const role = props.data.user.role;
-    const data = useMemo(() => makeData(26), []); // Denne fjernes når dataen hentes fra backend
+    const location = props.location;
+    const data = props.courseData;
+    const loading = props.loading;
     
     const [isDesktop, setDesktop] = useState(window.innerWidth > 415);
 
@@ -15,9 +17,10 @@ function IndividualLeaderboard(props) {
     }
 
     useEffect(() => {
+        props.fetchCourse(location);
         window.addEventListener("resize", updateMedia);
         return () => window.removeEventListener("resize", updateMedia);
-    });
+    }, []);
 
     return (
         <>
@@ -28,10 +31,10 @@ function IndividualLeaderboard(props) {
             <section>
                 <p className='middle-emphasis'>The leaderboard display the top students from the last 8 quizzes.</p>
 
-                <div className='inidividual-leaderboard'>
+                {loading ? <ul><Card type='loading' /></ul> : <div className='inidividual-leaderboard'>
                     {(role === 'teacher' || role === 'superAdmin') && (isDesktop ? <Button onClick={() => props.handleOpen('uploadPop')} label='' size='no-size' variant='fab'/> : <Button onClick={() => props.handleOpen('uploadPop')} label='upload new quiz'/>)}
                     <Table data={data} />
-                </div>
+                </div>}
 
                 <Button label='Choose a time frame' variant='secondary'/>
 

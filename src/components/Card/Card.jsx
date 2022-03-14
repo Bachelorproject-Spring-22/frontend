@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 
 /* Denne må endres når vi vet hvordan payload-en fra back-end ser ut. Komponentet er dermed ikke avansert at all */
 
-function Card({ id, link = '/test', type, courseCode, fullCourseName, rank, quizNumber, correctAnswers, incorrectAnswers, number, label, getId }) {
+function Card({ link = '/test', type, courseCode, fullCourseName, rank, quizNumber, correctAnswers, incorrectAnswers, number, label }) {
 
     return (
         <li>
             {
                 type === 'course' ? (
-                    <Link className="card" to={link} onClick={() => getId(id)}>
+                    <Link className="card" to={link} >
                         <div>
                             <h3>{courseCode} – {fullCourseName} </h3>
                             {rank ? <p>Placement: {rank}</p> : null}
@@ -41,7 +41,7 @@ function Card({ id, link = '/test', type, courseCode, fullCourseName, rank, quiz
 }
 
 Card.propTypes = {
-    type: PropTypes.oneOf(['course', 'quiz', 'individual']),
+    type: PropTypes.oneOf(['course', 'quiz', 'individual', 'loading']),
 }
 
 export default Card;

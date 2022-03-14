@@ -12,8 +12,13 @@ const uploadQuiz = (formData) => {
     return axios.post('/upload', {data: formData}, {headers: { "Content-Type": "multipart/form-data" }})
 }
 
+const getCourseBoard = (courseId) => {
+    return axios.get(`/leaderboard/${courseId}`);
+}
+
 export {
     getter,
     getLeaderboard,
-    uploadQuiz
+    uploadQuiz,
+    getCourseBoard
 };
