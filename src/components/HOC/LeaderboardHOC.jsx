@@ -36,7 +36,7 @@ function leaderboardHoc(WrappedComponent) {
 
         fetchCourseBoard = async (params) => {
             const res = await getCourseBoard(params);
-            console.log(res.data.data.totalScore);
+            //console.log(res.data.data.totalScore);
             if(res.error) {
                 console.log(res.error);
             } else {

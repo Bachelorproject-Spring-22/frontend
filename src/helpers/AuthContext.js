@@ -16,7 +16,7 @@ export const AuthProvider = ({children}) => {
 
     let loginUser = async (userData) => {
         const { username, password } = userData;
-        //const response = await login(username, password);
+        //const response = await login({username, password});
         const response = await fetch('/login', {
             method: 'POST',
             headers: {

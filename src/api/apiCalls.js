@@ -1,5 +1,9 @@
 import axios from './axios';
 
+const login = ({ username, password }) => {
+    return axios.post('/login', { username, password }, {headers: { 'Content-Type': 'application/json' }})
+}
+
 const getter = () => {
     return axios.get('/');
 }
@@ -16,9 +20,20 @@ const getCourseBoard = (courseId) => {
     return axios.get(`/leaderboard/${courseId}`);
 }
 
+const fetchHome = () => {
+    return axios.get('/home');
+}
+
+const revokeToken = () => {
+    return axios.post('/api/revokeToken');
+}
+
 export {
+    login,
     getter,
     getLeaderboard,
     uploadQuiz,
-    getCourseBoard
+    getCourseBoard,
+    fetchHome,
+    revokeToken
 };
