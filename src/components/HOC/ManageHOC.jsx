@@ -27,7 +27,7 @@ function managePageBackend(WrappedComponent) {
             //Husk å endre komponentene i popup
             return (
                 <>
-                    <WrappedComponent handleOpen={this.togglePop} {...this.props} />
+                    <WrappedComponent handleOpen={this.togglePop} error={this.state.error} {...this.props} />
                     {this.state.uploadPop && <PopUp type='uploadPop' content={<p>Upload</p>} handleClose={this.togglePop} />}
                     {this.state.addStudent && <PopUp type='addStudent' content={<p>Student</p>} handleClose={this.togglePop} />}
                     {this.state.addTeacher && this.context.user.role === 'superAdmin' && <PopUp type='addTeacher' content={<Upload />} handleClose={this.togglePop} />}

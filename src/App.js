@@ -14,6 +14,7 @@ import AnoRoute from './routes/AnoRoute';
 import Loading from './components/Loading/Loading';
 import Manage from './components/Manage/Manage';
 import managePageBackend from './components/HOC/ManageHOC';
+import resultHoc from './components/HOC/ResultHOC';
 
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const MyResults = lazy(() => import('./components/MyResults/MyResults'));
@@ -45,6 +46,7 @@ function App() {
     })
 
     const ManageHOC = managePageBackend(Manage);
+    const ResultHOC = resultHoc(MyResults);
     return (
         <HelmetProvider>
             <div className='grid-container'>
@@ -62,7 +64,7 @@ function App() {
 
                                 <Route element={
                                     <StudentRoute>
-                                        <MyResults data={contextData} />
+                                        <ResultHOC data={contextData} />
                                     </StudentRoute>
                                 } path='/home/*' exact />
 
