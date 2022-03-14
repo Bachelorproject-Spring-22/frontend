@@ -14,7 +14,7 @@ function Table({ data }) {
                     <th>Rank</th>
                     <th>Username</th>
                     <th>Score</th>
-                    <th>piss</th>
+                    <th>Attended</th>
                 </tr>
             </thead>
             

@@ -5,7 +5,8 @@ import Button from '../../Button/Button';
 import './individual-leaderboard.css';
 
 function IndividualLeaderboard(props) {
-    const data = useMemo(() => makeData(26), []);
+    const role = props.data.user.role;
+    const data = useMemo(() => makeData(26), []); // Denne fjernes når dataen hentes fra backend
     
     const [isDesktop, setDesktop] = useState(window.innerWidth > 415);
 
@@ -28,7 +29,7 @@ function IndividualLeaderboard(props) {
                 <p className='middle-emphasis'>The leaderboard display the top students from the last 8 quizes.</p>
 
                 <div className='inidividual-leaderboard'>
-                    {isDesktop ? <Button label='' variant='fab'/> : <Button label='upload new quiz'/>}
+                    {(role === 'teacher' || role === 'superAdmin') && (isDesktop ? <Button onClick={() => props.handleOpen('uploadPop')} label='' size='no-size' variant='fab'/> : <Button onClick={() => props.handleOpen('uploadPop')} label='upload new quiz'/>)}
                     <Table data={data} />
                 </div>
 

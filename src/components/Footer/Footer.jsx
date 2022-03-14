@@ -35,7 +35,7 @@ function Footer() {
                 </section>
                 <section className="logo-arrow">
                     <img src={NtnuLogo} alt="ntnu-logo" className="footer-logo" />
-                        <Button onClick={scroll} label={""} variant={'fab'} ariaLabel={"Scroll to top"} icon={<Icon iconId="arrow_upward"/>}/>
+                        <Button onClick={scroll} label={""} size='no-size' variant={'fab'} ariaLabel={"Scroll to top"} icon={<Icon iconId="arrow_upward"/>}/>
                 </section>
                 <section>
                     <div id="wcb" className="carbonbadge wcb-d"></div>

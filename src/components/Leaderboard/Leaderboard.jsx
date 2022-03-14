@@ -17,8 +17,8 @@ function Leaderboard(props) {
             </nav>
 
             <Routes>
-                <Route exact path='/' element={<MainLeaderboard />} />
-                <Route exact path='/idg2100' element={<IndividualLeaderboard />} />
+                <Route exact path='/' element={<MainLeaderboard {...props} />} />
+                <Route exact path='/idg2100' element={<IndividualLeaderboard {...props} />} />
             </Routes>
         </>
     );
