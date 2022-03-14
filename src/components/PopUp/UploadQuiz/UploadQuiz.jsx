@@ -1,7 +1,16 @@
+import React, { useState } from 'react';
 import './upload-quiz.css';
 import Button from '../../Button/Button';
 
-function UploadQuiz({ modalTitle, bodyText }) {
+function UploadQuiz({ modalTitle, bodyText, handleClose }) {
+    const [selectedFile, setSelectedFile] = useState(null);
+    const formData = new FormData();
+        formData.append("file", selectedFile);
+
+    const handleFileSelect = (e) => {
+        setSelectedFile(e.target.files[0]);
+    }
+
     return (
         <fieldset>
             <div className='center-text'>
@@ -13,12 +22,12 @@ function UploadQuiz({ modalTitle, bodyText }) {
                     type="file"
                     name="upload"
                     id="upload"
-                    onChange={console.info('change')}
+                    onChange={handleFileSelect}
                 />
                 <p>File must be xyz</p>
                 
                 <div className='buttons-side-by-side'>
-                    <Button variant='secondary' label='cancel'/>
+                    <Button variant='secondary' label='cancel' onClick={() => handleClose('uploadPop')} />
                     <Button type='submit' label='upload file'/>
                 </div>
         </fieldset>
