@@ -5,7 +5,7 @@ import ManageQuizzes from './MainManage/ManageQuizzes/ManageQuizzes'
 import IndividualCourseQuizzes from './MainManage/IndividualCourseQuizzes/IndividualCourseQuizzes'
 import './manage.css';
 
-function Manage({ data }) {
+function Manage(props) {
     return (
         <>
             <nav>
@@ -17,7 +17,7 @@ function Manage({ data }) {
             </nav>
 
             <Routes>
-                <Route exact path='/' element={<MainManage data={data} />} />
+                <Route exact path='/' element={<MainManage data={props.data} {...props} />} />
                 <Route exact path='/quizzes' element={<ManageQuizzes/>} />
                 <Route exact path='/quizzes/idg2100' element={<IndividualCourseQuizzes/>} /> {/* Denne må seff endres til noe fornuftig */}
                 

@@ -7,7 +7,7 @@ function PopUp(props) {
     useEffect(() => {
         function handleOutsideClick(event) {
             if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-                props.handleClose();
+                props.handleClose(props.type);
             }
         }
 
