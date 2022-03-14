@@ -15,6 +15,7 @@ import Loading from './components/Loading/Loading';
 import Manage from './components/Manage/Manage';
 import managePageBackend from './components/HOC/ManageHOC';
 import resultHoc from './components/HOC/ResultHOC';
+import leaderboardHoc from './components/HOC/LeaderboardHOC';
 
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const MyResults = lazy(() => import('./components/MyResults/MyResults'));
@@ -47,6 +48,7 @@ function App() {
 
     const ManageHOC = managePageBackend(Manage);
     const ResultHOC = resultHoc(MyResults);
+    const LeaderboardHOC = leaderboardHoc(Leaderboard);
     return (
         <HelmetProvider>
             <div className='grid-container'>
@@ -70,7 +72,7 @@ function App() {
 
                                 <Route element={
                                     <PrivateRoute>
-                                        <Leaderboard data={contextData} />
+                                        <LeaderboardHOC data={contextData} />
                                     </PrivateRoute>
                                 } path='/leaderboard/*' exact />
 
