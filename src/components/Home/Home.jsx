@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
-/* import Phone from '../../assets/phone.avif';
-import Sky from '../../assets/sky.jpg'; */
 import './Home.css';
 import SEO from '../SEO/SEO';
 import Icon from '../Icon/Icon';

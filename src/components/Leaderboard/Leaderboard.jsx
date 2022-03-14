@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link, Route, Routes } from "react-router-dom";
 import MainLeaderboard from './MainLeaderboard/MainLeaderboard';
 import './leaderboard.css';
 import IndividualLeaderboard from './IndividualLeaderboard/IndividualLeaderboard';
 
-class Leaderboard extends Component {
-    /* constructor(props) {
-        super(props);
-    } */
-    
-    render() { 
-        return (
-            <>
+function Leaderboard(props) {
+    return (
+        <>
             <nav>
                 <Link to="/" className='breadcrumbItem'>Home</Link>
                 &#8250;
@@ -21,13 +16,13 @@ class Leaderboard extends Component {
                 </Routes>
             </nav>
 
-                <Routes>
-                    <Route exact path='/' element={<MainLeaderboard />} />
-                    <Route exact path='/idg2100' element={<IndividualLeaderboard />} />
-                </Routes>
-            </>
-        );
-    }
+            <Routes>
+                <Route exact path='/' element={<MainLeaderboard />} />
+                <Route exact path='/idg2100' element={<IndividualLeaderboard />} />
+            </Routes>
+        </>
+    );
+
 }
 
 export default Leaderboard;
