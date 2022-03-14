@@ -58,6 +58,8 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+
+/* by Chris Sev https://codepen.io/chris__sev/pen/mdrzYQE */
 .card.loading {
     height: 100px;
     background-color: #231C36;
@@ -70,6 +72,6 @@
 
 @keyframes shine {
     to {
-      background-position-x: -200%;
+        background-position-x: -200%;
     }
-  }
+}
