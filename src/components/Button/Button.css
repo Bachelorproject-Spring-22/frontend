@@ -40,16 +40,19 @@
 /*
 * BUTTONS PRIMARY
 */
-.primary, .fab {
+.primary,
+.fab {
     background: var(--button);
 }
 
-.primary:hover, .fab:hover {
+.primary:hover,
+.fab:hover {
     background: var(--button-hover);
     color: rgba(255, 255, 255, 0.9);
 }
 
-.primary:active, .fab:hover {
+.primary:active,
+.fab:hover {
     background: var(--primary-color);
     color: rgba(255, 255, 255, 0.7);
 }
@@ -97,12 +100,12 @@
 * BUTTONS TEXT-ONLY
 */
 .text-only {
-    display:inline;
+    display: inline;
     width: auto;
-    background:none;
-    border:none;
+    background: none;
+    border: none;
     border-radius: none;
-    margin:0;
+    margin: 0;
     cursor: pointer;
     color: var(--primary-color-lightest);
 }
@@ -121,8 +124,25 @@
 /*
 * BUTTONS FAB
 */
-.fab{
+.fab {
     border-radius: 50%;
     width: auto;
     aspect-ratio: 1 / 1;
+}
+
+/*
+* BUTTONS SIZING
+*/
+
+.full-size {
+    width: 100%;
+}
+
+.half-size {
+    width: 49%;
+    /* better for flex */
+}
+
+.no-size {
+    width: unset;
 }

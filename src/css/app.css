@@ -39,8 +39,8 @@ header h1 {
     margin-top: 2rem;
 }
 
-.option-list-flex-container li div{
-    display:flex;
+.option-list-flex-container li div {
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -51,14 +51,16 @@ header h1 {
     background-color: rgba(255, 255, 255, 0.07);
 }
 
-.option-list-flex-container li:nth-child(even) { 
+.option-list-flex-container li:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.05);
 }
-fieldset *{
+
+fieldset * {
     margin-bottom: 1rem;
 }
 
-textarea, input {
+textarea,
+input {
     background-color: var(--elevation1);
     border-radius: 6px;
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -71,8 +73,15 @@ textarea, input {
     font-size: 1rem;
 }
 
-textarea{
+textarea {
     height: 9rem;
+}
+
+.buttons-side-by-side {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    align-items: stretch;
 }
 
 /* For desktop */
