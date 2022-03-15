@@ -1,0 +1,148 @@
+.button {
+    display: flex;
+    min-height: 48px;
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+
+    font: bold 1rem Arial;
+
+    /* Typography*/
+    text-transform: capitalize;
+
+    /* Box model */
+    box-sizing: border-box;
+    margin: .5rem 0;
+    padding: .5rem 1rem;
+
+    /* Visual */
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+/*
+* Shadows for all buttons
+*/
+.button:hover {
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+}
+
+.button:active {
+    transform: translateY(1px);
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+/*
+* BUTTONS PRIMARY
+*/
+.primary,
+.fab {
+    background: var(--button);
+}
+
+.primary:hover,
+.fab:hover {
+    background: var(--button-hover);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.primary:active,
+.fab:hover {
+    background: var(--primary-color);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/*
+* BUTTONS SECONDARY
+*/
+.secondary {
+    background-color: transparent;
+    border: 3px solid var(--primary-color-lightest);
+    color: var(--button);
+}
+
+/* Disse fargene bør endres imo. De er vanskelig å se */
+.secondary:hover {
+    border-color: var(--primary-color-light);
+    color: var(--primary-color-light);
+}
+
+.secondary:active {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/*
+* BUTTONS SECONDARY + destructive
+*/
+.secondary.destructive {
+    border: 3px solid var(--destructive-color);
+    color: var(--destructive-color);
+}
+
+/* Disse fargene bør endres imo. De er vanskelig å se */
+.secondary.destructive:hover {
+    border-color: var(--destructive-color-hover);
+    color: var(--destructive-color-hover);
+}
+
+.secondary.destructive:active {
+    border-color: var(--destructive-color-clicked);
+    color: var(--destructive-color-clicked);
+}
+
+/*
+* BUTTONS TEXT-ONLY
+*/
+.text-only {
+    display: inline;
+    width: auto;
+    background: none;
+    border: none;
+    border-radius: none;
+    margin: 0;
+    cursor: pointer;
+    color: var(--primary-color-lightest);
+}
+
+.text-only:hover {
+    background: unset;
+    text-decoration: underline;
+}
+
+.button:active {
+    box-shadow: none;
+    color: var(--primary-color-light);
+}
+
+
+/*
+* BUTTONS FAB
+*/
+.fab {
+    border-radius: 50%;
+    width: auto;
+    aspect-ratio: 1 / 1;
+}
+
+/*
+* BUTTONS SIZING
+*/
+
+.full-size {
+    width: 100%;
+}
+
+.half-size {
+    width: 49%;
+    /* better for flex */
+}
+
+.no-size {
+    width: unset;
+}

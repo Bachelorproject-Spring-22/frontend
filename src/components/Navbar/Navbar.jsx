@@ -1,84 +1,118 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
-import SettingsIcon from '@mui/icons-material/Settings';
-import BuildRoundedIcon from '@mui/icons-material/BuildRounded';
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import './navbar.css';
+import Icon from '../Icon/Icon';
 
-const NavBar = props => {
-    const history = useNavigate();
-    const [activeTabs, setActiveTabs] = useState(props.name);
+function NavBar(props) {
+    const auth = props.auth;
+    const [isDesktop, setDesktop] = useState(window.innerWidth > 769);
+    const [role, setRole] = useState(null);
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    const updateMedia = () => {
+        setDesktop(window.innerWidth > 769);
+    }
 
     useEffect(() => {
-        switch (activeTabs) {
-            case 'home':
-                history('/results');
-                break;
-            case 'leaderboard':
-                history('/leaderboard');
-                break;
-            case 'manage':
-                history('/manage');
-                break;
-            case 'settings':
-                history('/settings');
-                break;
-            default:
-                history('/');
-                break;
+        if (auth.user) {
+            setRole(auth.user.role);
+            setLoggedIn(true);
+        } else {
+            setRole(null);
+            setLoggedIn(false);
         }
-    }, [activeTabs, history]);
+        window.addEventListener("resize", updateMedia);
+        return () => window.removeEventListener("resize", updateMedia);
+    }, [auth.user]);
 
     return (
-        <div className='bottom-nav'>
-            <div className='bn-tab'>
-                {activeTabs === 'home' ?
-                    <HomeRoundedIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('home')}
-                    /> :
-                    <HomeRoundedIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('home')}
-                    />}
-            </div>
-            <div className='bn-tab'>
-                {activeTabs === 'leaderboard' ?
-                    <LeaderboardRoundedIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('leaderboard')}
-                    /> :
-                    <LeaderboardRoundedIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('leaderboard')}
-                    />}
-            </div>
-            <div className='bn-tab'>
-                {activeTabs === 'manage' ?
-                    <BuildRoundedIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('manage')}
-                    /> :
-                    <BuildRoundedIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('manage')}
-                    />}
-            </div>
-            <div className='bn-tab'>
-                {activeTabs === 'account' ?
-                    <SettingsIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('settings')}
-                    /> :
-                    <SettingsIcon
-                        fontSize='25px'
-                        onClick={() => setActiveTabs('settings')}
-                    />}
-            </div>
-        </div>
-    )
+        <nav>
+            {isDesktop ? (
+                <div className='bottom-nav'>
+                    {loggedIn ?
+                        (<>
+                            <div>
+                                {role === 'student' ?
+                                    (<NavLink to='/home' className='bn-a'>
+                                        <div className='bn-tab'>
+                                        <Icon iconId='home'/>
+                                            <p>Home</p>
+                                        </div>
+                                    </NavLink>) : null}
+                                <NavLink to="/leaderboard" className="bn-a">
+                                    <div className='bn-tab'>
+                                    <Icon iconId='leaderboard'/>
+                                        <p>Leaderboard</p>
+                                    </div>
+                                </NavLink>
+
+                                {role === 'superAdmin' || role === 'teacher' ?
+                                    <NavLink to="/manage" className="bn-a">
+                                        <div className='bn-tab'>
+                                        <Icon iconId='build'/>
+                                            <p>Manage</p>
+                                        </div>
+                                    </NavLink> : null}
+                            </div>
+                            <NavLink to="/settings" className="bn-a settings">
+                                <div className='bn-tab'>
+                                <Icon iconId='settings'/>
+                                    <p>Settings</p>
+                                </div>
+                            </NavLink>
+                        </>) :
+                        (
+                            <NavLink to="/" className="bn-a">
+                                <div className='bn-tab'>
+                                    <Icon iconId='home'/>
+                                    <p>Home</p>
+                                </div>
+                            </NavLink>
+                        )}
+                </div>
+            ) : (
+                <>
+                    <div className='bottom-nav'>
+                        {loggedIn ? (
+                            <>
+                                {role === 'student' ?
+                                    (<NavLink to="/home" className="bn-a">
+                                        <div className='bn-tab'>
+                                        <Icon iconId='home'/>
+                                            <p>Home</p>
+                                        </div>
+                                    </NavLink>) : null}
+                                <NavLink to="/leaderboard" className="bn-a">
+                                    <div className='bn-tab'>
+                                    <Icon iconId='leaderboard'/>
+                                        <p>Leaderboard</p>
+                                    </div>
+                                </NavLink>
+                                {role === 'superAdmin' || role === 'teacher' ? <NavLink to="/manage" className="bn-a">
+                                    <div className='bn-tab'>
+                                    <Icon iconId='build'/>
+                                        <p>Manage</p>
+                                    </div>
+                                </NavLink> : null}
+                                <NavLink to="/settings" className="bn-a">
+                                    <div className='bn-tab'>
+                                    <Icon iconId='settings'/>
+                                        <p>Settings</p>
+                                    </div>
+                                </NavLink></>
+                        ) : (
+                            <NavLink to="/" className="bn-a">
+                                <div className='bn-tab'>
+                                <Icon iconId='home'/>
+                                    <p>Home</p>
+                                </div>
+                            </NavLink>
+                        )}
+                    </div>
+                </>
+            )}
+        </nav>
+    );
 }
 
 export default NavBar;

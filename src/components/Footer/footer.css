@@ -1,0 +1,52 @@
+footer {
+    background-color: var(--footer);
+    padding: 1rem; /* Denne ødelegger for Safari 15 */
+    height: auto;
+}
+
+footer div {
+    max-width: 936px;
+    margin: 0 auto;
+}
+
+footer div h3 {
+    margin: 0;
+}
+
+footer div section {
+    display: flex;
+    margin: 4rem 0;
+    gap: 2rem;
+}
+
+footer div section img {
+    max-width: 100%;
+}
+
+footer div article {
+    margin: 2rem 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-arrow {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-logo {
+    width: 163px;
+    height: 30px;
+}
+
+.created {
+    flex-direction: column;
+}
+
+footer div article a,
+.middle-emphasis {
+    margin: .5rem 0;
+    text-decoration: none;
+    color: var(--white-middle-emphasis)
+}

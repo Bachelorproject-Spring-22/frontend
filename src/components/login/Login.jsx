@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import AuthContext from '../../helpers/AuthContext';
-//import { getter } from '../../api/apiCalls';
+import { Link } from 'react-router-dom';
+import './login.css';
+import Button from '../Button/Button';
+import SEO from '../SEO/SEO';
+import Icon from '../Icon/Icon';
 
 class Login extends Component {
     static contextType = AuthContext;
@@ -10,8 +14,21 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
-            redirect: false
+            showPassword: false,
+            redirect: false,
+            error: null
         };
+    }
+    
+    removeError = () => {
+        if(this.state.error) {
+            this.setState({
+                error: null,
+                username: '',
+                password: ''
+            })
+        }
+        
     }
 
     handleInputChange = e => {
@@ -23,14 +40,28 @@ class Login extends Component {
         });
     }
 
+    handleShowPassword = () => {
+        this.setState(prevState => ({
+            showPassword: !prevState.showPassword
+        }));
+    }
+
+    handleMouseDownPassword = (e) => {
+        e.preventDefault();
+    }
+
     handleSubmit = async (e) => {
         e.preventDefault();
 
         if (this.validation) {
             const { username, password } = this.state;
             const res = await this.context.loginUser({ username, password });
-            //const res = await getter();
-            console.log(res);
+            
+            if(res.error) {
+                this.setState({
+                    error: res.error,
+                })
+            }
         }
     }
 
@@ -39,30 +70,51 @@ class Login extends Component {
     }
 
     render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input 
-                    onChange={this.handleInputChange} 
-                    required 
-                    type="text" 
-                    name="username" 
-                    placeholder='Enter Username'
-                    value={this.state.username} 
-                />
-                <input 
-                    onChange={this.handleInputChange} 
-                    required 
-                    type="password" 
-                    name="password" 
-                    placeholder='Enter Password'
-                    value={this.state.password} 
-                />
-                <input 
-                    type="submit" 
-                    value="Log in" 
-                />
-            </form>
-        );
+        return <>
+            <SEO title="Log in" />
+            <h1>The Kahoot! League</h1>
+            <p className='subtitle login'>LOG IN</p>
+            <p className='login'>If you have been invited to The Kahoot! League, you can enter your provided username and password below.</p>
+            <p className='login'>Be sure to read our <Link to='/about/privacy'>Privacy Policy</Link> and <Link to='/about/terms'>Terms of Service</Link> before logging in.</p>
+            <fieldset>
+                <form onSubmit={this.handleSubmit}>
+                    <label htmlFor="username">Username</label>
+                    <input
+                        onChange={this.handleInputChange}
+                        required
+                        type="text"
+                        name="username"
+                        placeholder='Enter Username'
+                        value={this.state.username}
+                        className={this.state.error ? 'error' : ''}
+                        onClick={this.removeError}
+                    />
+
+                    <label htmlFor="password">Password</label>
+                    <div>
+                        <input
+                            onChange={this.handleInputChange}
+                            required
+                            type={this.state.showPassword ? 'text' : 'password'}
+                            name="password"
+                            placeholder='Enter Password'
+                            value={this.state.password}
+                            className={this.state.error ? 'error' : ''}
+                            onClick={this.removeError}
+                        />
+
+                        <span className='showPassword'>
+                            {this.state.showPassword ?
+                                <span onClick={this.handleShowPassword} onMouseDown={this.handleMouseDownPassword}><Icon iconId={'visibility'} /></span> :
+                                <span onClick={this.handleShowPassword} onMouseDown={this.handleMouseDownPassword}><Icon iconId={'visibility_off'} /></span>}
+                        </span>
+                        {this.state.error ? <p className='danger'>{this.state.error}</p> : null}
+                    </div>
+
+                    <Button label='Log In' type='submit' icon={<Icon iconId={'login'} />} />
+                </form>
+            </fieldset>
+        </>;
     }
 }
 
