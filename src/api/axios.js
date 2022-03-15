@@ -2,13 +2,24 @@ import axios from "axios";
 import jwt_decode from 'jwt-decode';
 import { checkDiff } from "../helpers/functions";
 
-const baseURL = process.env.REACT_APP_BACKEND_LOCAL;
 let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
 
-const axiosInstance = axios.create({
-    baseURL,
-    headers: { Authorization: `Bearer ${authTokens?.jwtToken}` }
-});
+let baseURL;
+let axiosInstance;
+if (process.env && process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
+    baseURL = process.env.REACT_APP_BACKEND;
+    axiosInstance = axios.create({
+        withCredentials: true,
+        baseURL,
+        headers: { Authorization: `Bearer ${authTokens?.jwtToken}` }
+    });
+} else {
+    baseURL = process.env.REACT_APP_BACKEND_LOCAL;
+    axiosInstance = axios.create({
+        baseURL,
+        headers: { Authorization: `Bearer ${authTokens?.jwtToken}` }
+    });
+}
 
 axiosInstance.interceptors.request.use(async req => {
     if (!authTokens) {
