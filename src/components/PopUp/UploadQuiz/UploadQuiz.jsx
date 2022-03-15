@@ -11,7 +11,8 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
         setSelectedFile(e.target.files[0]);
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         const data = {
             selectedFile,
             courseId: 'IDG2100_f2022'
