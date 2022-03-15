@@ -29,7 +29,7 @@ function managePageBackend(WrappedComponent) {
         }
 
         uploadQuiz = async(data) => {
-            console.log(data);
+            //console.log(data);
             const res = await uploadQuiz(data);
             console.log(res);
         }
