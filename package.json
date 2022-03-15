@@ -11,6 +11,7 @@
     "chart.js": "^3.7.1",
     "jwt-decode": "^3.1.2",
     "react": "^17.0.2",
+    "react-carbonbadge": "^1.0.1",
     "react-chartjs-2": "^4.0.1",
     "react-dom": "^17.0.2",
     "react-helmet-async": "^1.2.3",

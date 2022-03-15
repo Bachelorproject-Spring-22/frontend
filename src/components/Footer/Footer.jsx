@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import NtnuLogo from '../../assets/ntnu_uten_slagord_neg.png';
+import Carbonbadge from "react-carbonbadge"
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 import './footer.css';
@@ -37,10 +38,9 @@ function Footer() {
                     <img src={NtnuLogo} alt="ntnu-logo" className="footer-logo" />
                         <Button onClick={scroll} label={""} size='no-size' variant={'fab'} ariaLabel={"Scroll to top"} icon={<Icon iconId="arrow_upward"/>}/>
                 </section>
-                <section>
-                    <div id="wcb" className="carbonbadge wcb-d"></div>
-                    <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
-                    <img src="https://api.thegreenwebfoundation.org/greencheckimage/www.ntnu.no" alt="This website is hosted Green - checked by thegreenwebfoundation.org" />
+                <section className="carbon-section">
+                    <Carbonbadge darkMode={true} />
+                    <img src="https://api.thegreenwebfoundation.org/greencheckimage/kahoot-league.netlify.app?nocache=true" alt="This website is hosted Green - checked by thegreenwebfoundation.org" />
                 </section>
             </div>
         </footer>
