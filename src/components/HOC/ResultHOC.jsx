@@ -14,7 +14,6 @@ function resultHoc(WrappedComponent) {
 
         fetchHome = async() => {
             const res = await fetchHome();
-            console.log(res.data.checkStudyPeriod);
             if(res.error) {
                 this.setState({
                     error: res.error,
@@ -22,7 +21,7 @@ function resultHoc(WrappedComponent) {
                 })
             } else {
                 this.setState({
-                    fetchHome: res.data.checkStudyPeriod,
+                    fetchHome: res.data.studyProgrammeData,
                     loading: false
                 });
             }

@@ -6,7 +6,6 @@ function MainResults(props) {
     const fetchHome = props.fetchHome;
     const fetchHomeData = props.fetchHomeData;
     const loading = props.loading;
-    console.log(fetchHomeData);
 
     useEffect(() => {
         fetchHome();
@@ -29,7 +28,7 @@ function MainResults(props) {
             <h2>Current semester</h2>
             <ul className='cards-grid-container'>
                 {loading ? <Card type='loading' /> : fetchHomeData.map((data) => (
-                    <Card link={`/home/${data._id.courseId}`} key={data._id.courseId} type='course' courseCode={data._id.periodCode} fullCourseName={data._id.periodName} rank={data._id.rank} />
+                    <Card link={`/home/${data.course.courseId}`} key={data.course.courseId} type='course' courseCode={data.course.code} fullCourseName={data.course.name} rank={data.rank} />
                 ))}
             </ul>
             <hr />

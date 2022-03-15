@@ -10,7 +10,7 @@ function MyResults(props) {
     const params = useParams();
     const location = params['*'];
     const url = location.split('/');
-    console.log(props);
+    //console.log(props);
 
     return (
         <>

@@ -95,7 +95,6 @@ function App() {
 
                                 <Route path='/403' element={<Denied />} exact />
                                 <Route path='*' element={<NotFound />} />
-
                             </Routes>
                         </Suspense>
                     </main>

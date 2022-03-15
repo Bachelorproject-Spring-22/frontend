@@ -8,8 +8,8 @@ const getLeaderboard = () => {
     return axios.get('/leaderboard');
 }
 
-const uploadQuiz = (formData) => {
-    return axios.post('/upload', {data: formData}, {headers: { "Content-Type": "multipart/form-data" }})
+const uploadQuiz = (data) => {
+    return axios.post('/upload', {data}, {headers: { "Content-Type": "multipart/form-data" }})
 }
 
 const getCourseBoard = (courseId) => {
