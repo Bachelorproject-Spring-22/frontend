@@ -17,13 +17,13 @@ import managePageBackend from './components/HOC/ManageHOC';
 import resultHoc from './components/HOC/ResultHOC';
 import leaderboardHoc from './components/HOC/LeaderboardHOC';
 import settingHoc from './components/HOC/SettingHOC';
+import Logout from './components/Login/Logout';
 
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const MyResults = lazy(() => import('./components/MyResults/MyResults'));
 //const Upload = lazy(() => import('./components/TestComponent/Upload'));
 const Settings = lazy(() => import('./components/Settings/Settings'));
 const Login = lazy(() => import('./components/Login/Login'));
-const Logout = lazy(() => import('./components/Login/Logout'));
 const About = lazy(() => import('./components/About/About'));
 const WorkProgress = lazy(() => import('./components/WIP/WorkProgress'));
 const Denied = lazy(() => import('./components/Error/Denied'));
