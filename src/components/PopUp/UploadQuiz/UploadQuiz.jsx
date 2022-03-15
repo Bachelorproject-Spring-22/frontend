@@ -17,7 +17,7 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
             selectedFile,
             courseId: 'IDG2100_f2022'
         }
-        console.log(data);
+        //console.log(data);
         uploadQuiz(data);
     }
 

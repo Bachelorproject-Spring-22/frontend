@@ -9,7 +9,7 @@ const getLeaderboard = () => {
 }
 
 const uploadQuiz = (data) => {
-    return axios.post('/upload', {data}, {headers: { "Content-Type": "multipart/form-data" }})
+    return axios.post('/upload', data, {headers: { "Content-Type": "multipart/form-data" }})
 }
 
 const getCourseBoard = (courseId) => {
