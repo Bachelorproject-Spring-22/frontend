@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../components/Loading/Loading';
+import { revokeToken } from '../api/apiCalls';
 
 const AuthContext = createContext();
 
@@ -34,15 +35,15 @@ export const AuthProvider = ({children}) => {
             return {success: 'Logged in successfully'};
         } else {
             // Denne må endres!!
-            //alert('Something went wrong bro!');
             return {error: 'Wrong username or password!'};
         }
     }
 
-    let logoutUser = () => {
+    let logoutUser = async () => {
         setAuthTokens(null);
         setUser(null);
         localStorage.removeItem('authTokens');
+        await revokeToken();
         history("/login");
     }
 
