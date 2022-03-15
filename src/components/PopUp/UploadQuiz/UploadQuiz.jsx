@@ -18,7 +18,7 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
             courseId: 'IDG2100_f2022'
         } */
         //console.log(data);
-        uploadQuiz(selectedFile);
+        uploadQuiz(formData);
     }
 
     return (
