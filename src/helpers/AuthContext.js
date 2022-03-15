@@ -28,9 +28,9 @@ export const AuthProvider = ({children}) => {
         //console.log(data);
 
         if (response.status === 200) {
+            localStorage.setItem('authTokens', JSON.stringify(data));
             setAuthTokens(data);
             setUser(jwt_decode(data.jwtToken));
-            localStorage.setItem('authTokens', JSON.stringify(data));
             history('/');
             return {success: 'Logged in successfully'};
         } else {

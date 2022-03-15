@@ -12,15 +12,13 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(async req => {
-    authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
     if (!authTokens) {
         authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
         req.headers.Authorization = `Bearer ${authTokens?.jwtToken}`;
     }
 
+    authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
     const user = jwt_decode(authTokens.jwtToken);
-
-    //const isExpired = dayjs.unix(user.exp).diff(dayjs()) < 1;
     const isExpired = checkDiff(user.exp);
 
     if (!isExpired) return req;
