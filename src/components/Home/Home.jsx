@@ -67,7 +67,7 @@ function Home(props) {
 
             <picture>
                     <source srcSet={Phone3AVIF} type="image/avif"/>
-                    <source srcSet={Phone3PNG } type="image/png" />
+                    <source srcSet={Phone3WEBP } type="image/webp" />
                     <img srcSet={Phone3PNG} alt='iPhone displaying The Kahoot! League site med noe annet' />
                 </picture>
                 <div id="text3">
