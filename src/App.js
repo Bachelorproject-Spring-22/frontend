@@ -59,41 +59,29 @@ function App() {
                     <main>
                         <Suspense fallback={null}>
                             <Routes>
-                                <Route element={
-                                    <AnoRoute>
-                                        <Home />
-                                    </AnoRoute>
-                                } path='/' exact />
+                                <Route element={<AnoRoute />} >
+                                    <Route element={<Home />} exact path='/' />
+                                </Route>
 
-                                <Route element={
-                                    <StudentRoute>
-                                        <ResultHOC data={contextData} />
-                                    </StudentRoute>
-                                } path='/home/*' exact />
+                                <Route element={<StudentRoute />}>
+                                    <Route element={<ResultHOC data={contextData}/>} exact path='/home/*'  />
+                                </Route>
 
-                                <Route element={
-                                    <PrivateRoute>
-                                        <LeaderboardHOC data={contextData} />
-                                    </PrivateRoute>
-                                } path='/leaderboard/*' exact />
+                                <Route element={<PrivateRoute />}>
+                                    <Route element={<LeaderboardHOC data={contextData} />} exact path='/leaderboard/*' />
+                                </Route>
 
-                                <Route element={
-                                    <TeacherRoute>
-                                        <ManageHOC data={contextData} />
-                                    </TeacherRoute>
-                                } path='/manage/*' exact />
+                                <Route element={<TeacherRoute />}>
+                                    <Route element={<ManageHOC data={contextData} />} exact path='/manage/*' />
+                                </Route>
 
-                                <Route element={
-                                    <PrivateRoute>
-                                        <SettingHOC data={contextData} />
-                                    </PrivateRoute>
-                                } path='/settings/*' exact />
+                                <Route element={<PrivateRoute />}>
+                                    <Route element={<SettingHOC data={contextData} />} exact path='/settings/*' />
+                                </Route>
 
-                                <Route element={
-                                    <AnoRoute>
-                                        <Login />
-                                    </AnoRoute>
-                                } path="/login" exact />
+                                <Route element={<AnoRoute />}>
+                                    <Route element={<Login />} exact path='/login' />
+                                </Route>
 
                                 <Route element={
                                     <PrivateRoute>
