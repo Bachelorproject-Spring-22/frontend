@@ -29,9 +29,9 @@ function MainLeaderboard(props) {
                 <p>Explore the leaderboards for the courses you have this semester</p>
 
                 {loading ? <ul><Card type='loading' /></ul> : <ul className='cards-grid-container'>
-                    {courses.map((course) => (
+                    {typeof(courses) !== 'string' ? courses.map((course) => (
                         <Card key={course._id.courseId} type='course' link={`/leaderboard/${course._id.courseId}`} courseCode={course._id.code} fullCourseName={course._id.name} rank={course._id.rank} />
-                    ))}
+                    )) : <Card type='course' disabledLink={true} courseCode='Unfortunately' fullCourseName='No leaderboards found' />}
                 </ul>}
             </article>
         </section>

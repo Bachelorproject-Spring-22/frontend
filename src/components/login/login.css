@@ -2,16 +2,6 @@ p.login {
     margin-bottom: 1rem;
 }
 
-/* Disse fucker opp for popups også */
-
-/* fieldset {
-    margin: 2rem 0;
-} */
-
-/* label {
-    font-size: 2rem;
-} */
-
 input{
     display: block;
     width: 100%;
@@ -22,6 +12,10 @@ input{
     height: 44px;
     margin-bottom: 1rem;
     padding: 4px
+}
+
+input.error {
+    border-color: var(--destructive-color);
 }
 
 .showPassword {

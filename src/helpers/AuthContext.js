@@ -2,7 +2,6 @@ import { createContext, useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../components/Loading/Loading';
-//import { login } from '../api/apiCalls';
 
 const AuthContext = createContext();
 
@@ -16,7 +15,7 @@ export const AuthProvider = ({children}) => {
 
     let loginUser = async (userData) => {
         const { username, password } = userData;
-        //const response = await login({username, password});
+        
         const response = await fetch('/login', {
             method: 'POST',
             headers: {
@@ -32,9 +31,11 @@ export const AuthProvider = ({children}) => {
             setUser(jwt_decode(data.jwtToken));
             localStorage.setItem('authTokens', JSON.stringify(data));
             history('/');
+            return {success: 'Logged in successfully'};
         } else {
             // Denne må endres!!
-            alert('Something went wrong bro!');
+            //alert('Something went wrong bro!');
+            return {error: 'Wrong username or password!'};
         }
     }
 

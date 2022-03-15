@@ -15,8 +15,20 @@ class Login extends Component {
             username: '',
             password: '',
             showPassword: false,
-            redirect: false
+            redirect: false,
+            error: null
         };
+    }
+    
+    removeError = () => {
+        if(this.state.error) {
+            this.setState({
+                error: null,
+                username: '',
+                password: ''
+            })
+        }
+        
     }
 
     handleInputChange = e => {
@@ -44,7 +56,12 @@ class Login extends Component {
         if (this.validation) {
             const { username, password } = this.state;
             const res = await this.context.loginUser({ username, password });
-            console.log(res); // Add error handling
+            
+            if(res.error) {
+                this.setState({
+                    error: res.error,
+                })
+            }
         }
     }
 
@@ -69,6 +86,8 @@ class Login extends Component {
                         name="username"
                         placeholder='Enter Username'
                         value={this.state.username}
+                        className={this.state.error ? 'error' : ''}
+                        onClick={this.removeError}
                     />
 
                     <label htmlFor="password">Password</label>
@@ -80,14 +99,16 @@ class Login extends Component {
                             name="password"
                             placeholder='Enter Password'
                             value={this.state.password}
+                            className={this.state.error ? 'error' : ''}
+                            onClick={this.removeError}
                         />
 
                         <span className='showPassword'>
                             {this.state.showPassword ?
-                            /* trenger onclick */
-                                <Icon iconId={'visibility'} onClick={this.handleShowPassword} onMouseDown={this.handleMouseDownPassword} /> :
-                                <Icon iconId={'visibility_off'} onClick={this.handleShowPassword} onMouseDown={this.handleMouseDownPassword} />}
+                                <span onClick={this.handleShowPassword} onMouseDown={this.handleMouseDownPassword}><Icon iconId={'visibility'} /></span> :
+                                <span onClick={this.handleShowPassword} onMouseDown={this.handleMouseDownPassword}><Icon iconId={'visibility_off'} /></span>}
                         </span>
+                        {this.state.error ? <p className='danger'>{this.state.error}</p> : null}
                     </div>
 
                     <Button label='Log In' type='submit' icon={<Icon iconId={'login'} />} />

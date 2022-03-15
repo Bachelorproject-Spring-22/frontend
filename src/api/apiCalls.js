@@ -1,9 +1,5 @@
 import axios from './axios';
 
-const login = ({ username, password }) => {
-    return axios.post('/login', { username, password }, {headers: { 'Content-Type': 'application/json' }})
-}
-
 const getter = () => {
     return axios.get('/');
 }
@@ -29,7 +25,6 @@ const revokeToken = () => {
 }
 
 export {
-    login,
     getter,
     getLeaderboard,
     uploadQuiz,

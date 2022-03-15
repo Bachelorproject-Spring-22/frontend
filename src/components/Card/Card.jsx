@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 
 /* Denne må endres når vi vet hvordan payload-en fra back-end ser ut. Komponentet er dermed ikke avansert at all */
 
-function Card({ link = '/test', type, courseCode, fullCourseName, rank, quizNumber, correctAnswers, incorrectAnswers, number, label }) {
+function Card({ link = '/test', type, courseCode, fullCourseName, rank, quizNumber, correctAnswers, incorrectAnswers, number, label, disabledLink }) {
 
     return (
         <li>
             {
                 type === 'course' ? (
-                    <Link className="card" to={link} >
+                    <Link className={`card ${disabledLink ? 'disabledLink' : ''}`} to={link} >
                         <div>
                             <h3>{courseCode} – {fullCourseName} </h3>
                             {rank ? <p>Placement: {rank}</p> : null}
@@ -18,7 +18,7 @@ function Card({ link = '/test', type, courseCode, fullCourseName, rank, quizNumb
                     </Link>
                 ) : type === 'quiz' ? (
 
-                    <Link className="card" to={link}>
+                    <Link className={`card ${disabledLink ? 'disabledLink' : ''}`} to={link}>
                         <div>
                             <h3>Quiz {quizNumber} </h3>
                             <p>Correct answers: {correctAnswers}</p>

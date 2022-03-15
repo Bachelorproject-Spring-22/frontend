@@ -84,6 +84,10 @@ textarea {
     align-items: stretch;
 }
 
+.danger {
+    color: var(--destructive-color);
+}
+
 /* For desktop */
 @media only screen and (min-width: 769px) {
     @supports(padding: max(0px)) {
