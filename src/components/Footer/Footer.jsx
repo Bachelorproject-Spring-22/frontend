@@ -31,7 +31,7 @@ function Footer() {
                 </section>
                 <section className="created">
                     <p className="middle-emphasis">Created by Cornelius, Glenn and Tom.</p>
-                    <p className="middle-emphasis">NTNU-Gjøvik, 2022</p>
+                    <p className="middle-emphasis">NTNU i Gjøvik, 2022</p>
                 </section>
                 <section className="logo-arrow">
                     <img src={NtnuLogo} alt="ntnu-logo" className="footer-logo" />
