@@ -1,6 +1,6 @@
-import React, { lazy, Suspense, useMemo, useState } from "react";
+import React, { lazy, Suspense, /* useMemo, */ useState } from "react";
 import Button from "../../Button/Button";
-import makeData from "../../Table/makeData";
+//import makeData from "../../Table/makeData";
 import Icon from '../../Icon/Icon';
 import { Link } from "react-router-dom";
 import Card from "../../Card/Card";
@@ -8,10 +8,10 @@ import './individual-results.css';
 import Loading from '../../Loading/Loading';
 
 const BarChart = lazy(() => import('../../Chart/BarChart'));
-const Table = lazy(() => import('../../Table/Table'));
+//const Table = lazy(() => import('../../Table/Table'));
 
 function IndividualResults(props) {
-    const data = useMemo(() => makeData(3), []);
+    //const data = useMemo(() => makeData(3), []);
 
     const [showBarChart, setChart] = useState(false);
 
