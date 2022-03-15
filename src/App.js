@@ -50,6 +50,7 @@ function App() {
     const ResultHOC = resultHoc(MyResults);
     const LeaderboardHOC = leaderboardHoc(Leaderboard);
     const SettingHOC = settingHoc(Settings);
+    
     return (
         <HelmetProvider>
             <div className='grid-container'>

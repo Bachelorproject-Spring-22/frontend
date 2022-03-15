@@ -21,7 +21,7 @@ const fetchHome = () => {
 }
 
 const revokeToken = () => {
-    return axios.post('/api/revokeToken');
+    return axios.post('api/revoke');
 }
 
 export {

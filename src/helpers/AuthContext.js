@@ -40,10 +40,10 @@ export const AuthProvider = ({children}) => {
     }
 
     let logoutUser = async () => {
+        await revokeToken();
         setAuthTokens(null);
         setUser(null);
         localStorage.removeItem('authTokens');
-        await revokeToken();
         history("/login");
     }
 
