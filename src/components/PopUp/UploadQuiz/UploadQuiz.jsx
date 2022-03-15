@@ -13,8 +13,13 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
-        uploadQuiz(formData);
+        console.log(formData)
+        const courseId = 'IDG2100_f2019';
+        const data = {
+            formData,
+            courseId
+        };
+        uploadQuiz(data);
     }
 
     return (
