@@ -5,7 +5,9 @@ import Button from '../../Button/Button';
 function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
     const [selectedFile, setSelectedFile] = useState(null);
     const formData = new FormData();
-    formData.append("file", selectedFile);
+    const courseId = 'IDG2100_f2019';
+    formData.append('file', selectedFile);
+    formData.append('text', courseId);
 
     const handleFileSelect = (e) => {
         setSelectedFile(e.target.files[0]);
@@ -14,12 +16,8 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData)
-        const courseId = 'IDG2100_f2019';
-        const data = {
-            formData,
-            courseId
-        };
-        uploadQuiz(data);
+        
+        uploadQuiz(formData);
     }
 
     return (
