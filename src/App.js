@@ -23,7 +23,7 @@ const MyResults = lazy(() => import('./components/MyResults/MyResults'));
 //const Upload = lazy(() => import('./components/TestComponent/Upload'));
 const Settings = lazy(() => import('./components/Settings/Settings'));
 const Login = lazy(() => import('./components/Login/Login'));
-const Logout = lazy(() => import());
+const Logout = lazy(() => import('./components/Login/Logout'));
 const About = lazy(() => import('./components/About/About'));
 const WorkProgress = lazy(() => import('./components/WIP/WorkProgress'));
 const Denied = lazy(() => import('./components/Error/Denied'));
