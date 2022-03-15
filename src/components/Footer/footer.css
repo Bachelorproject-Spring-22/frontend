@@ -50,3 +50,8 @@ footer div article a,
     text-decoration: none;
     color: var(--white-middle-emphasis)
 }
+
+.carbon-section {
+    flex-wrap: wrap;
+    justify-content: center;
+}
