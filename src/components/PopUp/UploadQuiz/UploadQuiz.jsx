@@ -24,11 +24,11 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
                 <p>{bodyText}</p>
             </div>
             <form onSubmit={handleSubmit}>
-                <label htmlFor='upload'>Select a file</label>
+                <label htmlFor='file'>Select a file</label>
                 <input
                     type="file"
-                    name="upload"
-                    id="upload"
+                    name="file"
+                    id="file"
                     onChange={handleFileSelect}
                     required
                 />
