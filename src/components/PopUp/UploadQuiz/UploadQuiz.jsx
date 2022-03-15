@@ -8,6 +8,8 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
     const courseId = 'IDG2100_f2019';
     formData.append('file', selectedFile);
     formData.append('text', courseId);
+    formData.append('name', 'kahoot');
+    formData.append('variant', 'quiz');
 
     const handleFileSelect = (e) => {
         setSelectedFile(e.target.files[0]);
