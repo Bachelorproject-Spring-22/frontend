@@ -39,7 +39,7 @@ function Home(props) {
                 <picture>
                     <source srcSet={Phone1AVIF} type="image/avif"/>
                     <source srcSet={Phone1WEBP} type="image/webp"/>
-                    <img srcSet={Phone1PNG} alt='iPhone displaying The Kahoot! League site with leaderboard' />
+                    <img srcSet={Phone1PNG} alt='iPhone displaying The Kahoot! League site with leaderboard' loading='lazy'/>
                 </picture>
                 <div id="text1">
                     <h2>Introducing The Kahoot! League</h2>
@@ -51,10 +51,10 @@ function Home(props) {
             <article id='introduction-2'>
 
             <picture>
-                    <source srcSet={Phone2AVIF} type="image/avif" loading='lazy'/>
+                    <source srcSet={Phone2AVIF} type="image/avif"/>
                     <source srcSet={Phone2WEBP} type="image/webp"/>
                     <source srcSet={Phone2PNG} />
-                    <img srcSet={Phone2PNG} alt='iPhone displaying The Kahoot! League site with the results of a quiz' />
+                    <img srcSet={Phone2PNG} alt='iPhone displaying The Kahoot! League site with the results of a quiz' loading='lazy'/>
                 </picture>
                 <div id="text2">
                     <h2>Visualize your quiz scores</h2>
@@ -68,7 +68,7 @@ function Home(props) {
             <picture>
                     <source srcSet={Phone3AVIF} type="image/avif"/>
                     <source srcSet={Phone3WEBP } type="image/webp" />
-                    <img srcSet={Phone3PNG} alt='iPhone displaying The Kahoot! League site med noe annet' />
+                    <img srcSet={Phone3PNG} alt='iPhone displaying The Kahoot! League site med noe annet' loading='lazy'/>
                 </picture>
                 <div id="text3">
                     <h2>Introducing The Kahoot! League</h2>
