@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
-import Phone1 from '../../assets/images/Course_iphone13pink_portrait.png';
-import Phone2 from '../../assets/images/course_iphone13red_portrait.png';
-import Phone3 from '../../assets/images/Quiz_iphone13blue_portrait.png';
+import Phone1 from '../../assets/images/1_iphone13progold_portrait(small).png';
+import Phone2 from '../../assets/images/2_iphone13prographite_portrait(small).png';
+import Phone3 from '../../assets/images/3_iphone13prosierrablue_portrait(small).png';
 import './Home.css';
 import SEO from '../SEO/SEO';
 import Icon from '../Icon/Icon';
