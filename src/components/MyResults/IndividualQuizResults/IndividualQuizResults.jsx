@@ -49,9 +49,10 @@ function IndividualQuizResults({ fetchQuiz, fetchQuizData, loading }) {
 
 
             <h2>More Quizzes</h2>
-            <ul>
+            <p>Coming soon</p>
+            {/* <ul>
                 <Card type='quiz' quizNumber={2} correctAnswers={3} incorrectAnswers={8} />
-            </ul>
+            </ul> */}
 
         </section>
     );
