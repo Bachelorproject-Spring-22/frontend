@@ -21,7 +21,6 @@ import Logout from './components/Login/Logout';
 
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const MyResults = lazy(() => import('./components/MyResults/MyResults'));
-//const Upload = lazy(() => import('./components/TestComponent/Upload'));
 const Settings = lazy(() => import('./components/Settings/Settings'));
 const Login = lazy(() => import('./components/Login/Login'));
 const About = lazy(() => import('./components/About/About'));

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchHome } from '../../api/apiCalls';
+import { fetchCourse, fetchHome } from '../../api/apiCalls';
 
 function resultHoc(WrappedComponent) {
     class ResultsHoc extends Component {
@@ -7,7 +7,8 @@ function resultHoc(WrappedComponent) {
             super(props);
             this.state = {
                 error: null,
-                fetchHome: null,
+                fetchHomeData: null,
+                fetchCourseTableData: null,
                 loading: true
             }
         }
@@ -21,15 +22,38 @@ function resultHoc(WrappedComponent) {
                 })
             } else {
                 this.setState({
-                    fetchHome: res.data.studyProgrammeData,
+                    fetchHomeData: res.data.studyProgrammeData,
                     loading: false
                 });
             }
         }
 
+        fetchCourseTable = async (courseId) => {
+            const res = await fetchCourse(courseId);
+            console.log(res.data);
+            if (res.error) {
+                this.setState({
+                    error: res.error,
+                    loading: false
+                });
+            } else {
+                this.setState({
+                    loading: false,
+                    fetchCourseTableData: res.data.studyProgrammeData
+                })
+            }
+        }
+
         render() { 
             return (
-                <WrappedComponent loading={this.state.loading} fetchHomeData={this.state.fetchHome} fetchHome={this.fetchHome} error={this.state.error} {...this.props} />
+                <WrappedComponent 
+                loading={this.state.loading} 
+                fetchCourseTable={this.fetchCourseTable} 
+                fetchCourseTableData={this.state.fetchCourseTableData}
+                fetchHomeData={this.state.fetchHomeData} 
+                fetchHome={this.fetchHome} 
+                error={this.state.error} 
+                {...this.props} />
             );
         }
     }

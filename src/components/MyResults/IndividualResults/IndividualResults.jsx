@@ -1,24 +1,32 @@
-import React, { lazy, Suspense, /* useMemo, */ useState } from "react";
+import React, { useEffect, lazy, Suspense, useState } from "react";
 import Button from "../../Button/Button";
-//import makeData from "../../Table/makeData";
 import Icon from '../../Icon/Icon';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Card from "../../Card/Card";
 import './individual-results.css';
 import Loading from '../../Loading/Loading';
 
 const BarChart = lazy(() => import('../../Chart/BarChart'));
-//const Table = lazy(() => import('../../Table/Table'));
+const Table = lazy(() => import('../../Table/Table'));
 
 function IndividualResults(props) {
-    //const data = useMemo(() => makeData(3), []);
+    const params = useParams();
+    const location = params['*'];
+    const courseId = location.split('/')[0];
+    const tableData = props.fetchCourseTableData;
+    console.log(tableData);
+
+    const fetchCourseTable = props.fetchCourseTable;
 
     const [showBarChart, setChart] = useState(false);
 
-    /* bare copy paste */
     const handleClick = () => {
         setChart(showBarChart => true);
     }
+
+    useEffect(() => {
+        fetchCourseTable(courseId)
+    }, [fetchCourseTable, courseId]);
 
     return (
         <section className='individual-results'>
@@ -26,7 +34,7 @@ function IndividualResults(props) {
             <p className='subtitle'>IDG2100</p>
 
             <Suspense fallback={<Loading />}>
-                {/* <Table data={data} /> */}
+                {props.loading ? <Card type='loading' /> :<Table data={tableData} />}
             </Suspense>
             <Link to='/leaderboard/idg2100'>
                 <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard"/>} />
