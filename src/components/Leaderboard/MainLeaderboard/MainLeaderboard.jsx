@@ -6,7 +6,7 @@ import Table from "../../Table/Table";
 
 function MainLeaderboard(props) {
     const { semesterLeaderBoard, courses, loading, fetchLeaderboard } = props;
-    console.log(props);
+    console.log(semesterLeaderBoard);
 
     useEffect(() => {
         fetchLeaderboard();

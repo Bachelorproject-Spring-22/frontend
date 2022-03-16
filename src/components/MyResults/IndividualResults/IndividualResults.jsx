@@ -34,7 +34,7 @@ function IndividualResults(props) {
             <p className='subtitle'>IDG2100</p>
 
             <Suspense fallback={<Loading />}>
-                {props.loading ? <Card type='loading' /> :<Table data={tableData} />}
+                {/* {props.loading ? <Card type='loading' /> : <Table data={tableData} />} */}
             </Suspense>
             <Link to='/leaderboard/idg2100'>
                 <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard"/>} />
