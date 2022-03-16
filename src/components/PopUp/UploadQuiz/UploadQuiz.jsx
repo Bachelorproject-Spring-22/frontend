@@ -17,10 +17,11 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
     const courseId = 'IDG2100_f2019';
     const courseId2 = `${selectedCourse}_${selectedSemester}`; /* ← Bruk denne når alt er klart */
 
-    formData.append('file', selectedFile);
-    formData.append('text', courseId2);
-    formData.append('name', 'kahoot');
-    formData.append('variant', 'quiz');
+    /* Sets a new value for an existing key inside a FormData object, or adds the key/value if it does not already exist. */
+    formData.set('file', selectedFile); 
+    formData.set('text', courseId2);
+    formData.set('name', 'kahoot');
+    formData.set('variant', 'quiz');
 
     const handleFileSelect = (e) => {
         setSelectedFile(e.target.files[0]);
@@ -42,13 +43,12 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!selectedFile) {
+        if (formData.has('file')) {
             console.error('No file selected upon submit!');
             return
         }
 
         console.info(formData.get('file'))
-
         uploadQuiz(formData);
     }
 
@@ -96,6 +96,7 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
             </form>
 
         </fieldset>
+
     );
 }
 
