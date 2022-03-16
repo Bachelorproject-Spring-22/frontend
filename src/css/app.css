@@ -114,3 +114,17 @@ textarea {
         margin: 1rem auto;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .loader {
+        animation: spin 4s linear infinite !important;
+    }
+
+    .card.loading {
+        animation: 6s shine linear infinite !important;
+    }
+
+    .card:hover {
+        transform: scale(1.005) !important;
+    }
+  }
