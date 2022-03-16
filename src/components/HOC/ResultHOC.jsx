@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchCourse, fetchHome } from '../../api/apiCalls';
+import { fetchCourse, fetchHome, fetchQuiz } from '../../api/apiCalls';
 
 function resultHoc(WrappedComponent) {
     class ResultsHoc extends Component {
@@ -10,6 +10,7 @@ function resultHoc(WrappedComponent) {
                 fetchHomeData: null,
                 fetchCourseTableData: null,
                 fetchCourseData: null,
+                fetchQuizData: null,
                 loading: true
             }
         }
@@ -46,6 +47,22 @@ function resultHoc(WrappedComponent) {
             }
         }
 
+        fetchQuiz = async (courseId, quizId) => {
+            const res = await fetchQuiz(courseId, quizId);
+            console.log(res);
+            if (res.error) {
+                this.setState({
+                    error: res.error,
+                    loading: false
+                });
+            } else {
+                this.setState({
+                    loading: false,
+                    fetchQuizData: res.data.getUserSpecific[0]
+                });
+            }
+        }
+
         render() { 
             return (
                 <WrappedComponent 
@@ -55,6 +72,8 @@ function resultHoc(WrappedComponent) {
                 fetchCourseData={this.state.fetchCourseData}
                 fetchHomeData={this.state.fetchHomeData} 
                 fetchHome={this.fetchHome} 
+                fetchQuizData={this.state.fetchQuizData}
+                fetchQuiz={this.fetchQuiz}
                 error={this.state.error} 
                 {...this.props} />
             );

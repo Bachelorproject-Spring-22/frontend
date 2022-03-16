@@ -78,6 +78,14 @@ a[disabled] {
     border: 1px solid rgba(255, 255, 255, 0.09);
 }
 
+.card.individual sup {
+    vertical-align: super;
+    font-size: smaller;
+    text-transform: lowercase;
+    padding: 0;
+    margin: 0;
+}
+
 @keyframes shine {
     to {
         background-position-x: -200%;
