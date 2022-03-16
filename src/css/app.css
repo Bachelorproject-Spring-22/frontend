@@ -89,8 +89,20 @@ textarea {
 }
 
 select {
-    min-height: 32px;
+    min-height: 2rem;
     margin: auto;
+}
+
+.custom-select {
+    background: #39373C;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, .25);
+    color: var(----white-high-emphasis);
+    display: block;
+    font-size: 1rem;
+    margin: 0;
+    padding: .5rem .25rem;
+    margin-bottom: 1rem;
 }
 
 /* For desktop */
