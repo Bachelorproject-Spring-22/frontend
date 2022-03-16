@@ -26,6 +26,7 @@ const fetchCourse = (courseId) => {
 }
 
 const fetchQuiz = (courseId, quizId) => {
+    console.log(courseId, quizId);
     return axios.get(`/home/${courseId}/${quizId}`);
 }
 

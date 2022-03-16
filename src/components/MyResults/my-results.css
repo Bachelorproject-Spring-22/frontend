@@ -33,6 +33,11 @@
     align-items: stretch;
     grid-template-columns: 1fr 1fr;
     margin: 2rem 0;
+    grid-auto-rows: 1fr;
+}
+
+.individual-quiz li div {
+    height: 100%;
 }
 
 /* @media only screen and (min-width: 769px) { 
