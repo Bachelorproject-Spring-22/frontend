@@ -6,7 +6,7 @@ import Table from "../../Table/Table";
 
 function MainLeaderboard(props) {
     const { semesterLeaderBoard, courses, loading, fetchLeaderboard } = props;
-    console.log(semesterLeaderBoard);
+    console.log(courses);
 
     useEffect(() => {
         fetchLeaderboard();
@@ -21,7 +21,7 @@ function MainLeaderboard(props) {
                 <h2>Semester Leaderboard</h2>
                 <p>The top students this semester.</p>
 
-                {props.loading ? <Loading /> : <Table data={semesterLeaderBoard.totalScore} />}
+                {props.loading ? <Loading /> : <Table data={semesterLeaderBoard} />}
             </article>
 
             <article>
@@ -30,7 +30,7 @@ function MainLeaderboard(props) {
 
                 {loading ? <ul><Card type='loading' /></ul> : <ul className='cards-grid-container'>
                     {typeof(courses) !== 'string' ? courses.map((course) => (
-                        <Card key={course._id.courseId} type='course' link={`/leaderboard/${course._id.courseId}`} courseCode={course._id.code} fullCourseName={course._id.name} rank={course._id.rank} />
+                        <Card key={course.course.courseId} type='course' link={`/leaderboard/${course.course.courseId}`} courseCode={course.course.code} fullCourseName={course.course.name} rank={course.rank} />
                     )) : <Card type='course' disabledLink={true} courseCode='Unfortunately' fullCourseName='No leaderboards found' />}
                 </ul>}
             </article>

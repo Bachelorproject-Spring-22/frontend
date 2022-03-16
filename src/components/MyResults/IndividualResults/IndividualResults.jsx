@@ -14,7 +14,8 @@ function IndividualResults(props) {
     const location = params['*'];
     const courseId = location.split('/')[0];
     const tableData = props.fetchCourseTableData;
-    console.log(tableData);
+    const courseData = props.fetchCourseData;
+    console.log(courseData);
 
     const fetchCourseTable = props.fetchCourseTable;
 
@@ -34,10 +35,10 @@ function IndividualResults(props) {
             <p className='subtitle'>IDG2100</p>
 
             <Suspense fallback={<Loading />}>
-                {/* {props.loading ? <Card type='loading' /> : <Table data={tableData} />} */}
+                {props.loading ? <Card type='loading' /> : <Table data={tableData} />}
             </Suspense>
-            <Link to='/leaderboard/idg2100'>
-                <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard"/>} />
+            <Link to={`/leaderboard/${courseId}`}>
+                <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard" />} />
             </Link>
 
             <h2>Latest Quiz Performance</h2>
@@ -53,8 +54,10 @@ function IndividualResults(props) {
 
             <h2>Latest Quizes</h2>
             <ul className="cards-grid-container">
-                <Card type='quiz' link='/home/idg2100/quiz1' quizNumber={1} correctAnswers={9} incorrectAnswers={1} />
-                <Card type='quiz' link='/home/idg2100/quiz2' quizNumber={4} correctAnswers={12} incorrectAnswers={7} />
+                {props.loading ? (<Card type='loading' />) :
+                    courseData.map((data, index) => (
+                        <Card key={data.kahootsInPeriod.quizId} type='quiz' link={`/home/${courseId}/${data.kahootsInPeriod.quizId}`} quizNumber={index + 1} correctAnswers={data.kahootsInPeriod.finalScores.correctAnswers} incorrectAnswers={data.kahootsInPeriod.finalScores.incorrectAnswers} />
+                    ))}
             </ul>
         </section>
     );

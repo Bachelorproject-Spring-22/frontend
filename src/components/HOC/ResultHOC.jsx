@@ -9,6 +9,7 @@ function resultHoc(WrappedComponent) {
                 error: null,
                 fetchHomeData: null,
                 fetchCourseTableData: null,
+                fetchCourseData: null,
                 loading: true
             }
         }
@@ -30,7 +31,7 @@ function resultHoc(WrappedComponent) {
 
         fetchCourseTable = async (courseId) => {
             const res = await fetchCourse(courseId);
-            console.log(res.data);
+            //console.log(res.data);
             if (res.error) {
                 this.setState({
                     error: res.error,
@@ -39,7 +40,8 @@ function resultHoc(WrappedComponent) {
             } else {
                 this.setState({
                     loading: false,
-                    fetchCourseTableData: res.data.studyProgrammeData
+                    fetchCourseTableData: res.data.studyProgrammeData,
+                    fetchCourseData: res.data.getUserSpecific
                 })
             }
         }
@@ -50,6 +52,7 @@ function resultHoc(WrappedComponent) {
                 loading={this.state.loading} 
                 fetchCourseTable={this.fetchCourseTable} 
                 fetchCourseTableData={this.state.fetchCourseTableData}
+                fetchCourseData={this.state.fetchCourseData}
                 fetchHomeData={this.state.fetchHomeData} 
                 fetchHome={this.fetchHome} 
                 error={this.state.error} 

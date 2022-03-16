@@ -24,7 +24,7 @@ if (process.env && process.env.NODE_ENV && process.env.NODE_ENV === 'production'
 axiosInstance.interceptors.request.use(async req => {
     if (!authTokens) {
         authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
-        req.headers.Authorization = `Bearer ${authTokens?.jwtToken}`;
+        req.headers.Authorization = `Bearer ${authTokens.jwtToken}`;
     }
 
     authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
