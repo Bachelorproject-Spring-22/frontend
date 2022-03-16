@@ -10,6 +10,17 @@
     margin-top: 0;
 }
 
-.main-manage article>button {
+.main-manage article>div {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 2rem;
+}
+
+/* for desktop */
+@media only screen and (min-width: 769px) {
+    .main-manage article>div {
+        flex-direction: unset;
+        gap: 1rem;
+        max-width: 38rem;
+    }
 }

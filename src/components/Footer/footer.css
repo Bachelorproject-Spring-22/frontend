@@ -19,6 +19,10 @@ footer div section {
     gap: 2rem;
 }
 
+footer div section:last-child {
+  align-items: center;
+}
+
 footer div section img {
     max-width: 100%;
 }

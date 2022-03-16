@@ -10,7 +10,7 @@ function leaderboardHoc(WrappedComponent) {
             this.state = {
                 error: null,
                 uploadPop: false,
-                courses: null,
+                courses: [],
                 semesterLeaderBoard: null,
                 isLoading: true,
                 courseData: null

@@ -6,7 +6,6 @@ import Table from "../../Table/Table";
 
 function MainLeaderboard(props) {
     const { semesterLeaderBoard, courses, loading, fetchLeaderboard } = props;
-    console.log(courses);
 
     useEffect(() => {
         fetchLeaderboard();
@@ -21,19 +20,17 @@ function MainLeaderboard(props) {
                 <h2>Semester Leaderboard</h2>
                 <p>The top students this semester.</p>
 
-                {props.loading ? <Loading /> : <Table data={semesterLeaderBoard} />}
+                {loading ? <Loading /> : <Table data={semesterLeaderBoard} />}
             </article>
 
-            <article>
+            {courses.length !== 0 ? <article>
                 <h2>Individual Course Leaderboards</h2>
                 <p>Explore the leaderboards for the courses you have this semester</p>
 
-                {loading ? <ul><Card type='loading' /></ul> : <ul className='cards-grid-container'>
-                    {typeof(courses) !== 'string' ? courses.map((course) => (
-                        <Card key={course.course.courseId} type='course' link={`/leaderboard/${course.course.courseId}`} courseCode={course.course.code} fullCourseName={course.course.name} rank={course.rank} />
-                    )) : <Card type='course' disabledLink={true} courseCode='Unfortunately' fullCourseName='No leaderboards found' />}
-                </ul>}
-            </article>
+                <ul>
+                    {courses.map(({ course: { courseId, code, name, rank } }) => <Card key={courseId} type='course' link={`/leaderboard/${courseId}`} courseCode={code} fullCourseName={name} rank={rank} />)}
+                </ul>
+            </article> : null}
         </section>
     )
 }
