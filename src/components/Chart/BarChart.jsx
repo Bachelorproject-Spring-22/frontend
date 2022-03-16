@@ -39,7 +39,7 @@ export const options = {
             grid: {
                 display: true,
                 color: "#BEAFD0"
-              },
+            },
             ticks: {
                 color: 'rgba(255, 255, 255, 0.87)'
             }
@@ -47,7 +47,7 @@ export const options = {
         x: {
             grid: {
                 display: false,
-              },
+            },
             ticks: {
                 color: 'rgba(255, 255, 255, 0.87)'
             }
@@ -56,16 +56,9 @@ export const options = {
 };
 
 
-const labels = ['Quiz 1', 'Quiz 2', 'Quiz 3', 'Quiz 4', 'Quiz 5', 'Quiz 6']
 
-const data = {
-    labels,
-    datasets: [{
-        label: 'Points',
-        data: [120, 190, 300, 500, 560, 200],
-        backgroundColor: 'rgb(0, 99, 132)'
-    }]
-}
+
+
 
 function createGradient(ctx, area) {
     const colorStart = "#7F619C";
@@ -79,7 +72,10 @@ function createGradient(ctx, area) {
     return gradient;
 }
 
-const BarChart = () => {
+const BarChart = (props) => {
+    const label = props.labels;
+    const dataSet = props.data;
+    
     const [chartData, setChartData] = useState({
         datasets: []
     });
@@ -87,6 +83,14 @@ const BarChart = () => {
     const chartRef = useRef(Bar);
 
     useEffect(() => {
+        const data = {
+            labels: label,
+            datasets: [{
+                label: 'Points',
+                data: dataSet,
+                backgroundColor: 'rgb(0, 99, 132)'
+            }]
+        };
         const chart = chartRef.current;
 
         if (!chart) {
@@ -103,7 +107,7 @@ const BarChart = () => {
         };
 
         setChartData(chartData);
-    }, []);
+    }, [dataSet, label]);
 
     return (
         <Bar ref={chartRef} options={options} data={chartData} />

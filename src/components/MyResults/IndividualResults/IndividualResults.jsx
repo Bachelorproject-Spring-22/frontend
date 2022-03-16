@@ -16,6 +16,14 @@ function IndividualResults(props) {
     const tableData = props.fetchCourseTableData;
     const courseData = props.fetchCourseData;
     console.log(courseData);
+    let label = [];
+    let scores = [];
+    if (courseData) {
+        courseData.map((element, index) => scores.push(element.kahootsInPeriod.finalScores.totalScore) && label.push(`Quiz ${index + 1}`));
+    }
+
+    console.log(label);
+
 
     const fetchCourseTable = props.fetchCourseTable;
 
@@ -46,7 +54,7 @@ function IndividualResults(props) {
             <div className="chart-container">
                 {showBarChart ?
                     <Suspense fallback={<Loading />}>
-                        <BarChart labels={[]} data={[]} />
+                        <BarChart labels={label} data={scores} />
                     </Suspense> :
                     <p onClick={handleClick}>Show bar chart</p>
                 }
