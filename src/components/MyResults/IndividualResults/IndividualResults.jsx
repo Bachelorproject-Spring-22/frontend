@@ -15,15 +15,12 @@ function IndividualResults(props) {
     const courseId = location.split('/')[0];
     const tableData = props.fetchCourseTableData;
     const courseData = props.fetchCourseData;
-    console.log(courseData);
+    
     let label = [];
     let scores = [];
     if (courseData) {
         courseData.map((element, index) => scores.push(element.kahootsInPeriod.finalScores.totalScore) && label.push(`Quiz ${index + 1}`));
     }
-
-    console.log(label);
-
 
     const fetchCourseTable = props.fetchCourseTable;
 
@@ -39,11 +36,11 @@ function IndividualResults(props) {
 
     return (
         <section className='individual-results'>
-            <h1>Full-Stack Web Development</h1>
-            <p className='subtitle'>IDG2100</p>
+            {props.loading ? null : <><h1>{tableData[0].course.name}</h1>
+            <p className='subtitle'>{tableData[0].course.code}</p></>}
 
             <Suspense fallback={<Loading />}>
-                {props.loading ? <Card type='loading' /> : <Table data={tableData} />}
+                {props.loading ? <ul><Card type='loading' /></ul> : <Table data={tableData} />}
             </Suspense>
             <Link to={`/leaderboard/${courseId}`}>
                 <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard" />} />
