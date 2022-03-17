@@ -5,7 +5,7 @@ import Icon from '../../Icon/Icon';
 function MainManage({ data, handleOpen }) {
     return (
         <section className='main-manage'>
-            <h1>Manage</h1>
+            <header><h1>Manage</h1></header>
 
             <article>
                 <h2>Quizes</h2>

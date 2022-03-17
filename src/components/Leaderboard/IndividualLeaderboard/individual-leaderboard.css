@@ -1,17 +1,15 @@
-@media only screen and (min-width:415px) {
-
+@media only screen and (min-width: 415px) {
     .inidividual-leaderboard {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-around;
         align-items: flex-start;
     }
-    
+
     .inidividual-leaderboard .fab {
         margin: 0 0 1rem 1rem;
         position: sticky;
         bottom: 5rem;
         align-self: flex-end;
-        
     }
 }

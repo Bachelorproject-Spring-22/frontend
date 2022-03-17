@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-bottom: 10rem
+    padding-bottom: 10rem;
 }
 
 .home-parent {
@@ -14,7 +14,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
     gap: 3rem 0;
-    grid-template-areas: "introduction-1""introduction-2""introduction-3"
+    grid-template-areas: "introduction-1""introduction-2""introduction-3";
 }
 
 #introduction-1,
@@ -25,15 +25,15 @@
 }
 
 #introduction-1 {
-    grid-area: introduction-1
+    grid-area: introduction-1;
 }
 
 #introduction-2 {
-    grid-area: introduction-2
+    grid-area: introduction-2;
 }
 
 #introduction-3 {
-    grid-area: introduction-3
+    grid-area: introduction-3;
 }
 
 #image1,
@@ -44,18 +44,17 @@
 }
 
 .home-parent article {
-    align-self: center
+    align-self: center;
 }
 
-@supports(padding:max(0px)) {
+@supports (padding:max(0px)) {
     .bottom-nav {
-        padding-bottom: max(.25rem, env(safe-area-inset-bottom))
+        padding-bottom: max(.25rem, env(safe-area-inset-bottom));
     }
 }
 
 /* for desktop */
-@media only screen and (min-width:769px) {
-
+@media only screen and (min-width: 769px) {
     #introduction-1,
     #introduction-2,
     #introduction-3 {
@@ -83,7 +82,7 @@
     }
 
     #text1 {
-        grid-area: text1
+        grid-area: text1;
     }
 
     #introduction-2 {
@@ -91,11 +90,11 @@
     }
 
     #image2 {
-        grid-area: image2
+        grid-area: image2;
     }
 
     #text2 {
-        grid-area: text2
+        grid-area: text2;
     }
 
     #introduction-3 {
@@ -103,10 +102,10 @@
     }
 
     #image3 {
-        grid-area: image3
+        grid-area: image3;
     }
 
     #text3 {
-        grid-area: text3
+        grid-area: text3;
     }
 }

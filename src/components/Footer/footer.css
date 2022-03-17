@@ -20,7 +20,7 @@ footer div section {
 }
 
 footer div section:last-child {
-  align-items: center;
+    align-items: center;
 }
 
 footer div section img {
@@ -52,7 +52,7 @@ footer div article a,
 .middle-emphasis {
     margin: .5rem 0;
     text-decoration: none;
-    color: var(--white-middle-emphasis)
+    color: var(--white-middle-emphasis);
 }
 
 .carbon-section {

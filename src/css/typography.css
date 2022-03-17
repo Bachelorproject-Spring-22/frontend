@@ -1,17 +1,19 @@
 @font-face {
-    font-family: 'Open Sans';
-    src: local('OpenSans-Bold'),
-        local('Open Sans Bold'),
-        url('../assets/OpenSans-Bold-subset.woff2');
+    font-family: "Open Sans";
+    src:
+        local("OpenSans-Bold"),
+        local("Open Sans Bold"),
+        url("../assets/OpenSans-Bold-subset.woff2");
     font-weight: 700;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Open Sans';
-    src: local('OpenSans-Regular'),
-        local('Open Sans Regular'),
-        local('Open Sans') url('../assets/OpenSans-Regular-subset.woff2');
+    font-family: "Open Sans";
+    src:
+        local("OpenSans-Regular"),
+        local("Open Sans Regular"),
+        local("Open Sans") url("../assets/OpenSans-Regular-subset.woff2");
     font-weight: 400;
     font-display: swap;
 }
@@ -27,6 +29,7 @@ body,
 p {
     color: var(--white-high-emphasis);
     font: 1rem/1.3125rem Arial, sans-serif;
+
     /* margin: auto; */
 }
 
@@ -57,7 +60,8 @@ legend {
 
 h3,
 h4,
-h5, legend {
+h5,
+legend {
     margin-bottom: 0;
 }
 
@@ -70,6 +74,7 @@ h5 {
 h1 {
     /* font-size: 2.8125rem; */
     font-size: clamp(2.2rem, .5rem + 10vw, 2.8125rem);
+
     /* usikker på den her */
     line-height: 3.9375rem;
 }
@@ -80,7 +85,8 @@ h2,
     margin-bottom: 1.3125rem;
 }
 
-h3, legend {
+h3,
+legend {
     font-size: 1.4375rem;
 }
 
