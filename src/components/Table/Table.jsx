@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import './table.css';
 
 function Table({ data, caption }) {
-    const sorted = data.sort((a,b) => (a.course.totalScore < b.course.totalScore) ? 1 : ((b.course.totalScore < a.course.totalScore) ? -1 : 0));
-    
+    const sorted = data.sort((a, b) => (a.course.totalScore < b.course.totalScore) ? 1 : ((b.course.totalScore < a.course.totalScore) ? -1 : 0));
+
     return (
         <table className='table-board'>
-             <caption>{caption}</caption>
+            <caption>{caption}</caption>
             <thead>
                 <tr>
                     <th>Rank</th>
@@ -16,7 +16,7 @@ function Table({ data, caption }) {
                     <th>Attended</th>
                 </tr>
             </thead>
-            
+
             <tbody>
                 {sorted.map((user) => (
                     <tr key={user.course._id}>
@@ -34,6 +34,6 @@ function Table({ data, caption }) {
 Table.propTypes = {
     caption: PropTypes.string.isRequired,
     data: PropTypes.array
-  };
+};
 
 export default Table;

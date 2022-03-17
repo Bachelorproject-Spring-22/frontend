@@ -120,6 +120,14 @@
     text-decoration: underline;
 }
 
+.text-only.destructive {
+    color: var(--destructive-color);
+}
+
+.text-only.destructive:hover {
+    color: var(--destructive-color-hover);
+}
+
 .button:active {
     box-shadow: none;
     color: var(--primary-color-light);
