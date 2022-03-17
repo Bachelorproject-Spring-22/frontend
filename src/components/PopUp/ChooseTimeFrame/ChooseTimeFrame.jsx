@@ -39,7 +39,7 @@ function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame, c
 
 
                 <label htmlFor="start">Start date:</label>
-                <input required type="date" id="start" name="quiz-start" value={selectedStartDate} min={minimumDate} max={selectedEndDate} onChange={handleSelectedStartDate}/>
+                <input required type="date" id="start" name="quiz-start" value={selectedStartDate} min={minimumDate} max={selectedEndDate ? selectedEndDate : currentDate} onChange={handleSelectedStartDate}/>
 
                 <label htmlFor="end">End date:</label>
                 <input required type="date" id="end" name="quiz-start" value={selectedEndDate} min={selectedStartDate} max={currentDate} onChange={handleSelectedEndDate} disabled={selectedStartDate ? '' : 'disabled'}/>
