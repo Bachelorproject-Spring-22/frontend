@@ -21,9 +21,11 @@ function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame, c
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const startDate = new Date(selectedStartDate).toISOString();
+        const endDate = new Date(selectedEndDate).toISOString();
         const data = {
-            startDate: selectedStartDate,
-            endDate: selectedEndDate
+            startDate,
+            endDate
         };
         chooseTimeFrame(data, courseId);
     }

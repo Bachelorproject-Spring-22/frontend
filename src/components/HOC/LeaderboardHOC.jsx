@@ -64,13 +64,26 @@ function leaderboardHoc(WrappedComponent) {
 
         uploadQuiz = async (data) => {
             const res = await uploadQuiz(data);
-            console.log(res.data);
+            if(res.error) {
+                this.setState({
+                    error: res.error,
+                    isLoading: false
+                })
+            } else {
+                console.log(res);
+            }
         }
 
         chooseTimeFrame = async (data, courseId) => {
-            console.log(data, courseId);
             const res = await getSnapshot(courseId, data);
-            console.log(res);
+            if(res.error) {
+                this.setState({
+                    error: res.error,
+                    isLoading: false
+                })
+            } else {
+                console.log(res);
+            }
         }
 
         render() {
