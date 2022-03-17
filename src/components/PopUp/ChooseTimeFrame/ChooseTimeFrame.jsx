@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import './choose-time-frame.css';
 import Button from '../../Button/Button';
 
-function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame, courseId }) {
+function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame, courseId, timeSlot }) {
     const currentDate = new Date().toISOString().split("T")[0]; /* https://stackoverflow.com/a/49916376/14447555 */
     const minimumDate = new Date(new Date().getFullYear(), 0, 1).toISOString().split("T")[0]; /* https://stackoverflow.com/a/14434873/14447555 */
+    const startDateToShow = timeSlot ? timeSlot.startDate.split('T')[0] : '';
+    const endDateToShow = timeSlot ? timeSlot.endDate.split('T')[0] : '';
 
-    const [selectedStartDate, setSelectedStartDate] = useState('');  
-    const [selectedEndDate, setSelectedEndDate] = useState('');
+    const [selectedStartDate, setSelectedStartDate] = useState(startDateToShow);  
+    const [selectedEndDate, setSelectedEndDate] = useState(endDateToShow);
 
 
     const handleSelectedStartDate = (e) => {
@@ -24,7 +26,6 @@ function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame, c
         const startDate = new Date(selectedStartDate).toISOString();
         const endDate = selectedEndDate.concat('T23:59:00.000Z');
         
-        //console.log(endDate);
         const data = {
             startDate,
             endDate

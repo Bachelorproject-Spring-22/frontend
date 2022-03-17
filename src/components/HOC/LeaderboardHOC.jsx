@@ -112,7 +112,7 @@ function leaderboardHoc(WrappedComponent) {
                         timeSlot={this.state.timeSlot}
                         {...this.props} />
                     {this.state.uploadPop && <PopUp handleClose={this.togglePop} type='uploadPop' content={<UploadQuiz courseId={this.state.courseId} uploadQuiz={this.uploadQuiz} handleClose={this.togglePop} />} />}
-                    {this.state.timeFramePop && <PopUp handleClose={this.togglePop} type='timeFramePop' content={<ChooseTimeFrame chooseTimeFrame={this.chooseTimeFrame} courseId={this.state.courseId} onSubmit={this.chooseTimeFrame} handleClose={this.togglePop} />} />}
+                    {this.state.timeFramePop && <PopUp handleClose={this.togglePop} type='timeFramePop' content={<ChooseTimeFrame timeSlot={this.state.timeSlot} chooseTimeFrame={this.chooseTimeFrame} courseId={this.state.courseId} onSubmit={this.chooseTimeFrame} handleClose={this.togglePop} />} />}
                 </>
             );
         }
