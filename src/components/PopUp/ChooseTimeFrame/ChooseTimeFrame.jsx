@@ -22,7 +22,9 @@ function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame, c
     const handleSubmit = (e) => {
         e.preventDefault();
         const startDate = new Date(selectedStartDate).toISOString();
-        const endDate = new Date(selectedEndDate).toISOString();
+        const endDate = selectedEndDate.concat('T23:59:00.000Z');
+        
+        //console.log(endDate);
         const data = {
             startDate,
             endDate
