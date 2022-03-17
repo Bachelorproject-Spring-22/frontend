@@ -9,10 +9,6 @@ function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame, c
     const [selectedStartDate, setSelectedStartDate] = useState('');  
     const [selectedEndDate, setSelectedEndDate] = useState('');
 
-    const formData = new FormData();
-    formData.set('startDate', selectedStartDate);
-    formData.set('endDate', selectedEndDate);
-
 
     const handleSelectedStartDate = (e) => {
         setSelectedStartDate(e.target.value);
@@ -25,11 +21,12 @@ function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame, c
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        console.log(formData.get('startDate'))
-        console.log(formData.get('endDate'))
+        const data = {
+            startDate: selectedStartDate,
+            endDate: selectedEndDate
+        };
         console.log(courseId)
-        chooseTimeFrame(formData, courseId);
+        chooseTimeFrame(data, courseId);
     }
 
     return (
