@@ -36,7 +36,7 @@ function App() {
         let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
         if (authTokens) {
             const expired = checkExp(authTokens);
-            //console.log(expired);
+            
             if (expired) {
                 getter();
             }

@@ -11,7 +11,6 @@ function settingHoc(WrappedComponent) {
         }
 
         togglePop = (position) => {
-            console.log(position);
             this.setState({
                 [position]: !this.state[position]
             })
@@ -19,7 +18,11 @@ function settingHoc(WrappedComponent) {
 
         render() { 
             return (
-                <WrappedComponent error={this.state.error} email={this.state.email} togglePop={this.togglePop} {...this.props} />
+                <WrappedComponent 
+                    error={this.state.error} 
+                    email={this.state.email} 
+                    togglePop={this.togglePop} 
+                    {...this.props} />
             );
         }
     }

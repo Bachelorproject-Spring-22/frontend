@@ -10,15 +10,15 @@ function Upload (props) {
         formData.append("file", selectedFile);
         
         try {
-            const response = await axios({
+            await axios({
                 method: "post",
                 url: "/upload",
                 data: formData,
                 headers: { "Content-Type": "multipart/form-data" }
             });
-            console.log(response);
+            //console.log(response);
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 

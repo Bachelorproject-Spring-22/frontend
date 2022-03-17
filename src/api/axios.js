@@ -1,8 +1,4 @@
 import axios from 'axios';
-//import jwt_decode from 'jwt-decode';
-//import { checkDiff } from "../helpers/functions";
-
-//console.log("This is the API ", process.env);
 
 let axiosInstance = axios;
 if (process.env && process.env.NODE_ENV && process.env.NODE_ENV === 'production') {

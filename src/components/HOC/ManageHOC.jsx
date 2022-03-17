@@ -22,7 +22,6 @@ function managePageBackend(WrappedComponent) {
         }
 
         togglePop = (position) => {
-            console.log(position);
             this.setState({
                 [position]: !this.state[position]
             })
@@ -30,8 +29,9 @@ function managePageBackend(WrappedComponent) {
 
         uploadQuiz = async(data) => {
             //console.log(data);
-            const res = await uploadQuiz(data);
-            console.log(res);
+            await uploadQuiz(data);
+            // ADD ERROR HANDLING AND SUCCESS HANDLING
+            //console.log(res);
         }
 
         render() {
