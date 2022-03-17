@@ -31,7 +31,7 @@
     text-decoration: none;
 }
 
-.bn-tab>p {
+.bn-tab > p {
     color: var(--primary-color-lightest);
     font-size: 12px;
     font-weight: 700;
@@ -48,7 +48,7 @@
     color: var(--primary-color-darkest);
 }
 
-@supports(padding: max(0px)) {
+@supports (padding: max(0px)) {
     /* Specify that our padding should be the default padding or the safe area inset, whichever is greater. */
     .bottom-nav {
         padding-bottom: max(.25rem, env(safe-area-inset-bottom));
@@ -57,7 +57,7 @@
 
 /* For desktop */
 @media only screen and (min-width: 769px) {
-    @supports(padding: max(0px)) {
+    @supports (padding: max(0px)) {
         .bottom-nav {
             padding-left: max(.5rem, env(safe-area-inset-left));
         }
@@ -75,7 +75,7 @@
         padding-right: .5rem;
     }
 
-    .bottom-nav>div {
+    .bottom-nav > div {
         display: flex;
         flex-direction: column;
         gap: .5rem;

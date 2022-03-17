@@ -2,8 +2,8 @@ input[type="file"] {
     display: none;
 }
 
-.required:before {
-    content:"* ";
+.required::before {
+    content: "* ";
     color: var(--destructive-color);
 }
 

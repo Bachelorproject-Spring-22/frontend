@@ -1,10 +1,10 @@
-.banner{
-    background-color: rgba(255, 255, 255, .16); /* ENDRE DENNE IKKE FERDIG */
+.banner {
+    background-color: rgb(255 255 255 / .16); /* ENDRE DENNE IKKE FERDIG */
     width: 100%;
     padding: .5rem;
 }
 
-.banner .buttons{
+.banner .buttons {
     display: flex;
     gap: 1rem;
 }
