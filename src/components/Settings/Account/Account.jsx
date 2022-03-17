@@ -6,7 +6,6 @@ import SEO from "../../SEO/SEO";
 import Card from "../../Card/Card";
 
 function Account(props) {
-    console.log(props);
     const data = props.data;
     const togglePop = props.togglePop;
 
@@ -19,7 +18,7 @@ function Account(props) {
                 <p className="subtitle">{data.user.username}</p>
 
                 <article>
-                    <div onClick={() => togglePop('email')}>
+                    <div /* onClick={() => togglePop('email')} */>
                         <p>Email</p>
                         <p className="user-text">Edit</p>
                     </div>

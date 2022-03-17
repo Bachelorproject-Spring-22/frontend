@@ -23,7 +23,7 @@ function Home(props) {
 
     return <>
         <SEO title='Home' />
-        <div className='test1'>
+        <div className='landing-page'>
             <header>
                 <h1>The Kahoot!-League</h1>
                 <p className='subtitle'>the ultimate league for learning</p>

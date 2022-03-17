@@ -1,0 +1,17 @@
+input[type="file"] {
+    display: none;
+}
+
+.required:before {
+    content:"* ";
+    color: var(--destructive-color);
+}
+
+form p {
+    color: var(--white-high-emphasis);
+}
+
+form select {
+    width: 100%;
+    display: block;
+}

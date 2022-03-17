@@ -88,6 +88,23 @@ textarea {
     color: var(--destructive-color);
 }
 
+select {
+    min-height: 2rem;
+    margin: auto;
+}
+
+.custom-select {
+    background: #39373C;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, .25);
+    color: var(----white-high-emphasis);
+    display: block;
+    font-size: 1rem;
+    margin: 0;
+    padding: .5rem .25rem;
+    margin-bottom: 1rem;
+}
+
 /* For desktop */
 @media only screen and (min-width: 769px) {
     @supports(padding: max(0px)) {
@@ -114,3 +131,17 @@ textarea {
         margin: 1rem auto;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .loader {
+        animation: spin 4s linear infinite !important;
+    }
+
+    .card.loading {
+        animation: 6s shine linear infinite !important;
+    }
+
+    .card:hover {
+        transform: scale(1.005) !important;
+    }
+  }

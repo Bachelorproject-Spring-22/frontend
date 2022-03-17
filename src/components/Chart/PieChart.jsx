@@ -35,18 +35,17 @@ export const options = {
   }
 };
 
-export const data = {
-  labels: ["Correct", "Incorrect"],
-  datasets: [
-    {
-      label: "Number og correct and incorrect answers",
-      data: [9, 1],
-      backgroundColor: ["#7F619C", "#BEAFD0"]
-    }
-  ]
-};
-
-const PieChart = () => {
+const PieChart = ({correct, incorrect}) => {
+  const data = {
+    labels: ["Correct", "Incorrect"],
+    datasets: [
+      {
+        label: "Number of correct and incorrect answers",
+        data: [correct, incorrect],
+        backgroundColor: ["#7F619C", "#BEAFD0"]
+      }
+    ]
+  };
 
   return (
     <Pie data={data} options={options} />

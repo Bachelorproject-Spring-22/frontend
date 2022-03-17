@@ -1,35 +1,58 @@
 import Card from "../../Card/Card";
-import React, { lazy, Suspense } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import './individual-quiz-results.css';
 import Loading from "../../Loading/Loading";
+import { useParams } from "react-router-dom";
+import { appendSuffix } from "../../../helpers/functions";
 
 const PieChart = lazy(() => import('../../Chart/PieChart'));
 
-function IndividualQuizResults(props) {
+function IndividualQuizResults({ fetchQuiz, fetchQuizData, loading }) {
+    const params = useParams();
+    const location = params['*'];
+    const courseId = location.split('/')[0];
+    const quizId = location.split('/')[1];
+    let suffix;
+
+    console.log(fetchQuizData);
+
+    useEffect(() => {
+        fetchQuiz(courseId, quizId);
+    }, [courseId, fetchQuiz, quizId]);
+
+    if (!loading) {
+        suffix = appendSuffix(fetchQuizData.kahootsInPeriod.finalScores.rank);
+    }
+
     return (
         <section>
-            <h1>Full-Stack Web Development</h1>
-            <p className='subtitle'>Quiz 1</p>
+            {loading ? null : <>
+                <h1>{fetchQuizData.coursesInPeriod.name}</h1>
+                <p className='subtitle'>{`Quiz ${fetchQuizData.quizNumber}`}</p></>}
 
             <ul className='individual-quiz'>
-                <Card link='#' type='individual' number={9} label='Correct' />
-                <Card link='#' type='individual' number={1} label='Incorrect' />
-                <Card link='#' type='individual' number={9876} label='Score' />
-                <Card link='#' type='individual' number='4th' label='Place' />
+                {loading ? <Card type='loading' /> :
+                    <>
+                        <Card type='individual' number={fetchQuizData.kahootsInPeriod.finalScores.correctAnswers} label='Correct' />
+                        <Card type='individual' number={fetchQuizData.kahootsInPeriod.finalScores.incorrectAnswers} label='Incorrect' />
+                        <Card type='individual' number={fetchQuizData.kahootsInPeriod.finalScores.totalScore} label='Score' />
+                        <Card type='individual' number={fetchQuizData.kahootsInPeriod.finalScores.rank} suffix={suffix} label='Place' />
+                    </>}
             </ul>
 
 
             <Suspense fallback={<Loading />}>
                 <div className="chart-container-pie">
-                    <PieChart />
+                    {loading ? <Card type='loading' /> : <PieChart correct={fetchQuizData.kahootsInPeriod.finalScores.correctAnswers} incorrect={fetchQuizData.kahootsInPeriod.finalScores.incorrectAnswers} />}
                 </div>
             </Suspense>
 
 
             <h2>More Quizzes</h2>
-            <ul>
+            <p>Coming soon</p>
+            {/* <ul>
                 <Card type='quiz' quizNumber={2} correctAnswers={3} incorrectAnswers={8} />
-            </ul>
+            </ul> */}
 
         </section>
     );

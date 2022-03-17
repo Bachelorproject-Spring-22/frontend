@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchHome } from '../../api/apiCalls';
+import { fetchCourse, fetchHome, fetchQuiz } from '../../api/apiCalls';
 
 function resultHoc(WrappedComponent) {
     class ResultsHoc extends Component {
@@ -7,33 +7,105 @@ function resultHoc(WrappedComponent) {
             super(props);
             this.state = {
                 error: null,
-                fetchHome: null,
+                fetchHomeData: null,
+                fetchCourseTableData: null,
+                fetchCourseData: null,
+                fetchQuizData: null,
                 loading: true
             }
         }
 
-        fetchHome = async() => {
-            const res = await fetchHome();
-            if(res.error) {
+        fetchHome = async () => {
+            if (sessionStorage.getItem('fetchHomeData')) {
                 this.setState({
-                    error: res.error,
-                    loading: false
+                    loading: false,
+                    fetchHomeData: JSON.parse(sessionStorage.getItem('fetchHomeData'))
                 })
             } else {
+                const res = await fetchHome();
+                if (res.error) {
+                    this.setState({
+                        error: res.error,
+                        loading: false
+                    })
+                } else {
+                    sessionStorage.setItem('fetchHomeData', JSON.stringify(res.data.studyProgrammeData));
+                    this.setState({
+                        fetchHomeData: res.data.studyProgrammeData,
+                        loading: false
+                    });
+                }
+            }
+
+        }
+
+        fetchCourseTable = async (courseId) => {
+            if (sessionStorage.getItem('fetchCourseTableData') && sessionStorage.getItem('fetchCourseData')) {
                 this.setState({
-                    fetchHome: res.data.studyProgrammeData,
-                    loading: false
+                    loading: false,
+                    fetchCourseTableData: JSON.parse(sessionStorage.getItem('fetchCourseTableData')),
+                    fetchCourseData: JSON.parse(sessionStorage.getItem('fetchCourseData'))
+                })
+            } else {
+                const res = await fetchCourse(courseId);
+                if (res.error) {
+                    this.setState({
+                        error: res.error,
+                        loading: false
+                    });
+                } else {
+                    sessionStorage.setItem('fetchCourseTableData', JSON.stringify(res.data.studyProgrammeData));
+                    sessionStorage.setItem('fetchCourseData', JSON.stringify(res.data.getUserSpecific))
+                    this.setState({
+                        loading: false,
+                        fetchCourseTableData: res.data.studyProgrammeData,
+                        fetchCourseData: res.data.getUserSpecific
+                    })
+                }
+            }
+
+        }
+
+        fetchQuiz = async (courseId, quizId) => {
+            if (sessionStorage.getItem(courseId)) {
+                this.setState({
+                    loading: false,
+                    fetchQuizData: JSON.parse(sessionStorage.getItem(quizId))
                 });
+            } else {
+                const res = await fetchQuiz(courseId, quizId);
+                if (res.error) {
+                    this.setState({
+                        error: res.error,
+                        loading: false
+                    });
+                } else {
+                    sessionStorage.setItem(quizId, JSON.stringify(res.data.getUserSpecific[0]));
+                    this.setState({
+                        loading: false,
+                        fetchQuizData: res.data.getUserSpecific[0]
+                    });
+                }
             }
         }
 
-        render() { 
+        render() {
             return (
-                <WrappedComponent loading={this.state.loading} fetchHomeData={this.state.fetchHome} fetchHome={this.fetchHome} error={this.state.error} {...this.props} />
+                <WrappedComponent
+                    loading={this.state.loading}
+                    fetchCourseTable={this.fetchCourseTable}
+                    fetchCourseTableData={this.state.fetchCourseTableData}
+                    fetchCourseData={this.state.fetchCourseData}
+                    fetchHomeData={this.state.fetchHomeData}
+                    fetchHome={this.fetchHome}
+                    fetchQuizData={this.state.fetchQuizData}
+                    fetchQuiz={this.fetchQuiz}
+                    error={this.state.error}
+                    {...this.props} />
             );
         }
     }
-    
+
     return ResultsHoc;
 }
 

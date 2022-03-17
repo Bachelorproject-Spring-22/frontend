@@ -47,6 +47,4 @@ function Footer() {
     );
 }
 
-// Siste section MÅ oppdateres!!!!!!!!!!
-
 export default Footer;

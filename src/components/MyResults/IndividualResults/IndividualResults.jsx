@@ -1,35 +1,49 @@
-import React, { lazy, Suspense, /* useMemo, */ useState } from "react";
+import React, { useEffect, lazy, Suspense, useState } from "react";
 import Button from "../../Button/Button";
-//import makeData from "../../Table/makeData";
 import Icon from '../../Icon/Icon';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Card from "../../Card/Card";
 import './individual-results.css';
 import Loading from '../../Loading/Loading';
 
 const BarChart = lazy(() => import('../../Chart/BarChart'));
-//const Table = lazy(() => import('../../Table/Table'));
+const Table = lazy(() => import('../../Table/Table'));
 
 function IndividualResults(props) {
-    //const data = useMemo(() => makeData(3), []);
+    const params = useParams();
+    const location = params['*'];
+    const courseId = location.split('/')[0];
+    const tableData = props.fetchCourseTableData;
+    const courseData = props.fetchCourseData;
+    
+    let label = [];
+    let scores = [];
+    if (courseData) {
+        courseData.map((element, index) => scores.push(element.kahootsInPeriod.finalScores.totalScore) && label.push(`Quiz ${index + 1}`));
+    }
+
+    const fetchCourseTable = props.fetchCourseTable;
 
     const [showBarChart, setChart] = useState(false);
 
-    /* bare copy paste */
     const handleClick = () => {
         setChart(showBarChart => true);
     }
 
+    useEffect(() => {
+        fetchCourseTable(courseId)
+    }, [fetchCourseTable, courseId]);
+
     return (
         <section className='individual-results'>
-            <h1>Full-Stack Web Development</h1>
-            <p className='subtitle'>IDG2100</p>
+            {props.loading ? null : <><h1>{tableData[0].course.name}</h1>
+            <p className='subtitle'>{tableData[0].course.code}</p></>}
 
             <Suspense fallback={<Loading />}>
-                {/* <Table data={data} /> */}
+                {props.loading ? <ul><Card type='loading' /></ul> : <Table data={tableData} />}
             </Suspense>
-            <Link to='/leaderboard/idg2100'>
-                <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard"/>} />
+            <Link to={`/leaderboard/${courseId}`}>
+                <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard" />} />
             </Link>
 
             <h2>Latest Quiz Performance</h2>
@@ -37,7 +51,7 @@ function IndividualResults(props) {
             <div className="chart-container">
                 {showBarChart ?
                     <Suspense fallback={<Loading />}>
-                        <BarChart labels={[]} data={[]} />
+                        <BarChart labels={label} data={scores} />
                     </Suspense> :
                     <p onClick={handleClick}>Show bar chart</p>
                 }
@@ -45,8 +59,10 @@ function IndividualResults(props) {
 
             <h2>Latest Quizes</h2>
             <ul className="cards-grid-container">
-                <Card type='quiz' link='/home/idg2100/quiz1' quizNumber={1} correctAnswers={9} incorrectAnswers={1} />
-                <Card type='quiz' link='/home/idg2100/quiz2' quizNumber={4} correctAnswers={12} incorrectAnswers={7} />
+                {props.loading ? (<Card type='loading' />) :
+                    courseData.map((data, index) => (
+                        <Card key={data.kahootsInPeriod.quizId} type='quiz' link={`/home/${courseId}/${data.kahootsInPeriod.quizId}`} quizNumber={index + 1} correctAnswers={data.kahootsInPeriod.finalScores.correctAnswers} incorrectAnswers={data.kahootsInPeriod.finalScores.incorrectAnswers} />
+                    ))}
             </ul>
         </section>
     );

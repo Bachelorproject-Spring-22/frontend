@@ -21,6 +21,15 @@ const fetchHome = () => {
     return axios.get('/home');
 }
 
+const fetchCourse = (courseId) => {
+    return axios.get(`/home/${courseId}`);
+}
+
+const fetchQuiz = (courseId, quizId) => {
+    console.log(courseId, quizId);
+    return axios.get(`/home/${courseId}/${quizId}`);
+}
+
 const revokeToken = () => {
     return axios.post('api/revoke');
 }
@@ -31,5 +40,7 @@ export {
     uploadQuiz,
     getCourseBoard,
     fetchHome,
+    fetchCourse,
+    fetchQuiz,
     revokeToken
 };

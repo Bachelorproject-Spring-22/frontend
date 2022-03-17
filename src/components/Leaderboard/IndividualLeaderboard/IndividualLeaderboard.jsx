@@ -3,6 +3,7 @@ import Button from '../../Button/Button';
 import Card from '../../Card/Card';
 import Table from '../../Table/Table';
 import './individual-leaderboard.css';
+import Icon from '../../Icon/Icon';
 
 function IndividualLeaderboard(props) {
     const role = props.data.user.role;
@@ -10,7 +11,7 @@ function IndividualLeaderboard(props) {
     const data = props.courseData;
     const loading = props.loading;
     const fetchCourse = props.fetchCourse;
-    console.log(props);
+    console.log(data);
     
     const [isDesktop, setDesktop] = useState(window.innerWidth > 415);
 
@@ -30,15 +31,18 @@ function IndividualLeaderboard(props) {
                 <h1>Full-Stack Web Development</h1>
                 <p className='subtitle'>Leaderboard</p>
             </header>
+
+            {data ? 'here is the data': 'nodata'}
+
             <section>
-                <p className='middle-emphasis'>The leaderboard display the top students from the last quizzes.</p>
+                <p className='middle-emphasis'>The leaderboard display the top students from the X last quizzes.</p>
 
                 {loading ? <ul><Card type='loading' /></ul> : <div className='inidividual-leaderboard'>
-                    {(role === 'teacher' || role === 'superAdmin') && (isDesktop ? <Button onClick={() => props.handleOpen('uploadPop')} label='' size='no-size' variant='fab'/> : <Button onClick={() => props.handleOpen('uploadPop')} label='upload new quiz'/>)}
+                    {(role === 'teacher' || role === 'superAdmin') && (isDesktop ? <Button onClick={() => props.handleOpen('uploadPop')} icon={<Icon iconId='file_upload'/>} label='' size='no-size' variant='fab'/> : <Button onClick={() => props.handleOpen('uploadPop')} label='upload new quiz'/>)}
                     <Table data={data} />
                 </div>}
 
-                <Button label='Choose a time frame' variant='secondary'/>
+                <Button label='Choose a time frame' variant='secondary' icon={<Icon iconId='restore'/>}/>
 
             </section>
         </>

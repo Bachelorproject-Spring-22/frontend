@@ -10,7 +10,7 @@ function leaderboardHoc(WrappedComponent) {
             this.state = {
                 error: null,
                 uploadPop: false,
-                courses: null,
+                courses: [],
                 semesterLeaderBoard: null,
                 isLoading: true,
                 courseData: null
@@ -20,11 +20,13 @@ function leaderboardHoc(WrappedComponent) {
         fetchLeaderboard = async () => {
             const res = await getLeaderboard();
 
+            console.log(res.data);
+
             if (res.error) {
                 console.log(res.error);
             } else {
-                const courses = res.data.data.courses;
-                const semesterLeaderBoard = res.data.data.semesterLeaderBoard;
+                const courses = res.data.getUserSpecific;
+                const semesterLeaderBoard = res.data.studyProgrammeData;
 
                 this.setState({
                     courses,
@@ -36,12 +38,12 @@ function leaderboardHoc(WrappedComponent) {
 
         fetchCourseBoard = async (params) => {
             const res = await getCourseBoard(params);
-            //console.log(res.data.data.totalScore);
+            console.log(res.data);
             if(res.error) {
                 console.log(res.error);
             } else {
                 this.setState({
-                    courseData: res.data.data.totalScore,
+                    courseData: res.data.studyProgrammeData,
                     isLoading: false
                 });
             }
@@ -61,7 +63,16 @@ function leaderboardHoc(WrappedComponent) {
         render() {
             return (
                 <>
-                    <WrappedComponent fetchLeaderboard={this.fetchLeaderboard} courseData={this.state.courseData} fetchCourse={this.fetchCourseBoard} loading={this.state.isLoading} courses={this.state.courses} semesterLeaderBoard={this.state.semesterLeaderBoard} handleOpen={this.togglePop} error={this.state.error} {...this.props} />
+                    <WrappedComponent 
+                        fetchLeaderboard={this.fetchLeaderboard} 
+                        courseData={this.state.courseData} 
+                        fetchCourse={this.fetchCourseBoard} 
+                        loading={this.state.isLoading} 
+                        courses={this.state.courses} 
+                        semesterLeaderBoard={this.state.semesterLeaderBoard} 
+                        handleOpen={this.togglePop} 
+                        error={this.state.error} 
+                        {...this.props} />
                     {this.state.uploadPop && <PopUp handleClose={this.togglePop} type='uploadPop' content={<UploadQuiz onSubmit={this.uploadQuiz} handleClose={this.togglePop} />} />}
                 </>
             );

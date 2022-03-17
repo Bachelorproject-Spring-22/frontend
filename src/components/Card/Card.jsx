@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 /* Denne må endres når vi vet hvordan payload-en fra back-end ser ut. Komponentet er dermed ikke avansert at all */
 
-function Card({ link = '/test', type, courseCode, fullCourseName, rank, quizNumber, correctAnswers, incorrectAnswers, number, label, disabledLink }) {
+function Card({ link = '/test', type, courseCode, fullCourseName, rank, quizNumber, correctAnswers, incorrectAnswers, number, label, disabledLink, suffix }) {
 
     return (
         <li>
@@ -27,7 +27,7 @@ function Card({ link = '/test', type, courseCode, fullCourseName, rank, quizNumb
                     </Link>
                 ) : type === 'individual' ? (
                     <div className='card individual'>
-                        <h3>{number.toLocaleString()}</h3>
+                        <h3>{number.toLocaleString()} {suffix ? <sup>{suffix}</sup> : null}</h3>
                         {label ? <p className='subtitle'>{label}</p> : <p>–</p>}
                     </div>
                 ) : type === 'loading' ? (
