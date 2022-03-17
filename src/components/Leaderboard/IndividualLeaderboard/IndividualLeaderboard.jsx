@@ -32,8 +32,6 @@ function IndividualLeaderboard(props) {
                 <p className='subtitle'>Leaderboard</p>
             </header>
 
-            {data ? 'here is the data': 'nodata'}
-
             <section>
                 <p className='middle-emphasis'>The leaderboard display the top students from the X last quizzes.</p>
 
@@ -42,7 +40,7 @@ function IndividualLeaderboard(props) {
                     <Table data={data} />
                 </div>}
 
-                <Button label='Choose a time frame' variant='secondary' icon={<Icon iconId='restore'/>}/>
+                <Button label='Choose a time frame' variant='secondary' icon={<Icon iconId='restore'/>} onClick={() => props.handleOpen('timeFramePop')} />
 
             </section>
         </>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getCourseBoard, getLeaderboard } from '../../api/apiCalls';
 import PopUp from '../PopUp/PopUp';
 import UploadQuiz from '../PopUp/UploadQuiz/UploadQuiz';
+import ChooseTimeFrame from '../PopUp/ChooseTimeFrame/ChooseTimeFrame';
 
 function leaderboardHoc(WrappedComponent) {
     class LeaderboardHOC extends Component {
@@ -10,6 +11,7 @@ function leaderboardHoc(WrappedComponent) {
             this.state = {
                 error: null,
                 uploadPop: false,
+                timeFramePop: false,
                 courses: [],
                 semesterLeaderBoard: null,
                 isLoading: true,
@@ -60,6 +62,10 @@ function leaderboardHoc(WrappedComponent) {
             console.log(data);
         }
 
+        chooseTimeFrame = (data) => {
+            console.log(data);
+        }
+
         render() {
             return (
                 <>
@@ -74,6 +80,7 @@ function leaderboardHoc(WrappedComponent) {
                         error={this.state.error} 
                         {...this.props} />
                     {this.state.uploadPop && <PopUp handleClose={this.togglePop} type='uploadPop' content={<UploadQuiz onSubmit={this.uploadQuiz} handleClose={this.togglePop} />} />}
+                    {this.state.timeFramePop && <PopUp handleClose={this.togglePop} type='timeFramePop' content={<ChooseTimeFrame onSubmit={this.chooseTimeFrame} handleClose={this.togglePop} />} />}
                 </>
             );
         }

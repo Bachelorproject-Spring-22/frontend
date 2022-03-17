@@ -17,7 +17,7 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
     const courseId = `${selectedCourse}_${selectedSemester}`;
 
     /* Sets a new value for an existing key inside a FormData object, or adds the key/value if it does not already exist. */
-    formData.set('file', selectedFile); 
+    formData.set('file', selectedFile);
     formData.set('courseId', courseId);
     formData.set('name', 'kahoot');
     formData.set('variant', 'quiz');
@@ -41,12 +41,12 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-formData.get('courseId')
+       
         if (!formData.has('file')) {
             console.error('No file selected upon submit!');
             return
         }
-        
+
         uploadQuiz(formData);
     }
 
@@ -66,7 +66,7 @@ formData.get('courseId')
                     accept=".xls,.xlsx"
                     required
                 />
-                <p>{selectedFile ? <>Selected file: {selectedFile.name} ({Math.round(selectedFile.size/1000)}kb) <span onMouseDown={removeSelectedFile}>(remove)</span></> : 'File must be .xls or .xlsx'}</p>
+                <p>{selectedFile ? <>Selected file: {selectedFile.name} ({Math.round(selectedFile.size / 1000)}kb) <span onMouseDown={removeSelectedFile}>(remove)</span></> : 'File must be .xls or .xlsx'}</p>
 
                 <label className='required' htmlFor='course-code-selector'>Choose corresponding course code</label>
 
