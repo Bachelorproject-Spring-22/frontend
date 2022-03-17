@@ -25,7 +25,6 @@ function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame, c
             startDate: selectedStartDate,
             endDate: selectedEndDate
         };
-        console.log(courseId)
         chooseTimeFrame(data, courseId);
     }
 

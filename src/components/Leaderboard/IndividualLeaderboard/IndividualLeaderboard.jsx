@@ -11,7 +11,6 @@ function IndividualLeaderboard(props) {
     const data = props.courseData;
     const loading = props.loading;
     const fetchCourse = props.fetchCourse;
-    console.log(data);
     
     const [isDesktop, setDesktop] = useState(window.innerWidth > 415);
 
@@ -36,7 +35,7 @@ function IndividualLeaderboard(props) {
                 <p className='middle-emphasis'>The leaderboard display the top students from the X last quizzes.</p>
 
                 {loading ? <ul><Card type='loading' /></ul> : <div className='inidividual-leaderboard'>
-                    {(role === 'teacher' || role === 'superAdmin') && (isDesktop ? <Button onClick={() => props.handleOpen('uploadPop')} icon={<Icon iconId='file_upload'/>} label='' size='no-size' variant='fab'/> : <Button onClick={() => props.handleOpen('uploadPop')} label='upload new quiz'/>)}
+                    {(role === 'teacher' || role === 'superAdmin') && (isDesktop ? <Button onClick={() => props.handleOpen('uploadPop', data[0].course.courseId)} icon={<Icon iconId='file_upload'/>} label='' size='no-size' variant='fab'/> : <Button onClick={() => props.handleOpen('uploadPop', data[0].course.courseId)} label='upload new quiz'/>)}
                     <Table data={data} />
                 </div>}
 

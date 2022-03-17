@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getCourseBoard, getLeaderboard, getSnapshot } from '../../api/apiCalls';
+import { getCourseBoard, getLeaderboard, getSnapshot, uploadQuiz } from '../../api/apiCalls';
 import PopUp from '../PopUp/PopUp';
 import UploadQuiz from '../PopUp/UploadQuiz/UploadQuiz';
 import ChooseTimeFrame from '../PopUp/ChooseTimeFrame/ChooseTimeFrame';
@@ -62,8 +62,9 @@ function leaderboardHoc(WrappedComponent) {
             })
         }
 
-        uploadQuiz = (data) => {
-            //console.log(data);
+        uploadQuiz = async (data) => {
+            const res = await uploadQuiz(data);
+            console.log(res.data);
         }
 
         chooseTimeFrame = async (data, courseId) => {
@@ -85,7 +86,7 @@ function leaderboardHoc(WrappedComponent) {
                         handleOpen={this.togglePop} 
                         error={this.state.error} 
                         {...this.props} />
-                    {this.state.uploadPop && <PopUp handleClose={this.togglePop} type='uploadPop' content={<UploadQuiz courseId={this.state.courseId} onSubmit={this.uploadQuiz} handleClose={this.togglePop} />} />}
+                    {this.state.uploadPop && <PopUp handleClose={this.togglePop} type='uploadPop' content={<UploadQuiz courseId={this.state.courseId} uploadQuiz={this.uploadQuiz} handleClose={this.togglePop} />} />}
                     {this.state.timeFramePop && <PopUp handleClose={this.togglePop} type='timeFramePop' content={<ChooseTimeFrame chooseTimeFrame={this.chooseTimeFrame} courseId={this.state.courseId} onSubmit={this.chooseTimeFrame} handleClose={this.togglePop} />} />}
                 </>
             );
