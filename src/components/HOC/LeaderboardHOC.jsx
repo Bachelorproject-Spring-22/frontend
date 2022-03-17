@@ -16,7 +16,8 @@ function leaderboardHoc(WrappedComponent) {
                 semesterLeaderBoard: null,
                 isLoading: true,
                 courseData: null,
-                courseId: ''
+                courseId: '',
+                timeSlot: null
             }
         }
 
@@ -50,7 +51,8 @@ function leaderboardHoc(WrappedComponent) {
             } else {
                 this.setState({
                     courseData: res.data.studyProgrammeData,
-                    isLoading: false
+                    isLoading: false,
+                    timeSlot: null
                 });
             }
         }
@@ -75,6 +77,10 @@ function leaderboardHoc(WrappedComponent) {
         }
 
         chooseTimeFrame = async (data, courseId) => {
+            this.setState({
+                isLoading: true,
+                timeSlot: data
+            });
             const res = await getSnapshot(courseId, data);
             if(res.error) {
                 this.setState({
@@ -83,6 +89,11 @@ function leaderboardHoc(WrappedComponent) {
                 })
             } else {
                 console.log(res);
+                this.setState({
+                    courseData: res.data.studyProgrammeData,
+                    isLoading: false,
+                    timeFramePop: false
+                });
             }
         }
 
@@ -98,6 +109,7 @@ function leaderboardHoc(WrappedComponent) {
                         semesterLeaderBoard={this.state.semesterLeaderBoard} 
                         handleOpen={this.togglePop} 
                         error={this.state.error} 
+                        timeSlot={this.state.timeSlot}
                         {...this.props} />
                     {this.state.uploadPop && <PopUp handleClose={this.togglePop} type='uploadPop' content={<UploadQuiz courseId={this.state.courseId} uploadQuiz={this.uploadQuiz} handleClose={this.togglePop} />} />}
                     {this.state.timeFramePop && <PopUp handleClose={this.togglePop} type='timeFramePop' content={<ChooseTimeFrame chooseTimeFrame={this.chooseTimeFrame} courseId={this.state.courseId} onSubmit={this.chooseTimeFrame} handleClose={this.togglePop} />} />}
