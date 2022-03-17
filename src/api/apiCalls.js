@@ -9,7 +9,6 @@ const getLeaderboard = () => {
 }
 
 const uploadQuiz = (data) => {
-    console.log(data);
     return axios.post('/upload', data, {headers: { "Content-Type": "multipart/form-data" }})
 }
 
@@ -26,7 +25,6 @@ const fetchCourse = (courseId) => {
 }
 
 const fetchQuiz = (courseId, quizId) => {
-    console.log(courseId, quizId);
     return axios.get(`/home/${courseId}/${quizId}`);
 }
 

@@ -11,7 +11,6 @@ function IndividualLeaderboard(props) {
     const data = props.courseData;
     const loading = props.loading;
     const fetchCourse = props.fetchCourse;
-    console.log(data);
     
     const [isDesktop, setDesktop] = useState(window.innerWidth > 415);
 
