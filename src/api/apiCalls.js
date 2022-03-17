@@ -10,7 +10,7 @@ const getLeaderboard = () => {
 
 const getSnapshot = (courseId, formData) => {
     //console.log( courseId, formData );
-    return axios.post(`/leaderboard/${courseId}`, formData, {headers: { "Content-Type": "multipart/form-data" }})
+    return axios.post(`/leaderboard/${courseId}`, formData)
 }
 
 const uploadQuiz = (data) => {
