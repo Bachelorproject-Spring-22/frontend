@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './choose-time-frame.css';
 import Button from '../../Button/Button';
 
-function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame }) {
+function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame, courseId }) {
     const currentDate = new Date().toISOString().split("T")[0]; /* https://stackoverflow.com/a/49916376/14447555 */
     const minimumDate = new Date(new Date().getFullYear(), 0, 1).toISOString().split("T")[0]; /* https://stackoverflow.com/a/14434873/14447555 */
 
@@ -28,7 +28,8 @@ function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame })
 
         console.log(formData.get('startDate'))
         console.log(formData.get('endDate'))
-        chooseTimeFrame(formData);
+        console.log(courseId)
+        chooseTimeFrame(formData, courseId);
     }
 
     return (
@@ -41,10 +42,10 @@ function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame })
 
 
                 <label htmlFor="start">Start date:</label>
-                <input type="date" id="start" name="quiz-start" value={selectedStartDate} min={minimumDate} max={selectedEndDate} onChange={handleSelectedStartDate}/>
+                <input required type="date" id="start" name="quiz-start" value={selectedStartDate} min={minimumDate} max={selectedEndDate} onChange={handleSelectedStartDate}/>
 
                 <label htmlFor="end">End date:</label>
-                <input type="date" id="end" name="quiz-start" value={selectedEndDate} min={selectedStartDate} max={currentDate} onChange={handleSelectedEndDate} disabled={selectedStartDate ? '' : 'disabled'}/>
+                <input required type="date" id="end" name="quiz-start" value={selectedEndDate} min={selectedStartDate} max={currentDate} onChange={handleSelectedEndDate} disabled={selectedStartDate ? '' : 'disabled'}/>
 
 
 

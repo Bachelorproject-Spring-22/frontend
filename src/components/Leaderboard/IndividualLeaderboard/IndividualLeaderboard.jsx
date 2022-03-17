@@ -11,6 +11,7 @@ function IndividualLeaderboard(props) {
     const data = props.courseData;
     const loading = props.loading;
     const fetchCourse = props.fetchCourse;
+    console.log(data);
     
     const [isDesktop, setDesktop] = useState(window.innerWidth > 415);
 
@@ -27,7 +28,7 @@ function IndividualLeaderboard(props) {
     return (
         <>
             <header>
-                <h1>Full-Stack Web Development</h1>
+                {loading ? null : <h1>{data[0].course.name}</h1>}
                 <p className='subtitle'>Leaderboard</p>
             </header>
 
@@ -39,7 +40,7 @@ function IndividualLeaderboard(props) {
                     <Table data={data} />
                 </div>}
 
-                <Button label='Choose a time frame' variant='secondary' icon={<Icon iconId='restore'/>} onClick={() => props.handleOpen('timeFramePop')} />
+                <Button label='Choose a time frame' variant='secondary' icon={<Icon iconId='restore'/>} onClick={() => props.handleOpen('timeFramePop', data[0].course.courseId)} />
 
             </section>
         </>
