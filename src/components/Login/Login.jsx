@@ -77,6 +77,7 @@ class Login extends Component {
             <p className='login'>If you have been invited to The Kahoot! League, you can enter your provided username and password below.</p>
             <p className='login'>Be sure to read our <Link to='/about/privacy'>Privacy Policy</Link> and <Link to='/about/terms'>Terms of Service</Link> before logging in.</p>
             <fieldset>
+            <legend>Log in</legend>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="username">Username</label>
                     <input
@@ -84,6 +85,7 @@ class Login extends Component {
                         required
                         type="text"
                         name="username"
+                        id="username"
                         placeholder='Enter Username'
                         value={this.state.username}
                         className={this.state.error ? 'error' : ''}
@@ -97,6 +99,7 @@ class Login extends Component {
                             required
                             type={this.state.showPassword ? 'text' : 'password'}
                             name="password"
+                            id="password"
                             placeholder='Enter Password'
                             value={this.state.password}
                             className={this.state.error ? 'error' : ''}

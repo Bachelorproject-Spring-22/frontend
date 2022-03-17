@@ -1,11 +1,13 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import './table.css';
 
-function Table({ data }) {
+function Table({ data, caption }) {
     const sorted = data.sort((a,b) => (a.course.totalScore < b.course.totalScore) ? 1 : ((b.course.totalScore < a.course.totalScore) ? -1 : 0));
     
     return (
         <table className='table-board'>
+             <caption>{caption}</caption>
             <thead>
                 <tr>
                     <th>Rank</th>
@@ -28,5 +30,10 @@ function Table({ data }) {
         </table>
     );
 }
+
+Table.propTypes = {
+    caption: PropTypes.string.isRequired,
+    data: PropTypes.array
+  };
 
 export default Table;

@@ -18,9 +18,8 @@ function MainLeaderboard(props) {
             <header><h1>Leaderboards</h1></header>
             <article>
                 <h2>Semester Leaderboard</h2>
-                <p>The top students this semester.</p>
 
-                {loading ? <Loading /> : <Table data={semesterLeaderBoard} />}
+                {loading ? <Loading /> : <Table data={semesterLeaderBoard} caption={'The top students this semester.'}/>}
             </article>
 
             {courses.length !== 0 ? <article>

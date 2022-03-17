@@ -40,7 +40,7 @@ function IndividualResults(props) {
             <p className='subtitle'>{tableData[0].course.code}</p></>}
 
             <Suspense fallback={<Loading />}>
-                {props.loading ? <ul><Card type='loading' /></ul> : <Table data={tableData} />}
+                {props.loading ? <ul><Card type='loading' /></ul> : <Table data={tableData} caption={`The top three students in ${tableData[0].course.name}`}/>}
             </Suspense>
             <Link to={`/leaderboard/${courseId}`}>
                 <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard" />} />
