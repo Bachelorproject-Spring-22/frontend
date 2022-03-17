@@ -8,6 +8,11 @@ const getLeaderboard = () => {
     return axios.get('/leaderboard');
 }
 
+const getSnapshot = (courseId, formData) => {
+    //console.log( courseId, formData );
+    return axios.post(`/leaderboard/${courseId}`, formData)
+}
+
 const uploadQuiz = (data) => {
     return axios.post('/upload', data, {headers: { "Content-Type": "multipart/form-data" }})
 }
@@ -35,6 +40,7 @@ const revokeToken = () => {
 export {
     getter,
     getLeaderboard,
+    getSnapshot,
     uploadQuiz,
     getCourseBoard,
     fetchHome,
