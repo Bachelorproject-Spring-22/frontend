@@ -43,7 +43,7 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
         e.preventDefault();
        
         if (!formData.has('file')) {
-            console.error('No file selected upon submit!');
+            //console.error('No file selected upon submit!');
             return
         }
 

@@ -14,8 +14,6 @@ function IndividualQuizResults({ fetchQuiz, fetchQuizData, loading }) {
     const quizId = location.split('/')[1];
     let suffix;
 
-    console.log(fetchQuizData);
-
     useEffect(() => {
         fetchQuiz(courseId, quizId);
     }, [courseId, fetchQuiz, quizId]);

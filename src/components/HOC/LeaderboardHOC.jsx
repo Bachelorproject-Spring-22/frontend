@@ -22,10 +22,11 @@ function leaderboardHoc(WrappedComponent) {
         fetchLeaderboard = async () => {
             const res = await getLeaderboard();
 
-            console.log(res.data);
-
             if (res.error) {
-                console.log(res.error);
+                this.setState({
+                    error: res.error,
+                    isLoading: false
+                });
             } else {
                 const courses = res.data.getUserSpecific;
                 const semesterLeaderBoard = res.data.studyProgrammeData;
@@ -40,9 +41,11 @@ function leaderboardHoc(WrappedComponent) {
 
         fetchCourseBoard = async (params) => {
             const res = await getCourseBoard(params);
-            console.log(res.data);
             if(res.error) {
-                console.log(res.error);
+                this.setState({
+                    error: res.error,
+                    isLoading: false
+                });
             } else {
                 this.setState({
                     courseData: res.data.studyProgrammeData,
@@ -52,14 +55,13 @@ function leaderboardHoc(WrappedComponent) {
         }
 
         togglePop = (position) => {
-            console.log(position);
             this.setState({
                 [position]: !this.state[position]
             })
         }
 
         uploadQuiz = (data) => {
-            console.log(data);
+            //console.log(data);
         }
 
         chooseTimeFrame = (data) => {
