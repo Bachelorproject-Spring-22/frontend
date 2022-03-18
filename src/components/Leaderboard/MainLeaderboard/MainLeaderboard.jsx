@@ -1,14 +1,19 @@
 import React, { useEffect } from 'react';
 import Card from '../../Card/Card';
+import Error from '../../Error/Error';
 import Loading from '../../Loading/Loading';
 import SEO from "../../SEO/SEO";
 import Table from "../../Table/Table";
 
-function MainLeaderboard({ semesterLeaderBoard, courses, loading, fetchLeaderboard }) {
+function MainLeaderboard({ semesterLeaderBoard, courses, loading, fetchLeaderboard, error }) {
 
     useEffect(() => {
         fetchLeaderboard();
-    }, [fetchLeaderboard])
+    }, [fetchLeaderboard]);
+
+    if (error) {
+        return <Error />;
+    }
 
     return (
         <section className='leaderboard'>
