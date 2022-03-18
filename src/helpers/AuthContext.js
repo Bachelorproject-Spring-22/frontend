@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../components/Loading/Loading';
-//import { revokeToken } from '../api/apiCalls';
+import { login } from '../api/apiCalls';
 
 const AuthContext = createContext();
 
@@ -16,15 +16,18 @@ export const AuthProvider = ({children}) => {
 
     let loginUser = async (userData) => {
         const { username, password } = userData;
+
+        const response = await login(username, password);
         
-        const response = await fetch('/login', {
+        /* const response = await fetch('/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({'username': username, 'password': password})
-        });
-        const data = await response.json();
+        }); */
+        const data = response.data;
+        console.log(data);
 
         if (response.status === 200) {
             localStorage.setItem('authTokens', JSON.stringify(data));

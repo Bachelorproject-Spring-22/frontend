@@ -6,7 +6,6 @@ if (process.env && process.env.NODE_ENV && process.env.NODE_ENV === 'production'
         withCredentials: true,
         baseURL: process.env.REACT_APP_BACKEND
     });
-    console.log(process.env.REACT_APP_BACKEND);
 } else {
     axiosInstance = axios.create();
 }

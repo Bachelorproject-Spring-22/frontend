@@ -1,5 +1,9 @@
 import axios from './axios';
 
+const login = (username, password) => {
+    return axios.post('/login', {username, password});
+}
+
 const getter = () => {
     return axios.get('/');
 }
@@ -38,6 +42,7 @@ const revokeToken = () => {
 }
 
 export {
+    login,
     getter,
     getLeaderboard,
     getSnapshot,
