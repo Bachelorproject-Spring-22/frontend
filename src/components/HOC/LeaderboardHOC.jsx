@@ -44,7 +44,7 @@ function leaderboardHoc(WrappedComponent) {
 
         fetchCourseBoard = async (params) => {
             const res = await getCourseBoard(params);
-            if(res.error) {
+            if (res.error) {
                 this.setState({
                     error: res.error,
                     isLoading: false
@@ -68,7 +68,7 @@ function leaderboardHoc(WrappedComponent) {
 
         uploadQuiz = async (data) => {
             const res = await uploadQuiz(data);
-            if(res.error) {
+            if (res.error) {
                 this.setState({
                     error: res.error,
                     isLoading: false
@@ -88,7 +88,7 @@ function leaderboardHoc(WrappedComponent) {
                 timeSlot: data
             });
             const res = await getSnapshot(courseId, data);
-            if(res.error) {
+            if (res.error) {
                 this.setState({
                     error: res.error,
                     isLoading: false
@@ -106,20 +106,45 @@ function leaderboardHoc(WrappedComponent) {
         render() {
             return (
                 <>
-                    <WrappedComponent 
-                        fetchLeaderboard={this.fetchLeaderboard} 
-                        courseData={this.state.courseData} 
+                    <WrappedComponent
+                        fetchLeaderboard={this.fetchLeaderboard}
+                        courseData={this.state.courseData}
                         courseInformation={this.state.courseInformation}
-                        fetchCourse={this.fetchCourseBoard} 
-                        loading={this.state.isLoading} 
-                        courses={this.state.courses} 
-                        semesterLeaderBoard={this.state.semesterLeaderBoard} 
-                        handleOpen={this.togglePop} 
-                        error={this.state.error} 
+                        fetchCourse={this.fetchCourseBoard}
+                        loading={this.state.isLoading}
+                        courses={this.state.courses}
+                        semesterLeaderBoard={this.state.semesterLeaderBoard}
+                        handleOpen={this.togglePop}
+                        error={this.state.error}
                         timeSlot={this.state.timeSlot}
-                        {...this.props} />
-                    {this.state.uploadPop && <PopUp handleClose={this.togglePop} type='uploadPop' content={<UploadQuiz courseId={this.state.courseId} uploadQuiz={this.uploadQuiz} handleClose={this.togglePop} />} />}
-                    {this.state.timeFramePop && <PopUp handleClose={this.togglePop} type='timeFramePop' content={<ChooseTimeFrame timeSlot={this.state.timeSlot} chooseTimeFrame={this.chooseTimeFrame} courseId={this.state.courseId} onSubmit={this.chooseTimeFrame} handleClose={this.togglePop} />} />}
+                        {...this.props}
+                    />
+                    
+                    {this.state.uploadPop &&
+                        <PopUp
+                            handleClose={this.togglePop}
+                            type='uploadPop'
+                            content={
+                                <UploadQuiz
+                                    courseId={this.state.courseId}
+                                    uploadQuiz={this.uploadQuiz}
+                                    handleClose={this.togglePop}
+                                />}
+                        />}
+
+                    {this.state.timeFramePop &&
+                        <PopUp
+                            handleClose={this.togglePop}
+                            type='timeFramePop'
+                            content={
+                                <ChooseTimeFrame
+                                    timeSlot={this.state.timeSlot}
+                                    chooseTimeFrame={this.chooseTimeFrame}
+                                    courseId={this.state.courseId}
+                                    onSubmit={this.chooseTimeFrame}
+                                    handleClose={this.togglePop}
+                                />}
+                        />}
                 </>
             );
         }
