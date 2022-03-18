@@ -1,4 +1,3 @@
-import './alert.css';
 import Button from '../../Button/Button';
 
 function Alert({ modalTitle, bodyText }) {

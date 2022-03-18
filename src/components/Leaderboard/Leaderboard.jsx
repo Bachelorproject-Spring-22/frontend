@@ -10,16 +10,13 @@ function Leaderboard(props) {
     const params = useParams();
     const location = params['*'];
     const url = location.split('/');
-    //console.log(url);
     
     return (
         <>
             <nav>
-                <Link to="/" className='breadcrumbItem'>Home</Link>
-                &#8250;
-                <Link to="/leaderboard" className='breadcrumbItem' >Leaderboard</Link>
                 <Routes>
-                    <Route exact path={`/${url[0]}`} element={<>&#8250; <Link to={`/leaderboard/${url[0]}`} className='breadcrumbItem' >{url[0]}</Link></>} />
+                    <Route exact path='/' element={null} />
+                    <Route exact path={`/${url[0]}`} element={<><Link to='/leaderboard' className='breadcrumb-item'>Leaderboard</Link> &#8250;<Link to={`/leaderboard/${url[0]}`} className='breadcrumb-item' >{url[0]}</Link></>} />
                 </Routes>
             </nav>
 

@@ -14,13 +14,13 @@ function Footer() {
     return (
         <footer>
             <div>
-                <h3>The Kahoot! League</h3>
+                <h3>uniLeague</h3>
                 <section>
                     <article>
                         <p>Learn more</p>
-                        <Link to='/about'>About The Kahoot! League</Link>
+                        <Link to='/about'>About uniLeague</Link>
                         <Link to='/help'>Help</Link>
-                        <Link to='/contact'>Contact</Link>
+                        <Link to='/about/contact'>Contact</Link>
                         <Link to='/about/terms-of-service'>Terms of service</Link>
                         <Link to='/about/privacy-policy'>Privacy policy</Link>
                         <Link to='/about/cookie-policy'>Cookie policy</Link>
@@ -40,7 +40,7 @@ function Footer() {
                 </section>
                 <section className="carbon-section">
                     <Carbonbadge darkMode={true} />
-                    <img src="https://api.thegreenwebfoundation.org/greencheckimage/kahoot-league.netlify.app?nocache=true" alt="This website is hosted Green - checked by thegreenwebfoundation.org" />
+                    <img src="https://api.thegreenwebfoundation.org/greencheckimage/unileague.netlify.app?nocache=true" alt="This website is hosted Green - checked by thegreenwebfoundation.org" />
                 </section>
             </div>
         </footer>

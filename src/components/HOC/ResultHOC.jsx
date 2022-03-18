@@ -101,7 +101,8 @@ function resultHoc(WrappedComponent) {
                     fetchQuizData={this.state.fetchQuizData}
                     fetchQuiz={this.fetchQuiz}
                     error={this.state.error}
-                    {...this.props} />
+                    {...this.props}
+                />
             );
         }
     }

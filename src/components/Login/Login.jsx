@@ -72,11 +72,12 @@ class Login extends Component {
     render() {
         return <>
             <SEO title="Log in" />
-            <h1>The Kahoot! League</h1>
+            <h1>uniLeague</h1>
             <p className='subtitle login'>LOG IN</p>
-            <p className='login'>If you have been invited to The Kahoot! League, you can enter your provided username and password below.</p>
+            <p className='login'>If you have been invited to uniLeague, you can enter your provided username and password below.</p>
             <p className='login'>Be sure to read our <Link to='/about/privacy'>Privacy Policy</Link> and <Link to='/about/terms'>Terms of Service</Link> before logging in.</p>
             <fieldset>
+            <legend>Log in</legend>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="username">Username</label>
                     <input
@@ -84,6 +85,7 @@ class Login extends Component {
                         required
                         type="text"
                         name="username"
+                        id="username"
                         placeholder='Enter Username'
                         value={this.state.username}
                         className={this.state.error ? 'error' : ''}
@@ -97,13 +99,14 @@ class Login extends Component {
                             required
                             type={this.state.showPassword ? 'text' : 'password'}
                             name="password"
+                            id="password"
                             placeholder='Enter Password'
                             value={this.state.password}
                             className={this.state.error ? 'error' : ''}
                             onClick={this.removeError}
                         />
 
-                        <span className='showPassword'>
+                        <span className='show-password'>
                             {this.state.showPassword ?
                                 <span onClick={this.handleShowPassword} onMouseDown={this.handleMouseDownPassword}><Icon iconId={'visibility'} /></span> :
                                 <span onClick={this.handleShowPassword} onMouseDown={this.handleMouseDownPassword}><Icon iconId={'visibility_off'} /></span>}

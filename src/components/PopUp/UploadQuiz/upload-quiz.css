@@ -2,9 +2,9 @@ input[type="file"] {
     display: none;
 }
 
-.required:before {
-    content:"* ";
+.required::before {
     color: var(--destructive-color);
+    content: "* ";
 }
 
 form p {
@@ -12,6 +12,6 @@ form p {
 }
 
 form select {
-    width: 100%;
     display: block;
+    width: 100%;
 }

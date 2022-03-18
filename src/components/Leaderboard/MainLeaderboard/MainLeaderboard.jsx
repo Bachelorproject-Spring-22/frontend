@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react';
 import Card from '../../Card/Card';
+import Error from '../../Error/Error';
 import Loading from '../../Loading/Loading';
 import SEO from "../../SEO/SEO";
 import Table from "../../Table/Table";
 
-function MainLeaderboard(props) {
-    const { semesterLeaderBoard, courses, loading, fetchLeaderboard } = props;
-
+function MainLeaderboard({ semesterLeaderBoard, courses, loading, fetchLeaderboard, error }) {
     useEffect(() => {
         fetchLeaderboard();
-    }, [fetchLeaderboard])
+    }, [fetchLeaderboard]);
+
+    if (error) {
+        return <Error />;
+    }
 
     return (
         <section className='leaderboard'>
@@ -18,9 +21,8 @@ function MainLeaderboard(props) {
             <header><h1>Leaderboards</h1></header>
             <article>
                 <h2>Semester Leaderboard</h2>
-                <p>The top students this semester.</p>
 
-                {loading ? <Loading /> : <Table data={semesterLeaderBoard} />}
+                {loading ? <Loading /> : <Table data={semesterLeaderBoard} caption={'The top students this semester.'}/>}
             </article>
 
             {courses.length !== 0 ? <article>
@@ -28,7 +30,7 @@ function MainLeaderboard(props) {
                 <p>Explore the leaderboards for the courses you have this semester</p>
 
                 <ul>
-                    {courses.map(({ course: { courseId, code, name, rank } }) => <Card key={courseId} type='course' link={`/leaderboard/${courseId}`} courseCode={code} fullCourseName={name} rank={rank} />)}
+                    {courses.map(({ player: { courseId, code, courseName, rank } }) => <Card key={courseId} type='course' link={`/leaderboard/${courseId}`} courseCode={code} fullCourseName={courseName} rank={rank} />)}
                 </ul>
             </article> : null}
         </section>

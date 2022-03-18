@@ -1,39 +1,38 @@
 .landing-page {
-    height: 100vh;
     display: flex;
+    height: 100vh;
     flex-direction: column;
     justify-content: space-between;
-    padding-bottom: 10rem
+    padding-bottom: 10rem;
 }
 
 .home-parent {
-    margin-bottom: 4rem;
-    height: auto;
-    grid-auto-flow: row;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
+    height: auto;
+    margin-bottom: 4rem;
     gap: 3rem 0;
-    grid-template-areas: "introduction-1""introduction-2""introduction-3"
+    grid-auto-flow: row;
+    grid-template: repeat(3, 1fr) / 1fr;
+    grid-template-areas: "introduction-1""introduction-2""introduction-3";
 }
 
 #introduction-1,
 #introduction-2,
 #introduction-3 {
-    justify-items: center;
     display: grid;
+    justify-items: center;
 }
 
 #introduction-1 {
-    grid-area: introduction-1
+    grid-area: introduction-1;
 }
 
 #introduction-2 {
-    grid-area: introduction-2
+    grid-area: introduction-2;
 }
 
 #introduction-3 {
-    grid-area: introduction-3
+    grid-area: introduction-3;
 }
 
 #image1,
@@ -44,28 +43,27 @@
 }
 
 .home-parent article {
-    align-self: center
+    align-self: center;
 }
 
-@supports(padding:max(0px)) {
+@supports (padding:max(0px)) {
     .bottom-nav {
-        padding-bottom: max(.25rem, env(safe-area-inset-bottom))
+        padding-bottom: max(.25rem, env(safe-area-inset-bottom));
     }
 }
 
 /* for desktop */
-@media only screen and (min-width:769px) {
-
+@media only screen and (min-width: 769px) {
     #introduction-1,
     #introduction-2,
     #introduction-3 {
         display: grid;
+        align-items: center;
         gap: 0 1rem;
         grid-auto-flow: row;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr;
         justify-items: center;
-        align-items: center;
     }
 
     #introduction-1 {
@@ -83,7 +81,7 @@
     }
 
     #text1 {
-        grid-area: text1
+        grid-area: text1;
     }
 
     #introduction-2 {
@@ -91,11 +89,11 @@
     }
 
     #image2 {
-        grid-area: image2
+        grid-area: image2;
     }
 
     #text2 {
-        grid-area: text2
+        grid-area: text2;
     }
 
     #introduction-3 {
@@ -103,10 +101,10 @@
     }
 
     #image3 {
-        grid-area: image3
+        grid-area: image3;
     }
 
     #text3 {
-        grid-area: text3
+        grid-area: text3;
     }
 }

@@ -1,12 +1,12 @@
 .table-board {
     width: 100%;
     border: 1px solid var(--default-stroke);
-    border-radius: 6px;
     margin: 1rem 0;
+    border-radius: 6px;
 }
 
 .table-board thead {
-    background-color: rgba(255, 255, 255, 0.16);
+    background-color: rgb(255 255 255 / .16);
 }
 
 .table-board tbody tr {
@@ -15,8 +15,8 @@
 
 .table-board tbody tr td,
 .table-board thead tr th {
-    padding: 0 .5rem;
     height: 2rem;
+    padding: 0 .5rem;
 }
 
 .table-board thead tr:last-child th:first-child {
@@ -40,21 +40,21 @@
 }
 
 .table-board tbody tr:nth-child(odd) {
-    background-color: rgba(255, 255, 255, 0.07);
+    background-color: rgb(255 255 255 / .07);
 }
 
 .table-board tbody tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgb(255 255 255 / .05);
 }
 
 .table-board tbody tr:nth-child(1) {
-    background: rgba(212, 175, 55, .2);
+    background: rgb(212 175 55 / .2);
 }
 
 .table-board tbody tr:nth-child(2) {
-    background: rgba(170, 169, 173, .2)
+    background: rgb(170 169 173 / .2);
 }
 
 .table-board tbody tr:nth-child(3) {
-    background: rgba(205, 127, 50, .2)
+    background: rgb(205 127 50 / .2);
 }

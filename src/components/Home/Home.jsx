@@ -25,7 +25,7 @@ function Home(props) {
         <SEO title='Home' />
         <div className='landing-page'>
             <header>
-                <h1>The Kahoot!-League</h1>
+                <h1>uniLeague</h1>
                 <p className='subtitle'>the ultimate league for learning</p>
             </header>
 
@@ -39,11 +39,11 @@ function Home(props) {
                 <picture>
                     <source srcSet={Phone1AVIF} type="image/avif"/>
                     <source srcSet={Phone1WEBP} type="image/webp"/>
-                    <img srcSet={Phone1PNG} alt='iPhone displaying The Kahoot! League site with leaderboard' loading='lazy'/>
+                    <img srcSet={Phone1PNG} alt='iPhone displaying uniLeague site with leaderboard' loading='lazy'/>
                 </picture>
                 <div id="text1">
-                    <h2>Introducing The Kahoot! League</h2>
-                    <p>The Kahoot! League makes it cooler than ever for students to show off their knowledge. By using The Kahoot! League and collecting points, students climb the leaderboards and establish themselves as class all-stars. Students learn faster, advance further, and keep getting better all semester long.</p>
+                    <h2>Introducing uniLeague</h2>
+                    <p>uniLeague makes it cooler than ever for students to show off their knowledge. By using uniLeague and collecting points, students climb the leaderboards and establish themselves as class all-stars. Students learn faster, advance further, and keep getting better all semester long.</p>
                 </div>
 
             </article>
@@ -54,7 +54,7 @@ function Home(props) {
                     <source srcSet={Phone2AVIF} type="image/avif"/>
                     <source srcSet={Phone2WEBP} type="image/webp"/>
                     <source srcSet={Phone2PNG} />
-                    <img srcSet={Phone2PNG} alt='iPhone displaying The Kahoot! League site with the results of a quiz' loading='lazy'/>
+                    <img srcSet={Phone2PNG} alt='iPhone displaying uniLeague site with the results of a quiz' loading='lazy'/>
                 </picture>
                 <div id="text2">
                     <h2>Visualize your quiz scores</h2>
@@ -68,11 +68,11 @@ function Home(props) {
             <picture>
                     <source srcSet={Phone3AVIF} type="image/avif"/>
                     <source srcSet={Phone3WEBP } type="image/webp" />
-                    <img srcSet={Phone3PNG} alt='iPhone displaying The Kahoot! League site med noe annet' loading='lazy'/>
+                    <img srcSet={Phone3PNG} alt='iPhone displaying uniLeague site med noe annet' loading='lazy'/>
                 </picture>
                 <div id="text3">
-                    <h2>Introducing The Kahoot! League</h2>
-                    <p>The Kahoot! League makes it cooler than ever for students to show off their knowledge. By using The Kahoot! League and collecting points, students climb the leaderboards and establish themselves as class all-stars. Students learn faster, advance further, and keep getting better all semester long.</p>
+                    <h2>Introducing uniLeague</h2>
+                    <p>uniLeague makes it cooler than ever for students to show off their knowledge. By using uniLeague and collecting points, students climb the leaderboards and establish themselves as class all-stars. Students learn faster, advance further, and keep getting better all semester long.</p>
                 </div>
 
             </article>

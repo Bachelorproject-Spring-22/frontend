@@ -16,17 +16,18 @@ function settingHoc(WrappedComponent) {
             })
         }
 
-        render() { 
+        render() {
             return (
-                <WrappedComponent 
-                    error={this.state.error} 
-                    email={this.state.email} 
-                    togglePop={this.togglePop} 
-                    {...this.props} />
+                <WrappedComponent
+                    error={this.state.error}
+                    email={this.state.email}
+                    togglePop={this.togglePop}
+                    {...this.props}
+                />
             );
         }
     }
-    
+
     return SettingHOC;
 }
 

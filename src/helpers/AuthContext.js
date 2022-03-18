@@ -42,6 +42,7 @@ export const AuthProvider = ({children}) => {
         //await revokeToken();
         setAuthTokens(null);
         setUser(null);
+        sessionStorage.clear();
         localStorage.removeItem('authTokens');
         history("/login");
     }

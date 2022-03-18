@@ -14,7 +14,10 @@ function MainSettings(props) {
     return (
         <section className='account'>
             <SEO title='Settings' />
-            <h1>Settings</h1>
+            <header>
+                <h1>Settings</h1>
+            </header>
+
             <article>
                 <Link to='/settings/account'>
                     <div>
@@ -26,14 +29,14 @@ function MainSettings(props) {
 
                 <Link to='/settings/anonymity'>
                     <div>
-                    <Icon iconId='lock' style={iconStyle} />
+                        <Icon iconId='lock' style={iconStyle} />
                         <p className='button-label'>Anonymity</p>
                         <p className='user-text'>Disabled</p>
                     </div>
                 </Link>
                 <Link to='/settings/language'>
                     <div>
-                    <Icon iconId='language' style={iconStyle} />
+                        <Icon iconId='language' style={iconStyle} />
                         <p className='button-label'>Language</p>
                         <p className='user-text'>English</p>
                     </div>
@@ -41,14 +44,14 @@ function MainSettings(props) {
 
                 <Link to='/settings/theme'>
                     <div>
-                    <Icon iconId='dark_mode' style={iconStyle} />
+                        <Icon iconId='dark_mode' style={iconStyle} />
                         <p className='button-label'>Theme</p>
                         <p className='user-text'>Dark</p>
                     </div>
                 </Link>
                 <Link to='/settings/text'>
                     <div>
-                    <Icon iconId='text_fields' style={iconStyle} />
+                        <Icon iconId='text_fields' style={iconStyle} />
                         <p className='button-label'>Text Size</p>
                         <p className='user-text'>Default</p>
                     </div>
@@ -56,7 +59,7 @@ function MainSettings(props) {
 
                 <Link to='/settings/help'>
                     <div>
-                    <Icon iconId='help' style={iconStyle} />
+                        <Icon iconId='help' style={iconStyle} />
                         <p className='button-label'>Help</p>
                         <p className='user-text'>Any questions?</p>
                     </div>

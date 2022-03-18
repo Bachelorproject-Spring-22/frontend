@@ -2,23 +2,23 @@ p.login {
     margin-bottom: 1rem;
 }
 
-input{
+input {
     display: block;
     width: 100%;
-    background-color: var(--elevation10);
-    color: var(--white-high-emphasis);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 6px;
     height: 44px;
+    padding: 4px;
+    border: 1px solid rgb(255 255 255 / .18);
     margin-bottom: 1rem;
-    padding: 4px
+    background-color: var(--elevation10);
+    border-radius: 6px;
+    color: var(--white-high-emphasis);
 }
 
 input.error {
     border-color: var(--destructive-color);
 }
 
-.showPassword {
+.show-password {
     position: relative;
     top: -3rem;
     right: -90%;

@@ -1,11 +1,11 @@
 /* RESET */
 
 * {
-    text-decoration: none;
-    font-size: 1em;
-    outline: none;
     padding: 0;
     margin: 0;
+    font-size: 1em;
+    outline: none;
+    text-decoration: none;
 }
 
 code,
@@ -21,9 +21,8 @@ isindex,
 listing,
 xmp,
 plaintext {
+    font: inherit, 1em;
     white-space: normal;
-    font-size: 1em;
-    font: inherit;
 }
 
 dfn,
@@ -69,8 +68,8 @@ caption,
 th,
 td,
 center {
-    vertical-align: center;
     text-align: left;
+    vertical-align: center;
 }
 
 q {
@@ -100,8 +99,6 @@ hr {
 font {
     color: inherit !important;
     font: inherit !important;
-    color: inherit !important;
-    /* editor's note: necessary? */
 }
 
 marquee {

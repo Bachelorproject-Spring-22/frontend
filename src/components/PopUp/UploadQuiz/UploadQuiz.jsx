@@ -3,21 +3,24 @@ import './upload-quiz.css';
 import Button from '../../Button/Button';
 import Icon from '../../Icon/Icon';
 
-function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
+function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId }) {
+    let currentCourse;
+    if (courseId) {
+        currentCourse = courseId.split('_');
+    }
     const [selectedFile, setSelectedFile] = useState(null);
 
     const courses = ['IDG2100', 'idg0002', 'idg0003', 'idg0004']; /* ← API fra backend */
-    const semesters = ['f2019', 's2020', 'f2020', 's2021', 'f2021', 's2022']; /* ← API fra backend */
+    const semesters = ['s2022', 'f2021', 's2021', 'f2020', 's2020', 'f2019']; /* ← API fra backend */
 
-    const [selectedCourse, setSelectedCourse] = useState(courses[0]);  /* ← Sette inn mest nylig course i useSate() for eksempel useSate(IDG2100)*/
-    const [selectedSemester, setSelectedSemester] = useState(semesters[0]); /* ← Sette inn current semester i useSate() for eksempel useSate(f2021)*/
+    const [selectedCourse, setSelectedCourse] = useState(courseId ? currentCourse[0] : courses[0]);  /* ← Sette inn mest nylig course i useSate() for eksempel useSate(IDG2100)*/
+    const [selectedSemester, setSelectedSemester] = useState(courseId ? currentCourse[1] : semesters[0]); /* ← Sette inn current semester i useSate() for eksempel useSate(f2021)*/
 
     const formData = new FormData();
-
-    const courseId = `${selectedCourse}_${selectedSemester}`;
+    courseId = `${selectedCourse}_${selectedSemester}`;
 
     /* Sets a new value for an existing key inside a FormData object, or adds the key/value if it does not already exist. */
-    formData.set('file', selectedFile); 
+    formData.set('file', selectedFile);
     formData.set('courseId', courseId);
     formData.set('name', 'kahoot');
     formData.set('variant', 'quiz');
@@ -41,12 +44,12 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-formData.get('courseId')
+    
         if (!formData.has('file')) {
             //console.error('No file selected upon submit!');
             return
         }
-        
+
         uploadQuiz(formData);
     }
 
@@ -66,7 +69,7 @@ formData.get('courseId')
                     accept=".xls,.xlsx"
                     required
                 />
-                <p>{selectedFile ? <>Selected file: {selectedFile.name} ({Math.round(selectedFile.size/1000)}kb) <span onMouseDown={removeSelectedFile}>(remove)</span></> : 'File must be .xls or .xlsx'}</p>
+                <p>{selectedFile ? <>Selected file: {selectedFile.name} ({Math.round(selectedFile.size / 1000)}kb) <span onMouseDown={removeSelectedFile}>(remove)</span></> : 'File must be .xls or .xlsx'}</p>
 
                 <label className='required' htmlFor='course-code-selector'>Choose corresponding course code</label>
 

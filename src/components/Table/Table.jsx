@@ -1,11 +1,13 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import './table.css';
 
-function Table({ data }) {
-    const sorted = data.sort((a,b) => (a.course.totalScore < b.course.totalScore) ? 1 : ((b.course.totalScore < a.course.totalScore) ? -1 : 0));
-    
+function Table({ data, caption }) {
+    const sorted = data.sort((a, b) => (a.player.totalScore < b.player.totalScore) ? 1 : ((b.player.totalScore < a.player.totalScore) ? -1 : 0));
+
     return (
         <table className='table-board'>
+            <caption>{caption}</caption>
             <thead>
                 <tr>
                     <th>Rank</th>
@@ -14,19 +16,24 @@ function Table({ data }) {
                     <th>Attended</th>
                 </tr>
             </thead>
-            
+
             <tbody>
-                {sorted.map((user) => (
-                    <tr key={user.course._id}>
-                        <td>{user.rank}</td>
-                        <td>{user.course._id}</td>
-                        <td>{user.course.totalScore.toLocaleString()}</td>
-                        <td>{user.course.quizzesAttended}</td>
+                {sorted.map((user, index) => (
+                    <tr key={user.rank}>
+                        <td>{user.rank} {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : null}</td>
+                        <td>{user.player.name}</td>
+                        <td>{user.player.totalScore.toLocaleString()}</td>
+                        <td>{user.player.quizzesAttended}</td>
                     </tr>
                 ))}
             </tbody>
         </table>
     );
 }
+
+Table.propTypes = {
+    caption: PropTypes.string.isRequired,
+    data: PropTypes.array
+};
 
 export default Table;

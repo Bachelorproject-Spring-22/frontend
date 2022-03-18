@@ -1,7 +1,7 @@
 footer {
-    background-color: var(--footer);
-    padding: 1rem; /* Denne ødelegger for Safari 15 */
     height: auto;
+    padding: 1rem; /* Denne ødelegger for Safari 15 */
+    background-color: var(--footer);
 }
 
 footer div {
@@ -20,7 +20,7 @@ footer div section {
 }
 
 footer div section:last-child {
-  align-items: center;
+    align-items: center;
 }
 
 footer div section img {
@@ -28,10 +28,10 @@ footer div section img {
 }
 
 footer div article {
-    margin: 2rem 0;
-    width: 50%;
     display: flex;
+    width: 50%;
     flex-direction: column;
+    margin: 2rem 0;
 }
 
 .logo-arrow {
@@ -51,8 +51,8 @@ footer div article {
 footer div article a,
 .middle-emphasis {
     margin: .5rem 0;
+    color: var(--white-middle-emphasis);
     text-decoration: none;
-    color: var(--white-middle-emphasis)
 }
 
 .carbon-section {

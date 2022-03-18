@@ -6,7 +6,7 @@ import './error.css';
 function Denied() {
     return (
         <section className='error'>
-            <h1>The Kahoot! League</h1>
+            <h1>uniLeague</h1>
             <div>
                 <Icon iconId='gppmaybe' size='large'/>
                 <h3>Page Not Found!</h3>

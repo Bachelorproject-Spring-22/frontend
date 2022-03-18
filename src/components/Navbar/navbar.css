@@ -1,41 +1,41 @@
 * {
     box-sizing: border-box;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
 .bottom-nav {
-    align-items: stretch;
-    background-color: #3b3a3f;
-    bottom: 0;
-    column-gap: .5rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    height: auto;
-    justify-items: stretch;
-    padding: 4px 1rem;
     position: fixed;
+    bottom: 0;
+    display: grid;
     width: 100vw;
+    height: auto;
+    align-items: stretch;
+    padding: 4px 1rem;
+    background-color: #3b3a3f;
+    column-gap: .5rem;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: stretch;
 }
 
 .bn-tab {
-    align-items: center;
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
     max-width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .bn-a {
     text-decoration: none;
 }
 
-.bn-tab>p {
+.bn-tab > p {
+    padding: 0 auto;
     color: var(--primary-color-lightest);
     font-size: 12px;
     font-weight: 700;
-    padding: 0 auto;
 }
 
 .active {
@@ -48,7 +48,7 @@
     color: var(--primary-color-darkest);
 }
 
-@supports(padding: max(0px)) {
+@supports (padding: max(0px)) {
     /* Specify that our padding should be the default padding or the safe area inset, whichever is greater. */
     .bottom-nav {
         padding-bottom: max(.25rem, env(safe-area-inset-bottom));
@@ -57,25 +57,25 @@
 
 /* For desktop */
 @media only screen and (min-width: 769px) {
-    @supports(padding: max(0px)) {
+    @supports (padding: max(0px)) {
         .bottom-nav {
             padding-left: max(.5rem, env(safe-area-inset-left));
         }
     }
 
     .bottom-nav {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        height: 100vh;
-        justify-content: space-between;
         position: sticky;
         top: 0;
+        display: flex;
         width: auto;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: space-between;
         padding-right: .5rem;
+        gap: 1rem;
     }
 
-    .bottom-nav>div {
+    .bottom-nav > div {
         display: flex;
         flex-direction: column;
         gap: .5rem;
@@ -87,12 +87,12 @@
     }
 
     .bn-tab {
-        align-items: center;
         display: flex;
-        flex-direction: row;
-        gap: .5rem;
-        height: 100%;
-        justify-content: left;
         max-width: 100%;
+        height: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        gap: .5rem;
     }
 }
