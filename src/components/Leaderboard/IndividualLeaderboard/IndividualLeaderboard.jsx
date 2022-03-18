@@ -56,7 +56,7 @@ function IndividualLeaderboard(props) {
 
                         <Table data={data} caption={timeSlot ? `The leaderboard display data from ${startDate} to ${endDate}.` : `The leaderboard displays the top students from the ${courseInformation.totalAmountOfQuizzes} last quizzes.`} />
                     </div>}
-                <Button label='Choose a time frame' variant='secondary' icon={<Icon iconId='restore' />} onClick={() => props.handleOpen('timeFramePop', data.player.courseId)} />
+                <Button label='Choose a time frame' variant='secondary' icon={<Icon iconId='restore' />} onClick={() => props.handleOpen('timeFramePop', courseInformation.course.courseId)} />
                 {timeSlot ?
                     <Button variant='text-only destructive' label='Reset' onClick={() => fetchCourse(location)} /> :
                     null}
