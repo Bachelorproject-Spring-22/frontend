@@ -18,9 +18,9 @@ function Table({ data, caption }) {
             </thead>
 
             <tbody>
-                {sorted.map((user) => (
+                {sorted.map((user, index) => (
                     <tr key={user.player._id}>
-                        <td>{user.rank}</td>
+                        <td>{user.rank} {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : null}</td>
                         <td>{user.player._id}</td>
                         <td>{user.player.totalScore.toLocaleString()}</td>
                         <td>{user.player.quizzesAttended}</td>
