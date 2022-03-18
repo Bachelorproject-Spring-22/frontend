@@ -27,7 +27,6 @@ export const AuthProvider = ({children}) => {
             body: JSON.stringify({'username': username, 'password': password})
         }); */
         const data = response.data;
-        console.log(data);
 
         if (response.status === 200) {
             localStorage.setItem('authTokens', JSON.stringify(data));
