@@ -8,7 +8,7 @@ function Error() {
 
     return (
         <section className='error'>
-            <h1>The Kahoot! League</h1>
+            <h1>uniLeague</h1>
             <div>
                 <Icon iconId='error' size='large'/>
                 <h3>Oops!</h3>

@@ -8,7 +8,7 @@ function WorkProgress() {
 
     return (
         <>
-        <h1>The Kahoot! League</h1>
+        <h1>uniLeague</h1>
             <p>I am sorry, but this page is work in progress, check back later!</p>
             <img className="bob-the-builder" src={Bob} alt="Bob the builder gif" />
             <Button label='Go back' onClick={() => history(-1)} />

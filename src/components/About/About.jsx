@@ -24,7 +24,7 @@ function About() {
                     </Routes>
                 </nav>
     
-                <h1>The Kahoot! League</h1>
+                <h1>uniLeague</h1>
             </header>
             <Routes>
                 <Route exact path='/' element={<MainAbout />} />
