@@ -9,11 +9,11 @@ function Settings(props) {
     return (
         <>
             <nav>
-                <Link to="/" className='breadcrumbItem'>Home</Link>
+                <Link to="/" className='breadcrumb-item'>Home</Link>
                 &#8250;
-                <Link to="/settings" className='breadcrumbItem' >Settings</Link>
+                <Link to="/settings" className='breadcrumb-item' >Settings</Link>
                 <Routes>
-                    <Route exact path='/account' element={<>&#8250; <Link to="/settings/account" className='breadcrumbItem' >Account</Link></>} />
+                    <Route exact path='/account' element={<>&#8250; <Link to="/settings/account" className='breadcrumb-item' >Account</Link></>} />
                 </Routes>
             </nav>
 

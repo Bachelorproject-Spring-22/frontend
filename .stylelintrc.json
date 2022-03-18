@@ -43,6 +43,7 @@
                 ]
             }
         ],
+        "number-leading-zero": "never",
         "string-no-newline": true,
         "unit-no-unknown": true,
         "alpha-value-notation": "number",
@@ -166,7 +167,6 @@
         "no-empty-first-line": true,
         "no-eol-whitespace": true,
         "no-missing-end-of-source-newline": true,
-        "number-leading-zero": false,
         "number-max-precision": 4,
         "number-no-trailing-zeros": true,
         "property-case": "lower",

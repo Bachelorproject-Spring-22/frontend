@@ -105,14 +105,14 @@ th {
     text-transform: uppercase;
 }
 
-.breadcrumbItem {
+.breadcrumb-item {
     text-decoration: none;
     line-height: 1.125rem;
     padding: 4px 16px;
 }
 
 a,
-.breadcrumbItem:hover {
+.breadcrumb-item:hover {
     text-decoration: underline;
     color: var(--primary-color-lightest);
 }

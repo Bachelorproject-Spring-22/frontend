@@ -22,8 +22,7 @@ listing,
 xmp,
 plaintext {
     white-space: normal;
-    font-size: 1em;
-    font: inherit;
+    font: inherit, 1em;
 }
 
 dfn,
@@ -100,9 +99,6 @@ hr {
 font {
     color: inherit !important;
     font: inherit !important;
-    color: inherit !important;
-
-    /* editor's note: necessary? */
 }
 
 marquee {

@@ -10,7 +10,7 @@ function Card({ link = '/test', type, courseCode, fullCourseName, rank, quizNumb
         <li>
             {
                 type === 'course' ? (
-                    <Link className={`card ${disabledLink ? 'disabledLink' : ''}`} to={link} >
+                    <Link className={`card ${disabledLink ? 'disabled-link' : ''}`} to={link} >
                         <div>
                             <h3>{courseCode} – {fullCourseName} </h3>
                             {rank ? <p>Placement: {rank}</p> : null}
@@ -18,7 +18,7 @@ function Card({ link = '/test', type, courseCode, fullCourseName, rank, quizNumb
                     </Link>
                 ) : type === 'quiz' ? (
 
-                    <Link className={`card ${disabledLink ? 'disabledLink' : ''}`} to={link}>
+                    <Link className={`card ${disabledLink ? 'disabled-link' : ''}`} to={link}>
                         <div>
                             <h3>Quiz {quizNumber} </h3>
                             <p>Correct answers: {correctAnswers}</p>

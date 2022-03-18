@@ -3,9 +3,3 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background: transparent;
     color: white;
 }
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    padding-left: 25%;
-    background: transparent;
-    color: white;
-}

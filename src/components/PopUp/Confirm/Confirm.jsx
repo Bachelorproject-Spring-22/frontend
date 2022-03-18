@@ -1,4 +1,3 @@
-import './confirm.css';
 import Button from '../../Button/Button';
 
 function Confirm({ modalTitle, bodyText }) {

@@ -15,11 +15,11 @@ function Leaderboard(props) {
     return (
         <>
             <nav>
-                <Link to="/" className='breadcrumbItem'>Home</Link>
+                <Link to="/" className='breadcrumb-item'>Home</Link>
                 &#8250;
-                <Link to="/leaderboard" className='breadcrumbItem' >Leaderboard</Link>
+                <Link to="/leaderboard" className='breadcrumb-item' >Leaderboard</Link>
                 <Routes>
-                    <Route exact path={`/${url[0]}`} element={<>&#8250; <Link to={`/leaderboard/${url[0]}`} className='breadcrumbItem' >{url[0]}</Link></>} />
+                    <Route exact path={`/${url[0]}`} element={<>&#8250; <Link to={`/leaderboard/${url[0]}`} className='breadcrumb-item' >{url[0]}</Link></>} />
                 </Routes>
             </nav>
 

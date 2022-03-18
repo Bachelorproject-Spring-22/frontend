@@ -13,14 +13,14 @@ function About() {
         <SEO title="About" />
             <header>
                 <nav>
-                    <Link to="/" className='breadcrumbItem'>Home</Link>
+                    <Link to="/" className='breadcrumb-item'>Home</Link>
                     &#8250;
-                    <Link to="/about" className='breadcrumbItem' >About</Link>
+                    <Link to="/about" className='breadcrumb-item' >About</Link>
                     <Routes>
-                        <Route exact path='/terms-of-service' element={<>&#8250; <Link to="/about/terms-of-service" className='breadcrumbItem' >Terms of Service</Link></>} />
-                        <Route exact path='/privacy-policy' element={<>&#8250; <Link to="/about/privacy-policy" className='breadcrumbItem' >Privacy Policy</Link></>} />
-                        <Route exact path='/cookie-policy' element={<>&#8250; <Link to="/about/cookie-policy" className='breadcrumbItem' >Cookie Policy</Link></>} />
-                        <Route exact path='/contact' element={<>&#8250; <Link to="/about/contact" className='breadcrumbItem' >Contact</Link></>} />
+                        <Route exact path='/terms-of-service' element={<>&#8250; <Link to="/about/terms-of-service" className='breadcrumb-item' >Terms of Service</Link></>} />
+                        <Route exact path='/privacy-policy' element={<>&#8250; <Link to="/about/privacy-policy" className='breadcrumb-item' >Privacy Policy</Link></>} />
+                        <Route exact path='/cookie-policy' element={<>&#8250; <Link to="/about/cookie-policy" className='breadcrumb-item' >Cookie Policy</Link></>} />
+                        <Route exact path='/contact' element={<>&#8250; <Link to="/about/contact" className='breadcrumb-item' >Contact</Link></>} />
                     </Routes>
                 </nav>
     

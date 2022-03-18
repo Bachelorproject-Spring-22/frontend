@@ -6,7 +6,7 @@
 }
 
 .table-board thead {
-    background-color: rgb(255 255 255 / 0.16);
+    background-color: rgb(255 255 255 / .16);
 }
 
 .table-board tbody tr {
@@ -40,11 +40,11 @@
 }
 
 .table-board tbody tr:nth-child(odd) {
-    background-color: rgb(255 255 255 / 0.07);
+    background-color: rgb(255 255 255 / .07);
 }
 
 .table-board tbody tr:nth-child(even) {
-    background-color: rgb(255 255 255 / 0.05);
+    background-color: rgb(255 255 255 / .05);
 }
 
 .table-board tbody tr:nth-child(1) {

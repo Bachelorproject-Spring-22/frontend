@@ -11,8 +11,7 @@
     height: auto;
     grid-auto-flow: row;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template: repeat(3, 1fr) / 1fr;
     gap: 3rem 0;
     grid-template-areas: "introduction-1""introduction-2""introduction-3";
 }

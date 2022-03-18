@@ -14,10 +14,10 @@ function MyResults(props) {
     return (
         <>
             <nav>
-                <Link to="/home" className='breadcrumbItem'>Home</Link>
+                <Link to="/home" className='breadcrumb-item'>Home</Link>
                 <Routes>
-                    <Route exact path={`${url[0]}`} element={<>&#8250; <Link to={`/home/${url[0]}`} className='breadcrumbItem' >{url[0]}</Link></>} />
-                    <Route exact path={`${url[0]}/${url[1]}`} element={<>&#8250; <Link to={`/home/${url[0]}`} className='breadcrumbItem' >{url[0]}</Link> &#8250; <Link to={`/home/${url[0]}/${url[1]}`} className='breadcrumbItem' >{url[1]}</Link></>} />
+                    <Route exact path={`${url[0]}`} element={<>&#8250; <Link to={`/home/${url[0]}`} className='breadcrumb-item' >{url[0]}</Link></>} />
+                    <Route exact path={`${url[0]}/${url[1]}`} element={<>&#8250; <Link to={`/home/${url[0]}`} className='breadcrumb-item' >{url[0]}</Link> &#8250; <Link to={`/home/${url[0]}/${url[1]}`} className='breadcrumb-item' >{url[1]}</Link></>} />
                 </Routes>
             </nav>
             <Routes>
