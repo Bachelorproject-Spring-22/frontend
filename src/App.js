@@ -18,6 +18,7 @@ import resultHoc from './components/HOC/ResultHOC';
 import leaderboardHoc from './components/HOC/LeaderboardHOC';
 import settingHoc from './components/HOC/SettingHOC';
 import Logout from './components/Login/Logout';
+import Developer from './components/Developer/Developer';
 
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const MyResults = lazy(() => import('./components/MyResults/MyResults'));
@@ -90,7 +91,7 @@ function App() {
                                 } path="/logout" exact />
 
                                 <Route path='/about/*' element={<About />} exact />
-                                <Route path='/developer' element={<WorkProgress />} exact />
+                                <Route path='/developer' element={<Developer />} exact />
 
                                 <Route path='/403' element={<Denied />} exact />
                                 <Route path='*' element={<NotFound />} />

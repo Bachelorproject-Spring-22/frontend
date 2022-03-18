@@ -20,7 +20,7 @@ function Footer() {
                         <p>Learn more</p>
                         <Link to='/about'>About The Kahoot! League</Link>
                         <Link to='/help'>Help</Link>
-                        <Link to='/contact'>Contact</Link>
+                        <Link to='/about/contact'>Contact</Link>
                         <Link to='/about/terms-of-service'>Terms of service</Link>
                         <Link to='/about/privacy-policy'>Privacy policy</Link>
                         <Link to='/about/cookie-policy'>Cookie policy</Link>
