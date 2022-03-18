@@ -19,7 +19,7 @@ function Table({ data, caption }) {
 
             <tbody>
                 {sorted.map((user, index) => (
-                    <tr key={user.player._id}>
+                    <tr key={user.rank}>
                         <td>{user.rank} {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : null}</td>
                         <td>{user.player._id}</td>
                         <td>{user.player.totalScore.toLocaleString()}</td>
