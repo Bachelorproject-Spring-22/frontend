@@ -10,9 +10,9 @@ function PrivacyPolicy() {
             <section className='about'>
                 <article>
                     <h2>Privacy Policy For uniLeague</h2>
-                    <p>At uniLeauge, accessible from www.unileague.etlify.app, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information collected and recorded by uniLeague and how we use it.</p>
+                    <p>At uniLeague, accessible from www.unileague.etlify.app, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information collected and recorded by uniLeague and how we use it.</p>
                     <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
-                    <p>This Privacy Policy applies only to our online activities. It is valid for visitors to our website regarding the information they shared and/or collected in uniLeauge. This policy does not apply to any information collected offline or via channels other than this website. Our Privacy Policy was created with the help of the Free Privacy Policy Generator.</p>
+                    <p>This Privacy Policy applies only to our online activities. It is valid for visitors to our website regarding the information they shared and/or collected in uniLeague. This policy does not apply to any information collected offline or via channels other than this website. Our Privacy Policy was created with the help of the Free Privacy Policy Generator.</p>
                 </article>
 
                 <article>
@@ -44,7 +44,7 @@ function PrivacyPolicy() {
 
                 <article>
                     <h2>Log Files</h2>
-                    <p>uniLeauge follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and are a part of hosting services' analytics. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any personally identifiable information. The purpose of the data is to analyze trends, administer the site, track users' movement on the website, and gather demographic information.</p>
+                    <p>uniLeague follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and are a part of hosting services' analytics. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any personally identifiable information. The purpose of the data is to analyze trends, administer the site, track users' movement on the website, and gather demographic information.</p>
                 </article>
 
                 <article>
