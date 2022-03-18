@@ -6,7 +6,6 @@ import SEO from "../../SEO/SEO";
 import Table from "../../Table/Table";
 
 function MainLeaderboard({ semesterLeaderBoard, courses, loading, fetchLeaderboard, error }) {
-    console.log(courses)
     useEffect(() => {
         fetchLeaderboard();
     }, [fetchLeaderboard]);
