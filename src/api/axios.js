@@ -2,6 +2,7 @@ import axios from 'axios';
 
 let axiosInstance = axios;
 if (process.env && process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
+    console.log('In production!');
     axiosInstance = axios.create({
         withCredentials: true,
         baseURL: 'https://unileague-bachelor-s2022.herokuapp.com/'
