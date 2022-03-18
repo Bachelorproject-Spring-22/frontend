@@ -2,15 +2,14 @@ import axios from 'axios';
 
 let axiosInstance = axios;
 if (process.env && process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
+    console.log('In production!');
     axiosInstance = axios.create({
         withCredentials: true,
-        baseURL: process.env.REACT_APP_BACKEND
+        baseURL: 'https://unileague-bachelor-s2022.herokuapp.com/'
     });
 } else {
     axiosInstance = axios.create();
 }
-
-console.log(process.env.REACT_APP_BACKEND);
 
 function createAxiosResponseInterceptor(axiosInstance) {
     let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
@@ -31,7 +30,7 @@ function createAxiosResponseInterceptor(axiosInstance) {
             if (token) {
                 config.headers['Authorization'] = 'Bearer ' + token;
             }
-            console.log(`${config.method.toUpperCase()} Request made to ${config.url} with data:`, config.data);
+            //console.log(`${config.method.toUpperCase()} Request made to ${config.url} with data:`, config.data);
             return config
         },
         function (err) {
