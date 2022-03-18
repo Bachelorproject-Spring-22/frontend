@@ -92,6 +92,7 @@ function App() {
 
                                 <Route path='/about/*' element={<About />} exact />
                                 <Route path='/developer' element={<Developer />} exact />
+                                <Route path='/help' element={<WorkProgress />} exac />
 
                                 <Route path='/403' element={<Denied />} exact />
                                 <Route path='*' element={<NotFound />} />
