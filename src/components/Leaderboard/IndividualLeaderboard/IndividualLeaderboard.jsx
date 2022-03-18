@@ -4,6 +4,7 @@ import Card from '../../Card/Card';
 import Table from '../../Table/Table';
 import './individual-leaderboard.css';
 import Icon from '../../Icon/Icon';
+import Error from '../../Error/Error';
 
 function IndividualLeaderboard(props) {
     const courseInformation = props.courseInformation
@@ -13,6 +14,7 @@ function IndividualLeaderboard(props) {
     const loading = props.loading;
     const fetchCourse = props.fetchCourse;
     const timeSlot = props.timeSlot;
+    const error = props.error;
     let startDate, endDate;
 
     if (timeSlot) {
@@ -32,10 +34,14 @@ function IndividualLeaderboard(props) {
         return () => window.removeEventListener("resize", updateMedia);
     }, [fetchCourse, location]);
 
+    if (error) {
+        return <Error />;
+    }
+
     return (
         <>
             <header>
-                {loading ? null : <h1>{courseInformation[0].name}</h1>}
+                {loading ? null : <h1>{courseInformation.course.name}</h1>}
                 <p className='subtitle'>Leaderboard</p>
             </header>
 
@@ -45,12 +51,12 @@ function IndividualLeaderboard(props) {
                     <div className='inidividual-leaderboard'>
 
                         {(role === 'teacher' || role === 'superAdmin') && (isDesktop ?
-                            <Button onClick={() => props.handleOpen('uploadPop', data[0].player.courseId)} icon={<Icon iconId='file_upload' />} label='' size='no-size' variant='fab' /> :
-                            <Button onClick={() => props.handleOpen('uploadPop', data[0].player.courseId)} label='upload new quiz' />)}
+                            <Button onClick={() => props.handleOpen('uploadPop', data.player.courseId)} icon={<Icon iconId='file_upload' />} label='' size='no-size' variant='fab' /> :
+                            <Button onClick={() => props.handleOpen('uploadPop', data.player.courseId)} label='upload new quiz' />)}
 
-                        <Table data={data} caption={timeSlot ? `The leaderboard display data from ${startDate} to ${endDate}.` : `The leaderboard displays the top students from the ${courseInformation[0].totalAmountOfQuizzes} last quizzes.`} />
+                        <Table data={data} caption={timeSlot ? `The leaderboard display data from ${startDate} to ${endDate}.` : `The leaderboard displays the top students from the ${courseInformation.totalAmountOfQuizzes} last quizzes.`} />
                     </div>}
-                <Button label='Choose a time frame' variant='secondary' icon={<Icon iconId='restore' />} onClick={() => props.handleOpen('timeFramePop', data[0].player.courseId)} />
+                <Button label='Choose a time frame' variant='secondary' icon={<Icon iconId='restore' />} onClick={() => props.handleOpen('timeFramePop', data.player.courseId)} />
                 {timeSlot ?
                     <Button variant='text-only destructive' label='Reset' onClick={() => fetchCourse(location)} /> :
                     null}

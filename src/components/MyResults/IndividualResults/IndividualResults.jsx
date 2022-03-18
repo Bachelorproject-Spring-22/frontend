@@ -36,11 +36,11 @@ function IndividualResults(props) {
 
     return (
         <section className='individual-results'>
-            {props.loading ? null : <><h1>{tableData[0].player.name}</h1>
+            {props.loading ? null : <><h1>{tableData[0].player.courseName}</h1>
             <p className='subtitle'>{tableData[0].player.code}</p></>}
 
             <Suspense fallback={<Loading />}>
-                {props.loading ? <ul><Card type='loading' /></ul> : <Table data={tableData} caption={`The top five students in ${tableData[0].player.name}`}/>}
+                {props.loading ? <ul><Card type='loading' /></ul> : <Table data={tableData} caption={`The top five students in ${tableData[0].player.courseName}`}/>}
             </Suspense>
             <Link to={`/leaderboard/${courseId}`}>
                 <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard" />} />

@@ -6,7 +6,7 @@ import SEO from "../../SEO/SEO";
 import Table from "../../Table/Table";
 
 function MainLeaderboard({ semesterLeaderBoard, courses, loading, fetchLeaderboard, error }) {
-
+    console.log(courses)
     useEffect(() => {
         fetchLeaderboard();
     }, [fetchLeaderboard]);
@@ -31,7 +31,7 @@ function MainLeaderboard({ semesterLeaderBoard, courses, loading, fetchLeaderboa
                 <p>Explore the leaderboards for the courses you have this semester</p>
 
                 <ul>
-                    {courses.map(({ player: { courseId, code, name, rank } }) => <Card key={courseId} type='course' link={`/leaderboard/${courseId}`} courseCode={code} fullCourseName={name} rank={rank} />)}
+                    {courses.map(({ player: { courseId, code, courseName, rank } }) => <Card key={courseId} type='course' link={`/leaderboard/${courseId}`} courseCode={code} fullCourseName={courseName} rank={rank} />)}
                 </ul>
             </article> : null}
         </section>
