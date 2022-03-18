@@ -28,7 +28,7 @@ function MainResults(props) {
             <h2>Current semester</h2>
             <ul className='cards-grid-container'>
                 {loading ? <Card type='loading' /> : fetchHomeData.map((data) => (
-                    <Card link={`/home/${data.course.courseId}`} key={data.course.courseId} type='course' courseCode={data.course.code} fullCourseName={data.course.name} rank={data.rank} />
+                    <Card link={`/home/${data.player.courseId}`} key={data.player.courseId} type='course' courseCode={data.player.code} fullCourseName={data.player.name} rank={data.rank} />
                 ))}
             </ul>
             <hr />
