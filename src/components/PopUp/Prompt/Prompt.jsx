@@ -1,4 +1,3 @@
-import './prompt.css';
 import Button from '../../Button/Button';
 
 function Prompt({ modalTitle, bodyText, labelText }) {

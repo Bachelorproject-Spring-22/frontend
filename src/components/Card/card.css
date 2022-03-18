@@ -1,22 +1,19 @@
 .card {
     display: grid;
-    text-decoration: none;
-    background-color: rgb(255 255 255 / 0.05);
-    border: 1px solid rgb(255 255 255 / 0.18);
-    border-radius: 6px;
-    text-align: center;
-    box-shadow: 0 4px 4px rgb(0 0 0 / 0.25);
-    transition: .3s;
     padding: 1rem;
+    border: 1px solid rgb(255 255 255 / .18);
+    background-color: rgb(255 255 255 / .05);
+    border-radius: 6px;
+    box-shadow: 0 4px 4px rgb(0 0 0 / .25);
+    hyphens: auto;
     overflow-wrap: break-word;
-    word-wrap: break-word;
+    text-align: center;
+    text-decoration: none;
+    transition: .3s;
     -ms-word-break: break-all;
     word-break: break-all;
     word-break: break-word;
-    hyphens: auto;
-    hyphens: auto;
-    hyphens: auto;
-    hyphens: auto;
+    word-wrap: break-word;
 }
 
 .card p {
@@ -29,18 +26,18 @@
 }
 
 .card:hover {
-    box-shadow: 0 6px 6px rgb(0 0 0 / 0.25);
-    background: rgb(255 255 255 / 0.07);
+    border: 1px solid rgb(255 255 255 / .33);
+    background: rgb(255 255 255 / .07);
+    box-shadow: 0 6px 6px rgb(0 0 0 / .25);
     transform: scale(1.02);
-    border: 1px solid rgb(255 255 255 / 0.33);
 }
 
 .card:active {
-    box-shadow: inset 0 4px 4px rgb(0 0 0 / 0.25);
-    background: rgb(255 255 255 / 0.04);
+    border: 1px solid rgb(255 255 255 / .09);
+    background: rgb(255 255 255 / .04);
+    box-shadow: inset 0 4px 4px rgb(0 0 0 / .25);
     color: var(--white-middle-emphasis);
     transform: unset;
-    border: 1px solid rgb(255 255 255 / 0.09);
 }
 
 .card.individual {
@@ -49,13 +46,13 @@
 }
 
 .card.individual:hover {
+    border: 1px solid rgb(255 255 255 / .18);
+    background-color: rgb(255 255 255 / .05);
     box-shadow: unset;
-    background-color: rgb(255 255 255 / 0.05);
     transform: unset;
-    border: 1px solid rgb(255 255 255 / 0.18);
 }
 
-.disabledLink {
+.disabled-link {
     pointer-events: none;
 }
 
@@ -66,20 +63,20 @@ a[disabled] {
 /* by Chris Sev https://codepen.io/chris__sev/pen/mdrzYQE */
 .card.loading {
     height: 100px;
-    background-color: #231c36;
-    background: linear-gradient(110deg, #2e2740 8%, #464056 18%, #2e2740 33%);
-    background-size: 200% 100%;
+    border: 1px solid rgb(255 255 255 / .09);
     animation: 2s shine linear infinite;
+    background: linear-gradient(110deg, #2e2740 8%, #464056 18%, #2e2740 33%);
+    background-color: #231c36;
+    background-size: 200% 100%;
     box-shadow: unset;
-    border: 1px solid rgb(255 255 255 / 0.09);
 }
 
 .card.individual sup {
-    vertical-align: super;
-    font-size: smaller;
-    text-transform: lowercase;
     padding: 0;
     margin: 0;
+    font-size: smaller;
+    text-transform: lowercase;
+    vertical-align: super;
 }
 
 @keyframes shine {

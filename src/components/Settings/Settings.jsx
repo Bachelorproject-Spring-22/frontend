@@ -11,7 +11,7 @@ function Settings(props) {
             <nav>
                 <Routes>
                     <Route exact path='/' element={null} />
-                    <Route exact path='/account' element={<><Link to="/settings" className='breadcrumbItem' >Settings</Link> &#8250; <Link to="/settings/account" className='breadcrumbItem' >Account</Link></>} />
+                    <Route exact path='/account' element={<><Link to="/settings" className='breadcrumb-item' >Settings</Link> &#8250; <Link to="/settings/account" className='breadcrumb-item' >Account</Link></>} />
                 </Routes>
             </nav>
 

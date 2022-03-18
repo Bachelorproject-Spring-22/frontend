@@ -1,5 +1,4 @@
 import Card from "../../../Card/Card";
-import './manage-quizzes.css';
 
 function ManageQuizzes(props) {
     return (

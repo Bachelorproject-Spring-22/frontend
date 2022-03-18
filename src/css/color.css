@@ -22,24 +22,24 @@
 
     /* ELEVEATION */
     --elevation1: #16141a;
-    --elevation2: rgb(22 20 26 / 0.05);
-    --elevation3: rgb(22 20 26 / 0.07);
-    --elevation4: rgb(22 20 26 / 0.08);
-    --elevation5: rgb(22 20 26 / 0.09);
-    --elevation6: rgb(22 20 26 / 0.11);
-    --elevation7: rgb(22 20 26 / 0.12);
-    --elevation8: rgb(22 20 26 / 0.13);
-    --elevation9: rgb(22 20 26 / 0.15);
-    --elevation10: rgb(22 20 26 / 0.16);
+    --elevation2: rgb(22 20 26 / .05);
+    --elevation3: rgb(22 20 26 / .07);
+    --elevation4: rgb(22 20 26 / .08);
+    --elevation5: rgb(22 20 26 / .09);
+    --elevation6: rgb(22 20 26 / .11);
+    --elevation7: rgb(22 20 26 / .12);
+    --elevation8: rgb(22 20 26 / .13);
+    --elevation9: rgb(22 20 26 / .15);
+    --elevation10: rgb(22 20 26 / .16);
 
     /* TEXT */
-    --white-middle-emphasis: rgb(255 255 255 / 0.6);
-    --white-high-emphasis: rgb(255 255 255 / 0.87);
+    --white-middle-emphasis: rgb(255 255 255 / .6);
+    --white-high-emphasis: rgb(255 255 255 / .87);
     --white: #fff;
-    --default-stroke: rgb(255 255 255 / 0.18);
+    --default-stroke: rgb(255 255 255 / .18);
     --black: #000;
-    --text-disabled-white: rgb(255 255 255 / 0.47);
-    --button-label: rgb(0 0 0 / 0.7);
+    --text-disabled-white: rgb(255 255 255 / .47);
+    --button-label: rgb(0 0 0 / .7);
 
     /* fungerer kanskje ikke på alle knapper tihi */
     --main-background: linear-gradient(180deg, var(--primary-color-darkest) 0%, var(--elevation1) 100%);

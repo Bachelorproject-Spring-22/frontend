@@ -1,5 +1,8 @@
 {
-    "extends": "stylelint-config-standard",
+    "extends": [
+        "stylelint-config-standard",
+        "stylelint-config-idiomatic-order"
+    ],
     "rules": {
         "at-rule-no-unknown": true,
         "block-no-empty": true,
@@ -43,17 +46,18 @@
                 ]
             }
         ],
+        "number-leading-zero": "never",
         "string-no-newline": true,
         "unit-no-unknown": true,
         "alpha-value-notation": "number",
-        "at-rule-empty-line-before": [
+        "declaration-empty-line-before": [
+            "always",
             {
-                "except": [
-                    "blockless-after-same-name-blockless",
-                    "first-nested"
-                ],
                 "ignore": [
-                    "after-comment"
+                    "after-comment",
+                    "after-declaration",
+                    "first-nested",
+                    "inside-single-line-block"
                 ]
             }
         ],
@@ -120,19 +124,6 @@
         "declaration-colon-newline-after": "always-multi-line",
         "declaration-colon-space-after": "always-single-line",
         "declaration-colon-space-before": "never",
-        "declaration-empty-line-before": [
-            "always",
-            {
-                "except": [
-                    "after-declaration",
-                    "first-nested"
-                ],
-                "ignore": [
-                    "after-comment",
-                    "inside-single-line-block"
-                ]
-            }
-        ],
         "font-family-name-quotes": "always-where-recommended",
         "function-comma-newline-after": "always-multi-line",
         "function-comma-space-after": "always-single-line",
@@ -166,7 +157,6 @@
         "no-empty-first-line": true,
         "no-eol-whitespace": true,
         "no-missing-end-of-source-newline": true,
-        "number-leading-zero": false,
         "number-max-precision": 4,
         "number-no-trailing-zeros": true,
         "property-case": "lower",

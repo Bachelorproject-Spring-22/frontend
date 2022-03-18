@@ -8,7 +8,7 @@ function WorkProgress() {
         <>
         <h1>The Kahoot! League</h1>
             <p>I am sorry, but this page is work in progress, check back later!</p>
-            <img className="bobTheBuilder" src={Bob} alt="Bob the builder gif" />
+            <img className="bob-the-builder" src={Bob} alt="Bob the builder gif" />
             <Link to='/'><Button label='Home' /></Link>
         </>
     );

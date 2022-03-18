@@ -16,8 +16,8 @@ function MyResults(props) {
             <nav>
                 <Routes>
                     <Route exact path='/' element={null} />
-                    <Route exact path={`${url[0]}`} element={<><Link to="/home" className='breadcrumbItem'>Home</Link> &#8250; <Link to={`/home/${url[0]}`} className='breadcrumbItem' >{url[0]}</Link></>} />
-                    <Route exact path={`${url[0]}/${url[1]}`} element={<><Link to="/home" className='breadcrumbItem'>Home</Link> &#8250; <Link to={`/home/${url[0]}`} className='breadcrumbItem' >{url[0]}</Link> &#8250; <Link to={`/home/${url[0]}/${url[1]}`} className='breadcrumbItem' >{url[1]}</Link></>} />
+                    <Route exact path={`${url[0]}`} element={<><Link to="/home" className='breadcrumb-item'>Home</Link> &#8250; <Link to={`/home/${url[0]}`} className='breadcrumb-item' >{url[0]}</Link></>} />
+                    <Route exact path={`${url[0]}/${url[1]}`} element={<><Link to="/home" className='breadcrumb-item'>Home</Link> &#8250; <Link to={`/home/${url[0]}`} className='breadcrumb-item' >{url[0]}</Link> &#8250; <Link to={`/home/${url[0]}/${url[1]}`} className='breadcrumb-item' >{url[1]}</Link></>} />
                 </Routes>
             </nav>
             <Routes>

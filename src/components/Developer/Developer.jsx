@@ -8,9 +8,9 @@ function Developer () {
         <SEO title="Developer" />
             <header>
                 <nav>
-                    <Link to="/" className='breadcrumbItem'>Home</Link>
+                    <Link to="/" className='breadcrumb-item'>Home</Link>
                     &#8250;
-                    <Link to="/developer" className='breadcrumbItem' >Developer</Link>
+                    <Link to="/developer" className='breadcrumb-item' >Developer</Link>
                 </nav>
     
                 <h1>For developers 🧑‍💻</h1>

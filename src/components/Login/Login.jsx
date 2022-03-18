@@ -106,7 +106,7 @@ class Login extends Component {
                             onClick={this.removeError}
                         />
 
-                        <span className='showPassword'>
+                        <span className='show-password'>
                             {this.state.showPassword ?
                                 <span onClick={this.handleShowPassword} onMouseDown={this.handleMouseDownPassword}><Icon iconId={'visibility'} /></span> :
                                 <span onClick={this.handleShowPassword} onMouseDown={this.handleMouseDownPassword}><Icon iconId={'visibility_off'} /></span>}

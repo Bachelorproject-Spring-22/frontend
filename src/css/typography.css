@@ -1,21 +1,21 @@
 @font-face {
+    font-display: swap;
     font-family: "Open Sans";
+    font-weight: 700;
     src:
         local("OpenSans-Bold"),
         local("Open Sans Bold"),
         url("../assets/OpenSans-Bold-subset.woff2");
-    font-weight: 700;
-    font-display: swap;
 }
 
 @font-face {
+    font-display: swap;
     font-family: "Open Sans";
+    font-weight: 400;
     src:
         local("OpenSans-Regular"),
         local("Open Sans Regular"),
         local("Open Sans") url("../assets/OpenSans-Regular-subset.woff2");
-    font-weight: 400;
-    font-display: swap;
 }
 
 /* Typography */
@@ -39,8 +39,8 @@ h3,
 h4,
 h5,
 legend {
-    font-family: "Open Sans", Arial, sans-serif;
     margin-top: 1.3125rem;
+    font-family: "Open Sans", Arial, sans-serif;
     text-transform: capitalize;
 }
 
@@ -81,8 +81,8 @@ h1 {
 
 h2,
 .large-label {
-    font-size: 2rem;
     margin-bottom: 1.3125rem;
+    font-size: 2rem;
 }
 
 h3,
@@ -105,16 +105,16 @@ th {
     text-transform: uppercase;
 }
 
-.breadcrumbItem {
-    text-decoration: none;
-    line-height: 1.125rem;
+.breadcrumb-item {
     padding: 4px 16px;
+    line-height: 1.125rem;
+    text-decoration: none;
 }
 
 a,
-.breadcrumbItem:hover {
-    text-decoration: underline;
+.breadcrumb-item:hover {
     color: var(--primary-color-lightest);
+    text-decoration: underline;
 }
 
 .button-label,
