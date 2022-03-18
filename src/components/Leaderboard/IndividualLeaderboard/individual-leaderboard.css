@@ -2,14 +2,14 @@
     .inidividual-leaderboard {
         display: flex;
         flex-direction: row-reverse;
-        justify-content: space-around;
         align-items: flex-start;
+        justify-content: space-around;
     }
 
     .inidividual-leaderboard .fab {
-        margin: 0 0 1rem 1rem;
         position: sticky;
         bottom: 5rem;
         align-self: flex-end;
+        margin: 0 0 1rem 1rem;
     }
 }

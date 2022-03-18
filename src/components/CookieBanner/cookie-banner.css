@@ -1,7 +1,7 @@
 .banner {
-    background-color: rgb(255 255 255 / .16); /* ENDRE DENNE IKKE FERDIG */
     width: 100%;
     padding: .5rem;
+    background-color: rgb(255 255 255 / .16); /* ENDRE DENNE IKKE FERDIG */
 }
 
 .banner .buttons {
@@ -13,8 +13,8 @@
 @media only screen and (min-width: 769px) {
     .banner {
         display: flex;
-        gap: 1rem;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
     }
 }

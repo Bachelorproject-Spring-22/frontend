@@ -1,8 +1,8 @@
 .table-board {
     width: 100%;
     border: 1px solid var(--default-stroke);
-    border-radius: 6px;
     margin: 1rem 0;
+    border-radius: 6px;
 }
 
 .table-board thead {
@@ -15,8 +15,8 @@
 
 .table-board tbody tr td,
 .table-board thead tr th {
-    padding: 0 .5rem;
     height: 2rem;
+    padding: 0 .5rem;
 }
 
 .table-board thead tr:last-child th:first-child {

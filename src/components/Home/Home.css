@@ -1,26 +1,26 @@
 .landing-page {
-    height: 100vh;
     display: flex;
+    height: 100vh;
     flex-direction: column;
     justify-content: space-between;
     padding-bottom: 10rem;
 }
 
 .home-parent {
-    margin-bottom: 4rem;
-    height: auto;
-    grid-auto-flow: row;
     display: grid;
-    grid-template: repeat(3, 1fr) / 1fr;
+    height: auto;
+    margin-bottom: 4rem;
     gap: 3rem 0;
+    grid-auto-flow: row;
+    grid-template: repeat(3, 1fr) / 1fr;
     grid-template-areas: "introduction-1""introduction-2""introduction-3";
 }
 
 #introduction-1,
 #introduction-2,
 #introduction-3 {
-    justify-items: center;
     display: grid;
+    justify-items: center;
 }
 
 #introduction-1 {
@@ -58,12 +58,12 @@
     #introduction-2,
     #introduction-3 {
         display: grid;
+        align-items: center;
         gap: 0 1rem;
         grid-auto-flow: row;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr;
         justify-items: center;
-        align-items: center;
     }
 
     #introduction-1 {

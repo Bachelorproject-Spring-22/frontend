@@ -7,7 +7,7 @@
 }
 
 .about article ul {
-    list-style: initial;
     margin: initial;
+    list-style: initial;
     list-style-position: inside;
 }

@@ -1,22 +1,22 @@
 .icon {
-    fill: currentcolor;
-    height: 24px;
     overflow: hidden;
-    vertical-align: -.15em;
     width: 24px;
+    height: 24px;
+    fill: currentcolor;
+    vertical-align: -.15em;
 }
 
 .icon.large {
-    height: 48px;
     width: 48px;
+    height: 48px;
 }
 
 .icon.medium {
-    height: 36px;
     width: 36px;
+    height: 36px;
 }
 
 .icon.small {
-    height: 18px;
     width: 18px;
+    height: 18px;
 }

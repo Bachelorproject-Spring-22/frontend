@@ -2,17 +2,17 @@
 
 .loading-container {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .loader {
-    animation: spin 1s linear infinite;
-    border: 8px solid var(--primary-color-lightest);
-    border-radius: 50%;
-    border-top: 8px solid var(--primary-color-light);
-    height: 50px;
     width: 50px;
+    height: 50px;
+    border: 8px solid var(--primary-color-lightest);
+    border-top: 8px solid var(--primary-color-light);
+    animation: spin 1s linear infinite;
+    border-radius: 50%;
 }
 
 @keyframes spin {

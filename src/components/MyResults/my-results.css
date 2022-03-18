@@ -29,11 +29,11 @@
 
 .individual-quiz {
     display: grid;
-    gap: 1rem;
     align-items: stretch;
-    grid-template-columns: 1fr 1fr;
     margin: 2rem 0;
+    gap: 1rem;
     grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 .individual-quiz li div {
