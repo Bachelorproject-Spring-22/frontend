@@ -15,6 +15,7 @@ function IndividualResults(props) {
     const courseId = location.split('/')[0];
     const tableData = props.fetchCourseTableData;
     const courseData = props.fetchCourseData;
+    console.log(tableData);
     
     let label = [];
     let scores = [];
@@ -36,11 +37,11 @@ function IndividualResults(props) {
 
     return (
         <section className='individual-results'>
-            {props.loading ? null : <><h1>{tableData[0].course.name}</h1>
-            <p className='subtitle'>{tableData[0].course.code}</p></>}
+            {props.loading ? null : <><h1>{tableData[0].player.name}</h1>
+            <p className='subtitle'>{tableData[0].player.code}</p></>}
 
             <Suspense fallback={<Loading />}>
-                {props.loading ? <ul><Card type='loading' /></ul> : <Table data={tableData} caption={`The top three students in ${tableData[0].course.name}`}/>}
+                {props.loading ? <ul><Card type='loading' /></ul> : <Table data={tableData} caption={`The top five students in ${tableData[0].player.name}`}/>}
             </Suspense>
             <Link to={`/leaderboard/${courseId}`}>
                 <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard" />} />

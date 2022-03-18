@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './table.css';
 
 function Table({ data, caption }) {
-    const sorted = data.sort((a, b) => (a.course.totalScore < b.course.totalScore) ? 1 : ((b.course.totalScore < a.course.totalScore) ? -1 : 0));
+    const sorted = data.sort((a, b) => (a.player.totalScore < b.player.totalScore) ? 1 : ((b.player.totalScore < a.player.totalScore) ? -1 : 0));
 
     return (
         <table className='table-board'>
@@ -19,11 +19,11 @@ function Table({ data, caption }) {
 
             <tbody>
                 {sorted.map((user) => (
-                    <tr key={user.course._id}>
+                    <tr key={user.player._id}>
                         <td>{user.rank}</td>
-                        <td>{user.course._id}</td>
-                        <td>{user.course.totalScore.toLocaleString()}</td>
-                        <td>{user.course.quizzesAttended}</td>
+                        <td>{user.player._id}</td>
+                        <td>{user.player.totalScore.toLocaleString()}</td>
+                        <td>{user.player.quizzesAttended}</td>
                     </tr>
                 ))}
             </tbody>

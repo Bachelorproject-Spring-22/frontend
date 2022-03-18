@@ -13,10 +13,11 @@ function leaderboardHoc(WrappedComponent) {
                 uploadPop: false,
                 timeFramePop: false,
                 courses: [],
-                semesterLeaderBoard: null,
+                semesterLeaderBoard: [],
                 isLoading: true,
-                courseData: null,
+                courseData: [],
                 courseId: '',
+                courseInformation: [],
                 timeSlot: null
             }
         }
@@ -27,7 +28,7 @@ function leaderboardHoc(WrappedComponent) {
             if (res.error) {
                 this.setState({
                     error: res.error,
-                    isLoading: false
+                    isLoading: true
                 });
             } else {
                 const courses = res.data.getUserSpecific;
@@ -50,6 +51,7 @@ function leaderboardHoc(WrappedComponent) {
                 });
             } else {
                 this.setState({
+                    courseInformation: res.data.courseAndTotalAmountOfQuizzes,
                     courseData: res.data.studyProgrammeData,
                     isLoading: false,
                     timeSlot: null
@@ -73,6 +75,9 @@ function leaderboardHoc(WrappedComponent) {
                 })
             } else {
                 console.log(res);
+                this.setState({
+                    isLoading: false
+                })
             }
         }
 
@@ -88,8 +93,8 @@ function leaderboardHoc(WrappedComponent) {
                     isLoading: false
                 })
             } else {
-                console.log(res);
                 this.setState({
+                    courseInformation: res.data.courseAndTotalAmountOfQuizzes,
                     courseData: res.data.studyProgrammeData,
                     isLoading: false,
                     timeFramePop: false
@@ -103,6 +108,7 @@ function leaderboardHoc(WrappedComponent) {
                     <WrappedComponent 
                         fetchLeaderboard={this.fetchLeaderboard} 
                         courseData={this.state.courseData} 
+                        courseInformation={this.state.courseInformation}
                         fetchCourse={this.fetchCourseBoard} 
                         loading={this.state.isLoading} 
                         courses={this.state.courses} 
