@@ -4,9 +4,7 @@ import Loading from '../../Loading/Loading';
 import SEO from "../../SEO/SEO";
 import Table from "../../Table/Table";
 
-function MainLeaderboard(props) {
-    const { semesterLeaderBoard, courses, loading, fetchLeaderboard } = props;
-    console.log(courses);
+function MainLeaderboard({ semesterLeaderBoard, courses, loading, fetchLeaderboard }) {
 
     useEffect(() => {
         fetchLeaderboard();

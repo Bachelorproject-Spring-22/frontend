@@ -10,7 +10,6 @@ function Leaderboard(props) {
     const params = useParams();
     const location = params['*'];
     const url = location.split('/');
-    console.log(url);
     
     return (
         <>

@@ -74,10 +74,11 @@ function leaderboardHoc(WrappedComponent) {
                     isLoading: false
                 })
             } else {
-                console.log(res);
+                //console.log(res);
                 this.setState({
-                    isLoading: false
-                })
+                    isLoading: false,
+                    uploadPop: false
+                });
             }
         }
 

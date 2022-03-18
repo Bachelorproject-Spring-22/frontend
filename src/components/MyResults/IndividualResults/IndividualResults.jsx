@@ -15,7 +15,6 @@ function IndividualResults(props) {
     const courseId = location.split('/')[0];
     const tableData = props.fetchCourseTableData;
     const courseData = props.fetchCourseData;
-    console.log(tableData);
     
     let label = [];
     let scores = [];
