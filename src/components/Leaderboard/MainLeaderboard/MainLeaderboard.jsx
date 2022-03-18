@@ -6,6 +6,7 @@ import Table from "../../Table/Table";
 
 function MainLeaderboard(props) {
     const { semesterLeaderBoard, courses, loading, fetchLeaderboard } = props;
+    console.log(courses);
 
     useEffect(() => {
         fetchLeaderboard();
@@ -27,7 +28,7 @@ function MainLeaderboard(props) {
                 <p>Explore the leaderboards for the courses you have this semester</p>
 
                 <ul>
-                    {courses.map(({ course: { courseId, code, name, rank } }) => <Card key={courseId} type='course' link={`/leaderboard/${courseId}`} courseCode={code} fullCourseName={name} rank={rank} />)}
+                    {courses.map(({ player: { courseId, code, name, rank } }) => <Card key={courseId} type='course' link={`/leaderboard/${courseId}`} courseCode={code} fullCourseName={name} rank={rank} />)}
                 </ul>
             </article> : null}
         </section>

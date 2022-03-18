@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AuthContext from '../../helpers/AuthContext';
 import PopUp from '../PopUp/PopUp';
-import Upload from '../TestComponent/Upload';
 //import Confirm from '../PopUp/Confirm/Confirm';
 //import Alert from '../PopUp/Alert/Alert';
 //import Prompt from '../PopUp/Prompt/Prompt';
@@ -41,7 +40,7 @@ function managePageBackend(WrappedComponent) {
                     <WrappedComponent handleOpen={this.togglePop} {...this.props} />
                     {this.state.uploadPop && <PopUp type='uploadPop' content={<UploadQuiz uploadQuiz={this.uploadQuiz} modalTitle={'Upload new quiz results'} bodyText={'Upload an Excel sheet from Kahoot to upload the results.'} handleClose={this.togglePop} />} handleClose={this.togglePop} />}
                     {this.state.addStudent && <PopUp type='addStudent' content={<p>Student</p>} handleClose={this.togglePop} />}
-                    {this.state.addTeacher && this.context.user.role === 'superAdmin' && <PopUp type='addTeacher' content={<Upload />} handleClose={this.togglePop} />}
+                    {this.state.addTeacher && this.context.user.role === 'superAdmin' && <PopUp type='addTeacher' content={<p>Monke</p>} handleClose={this.togglePop} />}
                 </>
             );
         }
