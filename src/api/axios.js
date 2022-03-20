@@ -51,7 +51,7 @@ function createAxiosResponseInterceptor(axiosInstance) {
         async function (error) {
             if (error.response) {
                 const { status, data } = error.response;
-                console.log(error.response);
+                //console.log(error.response);
 
                 switch (status) {
                     case 401:
