@@ -8,8 +8,8 @@ const AuthContext = createContext();
 
 export default AuthContext;
 
-export const AuthProvider = ({children}) => {
-    let [authTokens, setAuthTokens] = useState(() => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')): null);
+export const AuthProvider = ({ children }) => {
+    let [authTokens, setAuthTokens] = useState(() => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null);
     let [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null);
     let [loading, setLoading] = useState(true);
     const history = useNavigate();
@@ -17,26 +17,20 @@ export const AuthProvider = ({children}) => {
     let loginUser = async (userData) => {
         const { username, password } = userData;
 
-        const response = await login(username, password);
-        
-        /* const response = await fetch('/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({'username': username, 'password': password})
-        }); */
-        const data = response.data;
-
-        if (response.status === 200) {
-            localStorage.setItem('authTokens', JSON.stringify(data));
-            setAuthTokens(data);
-            setUser(jwt_decode(data.jwtToken));
-            history('/');
-            return {success: 'Logged in successfully'};
-        } else {
-            // Denne må endres!!
-            return {error: 'Wrong username or password!'};
+        try {
+            const response = await login(username, password);
+            const data = response.data;
+            
+            if (response.status === 200) {
+                localStorage.setItem('authTokens', JSON.stringify(data));
+                setAuthTokens(data);
+                setUser(jwt_decode(data.jwtToken));
+                history('/');
+                return { success: 'Logged in successfully' };
+            }
+        } catch (error) {
+            console.log(error);
+            return { error: 'Wrong username or password!' };
         }
     }
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { getCourseBoard, getLeaderboard, getSnapshot, uploadQuiz } from '../../api/apiCalls';
+import ChooseTimeFrame from '../PopUp/ChooseTimeFrame/ChooseTimeFrame';
 import PopUp from '../PopUp/PopUp';
 import UploadQuiz from '../PopUp/UploadQuiz/UploadQuiz';
-import ChooseTimeFrame from '../PopUp/ChooseTimeFrame/ChooseTimeFrame';
+import { getCourseBoard, getLeaderboard, getSnapshot, uploadQuiz } from '../../api/apiCalls';
 
 function leaderboardHoc(WrappedComponent) {
     class LeaderboardHOC extends Component {

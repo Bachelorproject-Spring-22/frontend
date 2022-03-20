@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import './upload-quiz.css';
 import Button from '../../Button/Button';
 import Icon from '../../Icon/Icon';
+import React, { useState } from 'react';
 
 function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId }) {
     let currentCourse;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+//import Alert from '../PopUp/Alert/Alert';
+//import Confirm from '../PopUp/Confirm/Confirm';
+//import Prompt from '../PopUp/Prompt/Prompt';
 import AuthContext from '../../helpers/AuthContext';
 import PopUp from '../PopUp/PopUp';
-//import Confirm from '../PopUp/Confirm/Confirm';
-//import Alert from '../PopUp/Alert/Alert';
-//import Prompt from '../PopUp/Prompt/Prompt';
 import UploadQuiz from '../PopUp/UploadQuiz/UploadQuiz';
 import { uploadQuiz } from '../../api/apiCalls';
 

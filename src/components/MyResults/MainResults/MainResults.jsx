@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
 import Card from "../../Card/Card";
+import React, { useEffect } from 'react';
 import SEO from "../../SEO/SEO";
 
 function MainResults(props) {

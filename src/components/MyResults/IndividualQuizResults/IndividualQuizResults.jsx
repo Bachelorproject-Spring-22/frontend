@@ -1,9 +1,9 @@
-import Card from "../../Card/Card";
-import React, { useEffect, lazy, Suspense } from "react";
 import './individual-quiz-results.css';
+import Card from "../../Card/Card";
 import Loading from "../../Loading/Loading";
-import { useParams } from "react-router-dom";
+import React, { useEffect, lazy, Suspense } from "react";
 import { appendSuffix } from "../../../helpers/functions";
+import { useParams } from "react-router-dom";
 
 const PieChart = lazy(() => import('../../Chart/PieChart'));
 

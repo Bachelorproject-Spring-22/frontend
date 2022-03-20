@@ -1,9 +1,9 @@
-import React from "react";
 import Button from "../../Button/Button";
+import Card from "../../Card/Card";
 import Icon from '../../Icon/Icon';
 import Popup from "../../PopUp/PopUp";
+import React from "react";
 import SEO from "../../SEO/SEO";
-import Card from "../../Card/Card";
 
 function Account(props) {
     const data = props.data;

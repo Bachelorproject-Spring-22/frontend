@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import './choose-time-frame.css';
 import Button from '../../Button/Button';
+import React, { useState } from 'react';
 
 function ChooseTimeFrame({ modalTitle, bodyText, handleClose, chooseTimeFrame, courseId, timeSlot }) {
     const currentDate = new Date().toISOString().split("T")[0]; /* https://stackoverflow.com/a/49916376/14447555 */

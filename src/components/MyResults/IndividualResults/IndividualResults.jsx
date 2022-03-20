@@ -1,10 +1,10 @@
-import React, { useEffect, lazy, Suspense, useState } from "react";
-import Button from "../../Button/Button";
-import Icon from '../../Icon/Icon';
-import { Link, useParams } from "react-router-dom";
-import Card from "../../Card/Card";
 import './individual-results.css';
+import Button from "../../Button/Button";
+import Card from "../../Card/Card";
+import Icon from '../../Icon/Icon';
 import Loading from '../../Loading/Loading';
+import React, { useEffect, lazy, Suspense, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 const BarChart = lazy(() => import('../../Chart/BarChart'));
 const Table = lazy(() => import('../../Table/Table'));

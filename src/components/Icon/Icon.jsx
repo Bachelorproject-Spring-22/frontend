@@ -1,6 +1,6 @@
-import sprite from '../../assets/sprite.svg';
 import './icon.css';
 import PropTypes from 'prop-types';
+import sprite from '../../assets/sprite.svg';
 
 function Icon({ iconId, size, style }) {
     return (

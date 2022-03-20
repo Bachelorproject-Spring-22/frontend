@@ -1,23 +1,17 @@
 import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
-
-
-import Phone1PNG from '../../assets/images/1_iphone13progold_portrait(small).png';
-import Phone1WEBP from '../../assets/images/1_iphone13progold_portrait(small).webp';
-import Phone1AVIF from '../../assets/images/1_iphone13progold_portrait(small).avif';
-
-import Phone2PNG from '../../assets/images/2_iphone13prographite_portrait(small).png';
-import Phone2AVIF from '../../assets/images/2_iphone13prographite_portrait(small).avif';
-import Phone2WEBP from '../../assets/images/2_iphone13prographite_portrait(small).webp';
-
-import Phone3PNG from '../../assets/images/3_iphone13prosierrablue_portrait(small).png';
-import Phone3WEBP from '../../assets/images/3_iphone13prosierrablue_portrait(small).webp';
-import Phone3AVIF from '../../assets/images/3_iphone13prosierrablue_portrait(small).avif';
-
-
 import './Home.css';
-import SEO from '../SEO/SEO';
+import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
+import Phone1AVIF from '../../assets/images/1_iphone13progold_portrait.avif';
+import Phone1PNG from '../../assets/images/1_iphone13progold_portrait.png';
+import Phone1WEBP from '../../assets/images/1_iphone13progold_portrait.webp';
+import Phone2AVIF from '../../assets/images/2_iphone13prographite_portrait.avif';
+import Phone2PNG from '../../assets/images/2_iphone13prographite_portrait.png';
+import Phone2WEBP from '../../assets/images/2_iphone13prographite_portrait.webp';
+import Phone3AVIF from '../../assets/images/3_iphone13prosierrablue_portrait.avif';
+import Phone3PNG from '../../assets/images/3_iphone13prosierrablue_portrait.png';
+import Phone3WEBP from '../../assets/images/3_iphone13prosierrablue_portrait.webp';
+import SEO from '../SEO/SEO';
 
 function Home(props) {
 
@@ -71,8 +65,8 @@ function Home(props) {
                     <img srcSet={Phone3PNG} alt='iPhone displaying uniLeague site med noe annet' loading='lazy'/>
                 </picture>
                 <div id="text3">
-                    <h2>Introducing uniLeague</h2>
-                    <p>uniLeague makes it cooler than ever for students to show off their knowledge. By using uniLeague and collecting points, students climb the leaderboards and establish themselves as class all-stars. Students learn faster, advance further, and keep getting better all semester long.</p>
+                    <h2>Where champions are made</h2>
+                    <p>Are you ready to be the champion in a specific course, a semester, or even an entire study plan? Participate in class and earn points via various activities. Every activity gives you points and helps you rise in the uniLeague leaderboard. Log on now and play to rise high in the uniLeague leaderboard. Be a champion today!</p>
                 </div>
 
             </article>

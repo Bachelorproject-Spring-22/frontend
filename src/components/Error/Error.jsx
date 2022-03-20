@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import './error.css';
 import Button from "../Button/Button";
 import Icon from '../Icon/Icon';
-import './error.css';
+import { useNavigate } from "react-router-dom";
 
 function Error() {
     const history = useNavigate();

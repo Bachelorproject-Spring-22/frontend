@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import Icon from '../../Icon/Icon';
 import SEO from '../../SEO/SEO';
+import { Link } from 'react-router-dom';
 
 /* override styles for icons in the settings page */
 const iconStyle = {

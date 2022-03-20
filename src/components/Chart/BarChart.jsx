@@ -55,12 +55,7 @@ export const options = {
     }
 };
 
-
-
-
-
-
-function createGradient(ctx, area) {
+const createGradient = (ctx, area) => {
     const colorStart = "#7F619C";
     const colorEnd = "#BEAFD0";
 
@@ -70,12 +65,12 @@ function createGradient(ctx, area) {
     gradient.addColorStop(1, colorEnd);
 
     return gradient;
-}
+};
 
 const BarChart = (props) => {
     const label = props.labels;
     const dataSet = props.data;
-    
+
     const [chartData, setChartData] = useState({
         datasets: []
     });
@@ -97,7 +92,6 @@ const BarChart = (props) => {
             return;
         }
 
-
         const chartData = {
             ...data,
             datasets: data.datasets.map((dataset) => ({
@@ -109,10 +103,7 @@ const BarChart = (props) => {
         setChartData(chartData);
     }, [dataSet, label]);
 
-    return (
-        <Bar ref={chartRef} options={options} data={chartData} />
-    );
-
+    return <Bar ref={chartRef} options={options} data={chartData}></Bar>;
 };
 
 export default BarChart;
