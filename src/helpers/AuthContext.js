@@ -29,7 +29,6 @@ export const AuthProvider = ({ children }) => {
                 return { success: 'Logged in successfully' };
             }
         } catch (error) {
-            console.log(error);
             return { error: 'Wrong username or password!' };
         }
     }
