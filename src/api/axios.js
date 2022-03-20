@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { tokenRefresh } from './apiCalls';
 
 let axiosInstance = axios;
 if (process.env && process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
@@ -15,7 +16,7 @@ function createAxiosResponseInterceptor(axiosInstance) {
     axiosInstance.defaults.headers.common["Authorization"] = "Bearer " + authTokens?.jwtToken;
 
     const refreshToken = async () => {
-        const response = await axios.post(`/api/refresh/`);;
+        const response = await tokenRefresh();
 
         localStorage.setItem('authTokens', JSON.stringify(response.data));
 
@@ -50,6 +51,7 @@ function createAxiosResponseInterceptor(axiosInstance) {
         async function (error) {
             if (error.response) {
                 const { status, data } = error.response;
+                console.log(error.response);
 
                 switch (status) {
                     case 401:

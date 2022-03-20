@@ -37,6 +37,10 @@ const fetchQuiz = (courseId, quizId) => {
     return axios.get(`/home/${courseId}/${quizId}`);
 }
 
+const tokenRefresh = () => {
+    return axios.post('/api/refresh');
+}
+
 const revokeToken = () => {
     return axios.post('api/revoke');
 }
@@ -51,5 +55,6 @@ export {
     fetchHome,
     fetchCourse,
     fetchQuiz,
+    tokenRefresh,
     revokeToken
 };
