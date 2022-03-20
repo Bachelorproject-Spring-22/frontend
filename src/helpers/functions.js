@@ -1,12 +1,12 @@
 import jwt_decode from 'jwt-decode';
 
-function checkExp(authTokens) {
+const checkExp = authTokens => {
     const user = jwt_decode(authTokens.jwtToken);
     const isExpired = checkDiff(user.exp);
     return isExpired;
-}
+};
 
-function checkDiff(unix) {
+const checkDiff = unix => {
     const now = Date.now();
     const input = unix * 1000;
     if (input < now) {
@@ -14,7 +14,7 @@ function checkDiff(unix) {
     } else {
         return false;
     }
-}
+};
 
 const appendSuffix = (num = 1) => {
     let suffix = "th";

@@ -1,8 +1,8 @@
-import { Link, Route, Routes } from 'react-router-dom';
-import WorkProgress from '../WIP/WorkProgress';
+import './settings.css';
 import Account from './Account/Account';
 import MainSettings from './MainSettings/MainSettings';
-import './settings.css';
+import WorkProgress from '../WIP/WorkProgress';
+import { Link, Route, Routes } from 'react-router-dom';
 
 function Settings(props) {
 

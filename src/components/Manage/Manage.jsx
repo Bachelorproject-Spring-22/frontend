@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import './manage.css';
+import IndividualCourseQuizzes from './MainManage/IndividualCourseQuizzes/IndividualCourseQuizzes'
 import MainManage from './MainManage/MainManage';
 import ManageQuizzes from './MainManage/ManageQuizzes/ManageQuizzes'
-import IndividualCourseQuizzes from './MainManage/IndividualCourseQuizzes/IndividualCourseQuizzes'
-import './manage.css';
+import { Link, Route, Routes } from 'react-router-dom';
 
 function Manage(props) {
     return (

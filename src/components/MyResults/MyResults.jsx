@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link, Route, Routes, useParams } from 'react-router-dom';
+import './my-results.css';
 import IndividualQuizResults from './IndividualQuizResults/IndividualQuizResults';
 import IndividualResults from './IndividualResults/IndividualResults';
 import MainResults from './MainResults/MainResults';
-import './my-results.css';
+import React from 'react';
+import { Link, Route, Routes, useParams } from 'react-router-dom';
 
 
 function MyResults(props) {

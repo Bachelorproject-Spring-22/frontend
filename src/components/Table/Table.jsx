@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from 'prop-types';
 import './table.css';
+import PropTypes from 'prop-types';
+import React from "react";
 
 function Table({ data, caption }) {
     const sorted = data.sort((a, b) => (a.player.totalScore < b.player.totalScore) ? 1 : ((b.player.totalScore < a.player.totalScore) ? -1 : 0));

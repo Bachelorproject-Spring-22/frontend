@@ -1,11 +1,11 @@
 import { Route, Routes, Link } from "react-router-dom";
+import './about.css';
+import Contact from "./Contact/Contact";
 import CookiePolicy from "./CookiePolicy/CookiePolicy";
 import MainAbout from "./MainAbout/MainAbout";
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
-import TermsOfService from "./TermsOfService/TermsOfService";
-import Contact from "./Contact/Contact";
-import './about.css';
 import SEO from "../SEO/SEO";
+import TermsOfService from "./TermsOfService/TermsOfService";
 
 function About() {
     return (

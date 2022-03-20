@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import AuthContext from '../../helpers/AuthContext';
-import { Link } from 'react-router-dom';
 import './login.css';
+import AuthContext from '../../helpers/AuthContext';
 import Button from '../Button/Button';
-import SEO from '../SEO/SEO';
 import Icon from '../Icon/Icon';
+import SEO from '../SEO/SEO';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
     static contextType = AuthContext;

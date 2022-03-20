@@ -2,7 +2,6 @@ import './card.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-/* Denne må endres når vi vet hvordan payload-en fra back-end ser ut. Komponentet er dermed ikke avansert at all */
 
 function Card({ link = '/test', type, courseCode, fullCourseName, rank, quizNumber, correctAnswers, incorrectAnswers, number, label, disabledLink, suffix }) {
 

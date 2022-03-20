@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
-import NtnuLogo from '../../assets/ntnu_uten_slagord_neg.png';
-import Carbonbadge from "react-carbonbadge"
-import Button from '../Button/Button';
-import Icon from '../Icon/Icon';
 import './footer.css';
-
+import Button from '../Button/Button';
+import Carbonbadge from "react-carbonbadge"
+import Icon from '../Icon/Icon';
+import NtnuLogo from '../../assets/ntnu_uten_slagord_neg.png';
+import { Link } from "react-router-dom";
 
 function Footer() {
     const scroll = () => {

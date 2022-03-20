@@ -1,7 +1,6 @@
 import './Button.css';
 
-function Button(props) {
-    const { variant, type, onClick, label, size, ariaLabel, icon} = props;
+function Button({ variant, type, onClick, label, size, ariaLabel, icon }) {
 
     return (
         <button

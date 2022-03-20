@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 import './navbar.css';
 import Icon from '../Icon/Icon';
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
 function NavBar(props) {
     const auth = props.auth;

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import './individual-leaderboard.css';
 import Button from '../../Button/Button';
 import Card from '../../Card/Card';
-import Table from '../../Table/Table';
-import './individual-leaderboard.css';
-import Icon from '../../Icon/Icon';
 import Error from '../../Error/Error';
+import Icon from '../../Icon/Icon';
+import Table from '../../Table/Table';
 
 function IndividualLeaderboard(props) {
     const courseInformation = props.courseInformation

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
+import './error.css';
 import Button from "../Button/Button";
 import Icon from '../Icon/Icon';
-import './error.css';
 
 function Denied() {
     return (

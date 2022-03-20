@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link, Route, Routes } from "react-router-dom";
-import MainLeaderboard from './MainLeaderboard/MainLeaderboard';
 import './leaderboard.css';
 import IndividualLeaderboard from './IndividualLeaderboard/IndividualLeaderboard';
+import MainLeaderboard from './MainLeaderboard/MainLeaderboard';
+import { Link, Route, Routes } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 
 
