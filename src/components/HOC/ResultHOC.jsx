@@ -67,7 +67,7 @@ function resultHoc(WrappedComponent) {
         }
 
         fetchQuiz = async (courseId, quizId) => {
-            if (sessionStorage.getItem(courseId)) {
+            if (sessionStorage.getItem(quizId)) {
                 this.setState({
                     loading: false,
                     fetchQuizData: JSON.parse(sessionStorage.getItem(quizId))
