@@ -13,7 +13,6 @@ const getLeaderboard = () => {
 }
 
 const getSnapshot = (courseId, formData) => {
-    //console.log( courseId, formData );
     return axios.post(`/leaderboard/${courseId}`, formData)
 }
 
