@@ -1,48 +1,26 @@
 import axios from './axios';
 
-const login = (username, password) => {
-    return axios.post('/login', {username, password});
-}
+const login = (username, password) => axios.post('/login', { username, password })
 
-const getter = () => {
-    return axios.get('/');
-}
+const getter = () => axios.get('/')
 
-const getLeaderboard = () => {
-    return axios.get('/leaderboard');
-}
+const getLeaderboard = () => axios.get('/leaderboard')
 
-const getSnapshot = (courseId, formData) => {
-    return axios.post(`/leaderboard/${courseId}`, formData)
-}
+const getSnapshot = (courseId, formData) => axios.post(`/leaderboard/${courseId}`, formData)
 
-const uploadQuiz = (data) => {
-    return axios.post('/upload', data, {headers: { "Content-Type": "multipart/form-data" }})
-}
+const uploadQuiz = (data) => axios.post('/upload', data, { headers: { "Content-Type": "multipart/form-data" } })
 
-const getCourseBoard = (courseId) => {
-    return axios.get(`/leaderboard/${courseId}`);
-}
+const getCourseBoard = (courseId) => axios.get(`/leaderboard/${courseId}`)
 
-const fetchHome = () => {
-    return axios.get('/home');
-}
+const fetchHome = () => axios.get('/home')
 
-const fetchCourse = (courseId) => {
-    return axios.get(`/home/${courseId}`);
-}
+const fetchCourse = (courseId) => axios.get(`/home/${courseId}`)
 
-const fetchQuiz = (courseId, quizId) => {
-    return axios.get(`/home/${courseId}/${quizId}`);
-}
+const fetchQuiz = (courseId, quizId) => axios.get(`/home/${courseId}/${quizId}`)
 
-const tokenRefresh = () => {
-    return axios.post('/api/refresh');
-}
+const tokenRefresh = () => axios.post('/api/refresh')
 
-const revokeToken = () => {
-    return axios.post('/api/revoke');
-}
+const revokeToken = () => axios.post('/api/revoke')
 
 export {
     login,

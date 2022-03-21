@@ -56,7 +56,6 @@ function App() {
             <div className='grid-container'>
                 <NavBar auth={contextData} />
                 <div className="app">
-                    {/* <CookieBanner/> */}
                     <main>
                         <Suspense fallback={null}>
                             <Routes>

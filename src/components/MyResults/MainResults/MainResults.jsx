@@ -26,7 +26,7 @@ function MainResults(props) {
                 </select> */}
 
             <h2>Current semester</h2>
-            <ul className='cards-grid-container'>
+            <ul className={fetchHomeData.length === 1 ? '' : 'cards-grid-container'}>
                 {loading ?
                     <Card type='loading' /> :
                     fetchHomeData.length === 0 ? (

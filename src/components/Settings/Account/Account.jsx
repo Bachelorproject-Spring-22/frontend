@@ -1,6 +1,4 @@
-import Button from "../../Button/Button";
 import Card from "../../Card/Card";
-import Icon from '../../Icon/Icon';
 import Popup from "../../PopUp/PopUp";
 import React from "react";
 import SEO from "../../SEO/SEO";
@@ -18,7 +16,7 @@ function Account(props) {
                 <p className="subtitle">{data.user.username}</p>
 
                 <article>
-                    <div /* onClick={() => togglePop('email')} */>
+                    <div>
                         <p>Email</p>
                         <p className="user-text">Edit</p>
                     </div>
@@ -31,7 +29,6 @@ function Account(props) {
                         <p className="user-text">Edit</p>
                     </div>
                 </article>
-                <Button label='Log Out' variant='secondary destructive' onClick={data.logoutUser} icon={<Icon iconId="logout"/>}/>
             </section>
         </>
     );

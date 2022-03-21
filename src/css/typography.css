@@ -29,8 +29,6 @@ body,
 p {
     color: var(--white-high-emphasis);
     font: 1rem/1.3125rem Arial, sans-serif;
-
-    /* margin: auto; */
 }
 
 h1,
@@ -72,10 +70,7 @@ h5 {
 }
 
 h1 {
-    /* font-size: 2.8125rem; */
     font-size: clamp(2.2rem, .5rem + 10vw, 2.8125rem);
-
-    /* usikker på den her */
     line-height: 3.9375rem;
 }
 
