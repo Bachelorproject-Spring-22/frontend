@@ -42,7 +42,7 @@ const tokenRefresh = () => {
 }
 
 const revokeToken = () => {
-    return axios.post('api/revoke');
+    return axios.post('/api/revoke');
 }
 
 export {
