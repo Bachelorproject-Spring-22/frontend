@@ -1,6 +1,7 @@
 import Icon from '../../Icon/Icon';
 import SEO from '../../SEO/SEO';
 import { Link } from 'react-router-dom';
+import Button from '../../Button/Button';
 
 /* override styles for icons in the settings page */
 const iconStyle = {
@@ -65,6 +66,7 @@ function MainSettings(props) {
                     </div>
                 </Link>
             </article>
+            <Button label='Log Out' variant='secondary destructive' onClick={data.logoutUser} icon={<Icon iconId="logout"/>}/>
         </section>
     );
 };
