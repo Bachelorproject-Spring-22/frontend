@@ -23,39 +23,63 @@ function leaderboardHoc(WrappedComponent) {
         }
 
         fetchLeaderboard = async () => {
-            const res = await getLeaderboard();
-
-            if (res.error) {
+            if (sessionStorage.getItem('courses') && sessionStorage.getItem('semesterLeaderBoard')) {
                 this.setState({
-                    error: res.error,
-                    isLoading: true
-                });
-            } else {
-                const courses = res.data.getUserSpecific;
-                const semesterLeaderBoard = res.data.studyProgrammeData;
-
-                this.setState({
-                    courses,
-                    semesterLeaderBoard,
-                    isLoading: false
+                    isLoading: false,
+                    courses: JSON.parse(sessionStorage.getItem('courses')),
+                    semesterLeaderBoard: JSON.parse(sessionStorage.getItem('semesterLeaderBoard'))
                 })
+            } else {
+                const res = await getLeaderboard();
+
+                if (res.error) {
+                    this.setState({
+                        error: res.error,
+                        isLoading: true
+                    });
+                } else {
+                    const courses = res.data.getUserSpecific;
+                    const semesterLeaderBoard = res.data.studyProgrammeData;
+                    sessionStorage.setItem('courses', JSON.stringify(courses));
+                    sessionStorage.setItem('semesterLeaderBoard', JSON.stringify(semesterLeaderBoard));
+
+                    this.setState({
+                        courses,
+                        semesterLeaderBoard,
+                        isLoading: false
+                    })
+                }
             }
         }
 
         fetchCourseBoard = async (params) => {
-            const res = await getCourseBoard(params);
-            if (res.error) {
+            const courseInformation = `leaderboard-${params}`;
+            const courseData = `leaderboard-data-${params}`;
+
+            if (sessionStorage.getItem(courseInformation) && sessionStorage.getItem(courseData)) {
                 this.setState({
-                    error: res.error,
-                    isLoading: false
-                });
-            } else {
-                this.setState({
-                    courseInformation: res.data.courseAndTotalAmountOfQuizzes,
-                    courseData: res.data.studyProgrammeData,
+                    courseInformation: JSON.parse(sessionStorage.getItem(courseInformation)),
+                    courseData: JSON.parse(sessionStorage.getItem(courseData)),
                     isLoading: false,
                     timeSlot: null
                 });
+            } else {
+                const res = await getCourseBoard(params);
+                if (res.error) {
+                    this.setState({
+                        error: res.error,
+                        isLoading: false
+                    });
+                } else {
+                    sessionStorage.setItem(courseInformation, JSON.stringify(res.data.courseAndTotalAmountOfQuizzes));
+                    sessionStorage.setItem(courseData, JSON.stringify(res.data.studyProgrammeData));
+                    this.setState({
+                        courseInformation: res.data.courseAndTotalAmountOfQuizzes,
+                        courseData: res.data.studyProgrammeData,
+                        isLoading: false,
+                        timeSlot: null
+                    });
+                }
             }
         }
 
@@ -118,7 +142,7 @@ function leaderboardHoc(WrappedComponent) {
                         timeSlot={this.state.timeSlot}
                         {...this.props}
                     />
-                    
+
                     {this.state.uploadPop &&
                         <PopUp
                             handleClose={this.togglePop}

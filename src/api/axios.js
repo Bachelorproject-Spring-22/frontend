@@ -17,9 +17,8 @@ function createAxiosResponseInterceptor(axiosInstance) {
 
     const refreshToken = async () => {
         const response = await tokenRefresh();
-
+        sessionStorage.clear();
         localStorage.setItem('authTokens', JSON.stringify(response.data));
-
         axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${response.data.jwtToken}`;
     }
 
