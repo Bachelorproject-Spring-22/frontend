@@ -12,7 +12,7 @@ const Table = lazy(() => import('../../Table/Table'));
 function IndividualResults(props) {
     const params = useParams();
     const location = params['*'];
-    const courseId = location.split('/')[0].toLowerCase();
+    const courseId = location.split('/')[0];
     const tableData = props.fetchCourseTableData;
     const courseData = props.fetchCourseData;
     const loading = props.loading;
