@@ -4,6 +4,7 @@ import Loading from "../../Loading/Loading";
 import React, { useEffect, lazy, Suspense } from "react";
 import { appendSuffix } from "../../../helpers/functions";
 import { useParams } from "react-router-dom";
+import NotFound from '../../Error/NotFound';
 
 const PieChart = lazy(() => import('../../Chart/PieChart'));
 
@@ -18,13 +19,13 @@ function IndividualQuizResults({ fetchQuiz, fetchQuizData, loading }) {
         fetchQuiz(courseId, quizId);
     }, [courseId, fetchQuiz, quizId]);
 
-    if (!loading && fetchQuizData) {
+    if (!loading && fetchQuizData.length !== 0) {
         suffix = appendSuffix(fetchQuizData.kahootsInPeriod.finalScores.rank);
     }
 
     return (
         <section>
-            {loading ? <Loading /> : fetchQuizData ?
+            {loading ? <Loading /> : fetchQuizData.length !== 0 ?
                 <>
                     <h1>{fetchQuizData.coursesInPeriod.name}</h1>
                     <p className='subtitle'>{`Quiz ${fetchQuizData.quizNumber}`}</p>
@@ -47,7 +48,7 @@ function IndividualQuizResults({ fetchQuiz, fetchQuizData, loading }) {
                     <h2>More Quizzes</h2>
                     <p>Coming soon</p>
                 </> : 
-                <p className='white-middle-emphasis'>No data to show</p>
+                <NotFound />
             }
         </section>
     );

@@ -5,6 +5,7 @@ import Icon from '../../Icon/Icon';
 import Loading from '../../Loading/Loading';
 import React, { useEffect, lazy, Suspense, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import NotFound from '../../Error/NotFound';
 
 const BarChart = lazy(() => import('../../Chart/BarChart'));
 const Table = lazy(() => import('../../Table/Table'));
@@ -73,7 +74,7 @@ function IndividualResults(props) {
                                 ))
                             }
                         </ul>
-                    </> : <p className='white-middle-emphasis'>No data to show</p>
+                    </> : <NotFound />
             }
         </section>
     );
