@@ -4,6 +4,7 @@ import Loading from "../../Loading/Loading";
 import React, { useEffect, lazy, Suspense } from "react";
 import { appendSuffix } from "../../../helpers/functions";
 import { useParams } from "react-router-dom";
+import NotFound from '../../Error/NotFound';
 
 const PieChart = lazy(() => import('../../Chart/PieChart'));
 
@@ -18,40 +19,37 @@ function IndividualQuizResults({ fetchQuiz, fetchQuizData, loading }) {
         fetchQuiz(courseId, quizId);
     }, [courseId, fetchQuiz, quizId]);
 
-    if (!loading) {
+    if (!loading && fetchQuizData.length !== 0) {
         suffix = appendSuffix(fetchQuizData.kahootsInPeriod.finalScores.rank);
     }
 
     return (
         <section>
-            {loading ? null : <>
-                <h1>{fetchQuizData.coursesInPeriod.name}</h1>
-                <p className='subtitle'>{`Quiz ${fetchQuizData.quizNumber}`}</p></>}
+            {loading ? <Loading /> : fetchQuizData.length !== 0 ?
+                <>
+                    <h1>{fetchQuizData.coursesInPeriod.name}</h1>
+                    <p className='subtitle'>{`Quiz ${fetchQuizData.quizNumber}`}</p>
 
-            <ul className='individual-quiz'>
-                {loading ? <Card type='loading' /> :
-                    <>
+                    <ul className='individual-quiz'>
                         <Card type='individual' number={fetchQuizData.kahootsInPeriod.finalScores.correctAnswers} label='Correct' />
                         <Card type='individual' number={fetchQuizData.kahootsInPeriod.finalScores.incorrectAnswers} label='Incorrect' />
                         <Card type='individual' number={fetchQuizData.kahootsInPeriod.finalScores.totalScore} label='Score' />
                         <Card type='individual' number={fetchQuizData.kahootsInPeriod.finalScores.rank} suffix={suffix} label='Place' />
-                    </>}
-            </ul>
+                    </ul>
 
 
-            <Suspense fallback={<Loading />}>
-                <div className="chart-container-pie">
-                    {loading ? <Card type='loading' /> : <PieChart correct={fetchQuizData.kahootsInPeriod.finalScores.correctAnswers} incorrect={fetchQuizData.kahootsInPeriod.finalScores.incorrectAnswers} />}
-                </div>
-            </Suspense>
+                    <Suspense fallback={<Loading />}>
+                        <div className="chart-container-pie">
+                            <PieChart correct={fetchQuizData.kahootsInPeriod.finalScores.correctAnswers} incorrect={fetchQuizData.kahootsInPeriod.finalScores.incorrectAnswers} />
+                        </div>
+                    </Suspense>
 
 
-            <h2>More Quizzes</h2>
-            <p>Coming soon</p>
-            {/* <ul>
-                <Card type='quiz' quizNumber={2} correctAnswers={3} incorrectAnswers={8} />
-            </ul> */}
-
+                    <h2>More Quizzes</h2>
+                    <p>Coming soon</p>
+                </> : 
+                <NotFound />
+            }
         </section>
     );
 }

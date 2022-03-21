@@ -27,13 +27,19 @@ function MainResults(props) {
 
             <h2>Current semester</h2>
             <ul className='cards-grid-container'>
-                {loading ? <Card type='loading' /> : fetchHomeData.map((data) => (
-                    <Card link={`/home/${data.player.courseId}`} key={data.player.courseId} type='course' courseCode={data.player.code} fullCourseName={data.player.courseName} rank={data.rank} />
-                ))}
+                {loading ?
+                    <Card type='loading' /> :
+                    fetchHomeData.length === 0 ? (
+                        <p>It seems you have not participated in any activites. Join one to see your results here!</p>
+                    ) :
+                        fetchHomeData.map((data) => (
+                            <Card link={`/home/${data.player.courseId}`} key={data.player.courseId} type='course' courseCode={data.player.code} fullCourseName={data.player.courseName} rank={data.rank} />
+                        ))
+                }
             </ul>
             <hr />
 
-            <h2>Previous semester</h2>
+            {/* <h2>Previous semester</h2> */}
             {/* ↓ Her trenger vi en map som looper gjennom alle tidligere emner studenten har tatt før nåværende semester ↓*/}
 
             {/* <h3>Semestertekst</h3> {/* For eksempel: "Spring 2021"

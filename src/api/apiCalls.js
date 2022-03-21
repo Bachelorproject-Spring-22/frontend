@@ -13,7 +13,6 @@ const getLeaderboard = () => {
 }
 
 const getSnapshot = (courseId, formData) => {
-    //console.log( courseId, formData );
     return axios.post(`/leaderboard/${courseId}`, formData)
 }
 
@@ -42,7 +41,7 @@ const tokenRefresh = () => {
 }
 
 const revokeToken = () => {
-    return axios.post('api/revoke');
+    return axios.post('/api/revoke');
 }
 
 export {

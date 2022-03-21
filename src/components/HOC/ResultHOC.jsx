@@ -7,10 +7,10 @@ function resultHoc(WrappedComponent) {
             super(props);
             this.state = {
                 error: null,
-                fetchHomeData: null,
-                fetchCourseTableData: null,
-                fetchCourseData: null,
-                fetchQuizData: null,
+                fetchHomeData: [],
+                fetchCourseTableData: [],
+                fetchCourseData: [],
+                fetchQuizData: [],
                 loading: true
             }
         }
@@ -40,11 +40,12 @@ function resultHoc(WrappedComponent) {
         }
 
         fetchCourseTable = async (courseId) => {
-            if (sessionStorage.getItem('fetchCourseTableData') && sessionStorage.getItem('fetchCourseData')) {
+            const courseData = `${courseId}-Data`;
+            if (sessionStorage.getItem(courseId) && sessionStorage.getItem(courseData)) {
                 this.setState({
                     loading: false,
-                    fetchCourseTableData: JSON.parse(sessionStorage.getItem('fetchCourseTableData')),
-                    fetchCourseData: JSON.parse(sessionStorage.getItem('fetchCourseData'))
+                    fetchCourseTableData: JSON.parse(sessionStorage.getItem(courseId)),
+                    fetchCourseData: JSON.parse(sessionStorage.getItem(courseData))
                 })
             } else {
                 const res = await fetchCourse(courseId);
@@ -54,20 +55,27 @@ function resultHoc(WrappedComponent) {
                         loading: false
                     });
                 } else {
-                    sessionStorage.setItem('fetchCourseTableData', JSON.stringify(res.data.studyProgrammeData));
-                    sessionStorage.setItem('fetchCourseData', JSON.stringify(res.data.getUserSpecific))
-                    this.setState({
-                        loading: false,
-                        fetchCourseTableData: res.data.studyProgrammeData,
-                        fetchCourseData: res.data.getUserSpecific
-                    })
+                    if (res.data.studyProgrammeData.length !== 0 && res.data.getUserSpecific.length !== 0) {
+                        sessionStorage.setItem(courseId, JSON.stringify(res.data.studyProgrammeData));
+                        sessionStorage.setItem(courseData, JSON.stringify(res.data.getUserSpecific))
+                        this.setState({
+                            loading: false,
+                            fetchCourseTableData: res.data.studyProgrammeData,
+                            fetchCourseData: res.data.getUserSpecific
+                        })
+                    } else {
+                        this.setState({
+                            loading: false
+                        })
+                    }
+
                 }
             }
 
         }
 
         fetchQuiz = async (courseId, quizId) => {
-            if (sessionStorage.getItem(courseId)) {
+            if (sessionStorage.getItem(quizId)) {
                 this.setState({
                     loading: false,
                     fetchQuizData: JSON.parse(sessionStorage.getItem(quizId))
@@ -80,11 +88,17 @@ function resultHoc(WrappedComponent) {
                         loading: false
                     });
                 } else {
-                    sessionStorage.setItem(quizId, JSON.stringify(res.data.getUserSpecific[0]));
-                    this.setState({
-                        loading: false,
-                        fetchQuizData: res.data.getUserSpecific[0]
-                    });
+                    if (res.data.getUserSpecific.length !== 0) {
+                        sessionStorage.setItem(quizId, JSON.stringify(res.data.getUserSpecific[0]));
+                        this.setState({
+                            loading: false,
+                            fetchQuizData: res.data.getUserSpecific[0]
+                        });
+                    } else {
+                        this.setState({
+                            loading: false
+                        })
+                    }
                 }
             }
         }
