@@ -29,7 +29,7 @@ function MainLeaderboard({ semesterLeaderBoard, courses, loading, fetchLeaderboa
                 <h2>Individual Course Leaderboards</h2>
                 <p>Explore the leaderboards for the courses you have this semester</p>
 
-                <ul>
+                <ul className={courses.length === 1 ? '' : 'cards-grid-container'}>
                     {courses.map(({ player: { courseId, code, courseName, rank } }) => <Card key={courseId} type='course' link={`/leaderboard/${courseId}`} courseCode={code} fullCourseName={courseName} rank={rank} />)}
                 </ul>
             </article> : null}
