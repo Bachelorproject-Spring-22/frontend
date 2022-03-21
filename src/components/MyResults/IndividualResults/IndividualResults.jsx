@@ -16,6 +16,7 @@ function IndividualResults(props) {
     const tableData = props.fetchCourseTableData;
     const courseData = props.fetchCourseData;
     const loading = props.loading;
+    const [showBarChart, setChart] = useState(false);
 
     let label = [];
     let scores = [];
@@ -25,14 +26,17 @@ function IndividualResults(props) {
 
     const fetchCourseTable = props.fetchCourseTable;
 
-    const [showBarChart, setChart] = useState(false);
-
     const handleClick = () => {
         setChart(showBarChart => true);
+        sessionStorage.setItem('showBarChart', true);
     }
 
     useEffect(() => {
-        fetchCourseTable(courseId)
+        fetchCourseTable(courseId);
+
+        if(sessionStorage.getItem('showBarChart')) {
+            setChart(showBarChart => true);
+        }
     }, [fetchCourseTable, courseId]);
 
     return (
