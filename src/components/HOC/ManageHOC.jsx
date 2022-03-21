@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-//import Alert from '../PopUp/Alert/Alert';
-//import Confirm from '../PopUp/Confirm/Confirm';
-//import Prompt from '../PopUp/Prompt/Prompt';
 import AuthContext from '../../helpers/AuthContext';
 import PopUp from '../PopUp/PopUp';
 import UploadQuiz from '../PopUp/UploadQuiz/UploadQuiz';
@@ -27,14 +24,12 @@ function managePageBackend(WrappedComponent) {
         }
 
         uploadQuiz = async (data) => {
-            //console.log(data);
             await uploadQuiz(data);
             // ADD ERROR HANDLING AND SUCCESS HANDLING
             //console.log(res);
         }
 
         render() {
-            //Husk å endre komponentene i popup
             return (
                 <>
                     <WrappedComponent
@@ -58,14 +53,14 @@ function managePageBackend(WrappedComponent) {
                     {this.state.addStudent && 
                         <PopUp 
                             type='addStudent' 
-                            content={<p>Student</p>} 
+                            content={<p>Coming soon</p>} 
                             handleClose={this.togglePop} 
                         />}
                         
                     {this.state.addTeacher && this.context.user.role === 'superAdmin' && 
                         <PopUp 
                             type='addTeacher' 
-                            content={<p>Monke</p>} 
+                            content={<p>Coming soon</p>} 
                             handleClose={this.togglePop} 
                         />}
                 </>

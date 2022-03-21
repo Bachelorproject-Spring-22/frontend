@@ -26,7 +26,7 @@ function TermsOfService() {
                         <li>transferring the materials to another person or "mirror" the materials on any other server.</li>
                     </ul>
                     <p>This will let NTNU to terminate upon violations of any of these restrictions. Upon termination, your viewing right will also be terminated. You should destroy any downloaded materials in your possession, whether printed or electronic format.</p>
-                    <p>These Terms of Service has been created with the help of the Terms Of Service Generator.</p> {/* https://www.termsofservicegenerator.net/ */}
+                    <p>These Terms of Service has been created with the help of the <a href='https://www.termsofservicegenerator.net/' target='_blank' rel="noreferrer">Terms Of Service Generator</a>.</p>
                 </article>
 
                 <article>

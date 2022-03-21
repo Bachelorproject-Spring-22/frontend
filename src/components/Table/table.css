@@ -20,22 +20,18 @@
 }
 
 .table-board thead tr:last-child th:first-child {
-    /* border: 1px solid orange; */
     border-top-left-radius: 6px;
 }
 
 .table-board tr:last-child td:first-child {
-    /* border: 1px solid orange; */
     border-bottom-left-radius: 6px;
 }
 
 .table-board thead tr:last-child th:last-child {
-    /* border: 1px solid green; */
     border-top-right-radius: 6px;
 }
 
 .table-board tr:last-child td:last-child {
-    /* border: 1px solid green; */
     border-bottom-right-radius: 6px;
 }
 

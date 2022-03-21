@@ -16,7 +16,7 @@ function Account(props) {
                 <p className="subtitle">{data.user.username}</p>
 
                 <article>
-                    <div /* onClick={() => togglePop('email')} */>
+                    <div>
                         <p>Email</p>
                         <p className="user-text">Edit</p>
                     </div>

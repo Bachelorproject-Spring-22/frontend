@@ -46,7 +46,7 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId })
         e.preventDefault();
     
         if (!formData.has('file')) {
-            //console.error('No file selected upon submit!');
+            console.error('No file selected upon submit!');
             return
         }
 
@@ -74,8 +74,6 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId })
                 <label className='required' htmlFor='course-code-selector'>Choose corresponding course code</label>
 
                 <select value={selectedCourse} className='custom-select' id='course-code-selector' onChange={handleSelectedCourse}>
-
-                    {/*  ↓ map liste med eksisterende emner her (bytt ut arrayet) ↓*/}
                     {courses.map(course =>
                         <option key={course} value={course}>{course.toUpperCase()}</option>
                     )};
@@ -83,8 +81,6 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId })
 
                 <label className='required' htmlFor='semester-selector'>Choose corresponding semester</label>
                 <select value={selectedSemester} className='custom-select' id='semester-selector' onChange={handleSelectedSemester}>
-
-                    {/*  ↓ map liste med eksisterende semestere her. (bytt ut arrayet) ↓ */}
                     {semesters.map(semester =>
                         <option key={semester} value={semester}>{semester.toUpperCase()}</option>
                     )};
