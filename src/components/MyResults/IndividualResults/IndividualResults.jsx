@@ -12,13 +12,14 @@ const Table = lazy(() => import('../../Table/Table'));
 function IndividualResults(props) {
     const params = useParams();
     const location = params['*'];
-    const courseId = location.split('/')[0];
+    const courseId = location.split('/')[0].toLowerCase();
     const tableData = props.fetchCourseTableData;
     const courseData = props.fetchCourseData;
-    
+    const loading = props.loading;
+
     let label = [];
     let scores = [];
-    if (courseData) {
+    if (courseData.length !== 0) {
         courseData.map((element, index) => scores.push(element.kahootsInPeriod.finalScores.totalScore) && label.push(`Quiz ${index + 1}`));
     }
 
@@ -36,34 +37,40 @@ function IndividualResults(props) {
 
     return (
         <section className='individual-results'>
-            {props.loading ? null : <><h1>{tableData[0].player.courseName}</h1>
-            <p className='subtitle'>{tableData[0].player.code}</p></>}
+            {loading ?
+                <ul><Loading /></ul> : courseData.length !== 0 && tableData.length !== 0 ?
+                    <>
+                        <h1>{tableData[0].player.courseName}</h1>
+                        <p className='subtitle'>{tableData[0].player.code}</p>
 
-            <Suspense fallback={<Loading />}>
-                {props.loading ? <ul><Card type='loading' /></ul> : <Table data={tableData} caption={`The top five students in ${tableData[0].player.courseName}`}/>}
-            </Suspense>
-            <Link to={`/leaderboard/${courseId}`}>
-                <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard" />} />
-            </Link>
+                        <Suspense fallback={<Loading />}>
+                            <Table data={tableData} caption={`The top five students in ${tableData[0].player.courseName}`} />
+                        </Suspense>
+                        <Link to={`/leaderboard/${courseId}`}>
+                            <Button label='See Full Leaderboard' icon={<Icon iconId="leaderboard" />} />
+                        </Link>
 
-            <h2>Latest Quiz Performance</h2>
+                        <h2>Latest Quiz Performance</h2>
 
-            <div className="chart-container">
-                {showBarChart ?
-                    <Suspense fallback={<Loading />}>
-                        <BarChart labels={label} data={scores} />
-                    </Suspense> :
-                    <p onClick={handleClick}>Show bar chart</p>
-                }
-            </div>
+                        <div className="chart-container">
+                            {showBarChart ?
+                                <Suspense fallback={<Loading />}>
+                                    <BarChart labels={label} data={scores} />
+                                </Suspense> :
+                                <p onClick={handleClick}>Show bar chart</p>
+                            }
+                        </div>
 
-            <h2>Latest Quizes</h2>
-            <ul className="cards-grid-container">
-                {props.loading ? (<Card type='loading' />) :
-                    courseData.map((data, index) => (
-                        <Card key={data.kahootsInPeriod.quizId} type='quiz' link={`/home/${courseId}/${data.kahootsInPeriod.quizId}`} quizNumber={index + 1} correctAnswers={data.kahootsInPeriod.finalScores.correctAnswers} incorrectAnswers={data.kahootsInPeriod.finalScores.incorrectAnswers} />
-                    ))}
-            </ul>
+                        <h2>Latest Quizes</h2>
+                        <ul className="cards-grid-container">
+                            {
+                                courseData.map((data, index) => (
+                                    <Card key={data.kahootsInPeriod.quizId} type='quiz' link={`/home/${courseId}/${data.kahootsInPeriod.quizId}`} quizNumber={index + 1} correctAnswers={data.kahootsInPeriod.finalScores.correctAnswers} incorrectAnswers={data.kahootsInPeriod.finalScores.incorrectAnswers} />
+                                ))
+                            }
+                        </ul>
+                    </> : <p className='white-middle-emphasis'>No data to show</p>
+            }
         </section>
     );
 }

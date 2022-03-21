@@ -7,10 +7,10 @@ function resultHoc(WrappedComponent) {
             super(props);
             this.state = {
                 error: null,
-                fetchHomeData: null,
-                fetchCourseTableData: null,
-                fetchCourseData: null,
-                fetchQuizData: null,
+                fetchHomeData: [],
+                fetchCourseTableData: [],
+                fetchCourseData: [],
+                fetchQuizData: [],
                 loading: true
             }
         }

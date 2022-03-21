@@ -29,7 +29,7 @@ function MainResults(props) {
             <ul className='cards-grid-container'>
                 {loading ?
                     <Card type='loading' /> :
-                    fetchHomeData ? (
+                    fetchHomeData.length === 0 ? (
                         <p>It seems you have not participated in any activites. Join one to see your results here!</p>
                     ) :
                         fetchHomeData.map((data) => (
