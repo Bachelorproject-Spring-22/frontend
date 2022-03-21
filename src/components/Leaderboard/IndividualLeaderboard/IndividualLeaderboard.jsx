@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './individual-leaderboard.css';
 import Button from '../../Button/Button';
-import Card from '../../Card/Card';
+import Loading from '../../Loading/Loading';
 import Error from '../../Error/Error';
 import Icon from '../../Icon/Icon';
 import Table from '../../Table/Table';
+import NotFound from '../../Error/NotFound';
 
 function IndividualLeaderboard(props) {
     const courseInformation = props.courseInformation
@@ -40,27 +41,28 @@ function IndividualLeaderboard(props) {
 
     return (
         <>
-            <header>
-                {loading ? null : <h1>{courseInformation.course.name}</h1>}
-                <p className='subtitle'>Leaderboard</p>
-            </header>
+            {loading ? <Loading /> : data && courseInformation ?
+                <>
+                    <header>
+                        <h1>{courseInformation.course.name}</h1>
+                        <p className='subtitle'>Leaderboard</p>
+                    </header>
 
-            <section>
-                {loading ?
-                    <ul><Card type='loading' /></ul> :
-                    <div className='inidividual-leaderboard'>
+                    <section>
+                        <div className='inidividual-leaderboard'>
+                            {(role === 'teacher' || role === 'superAdmin') && (isDesktop ?
+                                <Button onClick={() => props.handleOpen('uploadPop', data.player.courseId)} icon={<Icon iconId='file_upload' />} label='' size='no-size' variant='fab' /> :
+                                <Button onClick={() => props.handleOpen('uploadPop', data.player.courseId)} label='upload new quiz' />)}
 
-                        {(role === 'teacher' || role === 'superAdmin') && (isDesktop ?
-                            <Button onClick={() => props.handleOpen('uploadPop', data.player.courseId)} icon={<Icon iconId='file_upload' />} label='' size='no-size' variant='fab' /> :
-                            <Button onClick={() => props.handleOpen('uploadPop', data.player.courseId)} label='upload new quiz' />)}
-
-                        <Table data={data} caption={timeSlot ? `The leaderboard display data from ${startDate} to ${endDate}.` : `The leaderboard displays the top students from the ${courseInformation.totalAmountOfQuizzes} last quizzes.`} />
-                    </div>}
-                <Button label='Choose a time frame' variant='secondary' icon={<Icon iconId='restore' />} onClick={() => props.handleOpen('timeFramePop', courseInformation.course.courseId)} />
-                {timeSlot ?
-                    <Button variant='text-only destructive' label='Reset' onClick={() => fetchCourse(location)} /> :
-                    null}
-            </section>
+                            <Table data={data} caption={timeSlot ? `The leaderboard display data from ${startDate} to ${endDate}.` : `The leaderboard displays the top students from the ${courseInformation.totalAmountOfQuizzes} last quizzes.`} />
+                        </div>
+                        <Button label='Choose a time frame' variant='secondary' icon={<Icon iconId='restore' />} onClick={() => props.handleOpen('timeFramePop', courseInformation.course.courseId)} />
+                        {timeSlot ?
+                            <Button variant='text-only destructive' label='Reset' onClick={() => fetchCourse(location)} /> :
+                            null}
+                    </section>
+                </> : <NotFound />
+            }
         </>
     );
 };
