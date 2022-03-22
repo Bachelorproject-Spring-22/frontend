@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../components/Loading/Loading';
-import { login, revokeToken } from '../api/apiCalls';
+import { login } from '../api/apiCalls';
 
 const AuthContext = createContext();
 
@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     let logoutUser = async () => {
-        await revokeToken();
+        //await revokeToken();
         setAuthTokens(null);
         setUser(null);
         sessionStorage.clear();
