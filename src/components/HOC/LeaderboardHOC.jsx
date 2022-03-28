@@ -34,14 +34,9 @@ function leaderboardHoc(WrappedComponent) {
                     semesterLeaderBoard: JSON.parse(sessionStorage.getItem('semesterLeaderBoard'))
                 })
             } else {
-                const res = await getLeaderboard();
+                try {
+                    const res = await getLeaderboard();
 
-                if (res.error) {
-                    this.setState({
-                        error: res.error,
-                        isLoading: true
-                    });
-                } else {
                     const courses = res.data.getUserSpecific;
                     const semesterLeaderBoard = res.data.studyProgrammeData;
                     sessionStorage.setItem('courses', JSON.stringify(courses));
@@ -52,6 +47,11 @@ function leaderboardHoc(WrappedComponent) {
                         semesterLeaderBoard,
                         isLoading: false
                     })
+                } catch (error) {
+                    this.setState({
+                        error: error.response.error.message,
+                        isLoading: true
+                    });
                 }
             }
         }
@@ -68,13 +68,9 @@ function leaderboardHoc(WrappedComponent) {
                     timeSlot: null
                 });
             } else {
-                const res = await getCourseBoard(params);
-                if (res.error) {
-                    this.setState({
-                        error: res.error,
-                        isLoading: false
-                    });
-                } else {
+                try {
+                    const res = await getCourseBoard(params);
+
                     sessionStorage.setItem(courseInformation, JSON.stringify(res.data.courseAndTotalAmountOfQuizzes));
                     sessionStorage.setItem(courseData, JSON.stringify(res.data.studyProgrammeData));
                     this.setState({
@@ -82,6 +78,11 @@ function leaderboardHoc(WrappedComponent) {
                         courseData: res.data.studyProgrammeData,
                         isLoading: false,
                         timeSlot: null
+                    });
+                } catch (error) {
+                    this.setState({
+                        error: error.response.error.message,
+                        isLoading: true
                     });
                 }
             }
@@ -117,6 +118,15 @@ function leaderboardHoc(WrappedComponent) {
                 isLoading: true,
                 timeSlot: data
             });
+
+            try {
+
+            } catch (error) {
+                this.setState({
+                    error: error.response.error.message,
+                    isLoading: true
+                });
+            }
             const res = await getSnapshot(courseId, data);
             if (res.error) {
                 this.setState({
