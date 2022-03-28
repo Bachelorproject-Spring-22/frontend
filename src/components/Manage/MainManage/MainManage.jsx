@@ -1,17 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../Button/Button';
 import Icon from '../../Icon/Icon';
+import SEO from '../../SEO/SEO';
 
 function MainManage({ data, handleOpen }) {
+    const history = useNavigate();
+
     return (
         <section className='main-manage'>
+            <SEO title='Manage' />
             <header><h1>Manage</h1></header>
 
             <article>
-                <h2>Quizes</h2>
+                <h2>Quizzes</h2>
                 <div>
                     <Button onClick={() => handleOpen('uploadPop')} label='Upload New Quiz Results' icon={<Icon iconId='file_upload' />} />
-                    <Button label='Delete Existing Quiz Results' icon={<Icon iconId='delete' />} />
+                    <Button onClick={() => history('/manage/courses')} label='Delete Existing Quiz Results' icon={<Icon iconId='delete' />} />
                 </div>
             </article>
             <article>
@@ -34,19 +39,13 @@ function MainManage({ data, handleOpen }) {
                     ) : null
                 }
 
-                {data.user.role === 'teacher' ?
-                    (
-                        <>
-                            <fieldset>
-                                <label className='large-label' htmlFor='courses'>Pick your course for this semester</label>
-                                <input placeholder='search...' />
-                                <textarea name='courses' id='courses' placeholder='IDG2100' wrap='off'></textarea>
+                <fieldset>
+                    <label className='large-label' htmlFor='courses'>Pick your courses for this semester</label>
+                    <input placeholder='search...' />
+                    <textarea name='courses' id='courses' placeholder='IDG2100' wrap='off'></textarea>
 
-                                <Button type='submit' label='Save course choices' icon={<Icon iconId='save' />} />
-                            </fieldset>
-                        </>
-                    ) : null
-                }
+                    <Button type='submit' label='Save course choices' icon={<Icon iconId='save' />} />
+                </fieldset>
             </article>
         </section>
     );
