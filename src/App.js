@@ -17,7 +17,7 @@ import settingHoc from './components/HOC/SettingHOC';
 import { HelmetProvider } from 'react-helmet-async';
 import { Route, Routes } from 'react-router-dom';
 import { checkExp } from './helpers/functions';
-import { tokenRefresh } from './api/apiCalls';
+import { getter } from './api/apiCalls';
 import { lazy, Suspense, useEffect, useContext } from 'react';
 
 const About = lazy(() => import('./components/About/About'));
@@ -37,13 +37,9 @@ function App() {
         let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
         if (authTokens) {
             const expired = checkExp(authTokens); 
-
-            const refresh = async () => {
-                await tokenRefresh();
-            }
             
             if (expired) {
-                refresh();
+                getter();
             }
         }
 

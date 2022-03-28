@@ -4,6 +4,8 @@ const prefix = '/api/v1';
 
 const login = (username, password) => axios.post(`${prefix}/login`, { username, password });
 
+const getter = () => axios.get(`${prefix}/`);
+
 // Leaderboard routes
 const getLeaderboard = () => axios.get(`${prefix}/leaderboard`);
 
@@ -30,6 +32,7 @@ const revokeToken = () => axios.post(`${prefix}/revoke`);
 
 export {
     login,
+    getter,
     getLeaderboard,
     getSnapshot,
     getCourseBoard,
