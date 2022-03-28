@@ -33,14 +33,14 @@ const WorkProgress = lazy(() => import('./components/WIP/WorkProgress'));
 function App() {
     const contextData = useContext(AuthContext);
 
-    const refresh = async () => {
-        await tokenRefresh();
-    }
-
     useEffect(() => {
         let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
         if (authTokens) {
             const expired = checkExp(authTokens); 
+
+            const refresh = async () => {
+                await tokenRefresh();
+            }
             
             if (expired) {
                 refresh();
@@ -87,11 +87,9 @@ function App() {
                                     <Route element={<Login />} exact path='/login' />
                                 </Route>
 
-                                <Route element={
-                                    <PrivateRoute>
-                                        <Logout />
-                                    </PrivateRoute>
-                                } path="/logout" exact />
+                                <Route element={<PrivateRoute />}>
+                                    <Route element={<Logout />} exact path='/logout' />
+                                </Route>
 
                                 <Route path='/about/*' element={<About />} exact />
                                 <Route path='/developer' element={<Developer />} exact />
