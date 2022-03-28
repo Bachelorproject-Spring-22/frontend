@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ChooseTimeFrame from '../PopUp/ChooseTimeFrame/ChooseTimeFrame';
 import PopUp from '../PopUp/PopUp';
 import UploadQuiz from '../PopUp/UploadQuiz/UploadQuiz';
-import { getCourseBoard, getLeaderboard, getSnapshot, uploadQuiz } from '../../api/apiCalls';
+import { getCourseAndSemester, getCourseBoard, getLeaderboard, getSnapshot, uploadQuiz } from '../../api/apiCalls';
 import Confirm from '../PopUp/Confirm/Confirm';
 
 function leaderboardHoc(WrappedComponent) {
@@ -20,7 +20,9 @@ function leaderboardHoc(WrappedComponent) {
                 courseData: [],
                 courseId: '',
                 courseInformation: [],
-                timeSlot: null
+                timeSlot: null,
+                coursesDropDown: [],
+                semesters: []
             }
         }
 
@@ -131,6 +133,36 @@ function leaderboardHoc(WrappedComponent) {
             }
         }
 
+        getCourseAndSemester = async () => {
+            try {
+                const res = await getCourseAndSemester();
+                const data = res.data.courseIds;
+                console.log(data);
+                if (data.length !== 0) {
+                    let courses = [];
+                    let semesters = [];
+                    data.forEach(id => {
+                        const text = id.split('_');
+                        const course = text[0];
+                        const semester = text[1];
+                        if (!courses.includes(course)) courses.push(course);
+                        if (!semesters.includes(semester)) semesters.push(semester);
+                    })
+                    this.setState({
+                        coursesDropDown: courses,
+                        semesters,
+                        isLoading: false
+                    })
+                }
+            } catch (error) {
+                console.log(error);
+                this.setState({
+                    error: error.response.data.error.message,
+                    isLoading: false
+                })
+            }
+        }
+
         render() {
             return (
                 <>
@@ -157,6 +189,9 @@ function leaderboardHoc(WrappedComponent) {
                                     courseId={this.state.courseId}
                                     uploadQuiz={this.uploadQuiz}
                                     handleClose={this.togglePop}
+                                    getCourseAndSemester={this.getCourseAndSemester}
+                                    courses={this.state.coursesDropDown}
+                                    semesters={this.state.semesters}
                                     error={this.state.error}
                                 />}
                         />}
