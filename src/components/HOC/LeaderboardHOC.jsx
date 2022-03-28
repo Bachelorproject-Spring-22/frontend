@@ -120,25 +120,17 @@ function leaderboardHoc(WrappedComponent) {
             });
 
             try {
-
-            } catch (error) {
-                this.setState({
-                    error: error.response.error.message,
-                    isLoading: true
-                });
-            }
-            const res = await getSnapshot(courseId, data);
-            if (res.error) {
-                this.setState({
-                    error: res.error,
-                    isLoading: false
-                })
-            } else {
+                const res = await getSnapshot(courseId, data);
                 this.setState({
                     courseInformation: res.data.courseAndTotalAmountOfQuizzes,
                     courseData: res.data.studyProgrammeData,
                     isLoading: false,
                     timeFramePop: false
+                });
+            } catch (error) {
+                this.setState({
+                    error: error.response.error.message,
+                    isLoading: true
                 });
             }
         }
