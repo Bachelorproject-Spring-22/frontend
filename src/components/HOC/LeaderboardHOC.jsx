@@ -137,7 +137,7 @@ function leaderboardHoc(WrappedComponent) {
             try {
                 const res = await getCourseAndSemester();
                 const data = res.data.courseIds;
-                console.log(data);
+
                 if (data.length !== 0) {
                     let courses = [];
                     let semesters = [];
@@ -155,7 +155,6 @@ function leaderboardHoc(WrappedComponent) {
                     })
                 }
             } catch (error) {
-                console.log(error);
                 this.setState({
                     error: error.response.data.error.message,
                     isLoading: false
