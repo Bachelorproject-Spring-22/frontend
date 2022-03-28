@@ -3,6 +3,7 @@ import ChooseTimeFrame from '../PopUp/ChooseTimeFrame/ChooseTimeFrame';
 import PopUp from '../PopUp/PopUp';
 import UploadQuiz from '../PopUp/UploadQuiz/UploadQuiz';
 import { getCourseBoard, getLeaderboard, getSnapshot, uploadQuiz } from '../../api/apiCalls';
+import Confirm from '../PopUp/Confirm/Confirm';
 
 function leaderboardHoc(WrappedComponent) {
     class LeaderboardHOC extends Component {
@@ -12,6 +13,7 @@ function leaderboardHoc(WrappedComponent) {
                 error: null,
                 uploadPop: false,
                 timeFramePop: false,
+                confirm: false,
                 courses: [],
                 semesterLeaderBoard: [],
                 isLoading: true,
@@ -91,16 +93,19 @@ function leaderboardHoc(WrappedComponent) {
         }
 
         uploadQuiz = async (data) => {
-            const res = await uploadQuiz(data);
-            if (res.error) {
+            try {
+                const res = await uploadQuiz(data);
+                if(res.status === 200) {
+                    this.setState({
+                        isLoading: false,
+                        uploadPop: false,
+                        confirm: true
+                    });
+                }
+            } catch (error) {
                 this.setState({
-                    error: res.error,
+                    error: error.response.data.error.message,
                     isLoading: false
-                })
-            } else {
-                this.setState({
-                    isLoading: false,
-                    uploadPop: false
                 });
             }
         }
@@ -152,6 +157,7 @@ function leaderboardHoc(WrappedComponent) {
                                     courseId={this.state.courseId}
                                     uploadQuiz={this.uploadQuiz}
                                     handleClose={this.togglePop}
+                                    error={this.state.error}
                                 />}
                         />}
 
@@ -168,6 +174,20 @@ function leaderboardHoc(WrappedComponent) {
                                     handleClose={this.togglePop}
                                 />}
                         />}
+
+                    {this.state.confirm &&
+                        <PopUp
+                            handleClose={this.togglePop}
+                            type='confirm'
+                            content={
+                                <Confirm
+                                    handleClose={this.togglePop}
+                                    modalTitle='Success!'
+                                    bodyText='Your quiz was successfully uploaded!'
+                                />
+                            }
+                        />
+                    }
                 </>
             );
         }
