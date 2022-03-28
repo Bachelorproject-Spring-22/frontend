@@ -61,7 +61,7 @@ function App() {
                 <NavBar auth={contextData} />
                 <div className="app">
                     <main>
-                        <Suspense fallback={null}>
+                        <Suspense fallback={<Loading />}>
                             <Routes>
                                 <Route element={<AnoRoute />} >
                                     <Route element={<Home />} exact path='/' />
