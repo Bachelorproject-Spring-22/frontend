@@ -19,7 +19,7 @@ function MainManage({ data, handleOpen }) {
                 <h3>Students</h3>
                 <div>
                     <Button onClick={() => handleOpen('addStudent')} label='Add New Student(s) To Studyplan' icon={<Icon iconId='group_add' />} />
-                    <Button label='Manage Student(s)' icon={<Icon iconId='group_remove' />} />
+                    <Button label='Remove Student(s)' icon={<Icon iconId='group_remove' />} />
                 </div>
 
                 {data.user.role === 'superAdmin' ?
@@ -28,7 +28,7 @@ function MainManage({ data, handleOpen }) {
                             <h3>Teachers</h3>
                             <div>
                                 <Button onClick={() => handleOpen('addTeacher')} label='Add New Teacher To System' icon={<Icon iconId='group_add' />} />
-                                <Button label='Manage Teacher(s)' icon={<Icon iconId='group_add' />} />
+                                <Button label='Remove Teacher(s)' icon={<Icon iconId='group_remove' />} />
                             </div>
                         </>
                     ) : null
