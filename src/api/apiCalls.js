@@ -14,9 +14,9 @@ const getSnapshot = (courseId, formData) => axios.post(`${prefix}/leaderboard/${
 const getCourseBoard = (courseId) => axios.get(`${prefix}/leaderboard/${courseId}`);
 
 // Manage routes
-const uploadQuiz = (data) => axios.post(`${prefix}/upload`, data, { headers: { "Content-Type": "multipart/form-data" } });
+const uploadQuiz = (data) => axios.post(`${prefix}/manage`, data, { headers: { "Content-Type": "multipart/form-data" } });
 
-const getCourseAndSemester = () => axios.get(`${prefix}/upload`);
+const getCourseAndSemester = () => axios.get(`${prefix}/manage`);
 
 // Student routes
 const fetchHome = () => axios.get(`${prefix}/home`);

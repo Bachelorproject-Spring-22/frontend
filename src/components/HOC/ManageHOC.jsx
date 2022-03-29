@@ -67,6 +67,7 @@ function managePageBackend(WrappedComponent) {
                     })
                 }
             } catch (error) {
+                console.log(error.response);
                 this.setState({
                     error: error.response.data.error.message,
                     isLoading: false
