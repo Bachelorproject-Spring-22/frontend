@@ -51,8 +51,8 @@ function IndividualLeaderboard(props) {
                     <section>
                         <div className='inidividual-leaderboard'>
                             {(role === 'teacher' || role === 'superAdmin') && (isDesktop ?
-                                <Button onClick={() => props.handleOpen('uploadPop', courseInformation.courseId)} icon={<Icon iconId='file_upload' />} label='' size='no-size' variant='fab' /> :
-                                <Button onClick={() => props.handleOpen('uploadPop', courseInformation.courseId)} label='upload new quiz' />)}
+                                <Button onClick={() => props.handleOpen('uploadPop', courseInformation.course.courseId)} icon={<Icon iconId='file_upload' />} label='' size='no-size' variant='fab' /> :
+                                <Button onClick={() => props.handleOpen('uploadPop', courseInformation.course.courseId)} label='upload new quiz' />)}
 
                             <Table data={data} caption={timeSlot ? `The leaderboard display data from ${startDate} to ${endDate}.` : `The leaderboard displays the top students from the ${courseInformation.totalAmountOfQuizzes} last quizzes.`} />
                         </div>

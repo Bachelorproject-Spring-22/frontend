@@ -5,12 +5,8 @@ import React, { useEffect, useState } from 'react';
 import Loading from '../../Loading/Loading';
 
 function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, error, getCourseAndSemester, courses, isLoading }) {
-    let currentCourse;
-    if (courseId) {
-        currentCourse = courseId.split('_');
-    }
     const [selectedFile, setSelectedFile] = useState(null);
-    const [selectedCourse, setSelectedCourse] = useState(courseId ? currentCourse[0] : '');  /* ← Sette inn mest nylig course i useSate() for eksempel useSate(IDG2100)*/
+    const [selectedCourse, setSelectedCourse] = useState(courseId ? courseId : '');  /* ← Sette inn mest nylig course i useSate() for eksempel useSate(IDG2100)*/
 
     const formData = new FormData();
 
@@ -43,7 +39,7 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, e
 
         await uploadQuiz(formData);
     }
-
+    
     useEffect(() => {
         getCourseAndSemester();
     }, [getCourseAndSemester])
@@ -70,7 +66,7 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, e
                     <label className='required' htmlFor='course-code-selector'>Choose corresponding course code</label>
 
                     <select required value={selectedCourse} className='custom-select' id='course-code-selector' onChange={handleSelectedCourse}>
-                        <option hidden placeholder=''>Choose Course</option>
+                        {courseId ? null : <option hidden placeholder=''>Choose Course</option>}
                         {courses.map(course =>
                             <option key={course} value={course}>{course.toUpperCase().split('_')[0]}</option>
                         )};

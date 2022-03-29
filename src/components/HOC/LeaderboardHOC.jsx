@@ -98,7 +98,7 @@ function leaderboardHoc(WrappedComponent) {
         uploadQuiz = async (data) => {
             try {
                 const res = await uploadQuiz(data);
-                if(res.status === 200) {
+                if (res.status === 201) {
                     this.setState({
                         isLoading: false,
                         uploadPop: false,
@@ -144,12 +144,8 @@ function leaderboardHoc(WrappedComponent) {
                     let courses = [];
                     let semesters = [];
                     data.forEach(id => {
-                        const text = id.split('_');
-                        const course = text[0];
-                        const semester = text[1];
-                        if (!courses.includes(course)) courses.push(course);
-                        if (!semesters.includes(semester)) semesters.push(semester);
-                    })
+                        if (!courses.includes(id.courseId)) courses.push(id.courseId);
+                    });
                     this.setState({
                         coursesDropDown: courses,
                         semesters,
