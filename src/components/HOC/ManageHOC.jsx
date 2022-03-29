@@ -17,7 +17,8 @@ function managePageBackend(WrappedComponent) {
                 addTeacher: false,
                 confirm: false,
                 courses: [],
-                semesters: []
+                semesters: [],
+                isLoading: true
             }
         }
 
@@ -93,6 +94,7 @@ function managePageBackend(WrappedComponent) {
                                     getCourseAndSemester={this.getCourseAndSemester}
                                     courses={this.state.courses}
                                     semesters={this.state.semesters}
+                                    isLoading={this.state.isLoading}
                                     error={this.state.error}
                                 />}
                             handleClose={this.togglePop}
