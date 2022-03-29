@@ -4,21 +4,19 @@ import Icon from '../../Icon/Icon';
 import React, { useEffect, useState } from 'react';
 import Loading from '../../Loading/Loading';
 
-function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, error, getCourseAndSemester, courses, semesters, isLoading }) {
+function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, error, getCourseAndSemester, courses, isLoading }) {
     let currentCourse;
     if (courseId) {
         currentCourse = courseId.split('_');
     }
     const [selectedFile, setSelectedFile] = useState(null);
-    const [selectedCourse, setSelectedCourse] = useState(courseId ? currentCourse[0] : []);  /* ← Sette inn mest nylig course i useSate() for eksempel useSate(IDG2100)*/
-    const [selectedSemester, setSelectedSemester] = useState(courseId ? currentCourse[1] : []); /* ← Sette inn current semester i useSate() for eksempel useSate(f2021)*/
+    const [selectedCourse, setSelectedCourse] = useState(courseId ? currentCourse[0] : '');  /* ← Sette inn mest nylig course i useSate() for eksempel useSate(IDG2100)*/
 
     const formData = new FormData();
-    courseId = `${selectedCourse}_${selectedSemester}`;
 
     /* Sets a new value for an existing key inside a FormData object, or adds the key/value if it does not already exist. */
     formData.set('file', selectedFile);
-    formData.set('courseId', courseId);
+    formData.set('courseId', selectedCourse);
     formData.set('name', 'kahoot');
     formData.set('variant', 'quiz');
 
@@ -28,10 +26,6 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, e
 
     const handleSelectedCourse = (e) => {
         setSelectedCourse(e.target.value);
-    }
-
-    const handleSelectedSemester = (e) => {
-        setSelectedSemester(e.target.value);
     }
 
     const removeSelectedFile = () => {
@@ -75,16 +69,10 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, e
 
                     <label className='required' htmlFor='course-code-selector'>Choose corresponding course code</label>
 
-                    <select value={selectedCourse} className='custom-select' id='course-code-selector' onChange={handleSelectedCourse}>
+                    <select required value={selectedCourse} className='custom-select' id='course-code-selector' onChange={handleSelectedCourse}>
+                        <option hidden placeholder=''>Choose Course</option>
                         {courses.map(course =>
-                            <option key={course} value={course}>{course.toUpperCase()}</option>
-                        )};
-                    </select>
-
-                    <label className='required' htmlFor='semester-selector'>Choose corresponding semester</label>
-                    <select value={selectedSemester} className='custom-select' id='semester-selector' onChange={handleSelectedSemester}>
-                        {semesters.map(semester =>
-                            <option key={semester} value={semester}>{semester.toUpperCase()}</option>
+                            <option key={course} value={course}>{course.toUpperCase().split('_')[0]}</option>
                         )};
                     </select>
 

@@ -54,20 +54,15 @@ function managePageBackend(WrappedComponent) {
                     let courses = [];
                     let semesters = [];
                     data.forEach(id => {
-                        const text = id.split('_');
-                        const course = text[0];
-                        const semester = text[1];
-                        if (!courses.includes(course)) courses.push(course);
-                        if (!semesters.includes(semester)) semesters.push(semester);
-                    })
+                        if (!courses.includes(id.courseId)) courses.push(id.courseId);
+                    });
                     this.setState({
                         courses,
                         semesters,
                         isLoading: false
-                    })
+                    });
                 }
             } catch (error) {
-                console.log(error.response);
                 this.setState({
                     error: error.response.data.error.message,
                     isLoading: false
