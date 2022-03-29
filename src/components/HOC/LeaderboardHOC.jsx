@@ -3,7 +3,7 @@ import ChooseTimeFrame from '../PopUp/ChooseTimeFrame/ChooseTimeFrame';
 import PopUp from '../PopUp/PopUp';
 import UploadQuiz from '../PopUp/UploadQuiz/UploadQuiz';
 import { getCourseAndSemester, getCourseBoard, getLeaderboard, getSnapshot, uploadQuiz } from '../../api/apiCalls';
-import Confirm from '../PopUp/Confirm/Confirm';
+import Alert from '../PopUp/Alert/Alert';
 
 function leaderboardHoc(WrappedComponent) {
     class LeaderboardHOC extends Component {
@@ -212,10 +212,11 @@ function leaderboardHoc(WrappedComponent) {
                             handleClose={this.togglePop}
                             type='confirm'
                             content={
-                                <Confirm
+                                <Alert
                                     handleClose={this.togglePop}
                                     modalTitle='Success!'
                                     bodyText='Your quiz was successfully uploaded!'
+                                    type='confirm'
                                 />
                             }
                         />

@@ -1,44 +1,37 @@
+import { useEffect } from 'react';
 import Button from '../../../Button/Button';
+import Loading from '../../../Loading/Loading';
 
-function IndividualCourseQuizzes(props) {
+function IndividualCourseQuizzes({ getSpecificCourse, courseId, specificCourse, specificCourseInformation, isLoading, handleOpen }) {
+
+    useEffect(() => {
+        getSpecificCourse(courseId);
+    }, [getSpecificCourse, courseId]);
+
     return (
         <>
-            <header>
-                <h1>IDG2100 - Fullstack development</h1>
-                <p className='subtitle'>Manage</p>
-            </header>
+            {isLoading ? <Loading /> :
+                <>
+                    <header>
+                        <h1>{specificCourseInformation.code} - {specificCourseInformation.name}</h1>
+                        <p className='subtitle'>Manage</p>
+                    </header>
 
-            <p>Click on a quiz to delete it.</p>
-            
-            <section> {/* Kanskje dette kan være et egen komponent? */}
-                <ul className='option-list-flex-container'>
-                    <li>
-                        <div>
-                            <p>Quiz 1</p>
-                            <Button label='delete' variant='text-only' />
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <p>Quiz 2</p>
-                            <Button label='delete' variant='text-only' />
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <p>Quiz 3</p>
-                            <Button label='delete' variant='text-only' />
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <p>Quiz 4</p>
-                            <Button label='delete' variant='text-only' />
-                        </div>
-                    </li>
-                </ul>
+                    <p>Click on a quiz to delete it.</p>
 
-            </section>
+                    <section>
+                        <ul className='option-list-flex-container'>
+                            {specificCourse.map((data) => (
+                                <li key={data.quizId}>
+                                    <div>
+                                        <p>{data.title}</p>
+                                        <Button label='delete' variant='text-only' onClick={() => handleOpen('deleteQuiz', data.quizId)} />
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
+                </>}
         </>
     );
 }

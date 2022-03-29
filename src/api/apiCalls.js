@@ -18,6 +18,12 @@ const uploadQuiz = (data) => axios.post(`${prefix}/manage`, data, { headers: { "
 
 const getCourseAndSemester = () => axios.get(`${prefix}/manage`);
 
+const getCoursesManage = () => axios.get(`${prefix}/manage/courses`);
+
+const getSpecificCourse = (courseId) => axios.get(`${prefix}/manage/courses/${courseId}`); 
+
+const deleteQuiz = (courseId, quizId) => axios.delete(`${prefix}/manage/courses/${courseId}/${quizId}`);
+
 // Student routes
 const fetchHome = () => axios.get(`${prefix}/home`);
 
@@ -38,6 +44,9 @@ export {
     getCourseBoard,
     uploadQuiz,
     getCourseAndSemester,
+    getCoursesManage,
+    getSpecificCourse,
+    deleteQuiz,
     fetchHome,
     fetchCourse,
     fetchQuiz,
