@@ -1,9 +1,9 @@
 import './upload-quiz.css';
 import Button from '../../Button/Button';
 import Icon from '../../Icon/Icon';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, error, getCourseAndSemester }) {
+function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, error }) {
     let currentCourse;
     if (courseId) {
         currentCourse = courseId.split('_');
@@ -52,18 +52,18 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, e
         await uploadQuiz(formData);
     }
 
-    useEffect(() => {
+    /* useEffect(() => {
         getCourseAndSemester();
 
-        /* const setCourseAndSemester = () => {
+        const setCourseAndSemester = () => {
             setSelectedCourse(courses[0]);
             setSelectedSemester(semesters[0]);
         }
 
         if(!isLoading) {
             setCourseAndSemester();
-        } */
-    }, [getCourseAndSemester])
+        }
+    }, [getCourseAndSemester]) */
 
     return (
         <fieldset>
