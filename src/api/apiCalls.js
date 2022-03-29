@@ -1,34 +1,43 @@
 import axios from './axios';
 
-const login = (username, password) => axios.post('/login', { username, password })
+const prefix = '/api/v1';
 
-const getter = () => axios.get('/')
+const login = (username, password) => axios.post(`${prefix}/login`, { username, password });
 
-const getLeaderboard = () => axios.get('/leaderboard')
+const getter = () => axios.get(`${prefix}/`);
 
-const getSnapshot = (courseId, formData) => axios.post(`/leaderboard/${courseId}`, formData)
+// Leaderboard routes
+const getLeaderboard = () => axios.get(`${prefix}/leaderboard`);
 
-const uploadQuiz = (data) => axios.post('/upload', data, { headers: { "Content-Type": "multipart/form-data" } })
+const getSnapshot = (courseId, formData) => axios.post(`${prefix}/leaderboard/${courseId}`, formData);
 
-const getCourseBoard = (courseId) => axios.get(`/leaderboard/${courseId}`)
+const getCourseBoard = (courseId) => axios.get(`${prefix}/leaderboard/${courseId}`);
 
-const fetchHome = () => axios.get('/home')
+// Manage routes
+const uploadQuiz = (data) => axios.post(`${prefix}/upload`, data, { headers: { "Content-Type": "multipart/form-data" } });
 
-const fetchCourse = (courseId) => axios.get(`/home/${courseId}`)
+const getCourseAndSemester = () => axios.get(`${prefix}/upload`);
 
-const fetchQuiz = (courseId, quizId) => axios.get(`/home/${courseId}/${quizId}`)
+// Student routes
+const fetchHome = () => axios.get(`${prefix}/home`);
 
-const tokenRefresh = () => axios.post('/api/refresh')
+const fetchCourse = (courseId) => axios.get(`${prefix}/home/${courseId}`);
 
-const revokeToken = () => axios.post('/api/revoke')
+const fetchQuiz = (courseId, quizId) => axios.get(`${prefix}/home/${courseId}/${quizId}`);
+
+// Refresh tokens
+const tokenRefresh = () => axios.post(`${prefix}/refresh`);
+
+const revokeToken = () => axios.post(`${prefix}/revoke`);
 
 export {
     login,
     getter,
     getLeaderboard,
     getSnapshot,
-    uploadQuiz,
     getCourseBoard,
+    uploadQuiz,
+    getCourseAndSemester,
     fetchHome,
     fetchCourse,
     fetchQuiz,

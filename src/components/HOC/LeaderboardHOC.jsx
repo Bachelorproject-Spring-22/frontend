@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import ChooseTimeFrame from '../PopUp/ChooseTimeFrame/ChooseTimeFrame';
 import PopUp from '../PopUp/PopUp';
 import UploadQuiz from '../PopUp/UploadQuiz/UploadQuiz';
-import { getCourseBoard, getLeaderboard, getSnapshot, uploadQuiz } from '../../api/apiCalls';
+import { getCourseAndSemester, getCourseBoard, getLeaderboard, getSnapshot, uploadQuiz } from '../../api/apiCalls';
+import Confirm from '../PopUp/Confirm/Confirm';
 
 function leaderboardHoc(WrappedComponent) {
     class LeaderboardHOC extends Component {
@@ -12,13 +13,16 @@ function leaderboardHoc(WrappedComponent) {
                 error: null,
                 uploadPop: false,
                 timeFramePop: false,
+                confirm: false,
                 courses: [],
                 semesterLeaderBoard: [],
                 isLoading: true,
                 courseData: [],
                 courseId: '',
                 courseInformation: [],
-                timeSlot: null
+                timeSlot: null,
+                coursesDropDown: [],
+                semesters: []
             }
         }
 
@@ -30,14 +34,9 @@ function leaderboardHoc(WrappedComponent) {
                     semesterLeaderBoard: JSON.parse(sessionStorage.getItem('semesterLeaderBoard'))
                 })
             } else {
-                const res = await getLeaderboard();
+                try {
+                    const res = await getLeaderboard();
 
-                if (res.error) {
-                    this.setState({
-                        error: res.error,
-                        isLoading: true
-                    });
-                } else {
                     const courses = res.data.getUserSpecific;
                     const semesterLeaderBoard = res.data.studyProgrammeData;
                     sessionStorage.setItem('courses', JSON.stringify(courses));
@@ -48,6 +47,11 @@ function leaderboardHoc(WrappedComponent) {
                         semesterLeaderBoard,
                         isLoading: false
                     })
+                } catch (error) {
+                    this.setState({
+                        error: error.response.error.message,
+                        isLoading: true
+                    });
                 }
             }
         }
@@ -64,13 +68,9 @@ function leaderboardHoc(WrappedComponent) {
                     timeSlot: null
                 });
             } else {
-                const res = await getCourseBoard(params);
-                if (res.error) {
-                    this.setState({
-                        error: res.error,
-                        isLoading: false
-                    });
-                } else {
+                try {
+                    const res = await getCourseBoard(params);
+
                     sessionStorage.setItem(courseInformation, JSON.stringify(res.data.courseAndTotalAmountOfQuizzes));
                     sessionStorage.setItem(courseData, JSON.stringify(res.data.studyProgrammeData));
                     this.setState({
@@ -78,6 +78,11 @@ function leaderboardHoc(WrappedComponent) {
                         courseData: res.data.studyProgrammeData,
                         isLoading: false,
                         timeSlot: null
+                    });
+                } catch (error) {
+                    this.setState({
+                        error: error.response.error.message,
+                        isLoading: true
                     });
                 }
             }
@@ -91,16 +96,19 @@ function leaderboardHoc(WrappedComponent) {
         }
 
         uploadQuiz = async (data) => {
-            const res = await uploadQuiz(data);
-            if (res.error) {
+            try {
+                const res = await uploadQuiz(data);
+                if(res.status === 200) {
+                    this.setState({
+                        isLoading: false,
+                        uploadPop: false,
+                        confirm: true
+                    });
+                }
+            } catch (error) {
                 this.setState({
-                    error: res.error,
+                    error: error.response.data.error.message,
                     isLoading: false
-                })
-            } else {
-                this.setState({
-                    isLoading: false,
-                    uploadPop: false
                 });
             }
         }
@@ -110,19 +118,49 @@ function leaderboardHoc(WrappedComponent) {
                 isLoading: true,
                 timeSlot: data
             });
-            const res = await getSnapshot(courseId, data);
-            if (res.error) {
-                this.setState({
-                    error: res.error,
-                    isLoading: false
-                })
-            } else {
+
+            try {
+                const res = await getSnapshot(courseId, data);
                 this.setState({
                     courseInformation: res.data.courseAndTotalAmountOfQuizzes,
                     courseData: res.data.studyProgrammeData,
                     isLoading: false,
                     timeFramePop: false
                 });
+            } catch (error) {
+                this.setState({
+                    error: error.response.error.message,
+                    isLoading: true
+                });
+            }
+        }
+
+        getCourseAndSemester = async () => {
+            try {
+                const res = await getCourseAndSemester();
+                const data = res.data.courseIds;
+
+                if (data.length !== 0) {
+                    let courses = [];
+                    let semesters = [];
+                    data.forEach(id => {
+                        const text = id.split('_');
+                        const course = text[0];
+                        const semester = text[1];
+                        if (!courses.includes(course)) courses.push(course);
+                        if (!semesters.includes(semester)) semesters.push(semester);
+                    })
+                    this.setState({
+                        coursesDropDown: courses,
+                        semesters,
+                        isLoading: false
+                    })
+                }
+            } catch (error) {
+                this.setState({
+                    error: error.response.data.error.message,
+                    isLoading: false
+                })
             }
         }
 
@@ -152,6 +190,10 @@ function leaderboardHoc(WrappedComponent) {
                                     courseId={this.state.courseId}
                                     uploadQuiz={this.uploadQuiz}
                                     handleClose={this.togglePop}
+                                    getCourseAndSemester={this.getCourseAndSemester}
+                                    courses={this.state.coursesDropDown}
+                                    semesters={this.state.semesters}
+                                    error={this.state.error}
                                 />}
                         />}
 
@@ -168,6 +210,20 @@ function leaderboardHoc(WrappedComponent) {
                                     handleClose={this.togglePop}
                                 />}
                         />}
+
+                    {this.state.confirm &&
+                        <PopUp
+                            handleClose={this.togglePop}
+                            type='confirm'
+                            content={
+                                <Confirm
+                                    handleClose={this.togglePop}
+                                    modalTitle='Success!'
+                                    bodyText='Your quiz was successfully uploaded!'
+                                />
+                            }
+                        />
+                    }
                 </>
             );
         }

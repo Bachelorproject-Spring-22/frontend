@@ -1,17 +1,17 @@
 import './upload-quiz.css';
 import Button from '../../Button/Button';
 import Icon from '../../Icon/Icon';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId }) {
+function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, error, getCourseAndSemester, courses, semesters }) {
     let currentCourse;
     if (courseId) {
         currentCourse = courseId.split('_');
     }
     const [selectedFile, setSelectedFile] = useState(null);
 
-    const courses = ['IDG2100', 'idg0002', 'idg0003', 'idg0004']; /* ← API fra backend */
-    const semesters = ['s2022', 'f2021', 's2021', 'f2020', 's2020', 'f2019']; /* ← API fra backend */
+    //const courses = ['IDG2100', 'idg0002', 'idg0003', 'idg0004']; /* ← API fra backend */
+    //const semesters = ['s2022', 'f2021', 's2021', 'f2020', 's2020', 'f2019']; /* ← API fra backend */
 
     const [selectedCourse, setSelectedCourse] = useState(courseId ? currentCourse[0] : courses[0]);  /* ← Sette inn mest nylig course i useSate() for eksempel useSate(IDG2100)*/
     const [selectedSemester, setSelectedSemester] = useState(courseId ? currentCourse[1] : semesters[0]); /* ← Sette inn current semester i useSate() for eksempel useSate(f2021)*/
@@ -42,7 +42,7 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId })
         setSelectedFile(null);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
     
         if (!formData.has('file')) {
@@ -50,8 +50,12 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId })
             return
         }
 
-        uploadQuiz(formData);
+        await uploadQuiz(formData);
     }
+
+    useEffect(() => {
+        getCourseAndSemester()
+    }, [getCourseAndSemester])
 
     return (
         <fieldset>
@@ -90,6 +94,8 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId })
                     <Button variant='secondary destructive' label='cancel' onClick={() => handleClose('uploadPop')} />
                     <Button type='submit' label='upload file' />
                 </div>
+
+                {error && <p className='danger'>{error}</p>}
             </form>
 
         </fieldset>

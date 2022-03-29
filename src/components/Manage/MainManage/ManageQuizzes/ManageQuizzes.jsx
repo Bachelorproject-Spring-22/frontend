@@ -8,11 +8,11 @@ function ManageQuizzes(props) {
                 <p className='subtitle'>manage</p>
             </header>
             <section>
-                <p>Select a course to see quizes for that course.</p> {/* rar setning? */}
+                <p>Select a course to see quizzes for that course.</p> {/* rar setning? */}
                 
                 <h2>Spring 2022</h2>
                 <ul className='cards-grid-container'>
-                    <Card link='/manage/quizzes/idg2100' type='course' courseCode={'idg2100'} fullCourseName={'Et navn på et emne'} />
+                    <Card link='/manage/courses/idg2100' type='course' courseCode={'idg2100'} fullCourseName={'Et navn på et emne'} />
                     <Card link='#' type='course' courseCode={'IDG1234'} fullCourseName={'Et navn på et emne'} />
                     <Card link='#' type='course' courseCode={'IDG1234'} fullCourseName={'Et navn på et emne'} />
                     <Card link='#' type='course' courseCode={'IDG1234'} fullCourseName={'Et navn på et emne'} />

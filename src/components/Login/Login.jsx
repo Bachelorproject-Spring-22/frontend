@@ -24,7 +24,6 @@ class Login extends Component {
         if(this.state.error) {
             this.setState({
                 error: null,
-                username: '',
                 password: ''
             })
         }

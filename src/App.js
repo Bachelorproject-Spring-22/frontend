@@ -36,7 +36,7 @@ function App() {
     useEffect(() => {
         let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
         if (authTokens) {
-            const expired = checkExp(authTokens);
+            const expired = checkExp(authTokens); 
             
             if (expired) {
                 getter();
@@ -57,7 +57,7 @@ function App() {
                 <NavBar auth={contextData} />
                 <div className="app">
                     <main>
-                        <Suspense fallback={null}>
+                        <Suspense fallback={<Loading />}>
                             <Routes>
                                 <Route element={<AnoRoute />} >
                                     <Route element={<Home />} exact path='/' />
@@ -83,11 +83,9 @@ function App() {
                                     <Route element={<Login />} exact path='/login' />
                                 </Route>
 
-                                <Route element={
-                                    <PrivateRoute>
-                                        <Logout />
-                                    </PrivateRoute>
-                                } path="/logout" exact />
+                                <Route element={<PrivateRoute />}>
+                                    <Route element={<Logout />} exact path='/logout' />
+                                </Route>
 
                                 <Route path='/about/*' element={<About />} exact />
                                 <Route path='/developer' element={<Developer />} exact />

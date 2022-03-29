@@ -22,16 +22,16 @@ function resultHoc(WrappedComponent) {
                     fetchHomeData: JSON.parse(sessionStorage.getItem('fetchHomeData'))
                 })
             } else {
-                const res = await fetchHome();
-                if (res.error) {
-                    this.setState({
-                        error: res.error,
-                        loading: false
-                    })
-                } else {
+                try {
+                    const res = await fetchHome();
                     sessionStorage.setItem('fetchHomeData', JSON.stringify(res.data.studyProgrammeData));
                     this.setState({
                         fetchHomeData: res.data.studyProgrammeData,
+                        loading: false
+                    });
+                } catch (error) {
+                    this.setState({
+                        error: error.response.data.error.message,
                         loading: false
                     });
                 }
@@ -48,13 +48,8 @@ function resultHoc(WrappedComponent) {
                     fetchCourseData: JSON.parse(sessionStorage.getItem(courseData))
                 })
             } else {
-                const res = await fetchCourse(courseId);
-                if (res.error) {
-                    this.setState({
-                        error: res.error,
-                        loading: false
-                    });
-                } else {
+                try {
+                    const res = await fetchCourse(courseId);
                     if (res.data.studyProgrammeData.length !== 0 && res.data.getUserSpecific.length !== 0) {
                         sessionStorage.setItem(courseId, JSON.stringify(res.data.studyProgrammeData));
                         sessionStorage.setItem(courseData, JSON.stringify(res.data.getUserSpecific))
@@ -68,7 +63,11 @@ function resultHoc(WrappedComponent) {
                             loading: false
                         })
                     }
-
+                } catch (error) {
+                    this.setState({
+                        error: error.response.data.error.message,
+                        loading: false
+                    });
                 }
             }
 
@@ -81,13 +80,8 @@ function resultHoc(WrappedComponent) {
                     fetchQuizData: JSON.parse(sessionStorage.getItem(quizId))
                 });
             } else {
-                const res = await fetchQuiz(courseId, quizId);
-                if (res.error) {
-                    this.setState({
-                        error: res.error,
-                        loading: false
-                    });
-                } else {
+                try {
+                    const res = await fetchQuiz(courseId, quizId);
                     if (res.data.getUserSpecific.length !== 0) {
                         sessionStorage.setItem(quizId, JSON.stringify(res.data.getUserSpecific[0]));
                         this.setState({
@@ -99,6 +93,11 @@ function resultHoc(WrappedComponent) {
                             loading: false
                         })
                     }
+                } catch (error) {
+                    this.setState({
+                        error: error.response.data.error.message,
+                        loading: false
+                    });
                 }
             }
         }
