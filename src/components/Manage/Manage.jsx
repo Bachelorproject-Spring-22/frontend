@@ -3,13 +3,13 @@ import './manage.css';
 import IndividualCourseQuizzes from './MainManage/IndividualCourseQuizzes/IndividualCourseQuizzes'
 import MainManage from './MainManage/MainManage';
 import ManageQuizzes from './MainManage/ManageQuizzes/ManageQuizzes'
-import { Link, Route, Routes, useParams } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 
 function Manage(props) {
-    const params = useParams();
+    /* const params = useParams();
     const location = params['*'];
     const url = location.split('/');
-    console.log(url);
+    console.log(url); */
 
     return (
         <>
