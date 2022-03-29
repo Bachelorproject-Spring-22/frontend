@@ -1,6 +1,6 @@
 import axios from './axios';
 
-const prefix = '';
+const prefix = '/api/v1';
 
 const login = (username, password) => axios.post(`${prefix}/login`, { username, password });
 

@@ -1,16 +1,13 @@
 import './upload-quiz.css';
 import Button from '../../Button/Button';
 import Icon from '../../Icon/Icon';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, error }) {
+function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, error, getCourseAndSemester, courses, semesters, isLoading }) {
     let currentCourse;
     if (courseId) {
         currentCourse = courseId.split('_');
     }
-
-    const courses = ['IDG2100'];
-    const semesters = ['s2022'];
     const [selectedFile, setSelectedFile] = useState(null);
     const [selectedCourse, setSelectedCourse] = useState(courseId ? currentCourse[0] : courses[0]);  /* ← Sette inn mest nylig course i useSate() for eksempel useSate(IDG2100)*/
     const [selectedSemester, setSelectedSemester] = useState(courseId ? currentCourse[1] : semesters[0]); /* ← Sette inn current semester i useSate() for eksempel useSate(f2021)*/
@@ -52,7 +49,7 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, e
         await uploadQuiz(formData);
     }
 
-    /* useEffect(() => {
+    useEffect(() => {
         getCourseAndSemester();
 
         const setCourseAndSemester = () => {
@@ -63,7 +60,7 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, e
         if(!isLoading) {
             setCourseAndSemester();
         }
-    }, [getCourseAndSemester]) */
+    }, [getCourseAndSemester, isLoading])
 
     return (
         <fieldset>
