@@ -52,15 +52,15 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, e
     useEffect(() => {
         getCourseAndSemester();
 
-        const setCourseAndSemester = () => {
+        /* const setCourseAndSemester = () => {
             setSelectedCourse(courses[0]);
             setSelectedSemester(semesters[0]);
         }
 
         if(!isLoading) {
             setCourseAndSemester();
-        }
-    }, [getCourseAndSemester, isLoading])
+        } */
+    }, [getCourseAndSemester])
 
     return (
         <fieldset>
