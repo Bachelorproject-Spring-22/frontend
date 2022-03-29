@@ -10,7 +10,7 @@ function UploadQuiz({ modalTitle, bodyText, handleClose, uploadQuiz, courseId, e
     }
 
     const courses = ['IDG2100'];
-    const semesters = ['S2022'];
+    const semesters = ['s2022'];
     const [selectedFile, setSelectedFile] = useState(null);
     const [selectedCourse, setSelectedCourse] = useState(courseId ? currentCourse[0] : courses[0]);  /* ← Sette inn mest nylig course i useSate() for eksempel useSate(IDG2100)*/
     const [selectedSemester, setSelectedSemester] = useState(courseId ? currentCourse[1] : semesters[0]); /* ← Sette inn current semester i useSate() for eksempel useSate(f2021)*/
