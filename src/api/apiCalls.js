@@ -20,6 +20,8 @@ const getCourseAndSemester = () => axios.get(`${prefix}/manage`);
 
 const getStudyplans = () => axios.get(`${prefix}/manage/programme`);
 
+const pickStudyplan = (data) => axios.post(`${prefix}/manage/programme`, data);
+
 const getCoursesManage = () => axios.get(`${prefix}/manage/courses`);
 
 const getSpecificCourse = (courseId) => axios.get(`${prefix}/manage/courses/${courseId}`); 
@@ -47,6 +49,7 @@ export {
     uploadQuiz,
     getCourseAndSemester,
     getStudyplans,
+    pickStudyplan,
     getCoursesManage,
     getSpecificCourse,
     deleteQuiz,

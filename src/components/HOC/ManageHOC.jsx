@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AuthContext from '../../helpers/AuthContext';
 import PopUp from '../PopUp/PopUp';
 import UploadQuiz from '../PopUp/UploadQuiz/UploadQuiz';
-import { deleteQuiz, getCourseAndSemester, getCoursesManage, getSpecificCourse, getStudyplans, uploadQuiz } from '../../api/apiCalls';
+import { deleteQuiz, getCourseAndSemester, getCoursesManage, getSpecificCourse, getStudyplans, pickStudyplan, uploadQuiz } from '../../api/apiCalls';
 import Confirm from '../PopUp/Confirm/Confirm';
 import Alert from '../PopUp/Alert/Alert';
 
@@ -159,6 +159,19 @@ function managePageBackend(WrappedComponent) {
             }
         }
 
+        pickStudyplan = async (data) => {
+            console.log(data);
+            try {
+                const res = await pickStudyplan(data);
+                console.log(res);
+            } catch (error) {
+                this._isMounted && this.setState({
+                    error: error.response.data.error.message,
+                    isLoading: false
+                });
+            }
+        }
+
         componentWillUnmount() {
             this._isMounted = false;
         }
@@ -177,6 +190,7 @@ function managePageBackend(WrappedComponent) {
                         specificCourseInformation={this.state.specificCourseInformation}
                         getStudyplan={this.getStudyplan}
                         studyPlanCodes={this.state.studyPlanCodes}
+                        pickStudyplan={this.pickStudyplan}
                         {...this.props}
                     />
 
