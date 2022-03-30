@@ -65,6 +65,18 @@ function createAxiosResponseInterceptor(axiosInstance) {
                         } else {
                             return window.location.href = '/logout';
                         }
+                    case 204:
+                        if (data === 'Removed') {
+                            try {
+                                await refreshToken();
+                                const config = error.config;
+                                return await axiosInstance({ method: config.method, url: config.url, data: config.data });
+                            } catch (e) {
+                                return window.location.href = '/logout';
+                            }
+                        } else {
+                            return window.location.href = '/logout';
+                        }
                     default:
                         return Promise.reject(error);
                 }
