@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import AuthContext from '../../helpers/AuthContext';
 import PopUp from '../PopUp/PopUp';
 import UploadQuiz from '../PopUp/UploadQuiz/UploadQuiz';
-import { deleteQuiz, getCourseAndSemester, getCoursesManage, getSpecificCourse, uploadQuiz } from '../../api/apiCalls';
+import { deleteQuiz, getCourseAndSemester, getCoursesManage, getSpecificCourse, getStudyplans, uploadQuiz } from '../../api/apiCalls';
 import Confirm from '../PopUp/Confirm/Confirm';
 import Alert from '../PopUp/Alert/Alert';
 
 function managePageBackend(WrappedComponent) {
     class ManageHOC extends Component {
         static contextType = AuthContext;
+        _isMounted = false;
         constructor(props) {
             super(props);
             this.state = {
@@ -25,12 +26,17 @@ function managePageBackend(WrappedComponent) {
                 specificCourseInformation: {},
                 selectedQuiz: '',
                 wording: '',
+                studyPlanCodes: [],
                 isLoading: true
             }
         }
 
+        componentDidMount() {
+            this._isMounted = true;
+        }
+
         togglePop = (position, quizId) => {
-            this.setState({
+            this._isMounted && this.setState({
                 [position]: !this.state[position],
                 selectedQuiz: quizId
             })
@@ -40,7 +46,7 @@ function managePageBackend(WrappedComponent) {
             try {
                 const res = await uploadQuiz(data);
                 if (res.status === 201) {
-                    this.setState({
+                    this._isMounted && this.setState({
                         isLoading: false,
                         uploadPop: false,
                         confirm: true,
@@ -48,7 +54,7 @@ function managePageBackend(WrappedComponent) {
                     });
                 }
             } catch (error) {
-                this.setState({
+                this._isMounted && this.setState({
                     error: error.response.data.error.message,
                     isLoading: false
                 });
@@ -65,14 +71,14 @@ function managePageBackend(WrappedComponent) {
                     data.forEach(id => {
                         if (!courses.includes(id.courseId)) courses.push(id.courseId);
                     });
-                    this.setState({
+                    this._isMounted && this.setState({
                         courses,
                         semesters,
                         isLoading: false
                     });
                 }
             } catch (error) {
-                this.setState({
+                this._isMounted && this.setState({
                     error: error.response.data.error.message,
                     isLoading: false
                 });
@@ -84,13 +90,13 @@ function managePageBackend(WrappedComponent) {
                 const res = await getCoursesManage();
 
                 if (res.status === 201) {
-                    this.setState({
+                    this._isMounted && this.setState({
                         isLoading: false,
                         coursesManage: res.data.courseIds
                     });
                 }
             } catch (error) {
-                this.setState({
+                this._isMounted && this.setState({
                     error: error.response.data.error.message,
                     isLoading: false
                 });
@@ -101,14 +107,14 @@ function managePageBackend(WrappedComponent) {
             try {
                 const res = await getSpecificCourse(courseId);
                 if (res.status === 201) {
-                    this.setState({
+                    this._isMounted && this.setState({
                         isLoading: false,
                         specificCourse: res.data.quizzes,
                         specificCourseInformation: res.data.courses[0]
                     })
                 }
             } catch (error) {
-                this.setState({
+                this._isMounted && this.setState({
                     error: error.response.data.error.message,
                     isLoading: false
                 });
@@ -120,9 +126,8 @@ function managePageBackend(WrappedComponent) {
             const courseId = this.state.specificCourseInformation.courseId;
             try {
                 const res = await deleteQuiz(courseId, quizId);
-                console.group(res);
                 if (res.status === 201) {
-                    this.setState({
+                    this._isMounted && this.setState({
                         isLoading: false,
                         deleteQuiz: false,
                         confirm: true,
@@ -130,17 +135,39 @@ function managePageBackend(WrappedComponent) {
                     })
                 }
             } catch (error) {
-                this.setState({
+                this._isMounted && this.setState({
                     error: error.response.data.error.message,
                     isLoading: false
                 });
             }
         }
 
+        getStudyplan = async () => {
+            try {
+                const res = await getStudyplans();
+                if(res.status === 201) {
+                    this._isMounted && this.setState({
+                        isLoading: false,
+                        studyPlanCodes: res.data.studyProgrammeCodes
+                    });
+                }
+            } catch (error) {
+                this._isMounted && this.setState({
+                    error: error.response.data.error.message,
+                    isLoading: false
+                });
+            }
+        }
+
+        componentWillUnmount() {
+            this._isMounted = false;
+        }
+
         render() {
             return (
                 <>
                     <WrappedComponent
+                        error={this.state.error}
                         isLoading={this.state.isLoading}
                         handleOpen={this.togglePop}
                         getCoursesManage={this.getCoursesManage}
@@ -148,6 +175,8 @@ function managePageBackend(WrappedComponent) {
                         getSpecificCourse={this.getSpecificCourse}
                         specificCourse={this.state.specificCourse}
                         specificCourseInformation={this.state.specificCourseInformation}
+                        getStudyplan={this.getStudyplan}
+                        studyPlanCodes={this.state.studyPlanCodes}
                         {...this.props}
                     />
 

@@ -28,7 +28,7 @@ function IndividualQuizResults({ fetchQuiz, fetchQuizData, loading }) {
             {loading ? <Loading /> : fetchQuizData.length !== 0 ?
                 <>
                     <h1>{fetchQuizData.coursesInPeriod.name}</h1>
-                    <p className='subtitle'>{`Quiz ${fetchQuizData.quizNumber}`}</p>
+                    <p className='subtitle'>{`Quiz ${fetchQuizData.quizNumber +1}`}</p>
 
                     <ul className='individual-quiz'>
                         <Card type='individual' number={fetchQuizData.kahootsInPeriod.finalScores.correctAnswers} label='Correct' />
