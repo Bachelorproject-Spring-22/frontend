@@ -146,9 +146,10 @@ function managePageBackend(WrappedComponent) {
             try {
                 const res = await getStudyplans();
                 if(res.status === 201) {
+                    console.log(res.data)
                     this._isMounted && this.setState({
                         isLoading: false,
-                        studyPlanCodes: res.data.studyProgrammeCodes
+                        studyPlanCodes: res.data
                     });
                 }
             } catch (error) {
