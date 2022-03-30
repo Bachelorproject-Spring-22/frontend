@@ -146,7 +146,6 @@ function managePageBackend(WrappedComponent) {
             try {
                 const res = await getStudyplans();
                 if(res.status === 201) {
-                    console.log(res.data)
                     this._isMounted && this.setState({
                         isLoading: false,
                         studyPlanCodes: res.data
@@ -161,10 +160,8 @@ function managePageBackend(WrappedComponent) {
         }
 
         pickStudyplan = async (data) => {
-            console.log(data);
             try {
-                const res = await pickStudyplan(data);
-                console.log(res);
+                await pickStudyplan(data);
             } catch (error) {
                 this._isMounted && this.setState({
                     error: error.response.data.error.message,
