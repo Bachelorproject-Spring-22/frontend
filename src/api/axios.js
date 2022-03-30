@@ -39,12 +39,17 @@ function createAxiosResponseInterceptor(axiosInstance) {
     );
 
     axiosInstance.interceptors.response.use(
-        function (response) {
-            /* const { status, data, config } = response;
-            console.log(`Response from ${config.url}:`, {
+        async function (response) {
+            const { status } = response;
+            /* console.log(`Response from ${config.url}:`, {
                 code: status,
                 ...data
             }); */
+
+            if (status === 204) {
+                await refreshToken();
+            }
+
             return response;
         },
         async function (error) {
@@ -55,18 +60,6 @@ function createAxiosResponseInterceptor(axiosInstance) {
                 switch (status) {
                     case 401:
                         if (data === 'Unauthorized') {
-                            try {
-                                await refreshToken();
-                                const config = error.config;
-                                return await axiosInstance({ method: config.method, url: config.url, data: config.data });
-                            } catch (e) {
-                                return window.location.href = '/logout';
-                            }
-                        } else {
-                            return window.location.href = '/logout';
-                        }
-                    case 204:
-                        if (data === 'Removed') {
                             try {
                                 await refreshToken();
                                 const config = error.config;
