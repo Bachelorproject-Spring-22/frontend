@@ -74,7 +74,7 @@ class Login extends Component {
             <h1>uniLeague</h1>
             <p className='subtitle login'>LOG IN</p>
             <p className='login'>If you have been invited to uniLeague, you can enter your provided username and password below.</p>
-            <p className='login'>Be sure to read our <Link to='/about/privacy'>Privacy Policy</Link> and <Link to='/about/terms'>Terms of Service</Link> before logging in.</p>
+            <p className='login'>Be sure to read our <Link to='/about/privacy-policy'>Privacy Policy</Link> and <Link to='/about/terms-of-service'>Terms of Service</Link> before logging in.</p>
             <fieldset>
             <legend>Log in</legend>
                 <form onSubmit={this.handleSubmit}>
