@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../Button/Button';
 import Icon from '../../Icon/Icon';
 import SEO from '../../SEO/SEO';
+import PickStudyplan from './PickStudyplan/PickStudyplan';
 
-function MainManage({ data, handleOpen }) {
+function MainManage(props) {
     const history = useNavigate();
+    const { data, handleOpen } = props;
 
     return (
         <section className='main-manage'>
@@ -39,13 +41,7 @@ function MainManage({ data, handleOpen }) {
                     ) : null
                 }
 
-                <fieldset>
-                    <label className='large-label' htmlFor='courses'>Pick your courses for this semester</label>
-                    <input placeholder='search...' />
-                    <textarea name='courses' id='courses' placeholder='IDG2100' wrap='off'></textarea>
-
-                    <Button type='submit' label='Save course choices' icon={<Icon iconId='save' />} />
-                </fieldset>
+                <PickStudyplan {...props} />
             </article>
         </section>
     );

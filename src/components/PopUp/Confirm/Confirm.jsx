@@ -1,6 +1,6 @@
 import Button from '../../Button/Button';
 
-function Confirm({ modalTitle, bodyText, handleClose }) {
+function Confirm({ modalTitle, bodyText, handleClose, handleSubmit, type }) {
     return (
         <fieldset>
             <div className='center-text'>
@@ -8,8 +8,8 @@ function Confirm({ modalTitle, bodyText, handleClose }) {
                 <p>{bodyText}</p>
             </div>
             <div className='buttons-side-by-side'>
-                <Button label='cancel' variant='secondary' onClick={() => handleClose('confirm')} />
-                <Button type='submit' label='OK' onClick={() => handleClose('confirm')} />
+                <Button label='cancel' variant='secondary' onClick={() => handleClose(type)} />
+                <Button type='submit' label='OK' onClick={handleSubmit} />
             </div>
         </fieldset>
     );
