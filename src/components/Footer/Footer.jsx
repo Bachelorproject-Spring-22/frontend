@@ -1,6 +1,5 @@
 import './footer.css';
 import Button from '../Button/Button';
-import Carbonbadge from "react-carbonbadge"
 import Icon from '../Icon/Icon';
 import NtnuLogo from '../../assets/ntnu_uten_slagord_neg.png';
 import { Link } from "react-router-dom";
@@ -38,7 +37,6 @@ function Footer() {
                         <Button onClick={scroll} label={""} size='no-size' variant={'fab'} ariaLabel={"Scroll to top"} icon={<Icon iconId="arrow_upward"/>}/>
                 </section>
                 <section className="carbon-section">
-                    <Carbonbadge darkMode={true} />
                     <img src="https://api.thegreenwebfoundation.org/greencheckimage/unileague.netlify.app?nocache=true" alt="This website is hosted Green - checked by thegreenwebfoundation.org" />
                 </section>
             </div>
